@@ -1,6 +1,6 @@
 {
-  "name": "story-made",
-  "version": "0.1.0",
+  "name": "story-blog",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,7 +17,7 @@
     "@mui/x-date-pickers": "^5.0.0-beta.1",
     "algoliasearch": "^4.20.0",
     "dotenv-webpack": "^8.0.1",
-    "firebase": "^9",
+    "firebase": "^10",
     "firecms": "^2.0.0",
     "framer-motion": "^10.16.4",
     "next": "^14.0.2",

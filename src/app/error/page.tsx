@@ -1,11 +1,10 @@
-import { Metadata } from "next";
-import Image from "next/image";
+import Image from "next/image"
 
-export const metadata: Metadata = {
-  title: "Error Page - Solid SaaS Boilerplate",
-  description: "This is Error page for Solid Pro",
+export const metadata = {
+  title: "Error Page - Alizza Ideal Official Blog",
+  description: "This is Error page for Alizza Ideal"
   // other metadata
-};
+}
 
 const ErroPage = () => {
   return (
@@ -48,7 +47,7 @@ const ErroPage = () => {
         </a>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ErroPage;
+export default ErroPage
