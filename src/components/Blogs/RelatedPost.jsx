@@ -1,10 +1,10 @@
 import React from "react"
-import Image from "next/image"
+import HeroImage from "./HeroImage"
 import Link from "next/link"
 import BlogData from "@/components/Blogs/Data"
 
 const RelatedPost = async () => {
-  const data = BlogData()
+  const blogs = await BlogData(null, 4)
   return (
     <>
       <div className="animate_top rounded-md border border-stroke bg-white p-9 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">
@@ -13,14 +13,14 @@ const RelatedPost = async () => {
         </h4>
 
         <div>
-          {data.slice(0, 3).map((post, key) => (
+          {blogs.map((post, key) => (
             <div
               className="mb-7.5 flex flex-wrap gap-4 xl:flex-nowrap 2xl:gap-6"
               key={key}
             >
               <div className="max-w-45 relative h-18 w-45">
-                {post.mainImage ? (
-                  <Image fill src={post.mainImage} alt="Blog" />
+                {post.hero ? (
+                  <HeroImage fill src={post.hero} alt="Blog Hero Image" />
                 ) : (
                   "No image"
                 )}

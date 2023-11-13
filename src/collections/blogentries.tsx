@@ -5,7 +5,7 @@ import { categoryEnumeration } from "@/collections/categories"
 
 export const blogCollection = buildCollection<BlogEntry>({
   name: "Blog entries",
-  path: "blog",
+  path: "blogs",
   group: "Main",
   views: [
     {

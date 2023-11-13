@@ -1,12 +1,11 @@
 import RelatedPost from "@/components/Blogs/RelatedPost"
 import SharePost from "@/components/Blogs/SharePost"
-import { Metadata } from "next"
 import Image from "next/image"
 import { storage } from "@/lib/firebase"
 import { ref, getDownloadURL } from "firebase/storage"
 
-const SingleBlogPage = async ({ data, children }) => {
-  const image = ref(storage(), data.hero)
+const SingleBlogPage = async ({ blog, children }) => {
+  const image = ref(storage(), blog.hero)
   const imageURL = await getDownloadURL(image)
   return (
     <>
@@ -19,7 +18,7 @@ const SingleBlogPage = async ({ data, children }) => {
                   <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                     <Image
                       src={imageURL}
-                      alt="data.title"
+                      alt="blog.title"
                       fill
                       className="rounded-md object-cover object-center"
                     />
@@ -27,28 +26,28 @@ const SingleBlogPage = async ({ data, children }) => {
                 </div>
 
                 <h2 className="mb-5 mt-11 text-3xl font-semibold text-black dark:text-white 2xl:text-sectiontitle2">
-                  {data.title}
+                  {blog.title}
                 </h2>
 
                 <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5 list-none">
                   <li>
                     <span className="text-black dark:text-white">Author: </span>{" "}
-                    {data.author || "Anonymouth"}
+                    {blog.author || "Anonymouth"}
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
                       Published On:{" "}
-                      {data.date?.toLocaleDateString() || "Someday"}
+                      {blog.date?.toLocaleDateString() || "Someday"}
                     </span>{" "}
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Category: {data.category.toUpperCase()}
+                      Category: {blog.category.toUpperCase()}
                     </span>
                     <li>
                       <span className="text-black dark:text-white">Tags:</span>
                       {" [ "}
-                      {data.tags?.join(", ")?.toUpperCase()}
+                      {blog.tags?.join(", ")?.toUpperCase()}
                       {" ]"}
                     </li>
                   </li>

@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ref, getDownloadURL } from "firebase/storage"
 
-const BlogItem = async ({ blog }) => {
+export default async function BlogItem({ blog, children }) {
   const imageURL = await getDownloadURL(ref(storage(), blog.hero))
   return (
     <>
@@ -23,11 +23,9 @@ const BlogItem = async ({ blog }) => {
               {blog.title.length > 40 && "..."}
             </Link>
           </h3>
-          <p>{blog.summary}</p>
+          <div>{children}</div>
         </div>
       </div>
     </>
   )
 }
-
-export default BlogItem

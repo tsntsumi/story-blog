@@ -9,7 +9,7 @@ import {
   where
 } from "firebase/firestore"
 
-const BlogData = async (slug, upto) => {
+const BlogData = async (slug = null, upto = 0) => {
   const c = collection(db(), "blogs")
   const o = orderBy("createdAt", "desc")
   const u = upto > 0 ? limit(upto) : limitToLast()
