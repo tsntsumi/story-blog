@@ -1,11 +1,10 @@
 import { storage } from "@/lib/firebase"
-import { BlogEntry } from "@/types/blog"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { ref, getDownloadURL } from "firebase/storage"
 
-const BlogItem = async ({ blog }: { blog: BlogEntry }) => {
+const BlogItem = async ({ blog }) => {
   const imageURL = await getDownloadURL(ref(storage(), blog.hero))
   return (
     <>

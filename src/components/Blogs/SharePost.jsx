@@ -1,4 +1,4 @@
-import Blogs from "./Data"
+import Blogs from "@/components/Blogs/Data"
 
 const SharePost = () => {
   return (

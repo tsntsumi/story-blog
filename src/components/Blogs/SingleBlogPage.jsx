@@ -1,5 +1,5 @@
-import RelatedPost from "@/components/Blog/RelatedPost"
-import SharePost from "@/components/Blog/SharePost"
+import RelatedPost from "@/components/Blogs/RelatedPost"
+import SharePost from "@/components/Blogs/SharePost"
 import { Metadata } from "next"
 import Image from "next/image"
 import { storage } from "@/lib/firebase"
@@ -30,7 +30,7 @@ const SingleBlogPage = async ({ data, children }) => {
                   {data.title}
                 </h2>
 
-                <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5">
+                <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5 list-none">
                   <li>
                     <span className="text-black dark:text-white">Author: </span>{" "}
                     {data.author || "Anonymouth"}
@@ -43,12 +43,14 @@ const SingleBlogPage = async ({ data, children }) => {
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Category:
+                      Category: {data.category.toUpperCase()}
                     </span>
-                    {" [ "}
-                    {data.tags?.map((t) => t.toUpperCase()).join(", ") ||
-                      "unspecified"}{" "}
-                    {" ]"}
+                    <li>
+                      <span className="text-black dark:text-white">Tags:</span>
+                      {" [ "}
+                      {data.tags?.join(", ")?.toUpperCase()}
+                      {" ]"}
+                    </li>
                   </li>
                 </ul>
 
