@@ -51,6 +51,8 @@ export function BlogEntryPreview({
             maxHeight: "300px",
             objectFit: "cover"
           }}
+          width={320}
+          height={240}
           src={headerUrl}
         />
       )}
@@ -94,6 +96,13 @@ export function BlogEntryPreview({
                     storagePaths={entry.value}
                   />
                 )
+              if (entry.type === "videos")
+                return (
+                  <Videos
+                    key={`preview_images_${index}`}
+                    storagePaths={entry.value}
+                  />
+                )
               return (
                 <ErrorView
                   key={`preview_images_${index}`}
@@ -120,14 +129,43 @@ export function Images({ storagePaths }: { storagePaths: string[] }) {
             height: 250
           }}
         >
-          <StorageImage storagePath={path} />
+          <StorageImage storagePath={path} width={250} height={250} />
         </Box>
       ))}
     </Box>
   )
 }
 
-export function StorageImage({ storagePath }: { storagePath: string }) {
+export function Videos({ storagePaths }: { storagePaths: string[] }) {
+  if (!Array.isArray(storagePaths)) return <></>
+  return (
+    <Box display="flex">
+      {storagePaths.map((path, index) => (
+        <Box
+          p={2}
+          m={1}
+          key={`images_${index}`}
+          sx={{
+            width: 250,
+            height: 250
+          }}
+        >
+          <StorageVideo storagePath={path} width={250} height={250} />
+        </Box>
+      ))}
+    </Box>
+  )
+}
+
+export function StorageImage({
+  storagePath,
+  width,
+  height
+}: {
+  storagePath: string
+  width: number
+  height: number
+}) {
   const storage = useStorageSource()
   const [url, setUrl] = useState<string | undefined>()
   useEffect(() => {
@@ -139,16 +177,49 @@ export function StorageImage({ storagePath }: { storagePath: string }) {
   if (!storagePath) return <></>
 
   return (
-    <Image
-      fill
-      alt={"Generic"}
-      style={{
-        objectFit: "contain",
-        width: "100%",
-        height: "100%"
-      }}
-      src={url}
-    />
+    <div className="mx-auto">
+      <Image
+        alt={"Generic"}
+        className="w-full h-full object-contain"
+        width={width}
+        height={height}
+        src={url}
+      />
+    </div>
+  )
+}
+
+export function StorageVideo({
+  storagePath,
+  width,
+  height
+}: {
+  storagePath: string
+  width: number
+  height: number
+}) {
+  const storage = useStorageSource()
+  const [url, setUrl] = useState<string | undefined>()
+  useEffect(() => {
+    if (storagePath) {
+      storage.getDownloadURL(storagePath).then((res) => setUrl(res.url))
+    }
+  }, [storage, storagePath])
+
+  if (!storagePath) return <></>
+
+  return (
+    <div className="mx-auto">
+      <video
+        controls
+        muted={true}
+        autoPlay={true}
+        className="w-full h-full object-contain"
+        width={width}
+        height={height}
+        src={url}
+      />
+    </div>
   )
 }
 

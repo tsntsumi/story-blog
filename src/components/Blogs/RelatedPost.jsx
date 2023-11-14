@@ -1,5 +1,5 @@
 import React from "react"
-import HeroImage from "./HeroImage"
+import Image from "./Image"
 import Link from "next/link"
 import BlogData from "@/components/Blogs/Data"
 
@@ -20,7 +20,7 @@ const RelatedPost = async () => {
             >
               <div className="max-w-45 relative h-18 w-45">
                 {post.hero ? (
-                  <HeroImage fill src={post.hero} alt="Blog Hero Image" />
+                  <Image fill src={post.hero} alt="Blog Hero Image" />
                 ) : (
                   "No image"
                 )}

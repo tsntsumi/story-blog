@@ -74,8 +74,25 @@ export const blogCollection = buildCollection<BlogEntry>({
               dataType: "string",
               storage: {
                 mediaType: "image",
-                storagePath: "images",
+                storagePath: "/images",
                 acceptedFiles: ["image/*"],
+                metadata: {
+                  cacheControl: "max-age=1000000"
+                }
+              }
+            }),
+            description:
+              "This fields allows uploading multiple images at once and reordering"
+          }),
+          videos: buildProperty({
+            name: "Videos",
+            dataType: "array",
+            of: buildProperty({
+              dataType: "string",
+              storage: {
+                mediaType: "video",
+                storagePath: "/videos",
+                acceptedFiles: ["video/*"],
                 metadata: {
                   cacheControl: "max-age=1000000"
                 }

@@ -8,7 +8,7 @@ const metadata = {
 }
 
 export default async function Page() {
-  const weAre = ref(storage(), "videos/who-we-are-alizza-ideal.mp4")
+  const weAre = ref(storage(), "/videos/who-we-are-alizza-ideal.mp4")
   const weAreURL = await getDownloadURL(weAre)
   return (
     <section className="py-20 lg:py-25 xl:py-30">

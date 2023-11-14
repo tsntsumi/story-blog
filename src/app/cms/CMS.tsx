@@ -38,7 +38,15 @@ export default function CMS() {
   }, [])
 
   if (loading) {
-    return <div className="text-center mt-12">Now loading...</div>
+    return (
+      <>
+        <div className="flex w-full h-screen max-h-full max-w-full bg-gray-50 dark:bg-gray-900">
+          <div className="m-auto">
+            <div>Now loading...</div>
+          </div>
+        </div>
+      </>
+    )
   }
 
   return (
