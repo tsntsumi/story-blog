@@ -1,6 +1,10 @@
 import SectionHeader from "@/components/Common/SectionHeader"
 import BlogData from "@/components/Blogs/Data"
 import BlogItem from "@/components/Blogs/Item"
+import Markdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import rehypeKatex from "rehype-katex"
+import "katex/dist/katex.min.css"
 
 export default function BlogList({ headerInfo, children }) {
   const blogs = children
@@ -18,7 +22,12 @@ export default function BlogList({ headerInfo, children }) {
         <div className="grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
           {blogs.map((blog, key) => (
             <BlogItem blog={blog} key={key}>
-              <>{blog.summary}</>
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeKatex]}
+              >
+                {blog.summary}
+              </Markdown>
             </BlogItem>
           ))}
         </div>

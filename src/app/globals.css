@@ -150,7 +150,7 @@
 }
 
 .blog-details blockquote {
-  @apply relative z-10 mb-10 overflow-hidden rounded-sm bg-manatee p-8 text-center text-base font-medium italic text-black dark:bg-titlebgdark md:py-9 lg:px-10;
+  @apply relative z-10 mb-10 overflow-hidden rounded-sm bg-transparent border-l-8 border-gray-400 p-8 text-center text-base font-medium italic text-black dark:bg-titlebgdark md:py-9 lg:px-10;
 }
 
 .blog-details blockquote::after {

@@ -1,5 +1,10 @@
+"use client"
 import React, { useEffect, useState } from "react"
 import Image from "next/image"
+import Markdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import rehypeKatex from "rehype-katex"
+import "katex/dist/katex.min.css"
 
 import {
   Box,
@@ -16,7 +21,6 @@ import {
   EntityReference,
   EntityValues,
   ErrorView,
-  Markdown,
   useDataSource,
   useStorageSource
 } from "firecms"
@@ -223,13 +227,24 @@ export function StorageVideo({
   )
 }
 
+const components = {
+  StorageImage: StorageImage,
+  StorageVideo: StorageVideo
+}
+
 function Text({ markdownText }: { markdownText: string }) {
   if (!markdownText) return <></>
 
   return (
     <Container maxWidth={"sm"}>
       <Box mt={6} mb={6}>
-        <Markdown source={markdownText} />
+        <Markdown
+          components={components}
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeKatex]}
+        >
+          {markdownText}
+        </Markdown>
       </Box>
     </Container>
   )
