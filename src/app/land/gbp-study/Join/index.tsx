@@ -7,7 +7,7 @@ const Join = ({ children }) => {
   return (
     <>
       {/* <!-- ===== Join Start ===== --> */}
-      <section className="overflow-hidden px-4 py-0 md:px-8 lg:py-10 xl:py-10 2xl:px-0">
+      <div className="overflow-hidden px-4 py-0 md:px-8 lg:py-10 xl:py-10 2xl:px-0">
         <div className="mx-auto">
           <div className="flex flex-wrap gap-5 items-center justify-center">
             <Link
@@ -31,7 +31,7 @@ const Join = ({ children }) => {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
       {/* <!-- ===== Join End ===== --> */}
     </>
   )

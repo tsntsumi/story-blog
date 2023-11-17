@@ -1,7 +1,8 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { Component, useEffect, useState } from "react"
 import Image from "next/image"
 import Markdown from "react-markdown"
+import type { ExtraProps } from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
@@ -161,17 +162,11 @@ export function Videos({ storagePaths }: { storagePaths: string[] }) {
   )
 }
 
-export function StorageImage({
-  storagePath,
-  width,
-  height
-}: {
-  storagePath: string
-  width: number
-  height: number
-}) {
+export function StorageImage(props) {
   const storage = useStorageSource()
   const [url, setUrl] = useState<string | undefined>()
+  const { storagePath, width, height } = props
+
   useEffect(() => {
     if (storagePath) {
       storage.getDownloadURL(storagePath).then((res) => setUrl(res.url))
@@ -193,17 +188,11 @@ export function StorageImage({
   )
 }
 
-export function StorageVideo({
-  storagePath,
-  width,
-  height
-}: {
-  storagePath: string
-  width: number
-  height: number
-}) {
+export function StorageVideo(props) {
   const storage = useStorageSource()
   const [url, setUrl] = useState<string | undefined>()
+  const { storagePath, width, height } = props
+
   useEffect(() => {
     if (storagePath) {
       storage.getDownloadURL(storagePath).then((res) => setUrl(res.url))
@@ -227,7 +216,12 @@ export function StorageVideo({
   )
 }
 
-const components = {
+class MarkdownComponents extends Component {
+  StorageImage?: any
+  StorageVideo?: any
+}
+
+const components: any = {
   StorageImage: StorageImage,
   StorageVideo: StorageVideo
 }

@@ -64,11 +64,13 @@ const Content = ({ content }) => {
   }
   if (content.type === "images") {
     const images = [...content.value]
-    return images.map((image, key) => <ContentImage path={image} key={key} />)
+    // return images.map((image, key) => <ContentImage path={image} key={key} />)
+    return <></>
   }
   if (content.type === "videos") {
     const videos = [...content.value]
-    return videos.map((video, key) => <ContentVideo path={video} key={key} />)
+    // return videos.map((video, key) => <ContentVideo path={video} key={key} />)
+    return <></>
   }
   return <>{content.value}</>
 }

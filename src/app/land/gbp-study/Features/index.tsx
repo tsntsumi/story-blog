@@ -23,14 +23,20 @@ const Feature = () => {
                 </>
               ),
               description: (
-                <>
-                  適切にビジネス情報を設定すれば、お客さんからの信頼だけでなく、Googleからの信頼も得られます。
-                  そうすれば、Googleがこのお店はみんなに知ってもらおうと考え、検索上位に表示するようになります。
-                </>
+                <div className="mx-10">
+                  <p>
+                    適切にビジネス情報を設定すれば、お客さんからの信頼だけでなく、
+                    Googleからの信頼も得られます。
+                  </p>
+                  <p>
+                    そうなれば、Googleがこのお店はみんなに知ってもらう価値のある
+                    お店だと判断し、検索上位に表示するようになるんです。
+                  </p>
+                </div>
               )
             }}
           />
-          <div className="w-full mt-4 md:w-[42em] mx-auto">
+          <div className="w-full mt-4 md:w-[46em] mx-auto">
             <p>
               花を育てようとしても、根っこが腐っていては、花が咲くどころか枯れてしまいますよね？
             </p>
@@ -58,21 +64,27 @@ const Feature = () => {
                 </li>
                 <li>
                   これをしておかないと店舗情報の信頼度が下がる「オーナー確認」の手順３つのパターン
+                  <ol className="list-decimal ml-12 my-2">
+                    <li>Googleビジネスプロフィールのサイトから</li>
+                    <li>Googleマップから</li>
+                    <li>なぜかすでに登録されてた場合</li>
+                  </ol>
                 </li>
-                <ol className="list-decimal ml-12 my-2">
-                  <li>Googleビジネスプロフィールのサイトから</li>
-                  <li>Googleマップから</li>
-                  <li>なぜかすでに登録されてた場合</li>
-                </ol>
                 <li>他社と差別化を図るサービスの説明を書く３つのコツ</li>
                 <li>
                   検索順位が上がりやすくなるビジネス情報を書くたった１つのポイント
                 </li>
               </ol>
             </div>
+            <Image
+              alt="Fruit harvest"
+              src="/images/features/fruit-harvest.png"
+              width={1807}
+              height={939}
+              className="w-full mx-auto"
+            />
             <p className="text-[0.75em]">
-              なお、勉強会の最後に、ご希望の方へ「地域ナンバーワンをめざせる　Googleビジネスプロフィール運用１day
-              セミナー」をご案内させていただいております
+              なお、勉強会の最後に、ご希望の方へ「地域ナンバーワンをめざすあなたのための　ビジネスプロフィール運用勉強会＆相談会（テキスト付き）」をご案内させていただいております。
             </p>
           </div>
           {/* <!-- Section Title End --> */}

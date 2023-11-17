@@ -29,22 +29,22 @@ const SingleBlogPage = async ({ blog, children }) => {
                   {title}
                 </h2>
 
-                <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5 list-none">
-                  <li>
+                <ul className="m-0 p-0 leading-tight md:mb-9 flex flex-wrap gap-0 md:gap-7.5 list-none">
+                  <li className="m-0 p-0">
                     <span className="text-black dark:text-white">Author: </span>{" "}
                     {author || "Anonymouth"}
                   </li>
-                  <li>
+                  <li className="m-0 p-0">
                     <span className="text-black dark:text-white">
                       Published On: {date.toLocaleDateString() || "Someday"}
                     </span>{" "}
                   </li>
-                  <li>
+                  <li className="my-0 py-0">
                     <span className="text-black dark:text-white">
                       Category: {category?.toUpperCase()}
                     </span>
                   </li>
-                  <li>
+                  <li className="my-0 py-0">
                     <span className="text-black dark:text-white">Tags:</span>
                     {" [ "}
                     {tags?.join(", ")?.toUpperCase()}

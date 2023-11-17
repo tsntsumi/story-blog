@@ -16,10 +16,10 @@ const Hero = () => {
       <section className="overflow-hidden py-8 xl:pb-25">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className="md:w-1/2 md:mx-auto">
-              <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
+            <div className="md:w-1/2 md:mx-auto text-justify">
+              <div className="h4 mb-4.5 text-lg font-medium text-black dark:text-white">
                 Googleビジネスプロフィールを一緒に勉強しよう
-              </h4>
+              </div>
               <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
                 検索上位表示でみんなが
                 <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
@@ -29,7 +29,7 @@ const Hero = () => {
               <p className="text-justify">
                 これをしておかないと信頼度が下がってしまう「ビジネス情報設定ガイド」
                 <span className="text-[0.6rem]">（非売品）</span>{" "}
-                を一緒に読みながら、お勉強しましょう。参加者には無料でPDFを差し上げます。
+                を一緒に読みながら、お勉強しましょう。参加者には無料でこのPDFを差し上げます。
               </p>
 
               <div className="md:hidden w-full mt-4">
@@ -51,6 +51,34 @@ const Hero = () => {
 
               <p className="my-4 text-center">
                 LINEでお友だちになって参加表明してください。
+              </p>
+
+              <p>
+                先にダウンロードしたPDFを読んで、
+                もっと知りたいと思ってから参加表明していただいて結構です。
+                ダウンロードしたからと言って、必ず勉強会に参加する必要はありません。
+              </p>
+
+              <p>
+                真剣にGoogleビジネスプロフィールを学んで、
+                マジでお店を繁盛させたいという方の参加をお待ちしております。
+              </p>
+
+              <p>
+                最近、特典プレゼントをダウンロードしようとしたら、
+                売り込み動画を見させられ、
+                説明会を予約しないとダウンロードできない勧誘広告が増えてます。
+                まるで、マルチ商法の勧誘のみたいだなと、訝しんでます。
+              </p>
+              <p className="text-right">
+                あなたの商売繁盛のために。{" -- "}きくお
+                <Image
+                  src="/images/user/avatar.png"
+                  width={88}
+                  height={88}
+                  alt="avatar"
+                  className="ml-auto"
+                />
               </p>
 
               <div className="flex flex-wrap gap-5">
