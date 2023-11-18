@@ -246,12 +246,17 @@ const About = () => {
             >
               <h2 className="relative mb-6 text-3xl font-bold text-black dark:text-white xl:text-hero">
                 <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg2 dark:before:bg-titlebgdark">
-                  商品をプッシュする
+                  お客さんに商品を推す
                 </span>
                 メッセージを作る
               </h2>
+              <p>商品を推すと言っても、強く売り込む必要はありません。</p>
               <p>
-                見込み客からの信頼が高まったら、次は商品をアピールするタイミングです。あなたの商品が問題を解決できるとわかれば、見込み客は財布のひもをゆるめて、注文せずにはいられなくなります。
+                価値ある情報を届けて見込み客からの信頼が高まったら、商品を推すタイミングです。
+              </p>
+              <p>
+                見込み客が、あなたの商品が抱えている問題を解決できると理解できていれば、
+                ひとりでに財布のひもをゆるめ、注文せずにはいられなくなります。
               </p>
               <Join>一緒に始めましょう</Join>
             </motion.div>

@@ -18,7 +18,7 @@ const Hero = () => {
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className="md:w-1/2 md:mx-auto text-justify">
               <div className="h4 mb-4.5 text-lg font-medium text-black dark:text-white">
-                Googleビジネスプロフィールを一緒に勉強しよう
+                Googleビジネスプロフィールを一緒に勉強しましょう。
               </div>
               <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
                 検索上位表示でみんなが
@@ -26,7 +26,7 @@ const Hero = () => {
                   集まるお店に
                 </span>
               </h1>
-              <p className="text-justify">
+              <p>
                 これをしておかないと信頼度が下がってしまう「ビジネス情報設定ガイド」
                 <span className="text-[0.6rem]">（非売品）</span>{" "}
                 を一緒に読みながら、お勉強しましょう。参加者には無料でこのPDFを差し上げます。
@@ -37,15 +37,15 @@ const Hero = () => {
                   className="h-40 w-52 mx-auto rounded shadow-solid-l dark:hidden object-cover"
                   src="/images/hero/gbp-setup-guide-light.png"
                   alt="GBPビジネス情報設定ガイド"
-                  width={640}
-                  height={400}
+                  width={1040}
+                  height={693}
                 />
                 <Image
                   className="hidden h-40 w-52 mx-auto rounded shadow-solid-l dark:block bg-slate-200 object-cover"
                   src="/images/hero/gbp-setup-guide-dark.png"
                   alt="GBPビジネス情報設定ガイド"
-                  width={640}
-                  height={400}
+                  width={1040}
+                  height={693}
                 />
               </div>
 
