@@ -16,45 +16,44 @@ const Hero = () => {
       <section className="overflow-hidden pb-8 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:py-0">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className="md:w-1/2 md:mx-auto">
-              <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
-                🖋️ あなたの次の打ち手は？
-              </h4>
+            <div className="md:w-1/2 md:mx-auto text-justify">
+              <div className="h4 mb-4.5 text-lg font-medium text-black dark:text-white">
+                🧲ホームページにお客が集まるだけで満足してますか？
+              </div>
               <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-                あなたのセールスファネル戦略を一緒に
+                集まった人々を顧客に
+                <ruby>
+                  変える<rp>(</rp>
+                  <rt>コンバージョンさせる</rt>
+                  <rp>)</rp>
+                </ruby>
+                セールスホームページを
                 <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
                   構築
                 </span>
               </h1>
-              <p className="text-justify">
-                売れる商品とは、最高の商品ではありません。
-                最もわかりやすい商品です。
+              <p>ほとんどのホームページには、足りないものがあります。</p>
+              <p>
+                それは、あなたのホームページを訪れた人を、欲しがらせ、注文させ、顧客にする仕組みです。
               </p>
               <p>
-                商品が、お客にとってどんなメリットがあるかわかりにくければ、
-                そもそも興味も持ってくれません。
+                その仕組み、ストーリー・セールスファネルの仕組みで、あなたのホームページを構築すれば、
+                ２４時間３６５日、あなたがお客さんにサービスしている間に、
+                ホームページが注文を取り続けます。
+                もちろん、あなたが寝ている間でさえも。
               </p>
               <p>
-                シンプルで明確な、わかりやすいメッセージで魅力を伝えれば、
-                あなたの商品は、売り込みしなくても売れる仕組みを作ることができます。
-              </p>
-              <p>
-                そして、そのメッセージを、セールスファネルに組み込めば、
-                あなたのお店に人が集まり続け、
-                商品は売れ続けていき、それとともにビジネスも成長し続けていきます。
+                一度構築してしまえば、あなたが本来やりたかったお客さんへのサービスに集中できるようになります。
               </p>
 
               <div className="mt-10">
-                {/*<form onSubmit={handleSubmit}>*/}
                 <div className="flex flex-wrap gap-5">
                   <Join>一緒に始めましょう</Join>
-                  {/*</button>*/}
                 </div>
                 <p>
-                  Alizza Idealのストーリーライター公式LINEアカウントで、
+                  Alizza Idealのストーリーセールス公式LINEアカウントで、
                   お友だちになってください。
                 </p>
-                {/*</form>*/}
 
                 <p className="mt-5 text-black dark:text-white"></p>
               </div>
@@ -85,16 +84,20 @@ const Hero = () => {
                 />
                 <div className=" relative aspect-[700/444] w-full">
                   <Image
-                    className="shadow-solid-l dark:hidden"
-                    src="/images/hero/hero-light.jpg"
+                    className="shadow-solid-l dark:hidden object-cover"
+                    src="/images/hero/buying.webp"
                     alt="Hero"
-                    fill
+                    unoptimized
+                    width={700}
+                    height={444}
                   />
                   <Image
-                    className="hidden shadow-solid-l dark:block"
-                    src="/images/hero/hero-dark.jpg"
+                    className="hidden shadow-solid-l dark:block object-cover"
+                    src="/images/hero/buying.webp"
                     alt="Hero"
-                    fill
+                    unoptimized
+                    width={700}
+                    height={444}
                   />
                 </div>
               </div>
