@@ -15,7 +15,7 @@ const Hero = () => {
     <>
       <section className="overflow-hidden py-8 xl:pb-25">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
-          <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
+          <div className="flex items-start lg:gap-8 xl:gap-32.5">
             <div className="md:w-1/2 md:mx-auto text-justify">
               <div className="h4 mb-4.5 text-lg font-medium text-black dark:text-white">
                 Googleビジネスプロフィールを一緒に勉強しましょう。
@@ -26,64 +26,36 @@ const Hero = () => {
                   集まるお店に
                 </span>
               </h1>
+              <h2 className="text-2xl">ありがとうございます。</h2>
+              <p>このページにたどり着いてくれて、本当にありがとう。</p>
+              <h3 className="text-xl">
+                あなたがしていることは、素晴らしいことです
+              </h3>
               <p>
-                これをしておかないと信頼度が下がってしまう「ビジネス情報設定ガイド」
-                <span className="text-[0.6rem]">（非売品）</span>{" "}
-                を一緒に読みながら、お勉強しましょう。参加者には無料でこのPDFを差し上げます。
+                あなたが毎日しているのは、どんなことであろうと素晴らしいことなんです。
+                なぜなら、あなたは
+                <ruby>
+                  専門家<rp>(</rp>
+                  <rt>エキスパート</rt>
+                  <rp>)</rp>
+                </ruby>
+                だからです。
               </p>
-
-              <div className="md:hidden w-full mt-4">
-                <Image
-                  className="h-40 w-52 mx-auto rounded shadow-solid-l dark:hidden object-cover"
-                  src="/images/hero/gbp-setup-guide-light.png"
-                  alt="GBPビジネス情報設定ガイド"
-                  width={1040}
-                  height={693}
-                />
-                <Image
-                  className="hidden h-40 w-52 mx-auto rounded shadow-solid-l dark:block bg-slate-200 object-cover"
-                  src="/images/hero/gbp-setup-guide-dark.png"
-                  alt="GBPビジネス情報設定ガイド"
-                  width={1040}
-                  height={693}
-                />
-              </div>
-
-              <p className="my-4 text-center">
-                LINEでお友だちになって参加表明してください。
-              </p>
-
+              <h3 className="text-xl">
+                あなたが提供している最も価値のあるもの
+              </h3>
               <p>
-                先にダウンロードしたPDFを読んで、
-                もっと知りたいと思ってから参加表明していただいて結構です。
-                ダウンロードしたからと言って、必ず勉強会に参加する必要はありません。
+                あなたが経営している事業ではありません。販売している商品でもありません。
+                サービスしていることでも、あなたが作っている最高の製品でもありません。
               </p>
-
+              <p>それは、あなたの知っていること。つまり知識とスキルです。</p>
               <p>
-                真剣にGoogleビジネスプロフィールを学んで、
-                マジでお店を繁盛させたいという方の参加をお待ちしております。
+                それこそが、あなたが今まで投資してきたなかで、もっとも価値のあるものなんです。
               </p>
-
               <p>
-                最近、特典プレゼントをダウンロードしようとしたら、
-                売り込み動画を見させられ、
-                説明会を予約しないとダウンロードできない勧誘広告が増えてます。
-                まるで、マルチ商法の勧誘のみたいだなと、訝しんでます。
+                血と汗を流しながら試練をかいくぐり、今あなたがいるその場所にたどり着くためにであった障害。
+                経験しなければならなかったすべての障害こそ、あなたが投資してきたことで得た最高のものなんです。
               </p>
-              <p className="text-right">
-                あなたの商売繁盛のために。{" -- "}きくお
-                <Image
-                  src="/images/user/avatar.png"
-                  width={88}
-                  height={88}
-                  alt="avatar"
-                  className="ml-auto"
-                />
-              </p>
-
-              <div className="flex flex-wrap gap-5">
-                <Join>一緒に勉強する</Join>
-              </div>
             </div>
 
             <div className="animate_right hidden md:w-1/2 md:block">
@@ -93,6 +65,7 @@ const Hero = () => {
                   alt="shape"
                   width={46}
                   height={246}
+                  unoptimized
                   className="absolute -left-11.5 top-0"
                 />
                 <Image
@@ -100,6 +73,7 @@ const Hero = () => {
                   alt="shape"
                   width={36.9}
                   height={36.7}
+                  unoptimized
                   className="absolute bottom-0 right-0 z-10"
                 />
                 <Image
@@ -107,6 +81,7 @@ const Hero = () => {
                   alt="shape"
                   width={21.64}
                   height={21.66}
+                  unoptimized
                   className="absolute -right-6.5 bottom-0 z-1"
                 />
                 <div className=" relative aspect-[700/444] w-full">
@@ -114,6 +89,7 @@ const Hero = () => {
                     className="shadow-solid-l dark:hidden"
                     src="/images/hero/gbp-setup-guide-light.png"
                     alt="GBPビジネス情報設定ガイド"
+                    unoptimized
                     fill
                   />
                   <Image
@@ -121,7 +97,19 @@ const Hero = () => {
                     src="/images/hero/gbp-setup-guide-dark.png"
                     alt="GBPビジネス情報設定ガイド"
                     fill
+                    unoptimized
                   />
+                </div>
+                <p className="my-4 text-justify">
+                  LINEでお友だちになってPDFを読んで、
+                  内容に納得がいったら参加表明して下さい。
+                </p>
+                <p>
+                  真剣にGoogleビジネスプロフィールを学んで、
+                  マジでお店を繁盛させたいという方の参加をお待ちしております。
+                </p>
+                <div className="flex flex-wrap gap-5">
+                  <Join>一緒に勉強する</Join>
                 </div>
               </div>
             </div>

@@ -1,42 +1,42 @@
-import { initializeApp } from "firebase/app"
-import firebaseConfig from "@/firebase-config"
-import { getFirestore } from "firebase/firestore"
-import { getAuth } from "firebase/auth"
-import { getStorage } from "firebase/storage"
-
-const apps = {}
-
-function firebaseApps() {
-  if (!apps.app) {
-    apps.app = initializeApp(firebaseConfig)
-  }
-
-  return apps
-}
+import * as firebase from "firebase-admin"
+import { getFirestore } from "firebase-admin/firestore"
+import { getAuth } from "firebase-admin/auth"
+import { getStorage } from "firebase-admin/storage"
+import serviceAccount from "@/firebase-adminsdk.json"
 
 function app() {
-  return firebaseApps().app
+  if (!firebase.apps.length) {
+    try {
+      firebase.initializeApp({
+        credential: firebase.credential.applicationDefault()
+      }) ||
+        firebase.initializeApp({
+          credential: firebase.credential.cert(serviceAccount)
+        }) ||
+        firebase.initializeApp({
+          projectId: "story-made",
+          credential: firebase.credential.applicationDefault()
+        })
+    } catch (e) {
+      // do nothing
+    }
+  }
+  return firebase
 }
 
 function db() {
-  if (!firebaseApps().db) {
-    firebaseApps().db = getFirestore(app())
-  }
-  return firebaseApps().db
+  app()
+  return getFirestore()
 }
 
 function auth() {
-  if (!firebaseApps().auth) {
-    firebaseApps().auth = getAuth(app())
-  }
-  return firebaseApps().auth
+  app()
+  return getAuth()
 }
 
 function storage() {
-  if (!firebaseApps().storage) {
-    firebaseApps().storage = getStorage(app())
-  }
-  return firebaseApps().storage
+  app()
+  return getStorage()
 }
 
 export { app, db, auth, storage }

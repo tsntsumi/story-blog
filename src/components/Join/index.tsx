@@ -21,6 +21,7 @@ const Join = ({ children }) => {
                 width="92"
                 height="32"
                 alt="ストーリーライターLINE公式"
+                unoptimized
                 className="inline-block border-4 rounded-lg border-white"
               />
             </Link>

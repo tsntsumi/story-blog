@@ -1,24 +1,43 @@
-import { app, db } from "@/lib/firebase"
-import {
-  collection,
-  getDocs,
-  orderBy,
-  query,
-  limit,
-  limitToLast,
-  where
-} from "firebase/firestore"
+import { db } from "@/lib/firebase"
 
-const BlogData = async (slug = null, upto = 0) => {
-  const c = collection(db(), "blogs")
-  const o = orderBy("createdAt", "desc")
-  const u = upto > 0 ? limit(upto) : limitToLast()
-  const q = slug ? query(c, where("slug", "==", slug), o, u) : query(c, o, u)
+//const blogs = db().collection("blogs")
 
-  const { docs } = await getDocs(q)
-  const blogs = docs.map((doc) => doc.data())
+/* const SlugData = async (slug) => {
+ *   const q = blogs.where("slug", "==", slug)
+ *   return await q?.get()
+ * } */
 
-  return blogs
+/* const AllData = async () => {
+ *   return blogs
+ *     .listDocuments()
+ *     .then((docRefs) => {
+ *       return db().getAll(...docRefs)
+ *     })
+ *     .then((docSnapshots) => {
+ *       const docs = docSnapshots.reduce(async (acc, curr) => {
+ *         const doc = await curr.data()
+ *         acc.push(doc)
+ *         return acc
+ *       }, [])
+ *     })
+ * } */
+
+export default async function BlogData(slug = null, upto = 0) {
+  return []
+  /* if (slug) {
+   *   return await SlugData(slug)?.data()
+   * }
+   * if (!upto) {
+   *   return await AllData()
+   * }
+   * return await blogs
+   *   .limit(upto)
+   *   .get()
+   *   .then((ss) => {
+   *     const docs = ss.reduce(async (acc, curr) => {
+   *       const doc = await curr.data()
+   *       acc.push(doc)
+   *       return acc
+   *     }, [])
+   *   }) */
 }
-
-export default BlogData

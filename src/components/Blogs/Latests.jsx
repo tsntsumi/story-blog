@@ -11,8 +11,7 @@ export default async function LatestBlogs() {
         subtitle: "ストーリー・セールス・ブログ",
         description: ""
       }}
-    >
-      {blogs}
-    </BlogList>
+      blogs={blogs}
+    />
   )
 }
