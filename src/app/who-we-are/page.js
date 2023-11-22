@@ -1,8 +1,6 @@
 "use client"
-import { useState, useEffect } from "react"
 import SectionHeader from "@/components/Common/SectionHeader"
-import { storage } from "@/lib/firebase/app"
-import { ref, getDownloadURL } from "firebase/storage"
+import { Video } from "@/components/Media"
 import { CTA } from "@/components/CTA"
 
 const metadata = {
@@ -11,18 +9,13 @@ const metadata = {
 }
 
 export default function Page() {
-  const [imageURL, setImageURL] = useState("")
-  const weAre = ref(storage, "/videos/who-we-are-alizza-ideal.mp4")
-  const routine01URL = "/images/features/makise-daily-routine-01-720p.mp4"
-  const routine02URL = "/images/features/makise-daily-routine-02-720p.mp4"
-  const routine03URL = "/images/features/makise-daily-routine-03-720p.mp4"
-  useEffect(() => {
-    if (weAre) {
-      getDownloadURL(weAre).then((u) => {
-        setImageURL(u)
-      })
-    }
-  }, [weAre])
+  const weArePath = "videos/who-we-are-alizza-ideal.mp4"
+  const routine01path =
+    "videos/makise-daily-routines/makise-daily-routine-01-720p.mp4"
+  const routine02path =
+    "videos/makise-daily-routines/makise-daily-routine-02-720p.mp4"
+  const routine03path =
+    "videos/makise-daily-routines/makise-daily-routine-03-720p.mp4"
   return (
     <section className="py-20 lg:py-25 xl:py-30">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
@@ -137,10 +130,10 @@ export default function Page() {
             </h4>
             <p>わたしが自前で制作した、わたしたちの紹介動画をご覧ください。</p>
             <div className="max-w-[480px] md:w-1/3 mx-auto">
-              <video
+              <Video
+                src={weArePath}
                 width="1080"
                 height="1920"
-                src={imageURL}
                 alt="We are Alizza Ideal"
                 controls
                 disablePictureInPicture={true}
@@ -168,14 +161,15 @@ export default function Page() {
             </p>
             <p>
               飾って気取った憧れられる映像もいいですが、
-              そういった虚勢を張った映像は、なんとか商法の構成員におまかせしましょう。
+              着飾らないありのままの自分を見せることが、
+              地域で評判のお店になる秘訣です。
             </p>
             <h4>水戸市城東町　まきせ鍼灸整骨院さまの動画制作事例</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-              <video
+              <Video
                 width={340}
                 height={240}
-                src={routine01URL}
+                src={routine01path}
                 alt="Daily routine"
                 controls
                 disablePictureInPicture={true}
@@ -185,10 +179,10 @@ export default function Page() {
                 playsInline={true}
                 className="object-cover"
               />
-              <video
+              <Video
                 width={340}
                 height={240}
-                src={routine02URL}
+                src={routine02path}
                 alt="Daily routine"
                 controls
                 disablePictureInPicture={true}
@@ -198,10 +192,10 @@ export default function Page() {
                 playsInline={true}
                 className="object-cover"
               />
-              <video
+              <Video
                 width={340}
                 height={240}
-                src={routine03URL}
+                src={routine03path}
                 alt="Daily routine"
                 controls
                 disablePictureInPicture={true}
@@ -305,9 +299,7 @@ export default function Page() {
                 患者さんの痛みや、痛みから生まれる不便さや不安をどうすれば解消してあげられるのか。
                 まるで恋に落ちているかのように片時も忘れないくらい考えて、ホームページは作って下さい。
               </p>
-              <p>
-                その暁には、沢山の患者さんから絶大な信頼を得られることでしょう。
-              </p>
+              <p>その暁には、沢山の患者さんから絶大な信頼を得られます。</p>
             </div>
           </div>
         </div>

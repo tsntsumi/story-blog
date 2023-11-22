@@ -1,5 +1,5 @@
 import React from "react"
-import Image from "./Image"
+import Media from "@/components/Media"
 import Link from "next/link"
 import { retrieveBlogs } from "@/lib/firebase/firestore"
 
@@ -20,7 +20,7 @@ const RelatedPost = async ({ category }) => {
             >
               <div className="max-w-45 relative h-18 w-45">
                 {post.hero ? (
-                  <Image fill src={post.hero} alt="Blog Hero Image" />
+                  <Media fill src={post.hero} alt="Blog Hero Image" />
                 ) : (
                   "No image"
                 )}

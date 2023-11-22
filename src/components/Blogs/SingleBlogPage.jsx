@@ -1,6 +1,6 @@
 import RelatedPost from "@/components/Blogs/RelatedPost"
 import SharePost from "@/components/Blogs/SharePost"
-import Image from "./Image"
+import Media from "@/components/Media"
 import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"
 const logger = require("firebase-functions/logger")
@@ -17,7 +17,7 @@ const SingleBlogPage = async ({ blog, children }) => {
               <div className="animate_top rounded-md border border-stroke bg-white p-7.5 shadow-solid-13 dark:border-strokedark dark:bg-blacksection md:p-10">
                 <div className="mb-10 w-full overflow-hidden ">
                   <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
-                    <Image
+                    <Media
                       src={hero}
                       alt={title}
                       className="rounded-md object-cover object-center"
