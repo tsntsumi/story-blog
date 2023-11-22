@@ -1,4 +1,4 @@
-import Blogs from "@/components/Blogs/Data"
+import { retrieveBlogs } from "@/lib/firebase/firestore"
 
 const SharePost = () => {
   return (

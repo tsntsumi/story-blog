@@ -3,7 +3,8 @@ import { buildCollection, buildProperty, buildEnumValues } from "firecms"
 export const categoryEnumeration = buildEnumValues({
   "growth": "成長",
   "google-maps": "Googleマップ",
-  "marketing": "マーケティング"
+  "marketing": "マーケティング",
+  "story": "ストーリー"
 })
 
 export const categoryCollection = buildCollection({

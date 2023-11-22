@@ -1,17 +1,19 @@
+"use client"
 import SectionHeader from "../Common/SectionHeader"
-import BlogData from "./Data"
-import BlogList from "./List"
+import BlogListings from "./Listings"
+import { retrieveBlogs } from "@/lib/firebase/firestore.js"
 
-export default async function LatestBlogs() {
-  const blogs = await BlogData(null, 4)
+export default function LatestBlogs() {
   return (
-    <BlogList
-      headerInfo={{
-        title: "最新情報",
-        subtitle: "ストーリー・セールス・ブログ",
-        description: ""
-      }}
-      blogs={blogs}
-    />
+    <>
+      <BlogListings
+        headerInfo={{
+          title: "最新情報",
+          subtitle: "ストーリー・セールス・ブログ",
+          description: ""
+        }}
+        searchParams={{ limit: 4 }}
+      />
+    </>
   )
 }

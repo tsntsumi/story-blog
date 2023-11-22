@@ -1,10 +1,10 @@
 import React from "react"
 import Image from "./Image"
 import Link from "next/link"
-import BlogData from "@/components/Blogs/Data"
+import { retrieveBlogs } from "@/lib/firebase/firestore"
 
-const RelatedPost = async () => {
-  const blogs = await BlogData(null, 4)
+const RelatedPost = async ({ category }) => {
+  const blogs = await retrieveBlogs({ category: category, limit: 4 })
   return (
     <>
       <div className="animate_top rounded-md border border-stroke bg-white p-9 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">
@@ -13,7 +13,7 @@ const RelatedPost = async () => {
         </h4>
 
         <div>
-          {blogs.map((post, key) => (
+          {blogs?.map((post, key) => (
             <div
               className="mb-7.5 flex flex-wrap gap-4 xl:flex-nowrap 2xl:gap-6"
               key={key}

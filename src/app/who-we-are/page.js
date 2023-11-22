@@ -1,5 +1,7 @@
+"use client"
+import { useState, useEffect } from "react"
 import SectionHeader from "@/components/Common/SectionHeader"
-import { storage } from "@/lib/firebase"
+import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"
 import { CTA } from "@/components/CTA"
 
@@ -8,12 +10,19 @@ const metadata = {
   description: "わたしたちの自己紹介です"
 }
 
-export default async function Page() {
-  const weAre = ref(storage(), "/videos/who-we-are-alizza-ideal.mp4")
-  const weAreURL = await getDownloadURL(weAre)
+export default function Page() {
+  const [imageURL, setImageURL] = useState("")
+  const weAre = ref(storage, "/videos/who-we-are-alizza-ideal.mp4")
   const routine01URL = "/images/features/makise-daily-routine-01-720p.mp4"
   const routine02URL = "/images/features/makise-daily-routine-02-720p.mp4"
   const routine03URL = "/images/features/makise-daily-routine-03-720p.mp4"
+  useEffect(() => {
+    if (weAre) {
+      getDownloadURL(weAre).then((u) => {
+        setImageURL(u)
+      })
+    }
+  }, [weAre])
   return (
     <section className="py-20 lg:py-25 xl:py-30">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
@@ -131,7 +140,7 @@ export default async function Page() {
               <video
                 width="1080"
                 height="1920"
-                src={weAreURL}
+                src={imageURL}
                 alt="We are Alizza Ideal"
                 controls
                 disablePictureInPicture={true}

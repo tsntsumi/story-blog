@@ -1,13 +1,13 @@
-"use client";
-import Image from "next/image";
-import { useState } from "react";
-import FeaturesTabItem from "./FeaturesTabItem";
-import featuresTabData from "./featuresTabData";
+"use client"
+import Image from "next/image"
+import { useState } from "react"
+import FeaturesTabItem from "./FeaturesTabItem"
+import featuresTabData from "./featuresTabData"
 
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 const FeaturesTab = () => {
-  const [currentTab, setCurrentTab] = useState("tabOne");
+  const [currentTab, setCurrentTab] = useState("tabOne")
 
   return (
     <>
@@ -34,13 +34,13 @@ const FeaturesTab = () => {
             variants={{
               hidden: {
                 opacity: 0,
-                y: -20,
+                y: -20
               },
 
               visible: {
                 opacity: 1,
-                y: 0,
-              },
+                y: 0
+              }
             }}
             initial="hidden"
             whileInView="visible"
@@ -113,13 +113,13 @@ const FeaturesTab = () => {
             variants={{
               hidden: {
                 opacity: 0,
-                y: -20,
+                y: -20
               },
 
               visible: {
                 opacity: 1,
-                y: 0,
-              },
+                y: 0
+              }
             }}
             initial="hidden"
             whileInView="visible"
@@ -127,7 +127,7 @@ const FeaturesTab = () => {
             viewport={{ once: true }}
             className="animate_top mx-auto max-w-c-1154"
           >
-            {featuresTabData.map((feature, key) => (
+            {featuresTabData?.map((feature, key) => (
               <div
                 className={feature.id === currentTab ? "block" : "hidden"}
                 key={key}
@@ -141,7 +141,7 @@ const FeaturesTab = () => {
       </section>
       {/* <!-- ===== Features Tab End ===== --> */}
     </>
-  );
-};
+  )
+}
 
-export default FeaturesTab;
+export default FeaturesTab

@@ -72,7 +72,7 @@ const Testimonial = () => {
                 }
               }}
             >
-              {testimonialData.map((review) => (
+              {testimonialData?.map((review) => (
                 <SwiperSlide key={review?.id}>
                   <SingleTestimonial review={review} />
                 </SwiperSlide>

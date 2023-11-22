@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 
 import Footer from "@/components/Footer"
@@ -11,7 +12,7 @@ import LatestBlogs from "@/components/Blogs/Latests"
 
 import firebaseConfig from "@/firebase-config"
 
-export default async function Page() {
+export default function Page() {
   return (
     <>
       <Header />

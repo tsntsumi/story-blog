@@ -1,4 +1,3 @@
-import BlogData from "@/components/Blogs/Data"
 import SingleBlogPage from "@/components/Blogs/SingleBlogPage"
 import Image from "@/components/Blogs/Image"
 import NextImage from "next/image"
@@ -6,8 +5,8 @@ import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
-import { storage } from "@/lib/firebase"
-import { ref, getDownloadURL } from "firebase/storage"
+import { db, storage } from "@/lib/firebase/app"
+import { retrieveBlogs } from "@/lib/firebase/firestore"
 const logger = require("firebase-functions/logger")
 
 const ContentImage = ({ path, width, height, ...rest }) => {
@@ -23,7 +22,6 @@ const ContentImage = ({ path, width, height, ...rest }) => {
 }
 
 const ContentVideo = async ({ path, width, height, ...rest }) => {
-  const url = await getDownloadURL(ref(storage(), path))
   return (
     <>
       <video
@@ -76,9 +74,10 @@ const Content = ({ content }) => {
 }
 
 export default async function BlogPage({ params }) {
-  const blogs = await BlogData(params.slug, 0)
-  return blogs.map((blog, i) => (
-    <SingleBlogPage key={`${i}`} blog={blog}>
+  const blogs = await retrieveBlogs({ slug: params.slug })
+
+  return blogs?.map((blog) => (
+    <SingleBlogPage key={blog.id} blog={blog}>
       {blog.content?.map((c, key) => (
         <Content content={c} key={`$key`} />
       ))}

@@ -1,7 +1,7 @@
 import RelatedPost from "@/components/Blogs/RelatedPost"
 import SharePost from "@/components/Blogs/SharePost"
 import Image from "./Image"
-import { storage } from "@/lib/firebase"
+import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"
 const logger = require("firebase-functions/logger")
 

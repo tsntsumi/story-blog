@@ -1,9 +1,17 @@
-import SectionHeader from "@/components/Common/SectionHeader"
-import BlogItem from "@/components/Blogs/Item"
-import BlogData from "@/components/Blogs/Data"
-import AllBlogs from "@/components/Blogs"
+import BlogListings from "@/components/Blogs/Listings"
+import { retrieveBlogs } from "@/lib/firebase/firestore.js"
 
 // List all blog items
 export default async function Page() {
-  return <AllBlogs />
+  const posts = await retrieveBlogs()
+  return (
+    <BlogListings
+      headerInfo={{
+        title: "ブログ一覧",
+        subtitle: "ストーリー・セールス・ブログ",
+        description: <></>
+      }}
+      blogs={posts}
+    />
+  )
 }

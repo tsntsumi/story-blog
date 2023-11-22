@@ -1,16 +1,16 @@
-"use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useState } from "react";
-import FAQItem from "./FAQItem";
-import faqData from "./faqData";
+"use client"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { useState } from "react"
+import FAQItem from "./FAQItem"
+import faqData from "./faqData"
 
 const FAQ = () => {
-  const [activeFaq, setActiveFaq] = useState(1);
+  const [activeFaq, setActiveFaq] = useState(1)
 
   const handleFaqToggle = (id: number) => {
-    activeFaq === id ? setActiveFaq(0) : setActiveFaq(id);
-  };
+    activeFaq === id ? setActiveFaq(0) : setActiveFaq(id)
+  }
 
   return (
     <>
@@ -36,13 +36,13 @@ const FAQ = () => {
               variants={{
                 hidden: {
                   opacity: 0,
-                  x: -20,
+                  x: -20
                 },
 
                 visible: {
                   opacity: 1,
-                  x: 0,
-                },
+                  x: 0
+                }
               }}
               initial="hidden"
               whileInView="visible"
@@ -83,13 +83,13 @@ const FAQ = () => {
               variants={{
                 hidden: {
                   opacity: 0,
-                  x: 20,
+                  x: 20
                 },
 
                 visible: {
                   opacity: 1,
-                  x: 0,
-                },
+                  x: 0
+                }
               }}
               initial="hidden"
               whileInView="visible"
@@ -98,7 +98,7 @@ const FAQ = () => {
               className="animate_right md:w-3/5 lg:w-1/2"
             >
               <div className="rounded-lg bg-white shadow-solid-8 dark:border dark:border-strokedark dark:bg-blacksection">
-                {faqData.map((faq, key) => (
+                {faqData?.map((faq, key) => (
                   <FAQItem
                     key={key}
                     faqData={{ ...faq, activeFaq, handleFaqToggle }}
@@ -111,7 +111,7 @@ const FAQ = () => {
       </section>
       {/* <!-- ===== FAQ End ===== --> */}
     </>
-  );
-};
+  )
+}
 
-export default FAQ;
+export default FAQ

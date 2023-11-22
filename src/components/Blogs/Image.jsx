@@ -1,11 +1,11 @@
 import NextImage from "next/image"
 import { getDownloadURL, ref } from "firebase/storage"
-import { storage } from "@/lib/firebase"
+import { storage } from "@/lib/firebase/app"
 const logger = require("firebase-functions/logger")
 
 export default async function Image(params) {
   const { alt, width, height, src, ...rest } = params
-  const image = ref(storage(), src)
+  const image = ref(storage, src)
   const imageURL = await getDownloadURL(image)
   return (
     <NextImage
