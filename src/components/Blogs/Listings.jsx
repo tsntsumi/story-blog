@@ -20,9 +20,6 @@ export default function BlogListings({ headerInfo, searchParams }) {
   const [filters, setFilters] = useState(searchParams)
 
   useEffect(() => {
-    routerWithFilters(router, filters)
-  }, [router, filters])
-  useEffect(() => {
     console.debug("Filters: ", filters)
     const unsubscribe = retrieveBlogsSnapshot((data) => {
       console.debug("Snapshots: ", data)
@@ -54,17 +51,4 @@ export default function BlogListings({ headerInfo, searchParams }) {
       </div>
     </section>
   )
-}
-
-function routerWithFilters(router, filters) {
-  const queryParams = new URLSearchParams()
-  if (!!filters) {
-    for (const [key, value] of Object.entries(filters)) {
-      if (value !== undefined && value !== "") {
-        queryParams.append(key, value)
-      }
-    }
-  }
-  const queryString = queryParams.toString()
-  router.push(`?${queryString}`)
 }

@@ -20,17 +20,19 @@ export default function BlogItem({ blog }) {
   return (
     <>
       <div>
-        <a
+        <Link
           href={`/blog/${blog.slug}`}
           className="relative block aspect-[368/239]"
         >
           <Media src={blog.hero} alt={blog.title} unoptimized fill />
-        </a>
+        </Link>
 
         <div className="px-4">
-          <h3 className="mb-3.5 mt-7.5 line-clamp-2 inline-block text-lg font-medium text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary xl:text-itemtitle2 w-full text-justify">
-            <a href={`/blog/${blog.slug}`}>{elipsis(blog.title, 40)}</a>
-          </h3>
+          <Link href={`/blog/${blog.slug}`}>
+            <h3 className="mb-3.5 mt-7.5 line-clamp-2 inline-block text-lg font-medium text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary xl:text-itemtitle2 w-full text-justify">
+              {elipsis(blog.title, 40)}
+            </h3>
+          </Link>
           <div>
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeKatex]}>
               {blog.summary}
