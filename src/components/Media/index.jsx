@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from "react"
 import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"

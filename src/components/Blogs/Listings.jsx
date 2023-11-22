@@ -8,12 +8,6 @@ import {
   retrieveBlogsSnapshot
 } from "@/lib/firebase/firestore.js"
 import SectionHeader from "@/components/Common/SectionHeader"
-import Markdown from "react-markdown"
-import remarkGfm from "remark-gfm"
-import rehypeKatex from "rehype-katex"
-import "katex/dist/katex.min.css"
-import { storage } from "@/lib/firebase/app"
-import { ref, getDownloadURL } from "firebase/storage"
 import BlogItem from "./Item"
 
 console.debug = (...msg) => {

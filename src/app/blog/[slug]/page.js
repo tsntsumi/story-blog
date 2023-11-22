@@ -1,5 +1,4 @@
 import SingleBlogPage from "@/components/Blogs/SingleBlogPage"
-import Image from "@/components/Blogs/Image"
 import NextImage from "next/image"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -7,6 +6,7 @@ import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
 import { db, storage } from "@/lib/firebase/app"
 import { retrieveBlogs } from "@/lib/firebase/firestore"
+import Media, { Image, Video } from "@/components/Media"
 const logger = require("firebase-functions/logger")
 
 const ContentImage = ({ path, width, height, ...rest }) => {
@@ -40,8 +40,9 @@ const ContentVideo = async ({ path, width, height, ...rest }) => {
 }
 
 const components = {
-  StorageImage: ContentImage,
-  StorageVideo: ContentVideo
+  Image: Image,
+  Video: Video,
+  Media: Media
 }
 
 const ContentText = ({ text }) => {
@@ -60,16 +61,16 @@ const Content = ({ content }) => {
   if (content.type === "text") {
     return <ContentText text={content.value} />
   }
-  if (content.type === "images") {
-    const images = [...content.value]
-    // return images.map((image, key) => <ContentImage path={image} key={key} />)
-    return <></>
-  }
-  if (content.type === "videos") {
-    const videos = [...content.value]
-    // return videos.map((video, key) => <ContentVideo path={video} key={key} />)
-    return <></>
-  }
+  /* if (content.type === "images") {
+   *   const images = [...content.value]
+   *   // return images.map((image, key) => <ContentImage path={image} key={key} />)
+   *   return <></>
+   * }
+   * if (content.type === "videos") {
+   *   const videos = [...content.value]
+   *   // return videos.map((video, key) => <ContentVideo path={video} key={key} />)
+   *   return <></>
+   * } */
   return <>{content.value}</>
 }
 

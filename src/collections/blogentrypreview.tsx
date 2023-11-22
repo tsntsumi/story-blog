@@ -1,11 +1,9 @@
 "use client"
-import React, { Component, useEffect, useState } from "react"
-import Image from "next/image"
 import Markdown from "react-markdown"
-import type { ExtraProps } from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
+import Media, { Image, Video } from "@/components/Media"
 
 import {
   Box,
@@ -35,32 +33,19 @@ import { BlogEntry } from "@/types/blog"
 export function BlogEntryPreview({
   modifiedValues
 }: EntityCustomViewParams<BlogEntry>) {
-  const storage = useStorageSource()
-
-  const [headerUrl, setHeaderUrl] = useState<string | undefined>()
-  useEffect(() => {
-    if (modifiedValues?.hero) {
-      storage
-        .getDownloadURL(modifiedValues.hero)
-        .then((res) => setHeaderUrl(res.url))
-    }
-  }, [storage, modifiedValues?.hero])
-
   return (
     <Box>
-      {headerUrl && (
-        <Image
-          alt={"Header"}
-          style={{
-            width: "100%",
-            maxHeight: "300px",
-            objectFit: "cover"
-          }}
-          width={320}
-          height={240}
-          src={headerUrl}
-        />
-      )}
+      <Media
+        alt={"Header"}
+        style={{
+          width: "100%",
+          maxHeight: "300px",
+          objectFit: "cover"
+        }}
+        width={320}
+        height={240}
+        src={modifiedValues?.hero}
+      />
 
       <Container
         maxWidth={"md"}
@@ -134,7 +119,7 @@ export function Images({ storagePaths }: { storagePaths: string[] }) {
             height: 250
           }}
         >
-          <StorageImage storagePath={path} width={250} height={250} />
+          <Image src={path} alt={"Content image"} width={250} height={250} />
         </Box>
       ))}
     </Box>
@@ -155,75 +140,17 @@ export function Videos({ storagePaths }: { storagePaths: string[] }) {
             height: 250
           }}
         >
-          <StorageVideo storagePath={path} width={250} height={250} />
+          <Video src={path} width={250} height={250} />
         </Box>
       ))}
     </Box>
   )
 }
 
-export function StorageImage(props) {
-  const storage = useStorageSource()
-  const [url, setUrl] = useState<string | undefined>()
-  const { storagePath, width, height } = props
-
-  useEffect(() => {
-    if (storagePath) {
-      storage.getDownloadURL(storagePath).then((res) => setUrl(res.url))
-    }
-  }, [storage, storagePath])
-
-  if (!storagePath) return <></>
-
-  return (
-    <div className="mx-auto">
-      <Image
-        alt={"Generic"}
-        className="w-full h-full object-contain"
-        width={width}
-        height={height}
-        src={url}
-      />
-    </div>
-  )
-}
-
-export function StorageVideo(props) {
-  const storage = useStorageSource()
-  const [url, setUrl] = useState<string | undefined>()
-  const { storagePath, width, height } = props
-
-  useEffect(() => {
-    if (storagePath) {
-      storage.getDownloadURL(storagePath).then((res) => setUrl(res.url))
-    }
-  }, [storage, storagePath])
-
-  if (!storagePath) return <></>
-
-  return (
-    <div className="mx-auto">
-      <video
-        controls
-        muted={true}
-        autoPlay={true}
-        className="w-full h-full object-contain"
-        width={width}
-        height={height}
-        src={url}
-      />
-    </div>
-  )
-}
-
-class MarkdownComponents extends Component {
-  StorageImage?: any
-  StorageVideo?: any
-}
-
 const components: any = {
-  StorageImage: StorageImage,
-  StorageVideo: StorageVideo
+  Image: Image,
+  Video: Video,
+  Media: Media
 }
 
 function Text({ markdownText }: { markdownText: string }) {
