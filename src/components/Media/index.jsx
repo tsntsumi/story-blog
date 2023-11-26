@@ -7,7 +7,7 @@ import NextImage from "next/image"
 export function Image({ src, alt, ...opts }) {
   const [mediaURL, setMediaURL] = useState("")
   useEffect(() => {
-    if (!mediaURL) {
+    if (!mediaURL && src) {
       const mediaRef = ref(storage, src)
       getDownloadURL(mediaRef).then((url) => setMediaURL(url))
     }
@@ -23,7 +23,7 @@ export function Image({ src, alt, ...opts }) {
 export function Video({ src, ...opts }) {
   const [mediaURL, setMediaURL] = useState("")
   useEffect(() => {
-    if (!mediaURL) {
+    if (!mediaURL && src) {
       const mediaRef = ref(storage, src)
       getDownloadURL(mediaRef).then((url) => setMediaURL(url))
     }

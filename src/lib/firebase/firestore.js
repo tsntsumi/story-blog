@@ -75,5 +75,5 @@ export async function blogBySlug(slug) {
     console.log("Error: Invalid slug received: ", slug)
     return
   }
-  return blogs({ slug: slug, limit: 1 })
+  return await retrieveBlogs({ slug: slug, limit: 1 })
 }
