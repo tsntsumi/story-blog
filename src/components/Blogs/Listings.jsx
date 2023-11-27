@@ -3,16 +3,13 @@ import { React, useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import {
-  retrieveBlogs,
-  retrieveBlogsSnapshot
-} from "@/lib/firebase/firestore.js"
+import { retrieveBlogsSnapshot } from "@/lib/firebase/firestore.js"
 import SectionHeader from "@/components/Common/SectionHeader"
 import BlogItem from "./Item"
 
-console.debug = (...msg) => {
-  /* do nothing */
-}
+//console.debug = (...msg) => {
+/* do nothing */
+//}
 
 export default function BlogListings({ headerInfo, searchParams }) {
   const router = useRouter()
@@ -20,18 +17,20 @@ export default function BlogListings({ headerInfo, searchParams }) {
   const [filters, setFilters] = useState(searchParams)
 
   useEffect(() => {
-    console.debug("Filters: ", filters)
     const unsubscribe = retrieveBlogsSnapshot((data) => {
-      console.debug("Snapshots: ", data)
       setBlogs(data)
     }, filters)
     return () => {
       if (unsubscribe && typeof unsubscribe === "function") {
-        console.debug("BlogListings unsubscribe", typeof unsubscribe)
         unsubscribe()
       }
     }
   }, [filters, setBlogs])
+  if (!blogs) {
+    return (
+      <div className="items-center w-fit h-fit mx-auto my-auto">Loading...</div>
+    )
+  }
   return (
     <section className="py-20 lg:py-25 xl:py-30">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">

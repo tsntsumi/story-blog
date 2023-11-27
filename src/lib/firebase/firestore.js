@@ -1,3 +1,4 @@
+import { basename } from "path"
 import {
   collection,
   onSnapshot,
@@ -15,21 +16,28 @@ import {
 } from "firebase/firestore"
 
 import { db } from "@/lib/firebase/app"
-import { imageURL } from "@/lib/firebase/storage"
+import { imageURL, imageURLSync } from "@/lib/firebase/storage"
 
-function applyQueryFilters(q, { slug, offset, limitnum, category }) {
+function applyQueryFilters(q, params) {
+  const { slug, offset, category, status } = params
+
+  const w = []
   if (slug) {
     q = query(q, where("slug", "==", slug))
-  }
-  if (offset > 0) {
-    q = query(q, offset(offset))
-  }
-  if (limit > 0) {
-    q = query(q, limit(limitnum))
   }
   if (category) {
     q = query(q, where("category", "==", category))
   }
+  if (status) {
+    q = query(q, where("status", "==", status))
+  }
+  if (offset > 0) {
+    q = query(q, offset(offset))
+  }
+  if (params.limit > 0) {
+    q = query(q, limit(params.limit))
+  }
+  // q = query(q, orderBy("createdat", "desc"))
   return q
 }
 
@@ -39,19 +47,17 @@ export async function retrieveBlogs(filters = {}) {
   const r = await getDocs(q)
   return r.docs.map((d) => {
     const data = d.data()
-    data.createdat = new Date(d.data().createdat).toLocaleString()
-    data.heroURL = imageURL(data.hero)
+    data.date = new Date(data.createdat.seconds * 1000).toLocaleString()
     return {
       id: d.id,
-      ...data,
-      timestamp: new Date(d.data().timestamp)
+      ...data
     }
   })
 }
 
-export async function retrieveBlogsSnapshot(cb, filters = {}) {
+export function retrieveBlogsSnapshot(cb, filters = {}) {
   if (typeof cb !== "function") {
-    console.log("Error: The callback parameter is not a function")
+    console.error("Error: The callback parameter is not a function")
     return
   }
   const c = query(collection(db, "blogs"))
@@ -59,10 +65,10 @@ export async function retrieveBlogsSnapshot(cb, filters = {}) {
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
     const r = querySnapshot.docs.map((d) => {
       const data = d.data()
+      data.date = new Date(data.createdat.seconds * 1000).toLocaleString()
       return {
         id: d.id,
-        ...data,
-        createdat: data.createdat.toDate().toLocaleDateString()
+        ...data
       }
     })
     cb(r)

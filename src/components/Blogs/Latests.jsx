@@ -1,7 +1,6 @@
 "use client"
 import SectionHeader from "../Common/SectionHeader"
 import BlogListings from "./Listings"
-import { retrieveBlogs } from "@/lib/firebase/firestore.js"
 
 export default function LatestBlogs() {
   return (
@@ -12,7 +11,7 @@ export default function LatestBlogs() {
           subtitle: "ストーリー・セールス・ブログ",
           description: ""
         }}
-        searchParams={{ limit: 4 }}
+        searchParams={{ status: "published", limit: 4 }}
       />
     </>
   )

@@ -1,3 +1,5 @@
+"use client"
+import { React, useState, useEffect } from "react"
 import SingleBlogPage from "@/components/Blogs/SingleBlogPage"
 import NextImage from "next/image"
 import Markdown from "react-markdown"
@@ -5,9 +7,8 @@ import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
 import { db, storage } from "@/lib/firebase/app"
-import { retrieveBlogs } from "@/lib/firebase/firestore"
+import { retrieveBlogsSnapshot } from "@/lib/firebase/firestore"
 import Media, { Image, Video } from "@/components/Media"
-const logger = require("firebase-functions/logger")
 
 const ContentImage = ({ path, width, height, ...rest }) => {
   return (
@@ -21,11 +22,11 @@ const ContentImage = ({ path, width, height, ...rest }) => {
   )
 }
 
-const ContentVideo = async ({ path, width, height, ...rest }) => {
+const ContentVideo = ({ path, width, height, ...rest }) => {
   return (
     <>
-      <video
-        src={url}
+      <Video
+        src={path}
         width={width || 320}
         height={height || 240}
         controls
@@ -61,27 +62,46 @@ const Content = ({ content }) => {
   if (content.type === "text") {
     return <ContentText text={content.value} />
   }
-  /* if (content.type === "images") {
-   *   const images = [...content.value]
-   *   // return images.map((image, key) => <ContentImage path={image} key={key} />)
-   *   return <></>
-   * }
-   * if (content.type === "videos") {
-   *   const videos = [...content.value]
-   *   // return videos.map((video, key) => <ContentVideo path={video} key={key} />)
-   *   return <></>
-   * } */
+  if (content.type === "images") {
+    const images = [...content.value]
+    // return images.map((image, key) => <ContentImage path={image} key={key} />)
+    return <></>
+  }
+  if (content.type === "videos") {
+    const videos = [...content.value]
+    // return videos.map((video, key) => <ContentVideo path={video} key={key} />)
+    return <></>
+  }
   return <>{content.value}</>
 }
 
-export default async function BlogPage({ params }) {
-  const blogs = await retrieveBlogs({ slug: params.slug })
+export default function BlogPage({ params }) {
+  const { slug } = params
+  const [blogs, setBlogs] = useState([])
+  const [filters, setFilters] = useState({
+    slug: slug
+  })
 
-  return blogs?.map((blog) => (
-    <SingleBlogPage key={blog.id} blog={blog}>
-      {blog.content?.map((c, key) => (
-        <Content content={c} key={`$key`} />
-      ))}
-    </SingleBlogPage>
-  ))
+  useEffect(() => {
+    const unsubscribe = retrieveBlogsSnapshot((data) => {
+      setBlogs(data)
+    }, filters)
+    return () => {
+      if (unsubscribe && typeof unsubscribe === "function") {
+        unsubscribe()
+      }
+    }
+  }, [filters, slug])
+
+  return (
+    <>
+      {blogs.length > 0 && (
+        <SingleBlogPage blog={blogs.at(0)}>
+          {blogs?.at(0)?.content?.map((c, k) => (
+            <Content content={c} key={k} />
+          ))}
+        </SingleBlogPage>
+      )}
+    </>
+  )
 }

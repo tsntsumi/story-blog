@@ -3,11 +3,8 @@ import SharePost from "@/components/Blogs/SharePost"
 import Media from "@/components/Media"
 import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"
-const logger = require("firebase-functions/logger")
 
-const SingleBlogPage = async ({ blog, children }) => {
-  const { title, hero, author, createdAt, tags, category } = blog
-  const date = new Date(createdAt)
+const SingleBlogPage = ({ blog, children }) => {
   return (
     <>
       <section className="pb-20 pt-20 lg:pb-25 lg:pt-30 xl:pb-30 xl:pt-40">
@@ -18,36 +15,38 @@ const SingleBlogPage = async ({ blog, children }) => {
                 <div className="mb-10 w-full overflow-hidden ">
                   <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                     <Media
-                      src={hero}
-                      alt={title}
-                      className="rounded-md object-cover object-center"
+                      src={blog?.hero}
+                      alt={blog?.title}
+                      width={512}
+                      height={512}
+                      className="rounded-md object-cover object-center w-full"
                     />
                   </div>
                 </div>
 
                 <h2 className="mb-5 mt-11 text-3xl font-semibold text-black dark:text-white 2xl:text-sectiontitle2">
-                  {title}
+                  {blog?.title}
                 </h2>
 
                 <ul className="m-0 p-0 leading-tight md:mb-9 flex flex-wrap gap-0 md:gap-7.5 list-none">
                   <li className="m-0 p-0">
                     <span className="text-black dark:text-white">Author: </span>{" "}
-                    {author || "Anonymouth"}
+                    {blog?.author || "Anonymouth"}
                   </li>
                   <li className="m-0 p-0">
                     <span className="text-black dark:text-white">
-                      Published On: {date.toLocaleDateString() || "Someday"}
+                      Published On: {blog?.date || "Someday"}
                     </span>{" "}
                   </li>
                   <li className="my-0 py-0">
                     <span className="text-black dark:text-white">
-                      Category: {category?.toUpperCase()}
+                      Category: {blog?.category?.toUpperCase()}
                     </span>
                   </li>
                   <li className="my-0 py-0">
                     <span className="text-black dark:text-white">Tags:</span>
                     {" [ "}
-                    {tags?.join(", ")?.toUpperCase()}
+                    {blog?.tags?.join(", ")?.toUpperCase()}
                     {" ]"}
                   </li>
                 </ul>

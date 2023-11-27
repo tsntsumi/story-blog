@@ -16,7 +16,7 @@ const components = {
 
 export default function BlogItem({ blog }) {
   const elipsis = (text, count) =>
-    text?.slice(0, count) + (text.length > count ? "..." : "")
+    text?.slice(0, count) + (text?.length > count ? "..." : "")
   return (
     <>
       <div>

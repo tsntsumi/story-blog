@@ -1,7 +1,22 @@
-import { buildCollection, buildProperty } from "firecms"
+import { buildCollection, buildProperty, buildEntityCallbacks } from "firecms"
 import { BlogEntryPreview } from "./blogentrypreview"
 import { BlogEntry } from "@/types/blog"
 import { categoryEnumeration } from "@/collections/categories"
+
+const blogCallbacks = buildEntityCallbacks({
+  onPreSave: ({
+    collection,
+    path,
+    entityId,
+    values,
+    previousValues,
+    status
+  }) => {
+    // return the updated values
+    values.slug = values.slug?.trim()
+    return values
+  }
+})
 
 export const blogCollection = buildCollection<BlogEntry>({
   name: "Blog entries",
@@ -137,7 +152,8 @@ export const blogCollection = buildCollection<BlogEntry>({
       dataType: "date",
       autoValue: "on_create"
     }
-  }
+  },
+  callbacks: blogCallbacks
 })
 
 export default blogCollection
