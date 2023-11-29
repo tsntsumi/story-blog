@@ -1,7 +1,8 @@
 "use client"
 import { React, useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import NextLink from "next/link"
+import Link from "@/components/Link"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
@@ -20,24 +21,25 @@ export default function BlogItem({ blog }) {
   return (
     <>
       <div>
-        <Link
+        <NextLink
           href={`/blog/${blog.slug}`}
           className="relative block aspect-[368/239]"
         >
           <Media src={blog.hero} alt={blog.title} unoptimized fill />
-        </Link>
+        </NextLink>
 
         <div className="px-4">
-          <Link href={`/blog/${blog.slug}`}>
+          <NextLink href={`/blog/${blog.slug}`}>
             <h3 className="mb-3.5 mt-7.5 line-clamp-2 inline-block text-lg font-medium text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary xl:text-itemtitle2 w-full text-justify">
               {elipsis(blog.title, 40)}
             </h3>
-          </Link>
+          </NextLink>
           <div>
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeKatex]}>
               {blog.summary}
             </Markdown>
           </div>
+          <Link href={`/blog/${blog.slug}`}>もっと...</Link>
         </div>
       </div>
     </>
