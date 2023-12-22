@@ -42,3 +42,11 @@ next-env.d.ts
 /ui-debug.log
 /emulatorsData/
 /firebase-export-1701072652639q5tc07/
+
+/src/client_secret.json
+/sites/blog/src/client_secret.json
+/sites/blog/src/firebase-config.js
+/sites/meet/.env.local.template
+/sites/meet/.next/
+/sites/meet/node_modules/
+/sites/meet/src/firebase-config.js

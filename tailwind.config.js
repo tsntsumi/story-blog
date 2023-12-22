@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sites/**/src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sites/**/src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sites/**/src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sites/**/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sites/**/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sites/**/components/**/*.{js,ts,jsx,tsx,mdx}",
 
     // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}"
+    "./sites/**/src/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   darkMode: "class",
   theme: {
@@ -18,6 +18,19 @@ module.exports = {
     },
     extend: {
       colors: {
+        accent: {
+          50: "#f3b8b4",
+          100: "#eeb5b4",
+          200: "#eba7a3",
+          300: "#e48a86",
+          400: "#db675c",
+          500: "#ce4336",
+          600: "#a53331",
+          700: "#882525",
+          800: "#732123",
+          900: "#661e23"
+        },
+
         current: "currentColor",
         transparent: "transparent",
         stroke: "#EEEEEE",
@@ -39,6 +52,9 @@ module.exports = {
         alabaster: "#FBFBFB",
         zumthor: "#EDF5FF",
         socialicon: "#D1D8E0"
+      },
+      fontFamily: {
+        sans: "var(--font-public-sans), sans-serif"
       },
       fontSize: {
         metatitle: ["12px", "20px"],
@@ -145,5 +161,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/forms")]
 }

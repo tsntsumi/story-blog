@@ -1,5 +1,29 @@
 {
   "projects": {
+    "blog": "story-made",
     "default": "story-made"
-  }
+  },
+  "targets": {
+    "staging": {
+      "hosting": {
+        "blog": [
+          "blog"
+        ],
+        "meet": [
+          "meet"
+        ]
+      }
+    },
+    "story-made": {
+      "hosting": {
+        "blog": [
+          "blog"
+        ],
+        "meet": [
+          "meet"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

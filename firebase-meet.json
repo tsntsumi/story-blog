@@ -1,0 +1,59 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "site": "meet-with-alizza",
+    "source": "sites/meet",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "host": "192.168.0.10",
+      "port": 9090
+    },
+    "functions": {
+      "host": "192.168.0.10",
+      "port": 5001
+    },
+    "firestore": {
+      "host": "192.168.0.10",
+      "port": 8080
+    },
+    "hosting": {
+      "host": "192.168.0.10",
+      "port": 5501
+    },
+    "storage": {
+      "host": "192.168.0.10",
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    }
+  ]
+}
