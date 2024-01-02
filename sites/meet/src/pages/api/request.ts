@@ -88,7 +88,7 @@ export default async function handler(
     messageText: data.messageText,
   })
   await sendMail({
-    to: OWNER_EMAIL ?? "",
+    to: OWNER_EMAIL ?? "kikuo@alizza-ideal.com",
     subject: approveEmail.subject,
     body: approveEmail.body,
   })

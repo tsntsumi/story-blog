@@ -7,7 +7,7 @@ import type { AvailabilitySlotsMap } from "../../types"
 describe("getPotentialTimes", () => {
   const start = Day.dayFromString("2023-03-13") // 2023-03-13 is Monday
   const end = Day.dayFromString("2023-03-17") // 2023-03-17 is Friday
-  const duration = 60 // In minutes
+  const duration = 90 // In minutes
 
   const availabilitySlots: AvailabilitySlotsMap = {
     1: [

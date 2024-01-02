@@ -184,7 +184,7 @@ export default function BookingForm() {
                 準備しています ... <Spinner className="ml-2" />
               </>
             ) : (
-              <>プレゼントを手に入れる</>
+              <>スケジュールをおさえる</>
             )}
           </button>
           <button

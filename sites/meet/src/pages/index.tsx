@@ -14,10 +14,7 @@ import {
   DEFAULT_DURATION,
   OWNER_AVAILABILITY,
 } from "@/config"
-import {
-  useStateProvider,
-  withStateProvider,
-} from "@/context/AvailabilityContext"
+import { useProvider, withProvider } from "@/context/AvailabilityContext"
 import getAvailability from "@/lib/availability/getAvailability"
 import getBusyTimes from "@/lib/availability/getBusyTimes"
 import getPotentialTimes from "@/lib/availability/getPotentialTimes"
@@ -39,7 +36,7 @@ function Page({
   const {
     state: { duration, selectedDate },
     dispatch,
-  } = useStateProvider()
+  } = useProvider()
 
   const startDay = Day.dayFromString(start)
   const endDay = Day.dayFromString(end)
@@ -128,4 +125,4 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   }
 }
 
-export default withStateProvider(Page)
+export default withProvider(Page)

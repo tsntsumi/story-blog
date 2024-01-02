@@ -3,18 +3,18 @@ import type { AvailabilitySlotsMap } from "./lib/types"
 // 選択可能なスロットの分数
 export const ALLOWED_DURATIONS = [30, 60, 120]
 export const MENU_ITEMS = [
-  { name: "たっぷり", duration: 120 },
-  { name: "標準", duration: 60 },
   { name: "お急ぎ", duration: 30 },
+  { name: "基本", duration: 60 },
+  { name: "たっぷり", duration: 120 },
 ]
 
 // スロットの分数の初期値（何も指定していないばあの分数）
+export const DEFAULT_DURATION = 60
 export const DURATION_TO_NAME = (duration: number) =>
   MENU_ITEMS.find((item) => item.duration === duration)?.name
-export const DEFAULT_DURATION = 60
 export const DEFAULT_DURATION_NAME = DURATION_TO_NAME(DEFAULT_DURATION)
 
-export const OWNER_EMAIL = "kikuo@alizza-ideal.com"
+export const OWNER_EMAIL = "info+book@alizza-ideal.com"
 export const OWNER_NAME = "Alizza Ideal"
 export const OWNER_PHONE = "+81 70 9034 223 1"
 export const OWNER_ADDRESS = "〒311-1132 茨城県水戸市 東前町 1397番地の2"
@@ -26,7 +26,11 @@ export const EVENT_CALENDAR =
   "c_b971c39b68fae61a5607ed5b81b49e5e5e6dc68dbd329c6f6e0d549b836f5665@group.calendar.google.com"
 
 // 空き状況を確認するカレンダーのID（primary はメインのカレンダー）
-export const CALENDARS_TO_CHECK = [EVENT_CALENDAR, "kikuo@alizza-ideal.com"]
+export const CALENDARS_TO_CHECK = [
+  EVENT_CALENDAR,
+  "tsutsumi.kikuo@gmail.com",
+  "primary",
+]
 
 export const WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
 
@@ -39,8 +43,8 @@ export const OWNER_TIMEZONE = "Asia/Tokyo"
 
 export const LEAD_TIME = 120
 
-export const OFFER_OFFSET = 2
-export const OFFER_DAYS = 21
+export const OFFER_OFFSET = 7
+export const OFFER_DAYS = 28
 
 // １日の営業時間
 const DEFAULT_WORKDAY = [
