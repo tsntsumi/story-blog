@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 
 import ThemeToggler from "./ThemeToggler"
 import menuData from "./menuData"
-import Join from "@/components/Join"
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false)
@@ -58,10 +57,10 @@ const Header = () => {
             </a>
             <div className="w-fit m-0 mx-4 p-0 justify-center text-xs">
               <Link
-                href="https://meet.alizza-ideal.com"
+                href="/request/newsletter"
                 className="flex rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
               >
-                説明を予約
+                更新をお届けする
               </Link>
             </div>
 

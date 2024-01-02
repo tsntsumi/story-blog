@@ -8,20 +8,20 @@ export default async function Page() {
   const { category, tag } = useSearchParams()
   const status = "published"
   const categories = Object.keys(categoryMap)
+  const defaultCategory = "marketing"
+  const categoryName = categoryMap[category || defaultCategory]
 
   return (
     <BlogListings
       headerInfo={{
-        title: "ブログ一覧",
-        subtitle: "ストーリー・セールス・ブログ",
+        title: `${categoryName}ブログ一覧`,
+        subtitle: `ストーリー・${categoryName}・ブログ`,
         description: <></>
       }}
       searchParams={{
         status,
-        category,
-        tag,
-        totalPages,
-        currentPage
+        category: category || defaultCategory,
+        tag
       }}
     />
   )
