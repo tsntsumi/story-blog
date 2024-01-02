@@ -6,7 +6,7 @@ import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
-import { db, storage } from "@/lib/firebase/app"
+import { store, storage } from "@/lib/firebase/app"
 import { retrieveBlogsSnapshot } from "@/lib/firebase/firestore"
 import Media, { Image, Video } from "@/components/Media"
 

@@ -6,6 +6,9 @@ import Image from "next/image"
 import { retrieveBlogsSnapshot } from "@/lib/firebase/firestore.js"
 import SectionHeader from "@/components/Common/SectionHeader"
 import BlogItem from "./Item"
+import { categoryMap } from "@/collections/categories"
+
+const Categories = Object.keys(categoryMap)
 
 //console.debug = (...msg) => {
 /* do nothing */
