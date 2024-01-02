@@ -20,36 +20,52 @@ const Hero = () => {
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:py-0">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className="md:w-1/2 md:mx-auto text-justify">
-              <div className="h4 mb-4.5 text-2xl font-bold text-black dark:text-white border rounded-full p-1 px-4 mr-16 shadow-md shadow-amber-400">
-                キャッチコピーの
-                <span className="text-amber-600 text-3xl">錬金術</span>
+              <div className="h4 mb-4.5 text-xl md:text-2xl font-bold text-black dark:text-white border rounded-full p-1 px-8 mr-16 shadow-md shadow-amber-400">
+                <div className="text-lg md:text-xl">
+                  商品の魅力を黄金の輝きに変える
+                </div>
+                集客の
+                <span className="text-amber-600 text-2xl md:text-3xl font-serif font-black">
+                  錬金術
+                </span>
+              </div>
+              <div className="mb-3 mt-6 text-2xl font-bold text-black dark:text-white">
+                あなたが集客できないのは、商品の魅力を簡潔明瞭に言語化できていないのが原因です……
               </div>
               <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-                もっと売上を伸ばしたい経営者が、
+                集客の
                 <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
-                  キャッチコピー
+                  錬金術
                 </span>
-                の錬金術で商品を輝かせ、群衆を集め続ける
+                で魅了するキャッチコピーを作り、群衆を惹きつけ続けましょう
               </h1>
               <div className="text-base md:text-xl my-8 w-full items-start justify-between">
-                <p>今や、どんな経営者も悩んでいます。</p>
                 <ul className="list-style-suffer pl-6">
                   <li className="list-style-happy">
-                    素敵な商品、素晴らしいサービスはある、、、でも
+                    商品やサービスに自身はある、、、でも
                   </li>
                   <li>なぜかお客が集まらないと感じている</li>
-                  <li>言い方が悪いのか、集客の方法が悪いのかわからない</li>
-                  <li>自分の商品は簡単には説明できないと思っている</li>
-                  <li>本業忙しいから、もっと簡単に集客できたらと考えている</li>
-                  <li>パソコンが苦手で、ネットで集客するのをためらっている</li>
+                  <li>商品を説明する国語力がないと思っている</li>
+                  <li>自分の商品は簡単には説明できないと信じている</li>
+                  <li>お客の目線で説明しているのに、自慢話ウザいと言われた</li>
                 </ul>
                 <p>
-                  あなたが、今そのように感じているのであれば、キャッチコピーの錬金術テンプレートを使って、商品の価値を明確に言語化すれば、その悩みを解決できます。
+                  もしあなたが、そのように感じているのであれば、集客の錬金術のキャッチコピー・テンプレートに当てはめて、商品の価値を言語化してください。
+                </p>
+                <p>
+                  言語化して、一瞬で「コレ欲しい！」と思わせられれば、
+                  ネットでもチラシでもＰＯＰでも、集客できるようになり、
+                  あなたの資産が増え続けていきます。
                 </p>
               </div>
 
               <div className="mt-10">
-                <Join>サービス説明をスケジュール</Join>
+                <Join>
+                  <div className="grid grid-cols-1 justify-center">
+                    <div className="text-sm mx-auto">集客の錬金術って何？</div>
+                    <div>知るためのスケジュールをおさえる</div>
+                  </div>
+                </Join>
               </div>
             </div>
 
@@ -80,7 +96,7 @@ const Hero = () => {
                   <Image
                     className="shadow-solid-l dark:hidden object-cover"
                     src="/images/hero/alchemist-golden-packege.webp"
-                    alt="Hero"
+                    alt="言語化できていないパッケージを錬金術で黄金の輝きに変える"
                     unoptimized
                     width={720}
                     height={404}
@@ -88,11 +104,14 @@ const Hero = () => {
                   <Image
                     className="hidden shadow-solid-l dark:block object-cover"
                     src="/images/hero/alchemist-golden-red-packege.webp"
-                    alt="Hero"
+                    alt="言語化できていないパッケージを錬金術で黄金の輝きに変える"
                     unoptimized
                     width={720}
                     height={404}
                   />
+                  <p className="text-xs text-center">
+                    言語化できていないパッケージを集客の錬金術で黄金の輝きに変える
+                  </p>
                 </div>
               </div>
             </div>

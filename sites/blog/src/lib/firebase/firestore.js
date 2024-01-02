@@ -15,7 +15,7 @@ import {
   addDac
 } from "firebase/firestore"
 
-import { db } from "@/lib/firebase/app"
+import { store } from "@/lib/firebase/app"
 import { imageURL, imageURLSync } from "@/lib/firebase/storage"
 
 function applyQueryFilters(q, params) {
@@ -42,7 +42,7 @@ function applyQueryFilters(q, params) {
 }
 
 export async function retrieveBlogs(filters = {}) {
-  const c = query(collection(db, "blogs"))
+  const c = query(collection(store, "blogs"))
   const q = applyQueryFilters(c, filters)
   const r = await getDocs(q)
   return r.docs.map((d) => {
@@ -60,7 +60,7 @@ export function retrieveBlogsSnapshot(cb, filters = {}) {
     console.error("Error: The callback parameter is not a function")
     return
   }
-  const c = query(collection(db, "blogs"))
+  const c = query(collection(store, "blogs"))
   const q = applyQueryFilters(c, filters)
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
     const r = querySnapshot.docs.map((d) => {

@@ -11,11 +11,12 @@ import {
   FirebaseCMSApp
 } from "firecms"
 
-import "typeface-rubik"
-import "@fontsource/ibm-plex-mono"
+//import "typeface-rubik"
+//import "@fontsource/ibm-plex-mono"
 import firebaseConfig from "@/firebase-config"
 
 import { blogCollection } from "@/collections/blogentries"
+const logo = "/images/logo/logo-light.svg"
 
 export default function CMS() {
   const cmsAuthenticator: Authenticator<FirebaseUser> = useCallback(
@@ -23,8 +24,6 @@ export default function CMS() {
       if (user?.email?.includes("flanders")) {
         throw Error("Stupid Flanders!")
       }
-
-      console.log("Allowing access to", user?.email)
 
       return true
     },
@@ -56,6 +55,7 @@ export default function CMS() {
         basePath={"/cms"}
         authentication={cmsAuthenticator}
         collections={[blogCollection]}
+        logo={logo}
         firebaseConfig={firebaseConfig}
         signInOptions={["password", "google.com"]}
       />

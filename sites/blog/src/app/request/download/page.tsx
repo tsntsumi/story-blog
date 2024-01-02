@@ -16,7 +16,7 @@ type FormState = "open" | "busy" | "error" | "closed"
 export default function Squeeze() {
   const [formState, setFormState] = useState<FormState>("open")
   const router = useRouter()
-  const action = "最新情報を受け取る"
+  const label = "購読する"
 
   useEffect(() => {}, [])
 
@@ -28,6 +28,28 @@ export default function Squeeze() {
           handleSubmit(event, setFormState, router)
         }}
       >
+        <div className="flex flex-col space-y-4">
+          <div className="isolate -space-y-px rounded-md shadow-sm">
+            <div className="relative rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
+              <label
+                htmlFor="name"
+                className="block text-xs font-medium text-gray-900"
+              >
+                お名前
+              </label>
+              <input
+                aria-label="name"
+                required
+                aria-required
+                type="name"
+                name="name"
+                id="name"
+                className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                placeholder="お名前・ニックネーム"
+              />
+            </div>
+          </div>
+        </div>
         <div className="flex flex-col space-y-4">
           <div className="isolate -space-y-px rounded-md shadow-sm">
             <div className="relative rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
@@ -66,7 +88,7 @@ export default function Squeeze() {
                 準備しています ... <Spinner className="ml-2" />
               </>
             ) : (
-              <>{action}</>
+              <>{label}</>
             )}
           </button>
           <button
@@ -99,7 +121,7 @@ function handleSubmit(
   event.preventDefault()
 
   setFormState("busy")
-  fetch(`/request`, {
+  fetch(`/subscribe`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -112,7 +134,7 @@ function handleSubmit(
       console.debug("load json")
       if (json.success) {
         console.debug("succeeded")
-        router.push("/confirmation")
+        router.push("/confirmname")
       } else {
         setFormState("error")
       }

@@ -56,12 +56,12 @@ const Header = () => {
                 className="w-full dark:hidden"
               />
             </a>
-            <div className="w-fit m-0 p-0 justify-center text-xs">
+            <div className="w-fit m-0 mx-4 p-0 justify-center text-xs">
               <Link
                 href="https://meet.alizza-ideal.com"
-                className="flex rounded-full mx-auto bg-black px-7.5 py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
+                className="flex rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
               >
-                説明をスケジュール
+                説明を予約
               </Link>
             </div>
 

@@ -5,7 +5,6 @@ import { useState } from "react"
 import FAQItem from "./FAQItem"
 import faqData from "./faqData"
 import Join from "@/components/Join"
-import DownloadForm from "@/components/Download"
 
 const FAQ = () => {
   const [activeFaq, setActiveFaq] = useState(1)
@@ -105,14 +104,13 @@ const FAQ = () => {
             </motion.div>
           </div>
         </div>
-        <p className="mt-18 text-center">
-          内容を知るためにスケジュールを確保して下さい。
-        </p>
         <div className="mt-6">
-          <Join>サービス説明をスケジュール</Join>
-        </div>
-        <div>
-          <DownloadForm />
+          <Join>
+            <div className="grid grid-cols-1 justify-center">
+              <div className="text-sm mx-auto">集客の錬金術って何？</div>
+              <div>知るためのスケジュールをおさえる</div>
+            </div>
+          </Join>
         </div>
       </section>
       {/* <!-- ===== FAQ End ===== --> */}

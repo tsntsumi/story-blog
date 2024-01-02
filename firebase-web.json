@@ -4,6 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "story-made",
     "source": "sites/blog",
     "ignore": [
       "firebase.json",
