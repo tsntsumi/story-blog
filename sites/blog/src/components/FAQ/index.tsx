@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import FAQItem from "./FAQItem"
 import faqData from "./faqData"
-import Join from "@/components/Join"
+import Subscribe from "@/components/Common/Subscribe"
 
 const FAQ = () => {
   const [activeFaq, setActiveFaq] = useState(1)
@@ -104,13 +104,8 @@ const FAQ = () => {
             </motion.div>
           </div>
         </div>
-        <div className="mt-6">
-          <Join>
-            <div className="grid grid-cols-1 justify-center">
-              <div className="text-sm mx-auto">集客の錬金術って何？</div>
-              <div>知るためのスケジュールをおさえる</div>
-            </div>
-          </Join>
+        <div className="mt-6 w-fit mx-auto">
+          <Subscribe />
         </div>
       </section>
       {/* <!-- ===== FAQ End ===== --> */}

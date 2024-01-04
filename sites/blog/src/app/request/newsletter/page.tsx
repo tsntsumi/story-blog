@@ -1,13 +1,13 @@
 "use client"
 import type { Dispatch, FormEvent } from "react"
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"
 
 import Spinner from "@/components/Common/Spinner"
 
-import { logger } from "firebase-functions/logger"
+import logger from "firebase-functions/logger"
 require("firebase-functions/logger/compat")
 
 const SET_STATE = "SET_STATE"
@@ -17,14 +17,17 @@ type FormState = "open" | "busy" | "error" | "closed"
 export default function Squeeze() {
   const [formState, setFormState] = useState<FormState>("open")
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const category = searchParams.get("category")
+  const blogTitle = searchParams.get("blog")
   const label = "最新情報を受け取る"
 
   useEffect(() => {}, [])
 
   return (
-    <section className="m-6 w-auto w-11/12 mx-auto">
-      <h1 className="mx-auto w-fit">ブログ更新やお役立ち情報をお届けします</h1>
-      <div className="md:w-1/2 md:mx-auto xl:w-1/3">
+    <section className="my-6 mx-2 md:mx-6">
+      <h1 className="w-fit mx-auto">ブログ更新やお役立ち情報をお届けします</h1>
+      <div className="mx-4 md:w-1/2 md:mx-auto xl:w-1/3">
         <form
           className="mt-3 sm:mt-0 sm:ml-4"
           onSubmit={(event) => {
@@ -75,6 +78,13 @@ export default function Squeeze() {
               </div>
             </div>
           </div>
+          <input
+            type="hidden"
+            name="category"
+            id="category"
+            value={`${category}`}
+          />
+          <input type="hidden" name="blog" id="blog" value={`${blogTitle}`} />
           {formState === "error" && (
             <div className="bg-red-50 text-red-600 p-2 text-sm">
               リクエストの受付け時にエラーがありました。時間をおいてもう一度お試し下さい。
@@ -137,7 +147,7 @@ function handleSubmit(
       const json = await data.json()
       setFormState("closed")
       if (json.success) {
-        router.push("/confirmation")
+        router.push("/request/newsletter/confirmation")
       } else {
         setFormState("error")
       }

@@ -76,8 +76,9 @@ const Content = ({ content }) => {
 }
 
 export default function BlogPage({ params }) {
-  const { slug } = params
+  const { category, slug } = params
   const [blogs, setBlogs] = useState([])
+  const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState({
     slug: slug
   })
@@ -85,18 +86,19 @@ export default function BlogPage({ params }) {
   useEffect(() => {
     const unsubscribe = retrieveBlogsSnapshot((data) => {
       setBlogs(data)
+      setLoading(false)
     }, filters)
     return () => {
       if (unsubscribe && typeof unsubscribe === "function") {
         unsubscribe()
       }
     }
-  }, [filters, slug])
+  }, [filters, slug, setLoading])
 
   return (
     <>
       {blogs.length > 0 && (
-        <SingleBlogPage blog={blogs.at(0)}>
+        <SingleBlogPage blog={blogs.at(0)} category={category}>
           {blogs?.at(0)?.content?.map((c, k) => (
             <Content content={c} key={k} />
           ))}

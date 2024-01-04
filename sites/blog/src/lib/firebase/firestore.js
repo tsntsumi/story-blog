@@ -37,7 +37,6 @@ function applyQueryFilters(q, params) {
   if (params.limit > 0) {
     q = query(q, limit(params.limit))
   }
-  // q = query(q, orderBy("createdat", "desc"))
   return q
 }
 

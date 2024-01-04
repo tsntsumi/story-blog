@@ -71,12 +71,12 @@
 
   section blockquote::after {
       content: "";
-      @apply absolute bottom-0 right-0 h-14 w-14 bg-[url(/images/shape/quote-close.svg)] bg-contain bg-right-bottom bg-no-repeat;
+      @apply absolute bottom-0 right-0 h-7 w-7 md:h-14 md:w-14 bg-[url(/images/shape/quote-close.svg)] bg-contain bg-right-bottom bg-no-repeat;
   }
 
   section blockquote::before {
       content: "";
-      @apply absolute left-0 top-0 h-[48px] w-[60px] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/shape/quote.svg)];
+      @apply absolute left-0 top-0 h-7 w-7 md:h-[48px] md:w-[60px] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/shape/quote.svg)];
   }
 
   section span.marker-blue {

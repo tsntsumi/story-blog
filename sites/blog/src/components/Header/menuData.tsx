@@ -46,9 +46,40 @@ const menuData: Menu[] = [
   },
   {
     id: 3,
-    title: "Blog",
+    title: "ブログ",
     newTab: false,
-    path: "/blog"
+    submenu: [
+      {
+        id: 3.1,
+        title: "ビジネスマインド",
+        newTab: false,
+        path: "/blog/mindset"
+      },
+      {
+        id: 3.2,
+        title: "Googleマップ",
+        newTab: false,
+        path: "/blog/google-map"
+      },
+      {
+        id: 3.3,
+        title: "Google広告",
+        newTab: false,
+        path: "/blog/google-ads"
+      },
+      {
+        id: 3.4,
+        title: "マーケティング",
+        newTab: false,
+        path: "/blog/marketing"
+      },
+      {
+        id: 3.5,
+        title: "ストーリー・パワー",
+        newTab: false,
+        path: "/blog/story"
+      }
+    ]
   },
   {
     id: 3,

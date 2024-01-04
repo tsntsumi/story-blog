@@ -23,6 +23,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@types/nodemailer": "^6.4.14",
     "algoliasearch": "^4.20.0",
+    "clsx": "^2.1.0",
     "dotenv-webpack": "^8.0.1",
     "email": "^0.2.6",
     "firebase": "^10",

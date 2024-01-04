@@ -130,7 +130,7 @@ export const blogCollection = buildCollection<BlogEntry>({
       dataType: "string",
       columnWidth: 140,
       enumValues: categoryEnumeration,
-      defaults: "growth"
+      defaults: "marketing"
     }),
     status: ({ values }) => ({
       name: "Status",

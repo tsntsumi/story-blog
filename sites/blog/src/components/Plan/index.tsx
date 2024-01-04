@@ -3,7 +3,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import PlanItem from "./PlanItem"
 import planData from "./planData"
-import Join from "@/components/Join"
+import Subscribe from "@/components/Common/Subscribe"
 import SectionHeader from "@/components/Common/SectionHeader"
 
 const Plan = () => {
@@ -63,11 +63,10 @@ const Plan = () => {
               <li>お客を魅了する集客メッセージ</li>
               <li>売り込まずに売れる仕組み</li>
               <li>あなたから買いたいと言わせる商品</li>
-              <li>増え続ける売上</li>
-              <li>顧客との強く深い関係</li>
+              <li>増え続ける資産</li>
+              <li>顧客との強く深く長い関係</li>
               <li>あなたのビジネス・カテゴリーでのトップポジション</li>
               <li>スタッフ間での顧客サービスに対する意識の統一</li>
-              <li>スタッフに頼られ、慕われるリーダーシップ</li>
             </ul>
             <p>
               わたしたち Alizza Ideal は、
@@ -76,18 +75,13 @@ const Plan = () => {
             </p>
             <p>
               わかりやすく理解しやすいメッセージを発信出来るようになれば、
-              成功は約束されたも同然です。上の、あなたが得られるものの一覧を見てください。
+              成功は約束されたも同然です。
             </p>
-            <p>そう思いませんか？</p>
+            <p>なぜなら、あなたは上の一覧の内容を得ることが出来るからです。</p>
           </div>
         </motion.div>
-        <div className="mt-10">
-          <Join>
-            <div className="grid grid-cols-1 justify-center">
-              <div className="text-sm mx-auto">集客の錬金術って何？</div>
-              <div>知るためのスケジュールをおさえる</div>
-            </div>
-          </Join>
+        <div className="mt-10 w-fit mx-auto">
+          <Subscribe />
         </div>
       </section>
       {/* <!-- ===== Clients End ===== --> */}

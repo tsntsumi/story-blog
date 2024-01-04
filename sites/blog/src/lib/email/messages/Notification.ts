@@ -7,12 +7,16 @@ export default function NotificationEmail({
   email,
   name,
   offerName,
-  offerUrl
+  offerUrl,
+  category,
+  blog
 }: {
   email: string
   name: string
   offerName: string
   offerUrl: string
+  category: string
+  blog: string
 }) {
   const SUBJECT = `${name}様からリクエストがありました`
 
@@ -23,6 +27,10 @@ export default function NotificationEmail({
     `${offerName || ""}`,
     `<br>`,
     `${offerUrl || ""}`,
+    `<br>`,
+    `${category && "Category: " + category}`,
+    `<br>`,
+    `${blog && "Blog: " + blog}`,
     `<br>`,
     `${OWNER_NAME}`
   ]

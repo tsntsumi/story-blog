@@ -4,7 +4,7 @@ export default function Confirmation() {
   return (
     <div className="py-8 sm:py-16 mx-auto max-w-2xl">
       <h1 className="text-3xl font-bold tracking-tight text-accent-700 sm:text-5xl">
-        ニュースレター購読のお申し込み、ありがとうございます。
+        ブログ更新やお役立ち情報お知らせのお申し込み、ありがとうございます。
       </h1>
       <p className="mt-6 text-xl text-gray-800 font-medium">
         お申し込みありがとうございます。
@@ -22,7 +22,7 @@ export default function Confirmation() {
         迷惑メールフォルダにも見つからない場合は、もう一度お申し込みいただくか、
         下記メールアドレスまで、直接お申し込み下さい。
       </p>
-      <div className="font-mono">
+      <div className="mt-6 font-mono">
         <a href={`mailto://${OWNER_EMAIL}`}>
           {OWNER_NAME} &lt;{OWNER_EMAIL}&gt;
         </a>

@@ -15,21 +15,28 @@ const components = {
   Media: Media
 }
 
-export default function BlogItem({ blog }) {
+export default function BlogItem({ blog, category }) {
   const elipsis = (text, count) =>
     text?.slice(0, count) + (text?.length > count ? "..." : "")
   return (
     <>
       <div>
         <NextLink
-          href={`/blog/${blog.slug}`}
-          className="relative block aspect-[368/239]"
+          href={`/blog/${category}/${blog.slug}`}
+          className="relative block"
         >
-          <Media src={blog.hero} alt={blog.title} unoptimized fill />
+          <Media
+            src={blog.hero}
+            alt={blog.title}
+            unoptimized
+            width="368"
+            height="239"
+            classname="object-fit"
+          />
         </NextLink>
 
         <div className="px-4">
-          <NextLink href={`/blog/${blog.slug}`}>
+          <NextLink href={`/blog/${category}/${blog.slug}`}>
             <h3 className="mb-3.5 mt-7.5 line-clamp-2 inline-block text-lg font-medium text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary xl:text-itemtitle2 w-full text-justify">
               {elipsis(blog.title, 40)}
             </h3>
@@ -39,7 +46,7 @@ export default function BlogItem({ blog }) {
               {blog.summary}
             </Markdown>
           </div>
-          <Link href={`/blog/${blog.slug}`}>もっと...</Link>
+          <Link href={`/blog/${category}/${blog.slug}`}>読む...</Link>
         </div>
       </div>
     </>

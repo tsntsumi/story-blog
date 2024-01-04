@@ -60,7 +60,7 @@ const Header = () => {
                 href="/request/newsletter"
                 className="flex rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
               >
-                更新をお届けする
+                集客情報を受取る
               </Link>
             </div>
 

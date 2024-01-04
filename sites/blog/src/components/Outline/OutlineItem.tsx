@@ -25,22 +25,29 @@ const OutlineItem = ({ outline }: { outline: Outline }) => {
         transition={{ duration: 1, delay: id }}
         viewport={{ once: true }}
         href={href}
-        className="animate_top z-40 max-w-full relative block min-h-18 w-1/3 max-w-[256px] xl:p-12.5"
+        className="animate_top z-40 max-w-full relative block min-h-18 w-1/3 max-w-[256px] xl:p-12.5 mx-auto"
       >
-        <div className="relative flex h-32 w-32 mb-8 items-center justify-center rounded-[4px] bg-transparent">
-          {image && (
-            <Image className="block dark:hidden" src={image} alt={name} fill />
-          )}
-          {imageLight && (
-            <Image
-              className="hidden dark:block"
-              src={imageLight}
-              alt={name}
-              fill
-            />
-          )}
+        <div>
+          <div className="relative flex h-32 w-32 mb-8 items-center justify-center rounded-[4px] bg-transparent mx-auto">
+            {image && (
+              <Image
+                className="block dark:hidden"
+                src={image}
+                alt={name}
+                fill
+              />
+            )}
+            {imageLight && (
+              <Image
+                className="hidden dark:block"
+                src={imageLight}
+                alt={name}
+                fill
+              />
+            )}
+          </div>
+          {content && <div>{content}</div>}
         </div>
-        {content && <div>{content}</div>}
       </motion.a>
     </>
   )

@@ -16,7 +16,7 @@ import {
 import firebaseConfig from "@/firebase-config"
 
 import { blogCollection } from "@/collections/blogentries"
-const logo = "/images/logo/logo-light.svg"
+const logo = "/images/logo/alizza-ideal-logo-light.png"
 
 export default function CMS() {
   const cmsAuthenticator: Authenticator<FirebaseUser> = useCallback(

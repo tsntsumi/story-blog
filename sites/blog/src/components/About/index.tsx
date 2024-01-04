@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import Join from "../Join"
+import Subscribe from "@/components/Common/Subscribe"
 
 const About = () => {
   return (
@@ -73,7 +73,9 @@ const About = () => {
                 あなたが解決する問題を伝え、あなたの製品をソリューションとして位置づけ、
                 見込み客を獲得し、成約してコンバージョンします
               </p>
-              <Join>一緒に始めましょう</Join>
+              <div className="mt-6 w-fit mx-auto">
+                <Subscribe />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -112,7 +114,9 @@ const About = () => {
               <p>
                 どうやって見込み客を獲得すればいいのでしょうか？それには、あなたのビジネスの対象となる人たちが欲しがり、ダウンロードしたくなるコンテンツを作成して下さい。
               </p>
-              <Join>一緒に始めましょう</Join>
+              <div className="mt-10 w-fit mx-auto">
+                <Subscribe />
+              </div>
             </motion.div>
             <motion.div
               variants={{
@@ -215,7 +219,9 @@ const About = () => {
                 見込み客と連絡を取り続けましょう。
               </p>
 
-              <Join>一緒に始めましょう</Join>
+              <div className="mt-10 w-fit mx-auto">
+                <Subscribe />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -258,7 +264,9 @@ const About = () => {
                 見込み客が、あなたの商品が抱えている問題を解決できると理解できていれば、
                 ひとりでに財布のひもをゆるめ、注文せずにはいられなくなります。
               </p>
-              <Join>一緒に始めましょう</Join>
+              <div className="mt-10 w-fit mx-auto">
+                <Subscribe />
+              </div>
             </motion.div>
             <motion.div
               variants={{
