@@ -18,6 +18,7 @@ const components = {
 export default function BlogItem({ blog, category }) {
   const elipsis = (text, count) =>
     text?.slice(0, count) + (text?.length > count ? "..." : "")
+
   return (
     <>
       <div>
@@ -42,11 +43,18 @@ export default function BlogItem({ blog, category }) {
             </h3>
           </NextLink>
           <div>
+            {blog && blog.date && (
+              <div className="text-black dark:text-white text-xs text-right">
+                | Published On: {blog.date} |
+              </div>
+            )}
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeKatex]}>
               {blog.summary}
             </Markdown>
           </div>
-          <Link href={`/blog/${category}/${blog.slug}`}>読む...</Link>
+          {blog.slug && (
+            <Link href={`/blog/${category}/${blog.slug}`}>読む...</Link>
+          )}
         </div>
       </div>
     </>

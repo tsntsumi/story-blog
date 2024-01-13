@@ -10,7 +10,7 @@ import {
 
 import { formatLocalTime, formatLocalDate } from "./helpers"
 
-import type { DateTimeInterval } from "../types"
+import type { AvailabilitySlotsMap, DateTimeInterval } from "../types"
 import { SLOT_PADDING, LEAD_TIME } from "../../config"
 
 /**
@@ -31,11 +31,13 @@ export default function getAvailability({
   busy,
   padding = SLOT_PADDING,
   leadTime = LEAD_TIME,
+  availabilitySlots: {},
 }: {
   potential?: DateTimeInterval[]
   busy?: DateTimeInterval[]
   padding?: number
   leadTime?: number
+  availabilitySlots?: AvailabilitySlotsMap
 }): DateTimeInterval[] {
   const openSlots: DateTimeInterval[] = []
 

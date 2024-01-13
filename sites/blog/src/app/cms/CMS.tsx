@@ -16,6 +16,7 @@ import {
 import firebaseConfig from "@/firebase-config"
 
 import { blogCollection } from "@/collections/blogentries"
+import { newsletterCollection } from "@/collections/newsletterentries"
 const logo = "/images/logo/alizza-ideal-logo-light.png"
 
 export default function CMS() {
@@ -54,7 +55,7 @@ export default function CMS() {
         name={"Blog Content Manager"}
         basePath={"/cms"}
         authentication={cmsAuthenticator}
-        collections={[blogCollection]}
+        collections={[blogCollection, newsletterCollection]}
         logo={logo}
         firebaseConfig={firebaseConfig}
         signInOptions={["password", "google.com"]}

@@ -19,17 +19,17 @@ require("firebase-functions/logger/compat")
 
 const locations = [
   {
-    name: "ご来社",
+    name: "当方へご来社",
     value: "visit",
   },
   {
     name: "Google Meet (リモート会議)",
     value: "meet",
   },
-  /* {
-   *   name: "お電話",
-   *   value: "phone",
-   * }, */
+  {
+    name: "当方からお電話",
+    value: "phone",
+  },
 ]
 
 export default function BookingForm() {

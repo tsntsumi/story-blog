@@ -23,7 +23,16 @@ export default function RootLayout({ children }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta
           name="description"
-          content="商品の魅力を言語化できないで悩んでいる人が、集客の錬金術テンプレートでお客を魅了するキャッチコピーを作り売上と資産を増やし続けるためのサイト"
+          content={`
+Alizza Ideal は、地域密着でがんばっている、
+あなたのためのマーケティング・エージェンシーです。
+
+あなたのビジネスの状況と予算にピッタリとあわせてカスタマイズした、
+オーダーメイドのマーケティング施策を提供します。
+
+とくに、あなたが商品の魅力を言語化できないで悩んでいるなら、
+お客の注目を集め、魅了し、惹き寄せるキャッチコピーをつくり、
+買いたくさせる仕組みをオンライン上に構築します。`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

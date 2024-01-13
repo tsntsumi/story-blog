@@ -26,7 +26,9 @@ export default function Squeeze() {
 
   return (
     <section className="my-6 mx-2 md:mx-6">
-      <h1 className="w-fit mx-auto">ブログ更新やお役立ち情報をお届けします</h1>
+      <h1 className="w-fit mx-auto">
+        集客の錬金術のお役立ち情報をお届けします
+      </h1>
       <div className="mx-4 md:w-1/2 md:mx-auto xl:w-1/3">
         <form
           className="mt-3 sm:mt-0 sm:ml-4"

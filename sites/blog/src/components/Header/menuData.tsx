@@ -5,12 +5,14 @@ const menuData: Menu[] = [
     id: 1,
     title: "ホーム",
     newTab: false,
+    attributes: "",
     path: "/"
   },
   {
     id: 2,
     title: "詳しく",
     newTab: false,
+    attributes: "hidden md:block",
     submenu: [
       {
         id: 2.1,
@@ -48,18 +50,13 @@ const menuData: Menu[] = [
     id: 3,
     title: "ブログ",
     newTab: false,
+    attributes: "",
     submenu: [
-      {
-        id: 3.1,
-        title: "ビジネスマインド",
-        newTab: false,
-        path: "/blog/mindset"
-      },
       {
         id: 3.2,
         title: "Googleマップ",
         newTab: false,
-        path: "/blog/google-map"
+        path: "/blog/google-maps"
       },
       {
         id: 3.3,
@@ -74,6 +71,12 @@ const menuData: Menu[] = [
         path: "/blog/marketing"
       },
       {
+        id: 3.1,
+        title: "ビジネスマインド",
+        newTab: false,
+        path: "/blog/mindset"
+      },
+      {
         id: 3.5,
         title: "ストーリー・パワー",
         newTab: false,
@@ -85,6 +88,7 @@ const menuData: Menu[] = [
     id: 3,
     title: "私たちは誰？",
     newTab: false,
+    attributes: "",
     path: "/who-we-are"
   }
 ]

@@ -60,7 +60,7 @@ const Header = () => {
                 href="/request/newsletter"
                 className="flex rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
               >
-                集客情報を受取る
+                最新情報メール
               </Link>
             </div>
 
@@ -117,7 +117,10 @@ const Header = () => {
                 {menuData?.map((menuItem, key) => (
                   <li
                     key={key}
-                    className={menuItem.submenu && "group relative"}
+                    className={
+                      (menuItem.submenu && "group relative ") +
+                      menuItem.attributes
+                    }
                   >
                     {menuItem.submenu ? (
                       <>
@@ -143,7 +146,10 @@ const Header = () => {
                           }`}
                         >
                           {menuItem.submenu.map((item, key) => (
-                            <li key={key} className="hover:text-primary">
+                            <li
+                              key={key}
+                              className="text-xs md:text-hover:text-primary"
+                            >
                               <a href={item.path || "#"}>{item.title}</a>
                             </li>
                           ))}

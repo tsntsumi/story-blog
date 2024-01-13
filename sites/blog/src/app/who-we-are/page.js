@@ -25,13 +25,18 @@ export default function Page() {
             headerInfo={{
               title: `WHO WE ARE`,
               subtitle: (
-                <div className="text-center">Alizza Ideal の自己紹介</div>
+                <div className="text-center">
+                  Alizza Ideal は、地域密着でがんばっている、
+                  あなたのためのマーケティング・エージェンシーです。
+                  ビジネスの状況と予算にピッタリとあわせてカスタマイズした、
+                  オーダーメイドのマーケティング施策を提供します
+                </div>
               ),
               description: (
                 <>
                   <p>
-                    Alizza
-                    Idealは、つつみきくおと、アリザ・Ｈ・つつみが２人で運営しています。
+                    Alizza Ideal は、 つつみきくおと、
+                    アリザ・Ｈ・つつみが２人で運営しています。
                   </p>
                   <p>きくおは実務担当。</p>
                   <p>アリザはきくおの応援担当です。</p>

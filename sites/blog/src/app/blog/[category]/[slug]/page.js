@@ -1,14 +1,17 @@
 "use client"
 import { React, useState, useEffect } from "react"
-import SingleBlogPage from "@/components/Blogs/SingleBlogPage"
+import Head from "next/head"
 import NextImage from "next/image"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
+import SingleBlogPage from "@/components/Blogs/SingleBlogPage"
 import { store, storage } from "@/lib/firebase/app"
 import { retrieveBlogsSnapshot } from "@/lib/firebase/firestore"
 import Media, { Image, Video } from "@/components/Media"
+import Subscribe from "@/components/Common/Subscribe"
+import { Categories } from "@/collections/categories"
 
 const ContentImage = ({ path, width, height, ...rest }) => {
   return (
@@ -43,7 +46,8 @@ const ContentVideo = ({ path, width, height, ...rest }) => {
 const components = {
   Image: Image,
   Video: Video,
-  Media: Media
+  Media: Media,
+  Subscribe: Subscribe
 }
 
 const ContentText = ({ text }) => {
@@ -77,6 +81,8 @@ const Content = ({ content }) => {
 
 export default function BlogPage({ params }) {
   const { category, slug } = params
+  const displayName = Categories[category].name
+  const description = Categories[category].description
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState({
@@ -97,6 +103,10 @@ export default function BlogPage({ params }) {
 
   return (
     <>
+      <Head>
+        <title>{displayName}・ブログ投稿一覧</title>
+        <meta name="description" content={description} key="desc" />
+      </Head>
       {blogs.length > 0 && (
         <SingleBlogPage blog={blogs.at(0)} category={category}>
           {blogs?.at(0)?.content?.map((c, k) => (

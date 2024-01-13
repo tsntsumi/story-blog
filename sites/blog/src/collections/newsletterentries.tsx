@@ -1,9 +1,9 @@
 import { buildCollection, buildProperty, buildEntityCallbacks } from "firecms"
-import { BlogEntryPreview } from "./blogentrypreview"
-import { BlogEntry } from "@/types/blog"
+import { NewsletterEntryPreview } from "./newsletterentrypreview"
+import { NewsletterEntry } from "@/types/newsletter"
 import { categoryEnumeration } from "@/collections/categories"
 
-const blogCallbacks = buildEntityCallbacks({
+const newsletterCallbacks = buildEntityCallbacks({
   onPreSave: ({
     collection,
     path,
@@ -18,15 +18,15 @@ const blogCallbacks = buildEntityCallbacks({
   }
 })
 
-export const blogCollection = buildCollection<BlogEntry>({
-  name: "Blog entries",
-  path: "blogs",
+export const newsletterCollection = buildCollection<NewsletterEntry>({
+  name: "Newsletter entries",
+  path: "newsletters",
   group: "Main",
   views: [
     {
       path: "preview",
       name: "Preview",
-      Builder: BlogEntryPreview
+      Builder: NewsletterEntryPreview
     }
   ],
   properties: {
@@ -154,7 +154,7 @@ export const blogCollection = buildCollection<BlogEntry>({
       autoValue: "on_create"
     }
   },
-  callbacks: blogCallbacks
+  callbacks: newsletterCallbacks
 })
 
-export default blogCollection
+export default newsletterCollection

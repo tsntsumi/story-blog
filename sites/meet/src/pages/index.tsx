@@ -51,6 +51,7 @@ function Page({
   const offers = getAvailability({
     busy: mapStringsToDates(busy),
     potential,
+    availabilitySlots: OWNER_AVAILABILITY,
   })
 
   const slots = offers.filter((slot, index) => {

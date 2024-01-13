@@ -4,7 +4,7 @@ import { usePathname, useSearchParams } from "next/navigation"
 import Script from "next/script"
 import { useEffect } from "react"
 
-const MEASUREMENTID = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID
+const MEASUREMENTID = "G-KMFVZXTWRY"
 
 export const pageview = (path: string) => {
   window.gtag("config", MEASUREMENTID, {
@@ -12,7 +12,7 @@ export const pageview = (path: string) => {
   })
 }
 
-export const gtag_report_conversion = (url) => {
+export const gtag_report_conversion = (url: any) => {
   var callback = function () {
     if (typeof url != "undefined") {
       window.location = url
