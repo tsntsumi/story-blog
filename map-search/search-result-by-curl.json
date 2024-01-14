@@ -1,0 +1,228 @@
+{
+   "html_attributions" : [],
+   "results" : [
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 36.3608314,
+               "lng" : 140.425215
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 36.36215202989272,
+                  "lng" : 140.4265267298927
+               },
+               "southwest" : {
+                  "lat" : 36.35945237010727,
+                  "lng" : 140.4238270701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "icon_background_color" : "#7B9EB0",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+         "name" : "REGALO hair atelier",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 854,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/109990256949861356138\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "AZose0keU2rmgejH0TQ0NAM7k7G2L_Z8tHvjErL753M2b8bKW1IMM7c3bUdYZZu_jALll7gQHA5mKBvI4uOpbhffl3nUhP9PgTbA8YyIaLeERrMBXjaMrbwNjPMoUWfchkfGzPJXqgHZzh4TnUOEZ7NTY7OLPteisjLebcYq0-b5-zXiM3MW",
+               "width" : 1280
+            }
+         ],
+         "place_id" : "ChIJj9rc-IUjImAR2hXXYb0TyNs",
+         "plus_code" : {
+            "compound_code" : "9C6G+83 \u6c34\u6238\u5e02\u3001\u8328\u57ce\u770c",
+            "global_code" : "8R829C6G+83"
+         },
+         "rating" : 4.5,
+         "reference" : "ChIJj9rc-IUjImAR2hXXYb0TyNs",
+         "scope" : "GOOGLE",
+         "types" : [ "hair_care", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 21,
+         "vicinity" : "\u6c34\u6238\u5e02\u898b\u5ddd\u753a\uff12\uff11\uff13\uff11\u2212\uff13\uff18\uff13"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 36.3597505,
+               "lng" : 140.423839
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 36.36106607989272,
+                  "lng" : 140.4251345298927
+               },
+               "southwest" : {
+                  "lat" : 36.35836642010728,
+                  "lng" : 140.4224348701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "icon_background_color" : "#7B9EB0",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+         "name" : "Hair Make MIRROR (\u30d8\u30a2\u30e1\u30a4\u30af \u30df\u30e9\u30fc)",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 551,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104640143805665639075\"\u003e\u30d8\u30a2\u30e1\u30a4\u30af\uff2d\uff29\uff32\uff32\uff2f\uff32\u003c/a\u003e"
+               ],
+               "photo_reference" : "AZose0lKK9jru6_tqVTsRLEd7l_GN2scsKQjfeqKgYX9zEDkY1KzBI6C5Vhti8NJJtm31SoW8NOF7x57F4zVa18NybHDZexfEqYtJr5Rh2IEWssTVJPc7k2kI5R7mOpiD9OE0vTfAdva6R8cuChLiaID-YQs1robCwwIUyPuQ1gynxmZRIS6",
+               "width" : 978
+            }
+         ],
+         "place_id" : "ChIJ89xbkIUjImARLafjnxYhxwg",
+         "plus_code" : {
+            "compound_code" : "9C5F+WG \u6c34\u6238\u5e02\u3001\u8328\u57ce\u770c",
+            "global_code" : "8R829C5F+WG"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJ89xbkIUjImARLafjnxYhxwg",
+         "scope" : "GOOGLE",
+         "types" : [ "hair_care", "spa", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 13,
+         "vicinity" : "\u6c34\u6238\u5e02\u898b\u5ddd\u753a\uff12\uff11\uff13\uff11\u2212\uff13\uff10\uff18"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 36.3624894,
+               "lng" : 140.4258116
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 36.36395092989272,
+                  "lng" : 140.4272563798927
+               },
+               "southwest" : {
+                  "lat" : 36.36125127010727,
+                  "lng" : 140.4245567201073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "icon_background_color" : "#7B9EB0",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+         "name" : "TRIBECA BEAUTY&SPA \u6c34\u6238\u5e97\u3010\u30c8\u30e9\u30a4\u30d9\u30c3\u30ab \u30d3\u30e5\u30fc\u30c6\u30a3\u30fc\u30a2\u30f3\u30c9\u30b9\u30d1\u3011",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 9000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106195023696387732601\"\u003eKazuaki Hasegawa\u003c/a\u003e"
+               ],
+               "photo_reference" : "AZose0nTfyCbH2GX5TV3eTEiNFZBELxDbQrdJ7lw-ZVishVlS9IaJCgUXsXpMsJw3tIze70YoxC4oyYyyS3rsOaq3zbs174IfsRK6dvxZDOVMIJpyOLU_HycBdD6viPxbVyKT9KNVytN2ukk9aAwBgPgkUyxT0DJNgJRpngeW2ToBKyynnIZ",
+               "width" : 12000
+            }
+         ],
+         "place_id" : "ChIJV78CUYMjImARrMd2_A3rc38",
+         "plus_code" : {
+            "compound_code" : "9C6G+X8 \u6c34\u6238\u5e02\u3001\u8328\u57ce\u770c",
+            "global_code" : "8R829C6G+X8"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJV78CUYMjImARrMd2_A3rc38",
+         "scope" : "GOOGLE",
+         "types" : [ "hair_care", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 10,
+         "vicinity" : "\u6c34\u6238\u5e02\u898b\u5ddd\u753a \u5b57\u4e39\u4e0b\u4e00\u30ce\u7267 \uff12\uff11\uff13\uff11-\uff12\uff14\uff19\uff11"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 36.3624297,
+               "lng" : 140.4313488
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 36.36380367989273,
+                  "lng" : 140.4326717298927
+               },
+               "southwest" : {
+                  "lat" : 36.36110402010728,
+                  "lng" : 140.4299720701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "icon_background_color" : "#7B9EB0",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+         "name" : "Atelieratta",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1478,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111570626887797124133\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "AZose0maeWnbt9WzeDGM4X7HwGyfYgZq0ipK3mmcC2VzhQZXzZHIx0nMjuJn4KoojmeF1bHCNdUrfAVSxQX7Z3Za0zXw-AMNsyMGiZifWpMNIKBHqYB6AVdQtu0MuApdX-znxxNgdFgnu-Abe0KhGwEUYzU4w4UgAFcC5o_YJPBJjIDgWipQ",
+               "width" : 1108
+            }
+         ],
+         "place_id" : "ChIJwQwtc1gjImAR4B1oXci-bTE",
+         "plus_code" : {
+            "compound_code" : "9C6J+XG \u6c34\u6238\u5e02\u3001\u8328\u57ce\u770c",
+            "global_code" : "8R829C6J+XG"
+         },
+         "rating" : 2,
+         "reference" : "ChIJwQwtc1gjImAR4B1oXci-bTE",
+         "scope" : "GOOGLE",
+         "types" : [ "hair_care", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "\u6c34\u6238\u5e02\u898b\u5ddd\u753a 2131-2097"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 36.3630297,
+               "lng" : 140.42302
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 36.36437672989272,
+                  "lng" : 140.4243707298927
+               },
+               "southwest" : {
+                  "lat" : 36.36167707010728,
+                  "lng" : 140.4216710701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "icon_background_color" : "#7B9EB0",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+         "name" : "\u7f8e\u5bb9\u5ba4\u30ec\u30da",
+         "place_id" : "ChIJPetqWI4jImAR_4AazEwH1vM",
+         "plus_code" : {
+            "compound_code" : "9C7F+66 \u6c34\u6238\u5e02\u3001\u8328\u57ce\u770c",
+            "global_code" : "8R829C7F+66"
+         },
+         "rating" : 0,
+         "reference" : "ChIJPetqWI4jImAR_4AazEwH1vM",
+         "scope" : "GOOGLE",
+         "types" : [ "hair_care", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 0,
+         "vicinity" : "\u6c34\u6238\u5e02\u6cb3\u548c\u7530\u753a\uff11\uff14\uff14\u2212\uff12"
+      }
+   ],
+   "status" : "OK"
+}
