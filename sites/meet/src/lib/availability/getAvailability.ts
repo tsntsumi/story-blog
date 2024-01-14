@@ -11,7 +11,7 @@ import {
 import { formatLocalTime, formatLocalDate } from "./helpers"
 
 import type { AvailabilitySlotsMap, DateTimeInterval } from "../types"
-import { SLOT_PADDING, LEAD_TIME } from "../../config"
+import { OWNER_TIMEZONE, SLOT_PADDING, LEAD_TIME } from "../../config"
 
 /**
  * Takes an array of potential slots and an array of busy slots and returns
@@ -31,7 +31,7 @@ export default function getAvailability({
   busy,
   padding = SLOT_PADDING,
   leadTime = LEAD_TIME,
-  availabilitySlots: {},
+  availabilitySlots = [],
 }: {
   potential?: DateTimeInterval[]
   busy?: DateTimeInterval[]
@@ -97,8 +97,20 @@ export default function getAvailability({
     if (curr.busy) {
       // do nothing
     } else {
-      if (
-        (acc.busy && interval >= padding && interval <= 60 * 6) ||
+      const dayOfWeek = new Date().getDay()
+      const slotsForDay = availabilitySlots[dayOfWeek] ?? []
+      const isFirstSlot =
+        slotsForDay.find(
+          (s) =>
+            s.start.hour === new Date(curr.slot?.start).getHours() &&
+            (!s.start.minute ||
+              s.start.minute === new Date(curr.slot?.start).getMinutes())
+        ) !== undefined
+
+      if (isFirstSlot) {
+        // do nothing
+      } else if (
+        (acc.busy && interval >= padding) ||
         (!acc.busy && interval === padding)
       ) {
         const start = sub(curr.slot?.start, { minutes: padding })
