@@ -68,80 +68,115 @@ const Hero = () => {
       >
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:py-0">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className="md:w-1/2 md:mx-auto text-justify">
+            <div className="md:w-1/2 text-xl md:mx-auto text-justify">
               <h1 className="my-8 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-                ほとんどの個人ビジネスには、 魅了する
+                ほとんどの個人ビジネスには、人々を惹きつける
                 <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
                   キャッチコピー
                 </span>
                 がありません
               </h1>
-              <p>そのため、集客ができず収入が安定しません。</p>
+              <p>そのため、集客ができず資産を増やせていません。</p>
               <div className="animate_right block md:hidden">
                 <OfferImage />
               </div>
 
               <div className="text-base md:text-xl my-8 w-full items-start justify-between">
                 <h2 className="my-8 pr-16 text-2xl font-medium text-black dark:text-white xl:text-hero ">
-                  アリザ・アイデアルでは商品の
+                  アリザ・アイデアルでは、あなたの商品の
                   <span className="relative inline-block before:absolute before:bottom-2 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
                     価値
                   </span>
-                  を
+                  から
                   <span className="relative inline-block before:absolute before:bottom-2 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
-                    言語化
+                    キャッチコピー
                   </span>
-                  するノウハウをお伝えしています
+                  を作るノウハウをお伝えしています
                 </h2>
                 <p>
-                  この秘訣を知れば、あなたの商品が大勢に知られるようになり、
-                  あなたの資産がどんどん増え続けます。
+                  この秘訣で作ったキャッチコピーがあれば、
+                  あなたの商品が大勢に知られ、欲しがられ、
+                  記憶に残るようになり、大勢の人々を集客できるようになります。
+                </p>
+                <p>
+                  すでに欲しがっている人を集客するのですから、
+                  売り込みもセールスもほとんど必要なくなります。
+                </p>
+                <p>
+                  ということは、あなたの資産がどんどん増え続けて行くのです。
                 </p>
               </div>
               <div className="text-base md:text-xl my-8 w-full items-start justify-between">
-                <p>集客の錬金術は、こんな人におすすめです。</p>
+                <h3>
+                  その秘密のノウハウが
+                  <em className="text-amber-400 rounded-lg bg-black pl-2 pr-4 mx-1">
+                    集客の錬金術
+                  </em>
+                  です
+                </h3>
+                <p>
+                  <em className="font-black pr-1">集客の錬金術</em>
+                  は、こんな人におすすめです。
+                </p>
                 <ul className="list-style-suffer pl-6">
                   <li>商品やサービスの良さに自信はある、、、でも</li>
                   <li>なぜかお客が集まらないと感じている</li>
                   <li>あなたの商品の良さは、一言で説明できないと信じている</li>
                   <li>国語力がないから商品をうまく説明できないと思っている</li>
                   <li>値引きしないと買ってくれなくなると心配している</li>
+                  <li>月末になると、いつも支払いに怯えている</li>
+                  <li>貯金がどんどん減っていくので通帳を見るのが怖い</li>
                 </ul>
-                <p>これらの悩み、集客の錬金術を使えばすべて解決します。</p>
                 <p>
-                  大勢に
+                  これらの悩み、
+                  <em className="font-black pr-1">集客の錬金術</em>
+                  を知れば、すべて解決します。
+                </p>
+                <h4>集客の錬金術を知ることで・・・</h4>
+                <p>
+                  大勢の人々を
                   <ruby>
-                    注目され<rp>(</rp>
-                    <rt>Awearness</rt>
+                    注目させ<rp>(</rp>
+                    <rt>Awear</rt>
                     <rp>)</rp>
                   </ruby>
                   、
                   <ruby>
-                    興味を持たれ<rp>(</rp>
+                    興味を持たせ<rp>(</rp>
                     <rt>Interest</rt>
                     <rp>)</rp>
                   </ruby>
                   、
                   <ruby>
-                    欲しがられ<rp>(</rp>
+                    欲しがらせ<rp>(</rp>
                     <rt>Desire</rt>
                     <rp>)</rp>
                   </ruby>
                   、
                   <ruby>
-                    憶えられる<rp>(</rp>
+                    憶えさせ<rp>(</rp>
                     <rt>Memory</rt>
                     <rp>)</rp>
                   </ruby>
-                  ようになるキャッチコピーを作れるようになります。
+                  られるようになるキャッチコピーを作れるようになります。
+                </p>
+                <h4>欲しがってる人を集客できたとしたら・・・</h4>
+                <p>
+                  あなたの商品・サービスに興味があって欲しがっている人々が
+                  集客できたとしたら、どうでしょうか？
                 </p>
                 <p>
-                  あなたの商品・サービスに興味があって欲しがっている人を集客できたら、
-                  あなたの売上はどうなると思いますか？
+                  売り込みも、セールスも、値引きもほとんどする必要がなくなり、
+                  あなたの商品の<b>価値</b>を適切な<b>価格</b>と<b>等価交換</b>
+                  できるようになりますよね。
                 </p>
+                <p>その結果、あなたの資産はどんどん増え続けていきます。</p>
+                <h4>それは簡単なコツに気づくだけ・・・</h4>
                 <p>
-                  しかも、すでにあなたの親しみのある方法に気づくだけで出来るとしたら？
+                  しかも、それが<b>すでにあなたの知っている、 ある簡単なコツ</b>
+                  に気づくだけで出来るとしたらどうでしょうか？
                 </p>
+                <p>試してみたいと思いませんか？</p>
                 <div className="mt-6 w-fit mx-auto">
                   <Subscribe>集客の錬金術情報を手に入れる</Subscribe>
                 </div>
