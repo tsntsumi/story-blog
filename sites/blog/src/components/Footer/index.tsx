@@ -1,7 +1,9 @@
 "use client"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import Subscribe from "@/components/Common/Subscribe"
+import { Categories } from "@/collections/categories"
 
 const Footer = () => {
   return (
@@ -120,61 +122,27 @@ const Footer = () => {
                   whileInView="visible"
                   transition={{ duration: 1, delay: 0.1 }}
                   viewport={{ once: true }}
-                  className="animate_top"
+                  className="animate_top md:w-1/2"
                 >
                   <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
                     Blogs
                   </h4>
 
                   <ul>
-                    <li>
-                      <a
-                        href="/blog/google-maps"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Google Maps
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/blog/google-ads"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Google Ads
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/blog/"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Marketing
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/blog/marketing"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Marketing
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/blog/marketing"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Business Mindset
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/blog/story"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Power of Story
-                      </a>
-                    </li>
+                    {Object.entries(Categories).map(([key, c]) => (
+                      <li>
+                        <Link
+                          href={`/blog/key`}
+                          className="mb-3 inline-block hover:text-primary"
+                        >
+                          <span className="text-sm font-bold">{c.name}</span>{" "}
+                          <br />
+                          <span className="text-xs font-light text-slate-500">
+                            {c.description}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </motion.div>
 
@@ -199,12 +167,10 @@ const Footer = () => {
                   <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
                     Newsletter
                   </h4>
-                  <p className="mb-4 w-[90%]">
-                    Subscribe to receive future updates
-                  </p>
+                  <p className="mb-4">ブログやお役立ち情報を配信してます</p>
 
                   <Subscribe className="w-full rounded-full border border-stroke px-6 py-3 shadow-solid-11 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary">
-                    最新情報メールを購読する
+                    最新情報を購読📨
                   </Subscribe>
                 </motion.div>
               </div>

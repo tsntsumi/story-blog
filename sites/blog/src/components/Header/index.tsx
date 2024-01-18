@@ -55,14 +55,6 @@ const Header = () => {
                 className="w-full dark:hidden"
               />
             </a>
-            <div className="w-fit m-0 mx-4 p-0 justify-center text-xs">
-              <Link
-                href="/request/newsletter"
-                className="flex rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
-              >
-                最新情報メール
-              </Link>
-            </div>
 
             {/* <!-- Hamburger Toggle BTN --> */}
             <button

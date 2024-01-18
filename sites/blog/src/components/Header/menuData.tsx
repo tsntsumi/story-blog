@@ -1,4 +1,5 @@
 import { Menu } from "@/types/menu"
+import { Categories } from "@/collections/categories"
 
 const menuData: Menu[] = [
   {
@@ -7,6 +8,13 @@ const menuData: Menu[] = [
     newTab: false,
     attributes: "",
     path: "/"
+  },
+  {
+    id: 1.5,
+    title: "更新情報を購読",
+    newTab: false,
+    attributes:
+      "flex text-xs rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-amber-500 dark:bg-btndark dark:hover:bg-blackho"
   },
   {
     id: 2,
@@ -54,33 +62,33 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 3.2,
-        title: "Googleマップ",
+        title: Categories["google-maps"].name,
         newTab: false,
         path: "/blog/google-maps"
       },
       {
         id: 3.3,
-        title: "Google広告",
+        title: Categories["google-ads"].name,
         newTab: false,
         path: "/blog/google-ads"
       },
       {
         id: 3.4,
-        title: "マーケティング",
+        title: Categories["marketing"].name,
         newTab: false,
         path: "/blog/marketing"
       },
       {
         id: 3.1,
-        title: "ビジネスマインド",
+        title: Categories["mindset"].name,
         newTab: false,
         path: "/blog/mindset"
       },
       {
         id: 3.5,
-        title: "ストーリー・パワー",
+        title: Categories["seo"].name,
         newTab: false,
-        path: "/blog/story"
+        path: "/blog/seo"
       }
     ]
   },

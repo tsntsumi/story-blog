@@ -5,7 +5,7 @@ export const Categories = {
     key: "google-maps",
     name: "Googleマップ（MEO）",
     description: `
-Googleビジネスプロフィールを使った MEO で、Googleマップに登録したあなたのお店の売り上げにつながる情報を投稿しています。
+Googleビジネスプロフィールを使った MEO で、Googleマップに登録したあなたのお店の売り上げにつながる情報を投稿しています
 `
   },
   "google-ads": {
@@ -19,7 +19,7 @@ Google広告の使い方の秘訣や、Google広告とホームページ(HP)・�
     key: "seo",
     name: "検索エンジン（SEO）",
     description: `
-地域密着の少資本の店舗ビジネスが、自分でホームページを改善して集客を成功させるためのテクニックを投稿しています。
+地域密着の少資本の店舗ビジネスが、自分でホームページを改善して集客を成功させるためのテクニックを投稿しています
 `
   },
   "marketing": {
@@ -31,10 +31,17 @@ Google広告の使い方の秘訣や、Google広告とホームページ(HP)・�
   },
   "mindset": {
     key: "mindset",
-    name: "副業マインド",
-    description: `
-Side Hustle (副業)を始めるにあたって参考になる考え方や見方を紹介しています。
-`
+    name: "個人起業家マインド",
+    description: (
+      <>
+        <ruby>
+          個人起業を始める<rp>(</rp>
+          <rt>ソロプレナーになる</rt>
+          <rp>)</rp>
+        </ruby>
+        にあたって参考になる考え方や見方を紹介しています
+      </>
+    )
   }
 }
 
