@@ -132,7 +132,7 @@ const Footer = () => {
                     {Object.entries(Categories).map(([key, c]) => (
                       <li>
                         <Link
-                          href={`/blog/key`}
+                          href={`/blog/${key}`}
                           className="mb-3 inline-block hover:text-primary"
                         >
                           <span className="text-sm font-bold">{c.name}</span>{" "}
