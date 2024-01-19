@@ -19,20 +19,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja" suppressHydrationWarning>
       <Head>
-        <title>Alizza Ideal | 公式ウェブサイト</title>
+        <title>キャッチコピーの錬金術で資産を増やす - Alizza Ideal</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta
           name="description"
           content={`
-Alizza Ideal は、地域密着でがんばっている、
-あなたのためのマーケティング・エージェンシーです。
+多くの個人ビジネスには、「売れる」キャッチコピーがありません。
+ほとんどの経営塾、集客コンサルタントは、お客を集めるところまでしか教えてくれません。
+集客はできてもセールスに苦戦し、個人起業家はお金を失い続けています。
 
-あなたのビジネスの状況と予算にピッタリとあわせてカスタマイズした、
-オーダーメイドのマーケティング施策を提供します。
+アリザ・アイデアルでは、あなたの商品をお客に欲しがらせる
+キャッチコピーを作る秘訣をお伝えしています。
 
-とくに、あなたが商品の魅力を言語化できないで悩んでいるなら、
-お客の注目を集め、魅了し、惹き寄せるキャッチコピーをつくり、
-買いたくさせる仕組みをオンライン上に構築します。`}
+欲しがっている人だけを集客すれば、
+セールスで売り込みをしなくても自然と売れていきます。
+          `}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -27,7 +27,7 @@
   }
 
   body > section.home {
-      @apply overflow-hidden pt-20 pb-8 mt-25 mb-17 lg:pb-16 xl:pb-24;
+      @apply overflow-hidden mt-1 mb-1 pt-20 pb-8 lg:pb-16 xl:pb-24;
   }
 
   section p { @apply my-1.5 indent-4; }
