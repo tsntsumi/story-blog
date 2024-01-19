@@ -19,7 +19,7 @@ require("firebase-functions/logger/compat")
 
 const locations = [
   {
-    name: "当方へご来社",
+    name: "対面で話す",
     value: "visit",
   },
   {
@@ -27,7 +27,7 @@ const locations = [
     value: "meet",
   },
   {
-    name: "当方からお電話",
+    name: "お電話で話す",
     value: "phone",
   },
 ]
