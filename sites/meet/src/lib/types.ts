@@ -37,6 +37,8 @@ export type DateTimeInterval = {
   start: Date
   /** Ending date */
   end: Date
+  /** Busy interval */
+  busy?: DateTimeInterval | undefined
 }
 
 /**

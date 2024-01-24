@@ -15,7 +15,6 @@ import {
   OWNER_AVAILABILITY,
 } from "@/config"
 import { useProvider, withProvider } from "@/context/AvailabilityContext"
-import getAvailability from "@/lib/availability/getAvailability"
 import getBusyTimes from "@/lib/availability/getBusyTimes"
 import getPotentialTimes from "@/lib/availability/getPotentialTimes"
 import {
@@ -46,15 +45,14 @@ function Page({
     end: endDay,
     duration,
     availabilitySlots: OWNER_AVAILABILITY,
-  })
-
-  const offers = getAvailability({
     busy: mapStringsToDates(busy),
-    potential,
-    availabilitySlots: OWNER_AVAILABILITY,
   })
 
-  const slots = offers.filter((slot, index) => {
+  const offer = potential.filter((slot) => {
+    return slot.start > new Date()
+  })
+
+  const slots = offer.filter((slot, index) => {
     return (
       slot.start >= startDay.toInterval().start &&
       slot.end <= endDay.toInterval().end

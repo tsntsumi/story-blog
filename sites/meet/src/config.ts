@@ -8,7 +8,7 @@ export const MENU_ITEMS = [
   { name: "たっぷり", duration: 120 },
 ]
 
-// スロットの分数の初期値（何も指定していないばあの分数）
+// スロットの分数の初期値（何も指定していない場合の分数）
 export const DEFAULT_DURATION = 60
 export const DURATION_TO_NAME = (duration: number) =>
   MENU_ITEMS.find((item) => item.duration === duration)?.name

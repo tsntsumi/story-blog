@@ -67,14 +67,16 @@ export default async function handler(
   const start = Date.parse(validObject.start)
   const end = Date.parse(validObject.end)
   const duration = (end - start) / (60 * 1000)
+  const name = validObject.name
   const menu = MENU_ITEMS.find((m) => m.duration === duration)
   const duration_name = !menu ? `${validObject.duration}分コース` : menu.name
+  const summary = `${name}さん: ${duration_name}`
 
   // Create the confirmed appointment
   const response = await createCalendarAppointment({
     ...validObject,
     requestId: hash,
-    summary: `${duration_name}のご予約`,
+    summary: summary,
   })
 
   const details = await response.json()
@@ -85,7 +87,9 @@ export default async function handler(
 
   // If we have a link to the event, take us there.
   if (match && match[1]) {
-    res.redirect(`/booked?url=${encodeURIComponent(match[1])}`)
+    const uri = encodeURIComponent(match[1])
+    const encodedName = encodeURIComponent(name)
+    res.redirect(`/booked?url=${uri}&name=${encodedName}`)
 
     return
   }
