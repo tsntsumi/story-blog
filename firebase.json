@@ -3,14 +3,31 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "hosting": {
-    "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  },
+  "hosting": [
+    {
+      "target": "blog",
+      "source": "sites/blog",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "frameworksBackend": {
+        "region": "us-central1"
+      }
+    },{
+      "target": "meet",
+      "source": "sites/meet",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "frameworksBackend": {
+        "region": "us-central1"
+      }
+    }
+  ],
   "storage": {
     "rules": "storage.rules"
   },
@@ -39,17 +56,5 @@
       "enabled": true
     },
     "singleProjectMode": true
-  },
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ]
-    }
-  ]
+  }
 }

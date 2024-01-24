@@ -1,15 +1,13 @@
 {
-  "projects": {
-    "default": "story-made"
-  },
+  "projects": {},
   "targets": {
     "story-made": {
       "hosting": {
         "blog": [
-          "blog"
+          "story-made"
         ],
         "meet": [
-          "meet"
+          "meet-with-alizza"
         ]
       }
     }
