@@ -11,7 +11,7 @@ const outlineData: Outline[] = [
     content: (
       <>
         <div className="grid grid-cols-1 gap-2 items-start">
-          <h4 className="my-2 row-span-2">無理に売り込まなくても売れていく</h4>
+          <h4 className="my-2">無理に売り込まなくても売れていく</h4>
           <p className="text-sm">
             欲しがっている人だけ集客できるから、セールスで無理な売り込みをして
             <strong>嫌われる</strong>ことはありません
@@ -28,9 +28,9 @@ const outlineData: Outline[] = [
     imageLight: "/images/icon/alchemy-card-05.svg",
     content: (
       <>
-        <div className="grid grid-cols-1 grid-rows-5 gap-2 items-start">
-          <h4 className="row-span-2 mt-2">大幅な値引きをしなくても売れる</h4>
-          <p className="text-sm row-span-2">
+        <div className="grid grid-cols-1 gap-2 items-start">
+          <h4 className="mt-2">大幅な値引きをしなくても売れていく</h4>
+          <p className="text-sm">
             欲しがっている人だけ集客するから、 大幅な値引きをして
             <strong>利益を失う</strong>ことはありません
           </p>
@@ -47,11 +47,9 @@ const outlineData: Outline[] = [
     imageLight: "/images/icon/alchemy-card-06.svg",
     content: (
       <>
-        <div className="grid grid-cols-1 grid-rows-5 gap-2 items-start">
-          <h4 className="row-span-2 mt-2">
-            クドクドと説明しなくても売れていく
-          </h4>
-          <p className="text-sm row-span-2">
+        <div className="grid grid-cols-1 gap-2 items-start">
+          <h4 className="mt-2">クドクドと説明しなくても売れていく</h4>
+          <p className="text-sm">
             欲しがっている人だけ集客できるから、クドクド説明して
             <strong>嫌がられる</strong>ことはありません
           </p>

@@ -87,7 +87,7 @@ const Footer = () => {
                   </h4>
 
                   <ul>
-                    <li>
+                    <li key="home">
                       <a
                         href="/"
                         className="mb-3 inline-block hover:text-primary"
@@ -95,7 +95,7 @@ const Footer = () => {
                         Home
                       </a>
                     </li>
-                    <li>
+                    <li key="who-we-are">
                       <a
                         href="/who-we-are"
                         className="mb-3 inline-block hover:text-primary"
@@ -129,8 +129,8 @@ const Footer = () => {
                   </h4>
 
                   <ul>
-                    {Object.entries(Categories).map(([key, c]) => (
-                      <li>
+                    {Object.entries(Categories).map(([key, c, i]) => (
+                      <li key={`${key}-${i}`}>
                         <Link
                           href={`/blog/${key}`}
                           className="mb-3 inline-block hover:text-primary"
@@ -198,7 +198,7 @@ const Footer = () => {
               className="animate_top"
             >
               <ul className="flex items-center gap-8">
-                <li>
+                <li key="logo">
                   <Image
                     width={110}
                     height={80}
@@ -214,12 +214,12 @@ const Footer = () => {
                     className="hidden dark:block"
                   />
                 </li>
-                <li>
+                <li key="policy">
                   <a href="/policy" className="hover:text-primary text-[9pt]">
                     個人情報保護方針
                   </a>
                 </li>
-                <li>
+                <li key="legal">
                   <a href="/legal" className="hover:text-primary text-[9pt]">
                     特定商取引法
                   </a>

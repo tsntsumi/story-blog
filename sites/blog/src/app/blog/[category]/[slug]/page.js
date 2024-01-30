@@ -21,6 +21,7 @@ const ContentImage = ({ path, width, height, ...rest }) => {
       height={height || 480}
       alt="blog content image"
       {...rest}
+      className="w-full object-cover"
     />
   )
 }
@@ -36,7 +37,7 @@ const ContentVideo = ({ path, width, height, ...rest }) => {
         muted={true}
         autoPlay={true}
         alt="blog content video"
-        className="mx-auto"
+        className="mx-auto object-cover"
         {...rest}
       />
     </>
@@ -68,13 +69,11 @@ const Content = ({ content }) => {
   }
   if (content.type === "images") {
     const images = [...content.value]
-    // return images.map((image, key) => <ContentImage path={image} key={key} />)
-    return <></>
+    return images.map((image, key) => <ContentImage path={image} key={key} />)
   }
   if (content.type === "videos") {
     const videos = [...content.value]
-    // return videos.map((video, key) => <ContentVideo path={video} key={key} />)
-    return <></>
+    return videos.map((video, key) => <ContentVideo path={video} key={key} />)
   }
   return <>{content.value}</>
 }

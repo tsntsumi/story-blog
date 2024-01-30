@@ -12,7 +12,7 @@ const Hero = () => {
   }
 
   const 集客の錬金術 = () => (
-    <strong className="rounded-full m-1 p-2 py-1 bg-slate-600 text-amber-300 dark:text-amber-600">
+    <strong className="rounded-full m-1 p-2 py-0.5 bg-slate-600 text-amber-300 dark:text-amber-600">
       集客の錬金術
     </strong>
   )
@@ -72,14 +72,15 @@ const Hero = () => {
     <>
       <section
         id="hero"
-        className="overflow-hidden py-4 pt-10 md:pt-35 md:pb-14 xl:pb-18"
+        className="overflow-hidden py-4 pt-20 md:pt-35 md:pb-14 xl:pb-18"
       >
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:py-0">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className="md:w-1/2 text-lg md:mx-auto text-justify">
-              <h1 className="text-base">
+            <div className="md:w-1/2 md:text-lg md:mx-auto text-justify">
+              <h1 className="text-base !leading-relax">
+                あなたの商品が
                 <集客の錬金術 />
-                で、あなたの商品をゴールドのように輝かせる
+                で黄金色に輝く
               </h1>
               <h2 className="my-8 pr-16 text-xl font-bold text-black dark:text-white xl:text-hero ">
                 <span className="whitespace-nowrap"> みんなが欲しがる</span>
@@ -90,13 +91,19 @@ const Hero = () => {
                 を言語化
               </h2>
               <p>
+                お客を集めるだけの売れない集客メソッドであなたの資産を失わないでください。
+              </p>
+              <p>
                 みんなを欲しがらせるキャッチコピーを言語化できれば、
                 あなたの商品を<strong>自然と買わせる</strong>
                 ことができるようになります。
               </p>
+              <div className="animate_right md:w-1/2 block md:hidden">
+                <OfferImage />
+              </div>
             </div>
 
-            <div className="animate_right md:w-1/2">
+            <div className="animate_right md:w-1/2 hidden md:block">
               <OfferImage />
             </div>
           </div>
