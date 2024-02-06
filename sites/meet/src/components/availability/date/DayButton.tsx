@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes, DetailedHTMLProps } from "react"
 import { twMerge } from "tailwind-merge"
 
 import { useProvider } from "@/context/AvailabilityContext"
+import { useRouter } from "next/router"
 import Day from "@/lib/day"
 
 type DayProps = {
@@ -28,6 +29,7 @@ export default function DayButton({
     state: { start, end, selectedDate },
     dispatch,
   } = useProvider()
+  const router = useRouter()
 
   const now = Day.todayWithOffset(0)
 
@@ -71,6 +73,7 @@ export default function DayButton({
           type: "SET_SELECTED_DATE",
           payload: date,
         })
+        router.push("#time-list")
       }}
       {...props}>
       <div className="flex flex-col items-center justify-between leading-none">

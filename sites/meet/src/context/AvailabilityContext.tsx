@@ -1,7 +1,13 @@
 import type { Dispatch, FC } from "react"
 import { useReducer, useContext, createContext } from "react"
 
-import { ALLOWED_DURATIONS, DEFAULT_DURATION, MENU_ITEMS } from "@/config"
+import {
+  DEFAULT_DURATION,
+  DEFAULT_COURSE,
+  MENU_ITEMS,
+  DURATION_TO_COURSE,
+  COURSE_TO_DURATION,
+} from "@/config"
 import Day from "@/lib/day"
 import type { DateTimeInterval } from "@/lib/types"
 import type { PageProps } from "@/pages"
@@ -18,9 +24,13 @@ export type StateType = {
   /** The end user's timezone string */
   timeZone: string
   /** The number of minutes being requested,
-   * must be one of the values in {@link ALLOWED_DURATIONS}
+   * must be one of the values in {@link MENU_ITEMS[].duration}
    */
   duration: number
+  /** The name of course being requested,
+   * must be one of the values in {@link MENU_ITEMS[].course}
+   */
+  course: string
   /** Whether the booking modal is open or busy. */
   modal: ModalStatus
   /** The time slot the user selected (if made). */
@@ -44,6 +54,10 @@ export type ActionType =
       payload: number
     }
   | {
+      type: "SET_COURSE"
+      payload: string
+    }
+  | {
       type: "SET_MODAL"
       /** Set modal status */
       payload: ModalStatus
@@ -58,7 +72,8 @@ const StateSetContext = createContext<Dispatch<ActionType> | undefined>(
   undefined
 )
 const StateContext = createContext<StateType>({
-  duration: ALLOWED_DURATIONS[0],
+  duration: DEFAULT_DURATION,
+  course: DEFAULT_COURSE || "",
   start: Day.todayWithOffset(0),
   end: Day.todayWithOffset(14),
   timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -109,6 +124,7 @@ export function withProvider<T extends PageProps>(Component: FC<T>): FC<T> {
       selectedDate: props.selectedDate,
       timeZone: props.timeZone,
       duration: props.duration,
+      course: props.course,
     }
 
     return (
@@ -141,6 +157,7 @@ function getInitialState(values: Omit<PageProps, "busy">): StateType {
       values.duration && !Number.isNaN(values.duration)
         ? values.duration
         : DEFAULT_DURATION,
+    course: values.course || DEFAULT_COURSE || "",
     modal: "closed",
   }
 }
@@ -171,7 +188,7 @@ export function useProvider(): {
  * @returns {StateType} The updated state.
  */
 function reducerFunction(state: StateType, action: ActionType): StateType {
-  let newState
+  let newState: StateType
   switch (action.type) {
     case "SET_SELECTED_DATE": {
       newState = { ...state, selectedDate: action.payload }
@@ -182,12 +199,18 @@ function reducerFunction(state: StateType, action: ActionType): StateType {
       break
     }
     case "SET_DURATION": {
-      const duration_name = MENU_ITEMS.find(
-        (item) => item.duration === action.payload
-      )?.name
       newState = {
         ...state,
+        course: DURATION_TO_COURSE(action.payload),
         duration: action.payload,
+      }
+      break
+    }
+    case "SET_COURSE": {
+      newState = {
+        ...state,
+        course: action.payload,
+        duration: COURSE_TO_DURATION(action.payload),
       }
       break
     }
@@ -211,6 +234,7 @@ function reducerFunction(state: StateType, action: ActionType): StateType {
   // timeZone and selectedDate (if set).
   const newUrl = new URLSearchParams({
     duration: newState.duration.toString(),
+    course: newState.course,
     timeZone: newState.timeZone,
     ...(newState.selectedDate && {
       selectedDate: newState.selectedDate.toString(),

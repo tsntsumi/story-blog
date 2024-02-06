@@ -61,16 +61,16 @@ export default function Calendar({
       className="isolate mt-6 grid grid-cols-7 text-xs leading-6 text-gray-500"
       role="grid"
       aria-label="Calendar">
-      {weekdays.map((weekday) => (
+      {weekdays.map((weekday, i) => (
         <div
-          key={weekday}
+          key={`day-${i}`}
           className="justify-center text-slate-500 flex"
           role="columnheader"
           aria-label={weekday}>
           {weekday.charAt(0)}
         </div>
       ))}
-      {days.map((day) => {
+      {days.map((day, i) => {
         const availabilityTest = offers[day.toString()] ?? []
         const morningCount = offers[day.toString()]?.filter(
           (s) => getHours(s.start) <= 12
@@ -82,7 +82,7 @@ export default function Calendar({
         return (
           <>
             <DayButton
-              key={day.toString()}
+              key={`${day.toString()}-${i}`}
               date={day}
               availabilityScore={availabilityScore({
                 openSlots: offers[day.toString()]?.length ?? 0,

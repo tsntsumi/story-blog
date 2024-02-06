@@ -1,18 +1,20 @@
 import type { AvailabilitySlotsMap } from "./lib/types"
 
 // 選択可能なスロットの分数
-export const ALLOWED_DURATIONS = [30, 60, 120]
 export const MENU_ITEMS = [
-  { name: "お急ぎ", duration: 30 },
-  { name: "基本", duration: 60 },
-  { name: "たっぷり", duration: 120 },
+  { name: "お急ぎ", course: "お急ぎ", duration: 30 },
+  { name: "標準", course: "標準", duration: 60 },
+  { name: "たっぷり", course: "たっぷり", duration: 120 },
 ]
 
 // スロットの分数の初期値（何も指定していない場合の分数）
-export const DEFAULT_DURATION = 60
-export const DURATION_TO_NAME = (duration: number) =>
-  MENU_ITEMS.find((item) => item.duration === duration)?.name
-export const DEFAULT_DURATION_NAME = DURATION_TO_NAME(DEFAULT_DURATION)
+export const DURATION_TO_COURSE = (duration: number) =>
+  MENU_ITEMS.find((item) => item.duration === duration)?.course || ""
+export const COURSE_TO_DURATION = (course: string) =>
+  MENU_ITEMS.find((item) => item.course === course)?.duration || 0
+
+export const DEFAULT_DURATION = MENU_ITEMS[1].duration
+export const DEFAULT_COURSE = DURATION_TO_COURSE(DEFAULT_DURATION) || ""
 
 export const OWNER_EMAIL = "info+book@alizza-ideal.com"
 export const OWNER_NAME = "Alizza Ideal"

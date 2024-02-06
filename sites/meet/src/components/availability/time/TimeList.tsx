@@ -7,7 +7,7 @@ type TimeListProps = {
 }
 export default function TimeList({ availability }: TimeListProps) {
   return (
-    <div className="grid grid-cols-2 gap-2 items-start">
+    <div id="time-list" className="grid grid-cols-2 gap-2 items-start">
       <div className="grid grid-rows-max">
         <div>午前</div>
         {availability

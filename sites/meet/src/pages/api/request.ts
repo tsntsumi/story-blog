@@ -2,7 +2,12 @@ import LRUCache from "lru-cache"
 import type { NextApiRequest, NextApiResponse } from "next"
 import { z } from "zod"
 
-import { OWNER_TIMEZONE, OWNER_EMAIL, MENU_ITEMS } from "@/config"
+import {
+  OWNER_TIMEZONE,
+  OWNER_EMAIL,
+  MENU_ITEMS,
+  DURATION_TO_COURSE,
+} from "@/config"
 import { formatLocalDate, formatLocalTime } from "@/lib/availability/helpers"
 import sendMail from "@/lib/email"
 import ApprovalEmail from "@/lib/email/messages/Approval"
@@ -32,6 +37,7 @@ const AppointmentRequestSchema = z.object({
   }),
   timeZone: z.string(),
   location: z.enum(["meet", "phone", "visit"]),
+  course: z.string(),
   duration: z
     .string()
     .refine((value) => !Number.isNaN(Number.parseInt(value)), {
@@ -163,8 +169,7 @@ function intervalToHumanString({
   timeZone,
 }: DateTimeIntervalWithTimezone): string {
   const duration = (end.getTime() - start.getTime()) / (60 * 1000)
-  const menu = MENU_ITEMS.find((item) => item?.duration === duration)
-  const duration_name = menu?.name
+  const course = DURATION_TO_COURSE(duration)
   return `${formatLocalDate(start, {
     month: "long",
     day: "numeric",
@@ -177,5 +182,5 @@ function intervalToHumanString({
     minute: "numeric",
     timeZone,
     timeZoneName: "longGeneric",
-  })} : ${duration_name}`
+  })} : ${course}`
 }

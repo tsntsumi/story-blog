@@ -72,5 +72,8 @@ export type AppointmentProps = {
   name: string
   /** Duration of the meeting in minutes  */
   duration: string
+  /** Course name of the meeting in minutes  */
+  course: string
+  /** Message text  */
   messageText: string
 }

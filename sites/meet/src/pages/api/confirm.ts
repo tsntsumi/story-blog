@@ -3,7 +3,7 @@ import { z } from "zod"
 
 import createCalendarAppointment from "@/lib/availability/createAppointment"
 import getHash from "@/lib/hash"
-import { OWNER_NAME, MENU_ITEMS } from "@/config"
+import { OWNER_NAME, MENU_ITEMS, DURATION_TO_COURSE } from "@/config"
 
 const AppointmentPropsSchema = z.object({
   name: z.string(),
@@ -17,6 +17,7 @@ const AppointmentPropsSchema = z.object({
     .refine((value) => !Number.isNaN(Number.parseInt(value)), {
       message: "Duration must be a valid integer.",
     }),
+  course: z.string(),
   messageText: z.string(),
 })
 
@@ -68,9 +69,8 @@ export default async function handler(
   const end = Date.parse(validObject.end)
   const duration = (end - start) / (60 * 1000)
   const name = validObject.name
-  const menu = MENU_ITEMS.find((m) => m.duration === duration)
-  const duration_name = !menu ? `${validObject.duration}分コース` : menu.name
-  const summary = `${name}さん: ${duration_name}`
+  const course = DURATION_TO_COURSE(duration) || `${duration}分`
+  const summary = `${name}さん: ${course}(${duration}分)`
 
   // Create the confirmed appointment
   const response = await createCalendarAppointment({

@@ -4,14 +4,15 @@ import type {
 } from "next"
 import { useEffect } from "react"
 import { z } from "zod"
-import { OFFER_OFFSET, OFFER_DAYS } from "@/config"
 
 import Template from "@/components/Template"
 import AvailabilityPicker from "@/components/availability/AvailabilityPicker"
 import {
-  ALLOWED_DURATIONS,
+  OFFER_OFFSET,
+  OFFER_DAYS,
   MENU_ITEMS,
   DEFAULT_DURATION,
+  DEFAULT_COURSE,
   OWNER_AVAILABILITY,
 } from "@/config"
 import { useProvider, withProvider } from "@/context/AvailabilityContext"
@@ -33,7 +34,7 @@ function Page({
   busy,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const {
-    state: { duration, selectedDate },
+    state: { duration, course, selectedDate },
     dispatch,
   } = useProvider()
 
@@ -84,13 +85,7 @@ function Page({
 }
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
-  const durations = MENU_ITEMS.map((item) => item.duration)
   const schema = z.object({
-    duration: z
-      .enum([...(durations.map(String) as [string, ...string[]])])
-      .optional()
-      .default(String(DEFAULT_DURATION))
-      .transform(Number),
     timeZone: z.string().optional(),
     selectedDate: z
       .string()
@@ -98,7 +93,7 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
       .optional(),
   })
 
-  const { duration, timeZone, selectedDate } = schema.parse(query)
+  const { timeZone, selectedDate } = schema.parse(query)
 
   // Offer two weeks of availability.
   const start = Day.todayWithOffset(OFFER_OFFSET)
@@ -117,7 +112,8 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
       start: start.toString(),
       end: end.toString(),
       busy: mapDatesToStrings(busy),
-      duration,
+      duration: DEFAULT_DURATION,
+      course: DEFAULT_COURSE,
       ...(timeZone && { timeZone }),
       ...(selectedDate && { selectedDate }),
     },

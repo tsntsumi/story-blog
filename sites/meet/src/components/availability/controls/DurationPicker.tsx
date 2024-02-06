@@ -1,11 +1,11 @@
 import clsx from "clsx"
 
-import { ALLOWED_DURATIONS, MENU_ITEMS } from "@/config"
+import { MENU_ITEMS } from "@/config"
 import { useProvider } from "@/context/AvailabilityContext"
 
 export default function DurationPicker() {
   const {
-    state: { duration },
+    state: { duration, course },
     dispatch,
   } = useProvider()
 
@@ -17,8 +17,8 @@ export default function DurationPicker() {
             key={item.duration}
             onClick={() => {
               dispatch({
-                type: "SET_DURATION",
-                payload: item.duration,
+                type: "SET_COURSE",
+                payload: item.course,
               })
             }}
             type="button"
@@ -35,7 +35,7 @@ export default function DurationPicker() {
               }
             )}>
             <>
-              {item.name}: {item.duration}分
+              {item.course}: {item.duration}分
             </>
           </button>
         ))}

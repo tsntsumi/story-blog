@@ -8,6 +8,8 @@ export default function ApprovalEmail({
   name,
   location,
   dateSummary,
+  duration,
+  course,
   approveUrl,
   timeZone,
   messageText,
@@ -15,12 +17,14 @@ export default function ApprovalEmail({
   dateSummary: string
   email: string
   name: string
+  duration: string
+  course: string
   location: string
   approveUrl: string
   timeZone: string
   messageText: string
 }) {
-  const SUBJECT = `${name}様から予約が申し込まれました`
+  const SUBJECT = `${name}様から${course}の予約が申し込まれました`
 
   const declineUrl = `mailto:${encodeURI(email)}?subject=${encodeURIComponent(
     `Re: ご予約のお申し込みについて`
@@ -30,22 +34,28 @@ export default function ApprovalEmail({
   ${dateSummary} の予定を確認したところ、
   大変申し訳ありませんが、他の予定が入っておりました。
 
-  別の日時をお選びいただけると幸いです。`
+  別の日時をお選びいただけると幸いです。
+
+  よろしくお願いいたします。`
   )}`
 
   let body = `<div dir="ltr">`
   body += [
-    `<b>${name}</b> 様から <b>${dateSummary}</b> のご予約をお申し込みいただきました。`,
+    `<b>${name}</b> 様から <b>${dateSummary}</b> の ${course} (${duration}分)のご予約をお申し込みいただきました。`,
     `<br>`,
-    `予定を確認して、申込みを受け付けるか、お断りするか選んでタップして下さい。`,
+    `予定を確認して、申込みを受け付けるか、お断りするか選んで下さい。`,
     `<br>`,
+    `<br>`,
+    "<hr>",
     `<br>`,
     messageText && `${name}様からのメッセージ`,
     messageText,
     `<br>`,
-    `<b><a href=${approveUrl}>申込みを受け付けて予約をカレンダーに追加する</a></b>`,
+    "<hr>",
+    "<br>",
+    `<b>|＋|<a href=${approveUrl}>申込みを受け付けて予約をカレンダーに追加する</a></b>`,
     `<br>`,
-    `<b><a href=${declineUrl}>申込みをお断りするメールを送る</a></b>`,
+    `<b>|ー|<a href=${declineUrl}>申込みをお断りするメールを送る</a></b>`,
   ]
     .map((line) => `${LINE_PREFIX}${line}${LINE_SUFFIX}`)
     .join("")

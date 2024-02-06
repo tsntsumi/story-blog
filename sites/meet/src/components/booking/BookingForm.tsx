@@ -2,12 +2,7 @@ import { Dialog } from "@headlessui/react"
 // import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context"
 import { useRouter } from "next/navigation"
 import type { Dispatch, FormEvent } from "react"
-import {
-  OWNER_LOCALE,
-  OWNER_TIMEZONE,
-  DURATION_TO_NAME,
-  DEFAULT_DURATION,
-} from "@/config"
+import { OWNER_LOCALE, OWNER_TIMEZONE, DEFAULT_DURATION } from "@/config"
 
 import Modal from "../Modal"
 import Spinner from "../Spinner"
@@ -19,22 +14,22 @@ require("firebase-functions/logger/compat")
 
 const locations = [
   {
-    name: "対面で話す",
+    name: "お会いして",
     value: "visit",
   },
   {
-    name: "Google Meet (リモート会議)",
+    name: "リモートで",
     value: "meet",
   },
   {
-    name: "お電話で話す",
+    name: "お電話で",
     value: "phone",
   },
 ]
 
 export default function BookingForm() {
   const {
-    state: { modal, selectedTime, timeZone, duration },
+    state: { modal, selectedTime, timeZone, duration, course },
     dispatch,
   } = useProvider()
   const router = useRouter()
@@ -49,7 +44,6 @@ export default function BookingForm() {
     timeZone,
     /* timeZoneName: "shortGeneric", */
   })
-  const duration_name = DURATION_TO_NAME(duration || DEFAULT_DURATION)
 
   return (
     <Modal
@@ -79,6 +73,7 @@ export default function BookingForm() {
           value={selectedTime.end.toISOString()}
         />
         <input type="hidden" name="duration" value={duration} />
+        <input type="hidden" name="course" value={course} />
         <input type="hidden" name="timeZone" value={timeZone} />
 
         <div className="border-l-4 border-l-accent-200 bg-accent-50/30 p-3 mt-3 mb-4 rounded-md">
@@ -86,7 +81,7 @@ export default function BookingForm() {
             {dateString}
           </p>
           <p className="text-xs md:text-sm">
-            {startString} - {endString} : {duration_name} / {duration}分
+            {startString} - {endString} : {course} / {duration}分
           </p>
         </div>
 
@@ -144,11 +139,11 @@ export default function BookingForm() {
             </div>
           </div>
           <div className="block">
-            <p className="text-sm font-medium">お打ち合わせ方法</p>
+            <p className="text-sm font-medium">お話しする場所</p>
             <fieldset className="mt-2">
               <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-4">
                 {locations.map((location) => (
-                  <div key={location.value} className="flex items-center">
+                  <span key={location.value} className="flex items-center">
                     <input
                       id={location.value}
                       aria-label={location.name}
@@ -163,7 +158,7 @@ export default function BookingForm() {
                       className="ml-1.5 block text-sm leading-6 text-gray-800">
                       {location.name}
                     </label>
-                  </div>
+                  </span>
                 ))}
               </div>
             </fieldset>
@@ -226,7 +221,7 @@ function handleSubmit(
     .then(async (data) => {
       const json = await data.json()
       if (json.success) {
-        router.push("/confirmation")
+        router.replace("/confirmation")
       } else {
         dispatch({ type: "SET_MODAL", payload: "error" })
       }
