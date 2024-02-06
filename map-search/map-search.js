@@ -35,13 +35,13 @@ const query = QUERY || "水戸市笠原町 美容室"
 
   const response = await axios(config)
   const places = response.data.results
-  console.info("LOC, QUERY:", loc, query)
-  console.info(url)
+  // console.info("LOC, QUERY:", loc, query)
+  // console.info(url)
   const now = new Date()
   const today =
     "" + now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate()
   console.info(
-    `"#", "name", "address", "phone #", "rating", "# users", "website", "# photos", "# reviewers", "date", "place_id"`
+    `"#", "name", "address", "phone #", "website", "rating", "# users", "# photos", "# reviewers", "query", "date", "place_id"`
   )
   let i = 0
   for await (p of places) {
@@ -69,10 +69,10 @@ const query = QUERY || "水戸市笠原町 美容室"
     i += 1
     console.info(
       `${i}, "${name}", "${formatted_address}", "${formatted_phone_number}", "${
-        rating || ""
-      }", "${user_ratings_total || ""}", "${website || ""}", "${
+        website || ""
+      }", "${rating || ""}", "${user_ratings_total || ""}", "${
         photos?.length || "0"
-      }", "${reviews?.length || "0"}", ${today}, ${placeid}`
+      }", "${reviews?.length || "0"}", ${query}, ${placeid}, ${today}`
     )
   }
 })()
