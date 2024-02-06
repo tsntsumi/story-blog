@@ -59,9 +59,9 @@ const Hero = () => {
               width={720}
               height={404}
             />
-            <figurecaption className="text-xs text-center">
+            <figcaption className="text-xs text-center">
               言語化できない商品を集客の錬金術で黄金色に輝かせる
-            </figurecaption>
+            </figcaption>
           </figure>
         </div>
       </div>
