@@ -27,7 +27,7 @@ export default function Squeeze() {
   return (
     <section className="my-6 mx-2 md:mx-6">
       <h1 className="w-fit mx-auto">
-        集客の錬金術のお役立ち情報をお届けします
+        集客の錬金術のお役立ち情報を定期的にお届けします
       </h1>
       <div className="mx-4 md:w-1/2 md:mx-auto xl:w-1/3">
         <form
