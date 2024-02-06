@@ -129,7 +129,7 @@ const Footer = () => {
                   </h4>
 
                   <ul>
-                    {Object.entries(Categories).map(([key, c, i]) => (
+                    {Object.entries(Categories).map(([key, c], i) => (
                       <li key={`${key}-${i}`}>
                         <Link
                           href={`/blog/${key}`}
