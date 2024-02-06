@@ -6,7 +6,7 @@ import "@/app/globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export default function LandingPageLayout({ children }) {
+export default function AboutPageLayout({ children }) {
   return (
     <>
       <Header />
