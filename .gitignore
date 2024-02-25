@@ -34,19 +34,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-/src/firebase-config.ts
-/src/firebase-config.js
+firebase-config.ts
+firebase-config.js
 /.firebase/
-/firebase-debug.log
-/firestore-debug.log
-/ui-debug.log
+*-debug.log
 /emulatorsData/
 /firebase-export-1701072652639q5tc07/
 
-/src/client_secret.json
-/sites/blog/src/client_secret.json
-/sites/blog/src/firebase-config.js
-/sites/meet/.env.local.template
-/sites/meet/.next/
-/sites/meet/node_modules/
-/sites/meet/src/firebase-config.js
+client_secret.json
+.env.local.template
+**/.next/
+**/node_modules/
+
+/sites/blog/
+.env*

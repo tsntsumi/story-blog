@@ -1,4 +1,20 @@
 {
+  "name": "alizza-ideal.com",
+  "version": "1.0.0",
+  "author": {
+    "name": "TSUTSUMI Kikuo",
+    "email": "kikuo@alizza-ideal.com"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "buildall": "for s website meet; do (cd sites/$s && next build); done",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
+  },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@types/gtag.js": "^0.0.18",

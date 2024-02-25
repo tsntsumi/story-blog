@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /land/
+
+# Host
+Host: https://www.alizza-ideal.com
+
+# Sitemaps
+Sitemap: https://www.alizza-ideal.com/sitemap.xml

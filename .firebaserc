@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "story-made"
+  },
   "targets": {
     "story-made": {
       "hosting": {
