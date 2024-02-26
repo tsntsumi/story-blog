@@ -5,8 +5,8 @@
   },
   "hosting": [
     {
-      "target": "blog",
-      "source": "sites/blog",
+      "target": "website",
+      "source": "sites/website",
       "ignore": [
         "firebase.json",
         "**/.*",
