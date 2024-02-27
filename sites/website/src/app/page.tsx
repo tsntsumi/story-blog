@@ -1,7 +1,13 @@
+import Header from "@/components/Header"
+import Hero from "@/components/Hero"
+import Footer from "@/components/Footer"
+
 export default function Page() {
   return (
     <>
-      <div>本文</div>
+      <Header />
+      <Hero />
+      <Footer />
     </>
   )
 }

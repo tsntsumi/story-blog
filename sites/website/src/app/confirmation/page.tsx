@@ -1,5 +1,5 @@
 import Image from "next/image"
-import UseClientComponent from "@/components/common/useclientcomponent"
+import ClientComponent from "@/components/common/clientcomponent"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <UseClientComponent>
+    <ClientComponent>
       <div className="px-8 py-8 sm:py-16 mx-auto max-w-2xl">
         <div className="w-1/3 p-0 pl-2 pb-2 float-right">
           <Image
@@ -90,6 +90,6 @@ export default function Page() {
           className="object-cover w-1/2 ml-auto"
         />
       </div>
-    </UseClientComponent>
+    </ClientComponent>
   )
 }

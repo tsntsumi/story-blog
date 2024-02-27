@@ -1,17 +1,21 @@
 import Link from "next/link"
+import React from "react"
 
 export default function Subscribe({
-  className = "flex rounded-full mx-auto bg-black px-3 whitespace-nowrap py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho",
-  children = "お知らせを受取る"
+  className = "justify-center",
+  children = "お知らせを受取る",
+  onClick = () => false
 }: {
-  className: string
-  children: React.ReactNode
+  className?: string
+  children: React.ReactChild
+  onClick?: () => boolean
 }): React.ReactNode {
   return (
-    <div className="w-fit mx-auto mt-6 p-0 justify-center text-xs">
-      <Link href="/request/newsletter?category=alchemy" className={className}>
-        {children}
-      </Link>
-    </div>
+    <button
+      className="flex mx-auto w-fit rounded-full whitespace-nowrap text-xs p-0 duration-300 ease-in-out text-btndarkgold bg-btngold hover:bg-blackho hover:text-btngold dark:bg-btngold dark:hover:bg-blackho"
+      onClick={onClick}
+    >
+      <span className={`py-2 px-3 rounded-full ${className}`}>{children}</span>
+    </button>
   )
 }

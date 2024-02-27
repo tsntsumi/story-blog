@@ -3,7 +3,7 @@ import Join from "./join"
 import SectionHeader from "./sectionheader"
 import Spinner from "./spinner"
 import Subscribe from "./subscribe"
-import UseClientComponent from "./useclientcomponent"
+import ClientComponent from "./clientcomponent"
 import { BookWithLineTalk } from "./book"
 import { BookWithCalendar } from "./book"
 import { BookWithLineTalkExt } from "./book"
@@ -17,7 +17,7 @@ export {
   SectionHeader,
   Spinner,
   Subscribe,
-  UseClientComponent,
+  ClientComponent,
   BookWithLineTalk,
   BookWithCalendar,
   BookWithLineTalkExt,

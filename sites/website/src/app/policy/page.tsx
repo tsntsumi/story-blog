@@ -4,12 +4,12 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Privacy policy -- Alizza Ideal",
-  description: "個人情報保護について"
+  description: "Alizza Ideal の個人情報保護方針について説明します"
 }
 
 const PolicyPage = () => {
   return (
-    <section className="notice pb-20 pt-40">
+    <section className="notice m-4">
       <h1>個人情報保護方針</h1>
       <h2>プライバシーポリシー</h2>
       <div className="ml-6">
@@ -392,18 +392,18 @@ const PolicyPage = () => {
               href="mailto:info+inquiry@alizza-ideal.com"
               className="text-sm"
             >
-              <span className="link text-sm">
+              <span className="link text-sm text-primary underline">
                 info+inquiry@alizza-ideal.com
               </span>
             </Link>
           </dd>
           <dt>電話番号</dt>
           <dd className="text-sm mt-[-1em]">
-            <Link href="tel:07090342231">
+            <Link href="tel:07090342231" className="text-primary underline">
               +81 709034-
               <ruby>
                 223-1<rp>(</rp>
-                <rt>堤イチ番</rt>
+                <rt>ツツミイチバン</rt>
               </ruby>
             </Link>
             <br />

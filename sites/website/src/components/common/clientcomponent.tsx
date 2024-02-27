@@ -1,6 +1,6 @@
 "use client"
 
-export default function UseClientComponent({
+export default function ClientComponent({
   children
 }: {
   children: React.ReactNode

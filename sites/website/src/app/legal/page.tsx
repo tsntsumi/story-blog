@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const LegalPage = () => {
   return (
-    <main className="notice pb-20 pt-40">
+    <main className="notice m-4">
       <h1>特定商取引法に基づく表記</h1>
       <h2>販売業者</h2>
       <p>
@@ -28,7 +28,7 @@ const LegalPage = () => {
           <div className="link">
             <Link
               href="mailto:info+inquiry@alizza-ideal.com"
-              className="text-[12pt]"
+              className="text-[12pt] text-primary underline"
             >
               mailto:info+inquiry@alizza-ideal.com
             </Link>
@@ -37,7 +37,10 @@ const LegalPage = () => {
         <dt>電話番号</dt>
         <dd className="mt-0">
           <div className="link">
-            <Link href="tel:+817090342231" className="text-[12pt]">
+            <Link
+              href="tel:+817090342231"
+              className="text-[12pt] text-primary underline"
+            >
               +81 709034-
               <ruby>
                 223-1<rp>(</rp>

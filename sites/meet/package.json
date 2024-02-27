@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "for f in .env .env.local ; do test -e $f || (ln -s ../../$f . && echo $f linked); done"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",

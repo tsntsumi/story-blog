@@ -5,6 +5,6 @@ export type Menu = {
   title: string | React.JSX.Element
   path?: string | undefined
   newTab: boolean
-  onClick?: Handler | undefined
+  event?: Handler | undefined
   submenu?: Menu[] | undefined
 }

@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import menuData from "@/components/Header/menuData"
+
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -20,10 +20,10 @@ const Footer = () => {
           {/* <!-- Footer Top --> */}
           <div>
             <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
-              Quick Links
+              Shortcut
             </h4>
             <div className="flex flex-wrap items-start justify-between text-sm ">
-              <ul>
+              <ul className="list-disc">
                 <li key="home">
                   <a
                     href="/"
@@ -32,81 +32,22 @@ const Footer = () => {
                     Home
                   </a>
                 </li>
-                <li key="announces">
-                  <a
-                    href="/announces"
-                    className="mb-3 inline-block text-primary underline"
-                  >
-                    まきせからのお知らせ
-                  </a>
-                </li>
-                <li key="giftset">
-                  <a
-                    href="/giftset"
-                    className="mb-3 inline-block hover:text-primary"
-                  >
-                    <div className="text-xs max-w-[12rem]">
-                      あなたの大切な人に感謝と健康を
-                      <span className="block">贈ってみませんか？</span>
-                    </div>
-                    <span className="text-primary underline">
-                      整体セットギフト券🎁
-                    </span>
-                  </a>
-                </li>
+                <li>ブログ新着リスト</li>
+                <li>ブログカテゴリーリスト</li>
+                <ul className="list-disc ml-4">
+                  <li>Googleマップ（MEO）</li>
+                  <li>Google広告</li>
+                  <li>検索エンジン（SEO）</li>
+                  <li>知られる力</li>
+                  <li>ネットで収益</li>
+                </ul>
               </ul>
-              <div className="flex flex-col mx-0">
-                <div className="flex flex-nowrap items-start justify-between gap-12">
-                  <ul>
-                    <li className="whitespace-nowrap">受付：8時〜20時</li>
-                    <li className="whitespace-nowrap">
-                      休診：日曜&amp;水曜午後
-                    </li>
-                    <li className="text-xs">
-                      ご予約は、20時から開始の施術まで承っております。
-                    </li>
-                  </ul>
-                  {/* Address */}
-                  <ul>
-                    <li>
-                      <div className="block whitespace-nowrap">
-                        住所：水戸市城東３丁目
-                      </div>
-                    </li>
-                    <li>
-                      <div className="block">
-                        <span className="whitespace-nowrap">
-                          城東ロイヤルハイツ
-                        </span>
-                        <span className="whitespace-nowrap">103</span>
-                      </div>
-                    </li>
-                  </ul>
-                  {/* Adderss End */}
-                </div>
-              </div>
             </div>
-            <ul className="flex flex-wrap items-center gap-2 items-center justify-between">
-              {menuData?.map((menuItem, key) => (
-                <li key={key}>
-                  <a
-                    href={`${menuItem.path}`}
-                    className={
-                      pathUrl === menuItem.path
-                        ? "text-primary hover:text-primary"
-                        : "hover:text-primary"
-                    }
-                  >
-                    <span className="whitespace-nowrap">{menuItem.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
           {/* <!-- Footer Top End --> */}
         </div>
         {/* <!-- Footer Bottom --> */}
-        <div className="flex flex-wrap items-center justify-between gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between lg:gap-0">
+        <div className="flex flex-wrap items-center mx-4 gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row justify-between lg:gap-0">
           <motion.div
             variants={{
               hidden: {

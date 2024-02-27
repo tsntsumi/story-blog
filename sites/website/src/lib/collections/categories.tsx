@@ -47,11 +47,11 @@ Google広告の使い方の秘訣や、Google広告とホームページ(HP)・�
 ]
 
 const categoryMap = {
-  "google-maps": Categories["google-maps"].name,
-  "google-ads": Categories["google-ads"].name,
-  "marketing": Categories["marketing"].name,
-  "mindset": Categories["mindset"].name,
-  "seo": Categories["seo"].name
+  "google-maps": Categories.find((c) => c.key == "google-maps")?.name,
+  "google-ads": Categories.find((c) => c.key == "google-ads")?.name,
+  "marketing": Categories.find((c) => c.key == "marketing")?.name,
+  "mindset": Categories.find((c) => c.key == "mindset")?.name,
+  "seo": Categories.find((c) => c.key == "seo")?.name
 }
 
 export const categoryEnumeration = buildEnumValues(categoryMap)

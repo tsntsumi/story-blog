@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import UseClientComponent from "@/components/common/useclientcomponent"
+import ClientComponent from "@/components/common/clientcomponent"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <UseClientComponent>
+    <ClientComponent>
       <section className="overflow-hidden pb-25 pt-45 lg:pb-32.5 lg:pt-50 xl:pb-37.5 xl:pt-55">
         <div className="animate_top mx-auto max-w-[518px] text-center">
           <Image
@@ -51,6 +51,6 @@ export default function NotFound() {
           </Link>
         </div>
       </section>
-    </UseClientComponent>
+    </ClientComponent>
   )
 }
