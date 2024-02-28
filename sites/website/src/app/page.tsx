@@ -5,9 +5,7 @@ import Footer from "@/components/Footer"
 export default function Page() {
   return (
     <>
-      <Header />
-      <Hero />
-      <Footer />
+      <div>これは本文ではありません</div>
     </>
   )
 }
