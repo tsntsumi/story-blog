@@ -4,7 +4,17 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      inter: ["Inter", "sans-serif"]
+      // inter: ["Inter", "sans-serif"]
+      inter: ["mono", "sans-serif"],
+      "serif": [
+        "serif",
+        "Hiragino",
+        "YuMincho",
+        "MS PMincho",
+        "ui-serif",
+        "Times",
+        "Times New Roman"
+      ]
     },
     extend: {
       colors: {
@@ -151,5 +161,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/forms")]
 }

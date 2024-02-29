@@ -19,11 +19,16 @@ const Footer = () => {
         >
           {/* <!-- Footer Top --> */}
           <div>
-            <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
-              Shortcut
-            </h4>
+            <p className="my-4 text-itemtitle2 text-xs font-medium text-black dark:text-white">
+              <ruby>
+                理想のクライアント<rp>(</rp>
+                <rt>Y O U R{"   "}I D E A L s</rt>
+                <rp>)</rp>
+              </ruby>
+              に出会う導線を確保し、問題解決・悩み解消・障害克服・目標達成を経て、日々充実の連鎖を作る
+            </p>
             <div className="flex flex-wrap items-start justify-between text-sm ">
-              <ul className="list-disc">
+              <ul className="list-disc ml-8">
                 <li key="home">
                   <a
                     href="/"
@@ -39,7 +44,7 @@ const Footer = () => {
                   <li>Google広告</li>
                   <li>検索エンジン（SEO）</li>
                   <li>知られる力</li>
-                  <li>ネットで収益</li>
+                  <li>ネットで受動的な収益</li>
                 </ul>
               </ul>
             </div>
@@ -115,8 +120,8 @@ const Footer = () => {
             className="animate_top text-xs"
           >
             <p>
-              &copy; {2023} Makise Shinkyu Seikotsu-in & Alizza Ideal. All
-              rights reserved
+              &copy; {2023} Alizza Ideal. All rights reserved. We encourage you
+              to meet your ideals, and achieving and fullfilling.
             </p>
           </motion.div>
         </div>

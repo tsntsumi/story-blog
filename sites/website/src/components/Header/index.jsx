@@ -6,26 +6,25 @@ import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import Navigation from "@/components/common/navigation"
 
-import ThemeToggler from "./ThemeToggler"
 import menuData from "@/lib/collections/menuData"
 
 const Logo = () => {
   return (
-    <div className="w-1/5 md:1/4">
+    <div className="w-1/8 p-0 m-0">
       <a href="/">
         <Image
-          src="/images/logo/logo-dark.svg"
+          src="/images/logo/logo-square.svg"
           alt="logo"
-          width={256}
+          width={64}
           height={64}
-          className="hidden dark:block"
+          className="block md:hidden object-fill"
         />
         <Image
           src="/images/logo/logo-light.svg"
           alt="logo"
           width={256}
           height={64}
-          className="block dark:hidden"
+          className="hidden md:block object-fill"
         />
       </a>
     </div>
@@ -63,9 +62,6 @@ const Header = () => {
           >
             <Logo />
             <Navigation menu={menuData} />
-            <div className="flex flex-nowrap gap-2 items-start">
-              <ThemeToggler />
-            </div>
           </div>
         </div>
       </header>
