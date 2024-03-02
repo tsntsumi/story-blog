@@ -19,9 +19,6 @@ export default async function ConfirmationEmail({
   const { email, title, url } = data
   const offer = data.title || "ニュースレター"
 
-  console.debug("data", data)
-  console.debug("owner", owner)
-
   const body = [
     `${data.email} さま`,
     `<br>`,

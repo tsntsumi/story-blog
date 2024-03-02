@@ -39,7 +39,6 @@ export default function AcceptOffer({
       .then(async (data) => {
         const json = await data.json()
         if (json.success) {
-          console.debug("/offer/accept success")
           router.push("/offer/confirm")
           setSubmitting("ready")
           return

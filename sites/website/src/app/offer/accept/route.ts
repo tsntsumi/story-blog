@@ -39,8 +39,6 @@ export async function POST(request: NextRequest) {
   const validationResult = validateRequest(data)
 
   if (!validationResult.success) {
-    console.debug("validete data error", validationResult.error.message)
-
     return NextResponse.json(
       { error: validationResult.error.message },
       { status: 400 }
@@ -50,8 +48,6 @@ export async function POST(request: NextRequest) {
   const ss = await getDoc(doc(store, "users/owner"))
   const owner: OwnerData = ss.data() as OwnerData
   owner.id = ss.id
-
-  console.debug("owner", owner)
 
   // Generate and send the notify email
   const notificationEmail = NotificationEmail(data)
@@ -96,7 +92,7 @@ export async function POST(request: NextRequest) {
       success: true,
       error: null
     }
-    console.debug("validate data", JSON.stringify(data, null, 2))
+
     const tests = [
       { key: "email", required: true, defaultValue: "" },
       {
