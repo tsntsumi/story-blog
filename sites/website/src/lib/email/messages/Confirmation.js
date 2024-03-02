@@ -1,7 +1,7 @@
 import { storage } from "@/lib/firebase/app"
 import { ref, getDownloadURL } from "firebase/storage"
-const logger = require("firebase-functions/logger")
-require("firebase-functions/logger/compat")
+//const logger = require("firebase-functions/logger")
+//require("firebase-functions/logger/compat")
 
 const LINE_PREFIX = `<div class="gmail_default" style="font-family:arial,sans-serif">`
 const LINE_SUFFIX = `</div>`
@@ -16,15 +16,21 @@ export default async function ConfirmationEmail({
   data // { title, url }: formData
 }) {
   const intro = await getDownloadURL(ref(storage, INTRO_VIDEO))
+  const { email, title, url } = data
   const offer = data.title || "ニュースレター"
 
+  console.debug("data", data)
+  console.debug("owner", owner)
+
   const body = [
+    `${data.email} さま`,
+    `<br>`,
     `こんにちは ${owner.name} です。`,
     `<br>`,
     `${offer} のお申込みありがとうございます。`,
     `<br>`
   ]
-  if (data.url) {
+  if (url) {
     body.push(
       ...[
         `詳細は、こちらをご覧ください。`,

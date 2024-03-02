@@ -5,32 +5,24 @@ const LINE_SUFFIX = `</div>`
 
 export default function NotificationEmail({
   email,
-  name,
-  offerName,
-  offerUrl,
-  category,
-  blog
+  title,
+  url,
+  category
 }: {
   email: string
-  name: string
-  offerName: string
-  offerUrl: string
-  category: string
-  blog: string
+  title: string
+  url: string
 }) {
-  const SUBJECT = `${name}様からリクエストがありました`
+  const USER = email?.split("@")?.at(0)
+  const SUBJECT = `${USER}さまからオファーの受諾がありました`
 
   let body = `<div dir="ltr">`
   body += [
-    `<b>${name}&lt;${email}&gt;</b> 様からオファーのリクエストがありました。`,
+    `<b>${USER}&lt;${email}&gt;</b> 様からオファーの受諾がありました。`,
     `<br>`,
-    `${offerName || ""}`,
+    `${title || ""}`,
     `<br>`,
-    `${offerUrl || ""}`,
-    `<br>`,
-    `${category && "Category: " + category}`,
-    `<br>`,
-    `${blog && "Blog: " + blog}`,
+    `${url || ""}`,
     `<br>`,
     `${OWNER_NAME}`
   ]
