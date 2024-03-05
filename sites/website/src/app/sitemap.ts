@@ -39,7 +39,14 @@ const generateBlogEntryMaps = async (baseurl: string): Promise<Props[]> => {
 // }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const paths: string[] = ["/legal", "/confirmation", "/policy", "/blog", "/"]
+  const paths: string[] = [
+    "/legal",
+    "/confirmation",
+    "/policy",
+    "/blog",
+    "/",
+    "/who-we-are"
+  ]
   const staticMaps: Props[] = paths.map((p) => ({
     url: `${SITE_URL}${p}`,
     lastModified: new Date(),
