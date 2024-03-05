@@ -4,21 +4,15 @@ import NotificationEmail from "@/lib/email/messages/Notification"
 import ConfirmationEmail from "@/lib/email/messages/Confirmation"
 import getHash from "@/lib/hash"
 import { NextRequest, NextResponse } from "next/server"
-import { store } from "@/lib/firebase/app"
-import { doc, getDoc } from "firebase/firestore"
+import { store, storage } from "@/lib/firebase/app"
+import { doc, getDoc, setDoc } from "firebase/firestore"
+import { ref, getDownloadURL } from "firebase/storage"
+import type { OwnerData, AcceptOfferData } from "@/lib/types"
 
 //const logger = require("firebase-functions/logger")
 //require("firebase-functions/logger/compat")
 
 export const dynamic = "force-dynamic" // defaults to auto
-
-type OwnerData = {
-  id: string
-  name: string
-  email: string
-  replyto: string
-  sender: string
-}
 
 // Define the rate limiter
 const rateLimitLRU = new LRUCache({
@@ -34,7 +28,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 })
   }
 
-  const data = await request.json()
+  const data: AcceptOfferData = await request.json()
 
   const validationResult = validateRequest(data)
 
@@ -45,12 +39,20 @@ export async function POST(request: NextRequest) {
     )
   }
 
+  await setDoc(doc(store, "users", data.email), {
+    name: data.email.split("@").shift(),
+    email: data.email,
+    category: data.category,
+    title: data.title || data.category,
+    url: data.url
+  })
+
   const ss = await getDoc(doc(store, "users/owner"))
   const owner: OwnerData = ss.data() as OwnerData
   owner.id = ss.id
 
   // Generate and send the notify email
-  const notificationEmail = NotificationEmail(data)
+  const notificationEmail = await NotificationEmail(owner, data)
   await sendMail({
     to: owner.email,
     subject: notificationEmail.subject,
@@ -87,7 +89,7 @@ export async function POST(request: NextRequest) {
     return currentUsage >= REQUESTS_PER_IP_PER_MINUTE_LIMIT
   }
 
-  function validateRequest(data) {
+  function validateRequest(data: AcceptOfferData) {
     const result = {
       success: true,
       error: null

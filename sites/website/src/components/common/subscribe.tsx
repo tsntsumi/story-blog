@@ -12,7 +12,7 @@ export default function Subscribe({
 }): React.ReactNode {
   return (
     <button
-      className="flex mx-auto w-fit rounded-full whitespace-nowrap text-xs p-0 duration-300 ease-in-out text-btndarkgold bg-btngold hover:bg-blackho hover:text-btngold dark:bg-btngold dark:hover:bg-blackho"
+      className="flex mx-auto w-fit rounded-full whitespace-nowrap text-xs p-0 duration-300 ease-in-out text-darkgold bg-gold hover:bg-blackho hover:text-gold"
       onClick={onClick}
     >
       <span className={`py-2 px-3 rounded-full ${className}`}>{children}</span>

@@ -1,6 +1,8 @@
 import React from "react"
 import Image from "next/image"
-import Script from "next/script"
+import Link from "next/link"
+import SlideIn from "@/components/common/slidein"
+import AcceptOffer from "@/components/common/acceptoffer"
 import { motion } from "framer-motion"
 
 const Magnet = () => {
@@ -11,111 +13,79 @@ const Magnet = () => {
         id="lead-magnet"
         className="overflow-hidden pt-24 px-4 md:px-8 2xl:px-0"
       >
-        <div className="mx-auto max-w-c-1390 rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] px-7.5 py-12.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark md:px-12.5 xl:px-17.5 xl:py-16">
-          <div className="flex flex-wrap gap-8 lg:flex-nowrap md:items-center md:justify-between md:gap-0">
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  x: -20
-                },
-
-                visible: {
-                  opacity: 1,
-                  x: 0
-                }
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="animate_left lg:w-1/2"
-            >
-              <h2 className="mb-4 w-11/12 text-3xl text-justify font-bold text-black dark:text-white xl:text-sectiontitle4">
-                LINEでお友だちになると、ご予約するときに便利です。
-              </h2>
-              <p>そして、今なら</p>
-              <h3 className="mb-4 w-11/12 text-3xl text-justify font-bold text-black dark:text-white xl:text-sectiontitle4">
-                まきせのストレッチブック
+        <div className="flex flex-nowrap my-4 gap-4 text-justify block">
+          <div className="w-1/2 md:w-3/4">
+            <SlideIn className="animate_left">
+              <h3 className="mt-0 pt-0">
+                集客導線を確保して成約に成功した事例集を無料進呈
               </h3>
-              <p className="indent-0">PDFをダウンロードしていただけます。</p>
-              <p>
-                お仕事中の空いた時間にストレッチして、
-                体の歪みを予防し、仕事のパフォーマンスを取り戻して下さい。
-              </p>
-              <div className="text-center mt-12 mx-auto">
-                <a
-                  data-v-6fa6a74a=""
-                  href="https://lin.ee/COpvvk1"
-                  className="p-4"
+              <div className="md:columns-2 gap-8">
+                <p className="indent-0">もしあなたが</p>
+                <p>まだ、理想のクライアントに出会っていないなら、</p>
+                <p>もっとたくさんのクライアントに貢献したいなら、</p>
+                <p>より多くの貢献を通じてあなた自身も成長したいなら、</p>
+                <p>そして、ご自身のビジネスも成長させていきたいなら、</p>
+                <p>
+                  あなたにピッタリあった集客の導線を確保してください。
+                  より多くのクライアント候補、見込み客に出会うことができるようになります。
+                </p>
+                <p>
+                  多くの人が集まれば、その中に真にあなたからのアドバイスを
+                  求めている人がいるはずです。あなたの知識とスキルを探している人たちです。
+                </p>
+                <p>
+                  そして困難な状況にある人であればあるほど、 あなたの
+                  <b>専門知識</b>だけでなく、
+                  <b>教科書</b>に乗っているような一般常識ではなく、
+                  あなたがこれまでやってきた経験、 困難を乗り越えてきた特別な
+                  <b>知恵</b>を渇望しています。
+                </p>
+                <p>
+                  今すぐ、集客導線を確保して成約に成功した事例集を
+                  無料でダウンロードして、あなたの理想のクライアントを見つけられる確信を得てください。
+                </p>
+                <p>
+                  自信のなさに怯えないでください。
+                  自信がないから行動できないと言い訳していいのは、中学生までです。
+                </p>
+                <p>
+                  起業したからには、自信がなくても確信があれば十分です。確信があれば覚悟を決められます。
+                </p>
+              </div>
+              <div className="my-4 w-full hidden md:block">
+                <AcceptOffer
+                  offer={{
+                    title: "集客導線確保成功事例集",
+                    url: "",
+                    category: `導線確保成功事例集`
+                  }}
                 >
-                  まきせ鍼灸整骨院のLINE公式アカウント「まきせの健康ライフ」
-                  <Image
-                    data-v-6fa6a74a=""
-                    src="/images/icon/line-add-friend-ja.png"
-                    width="92"
-                    height="32"
-                    alt="友だちになる"
-                    className="max-h-10 mx-auto inline-block"
-                  />
-                </a>
+                  今すぐダウンロードする
+                </AcceptOffer>
               </div>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  x: 20
-                },
-
-                visible: {
-                  opacity: 1,
-                  x: 0
-                }
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="animate_right lg:w-[45%]"
-            >
-              <div className="flex flex-wrap md:flex-nowrap items-center justify-center md:justify-end xl:justify-between">
-                <Image
-                  width={600}
-                  height={600}
-                  src="/images/shape/makise-offer-pdf.png"
-                  alt="まきせのストレッチブック"
-                  className="mx-auto w-[300px]"
-                />
-                <div className="inline w-fit mx-auto">
-                  <a
-                    data-v-6fa6a74a=""
-                    href="https://lin.ee/COpvvk1"
-                    className="p-4"
-                    onClick={() =>
-                      gtag_report_conversion("https://lin.ee/COpvvk1")
-                    }
-                  >
-                    <Image
-                      alt="line qr"
-                      src="/images/shape/S_gainfriends_2dbarcodes_GW.png"
-                      className="mx-auto w-[180px] min-w-[180px]"
-                      width={180}
-                      height={180}
-                    />
-                    <Image
-                      data-v-6fa6a74a=""
-                      src="/images/icon/line-add-friend-ja.png"
-                      alt="友だちになる"
-                      className="m-4 mx-auto w-2/3"
-                      width="92"
-                      height="32"
-                    />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+            </SlideIn>
           </div>
+          <div className="w-1/2 md:w-1/4 md:p-8">
+            <SlideIn className="animate_right">
+              <Image
+                src="/images/hero/offer-ebook.png"
+                alt="集客導線確保成功事例集 2024年03月号"
+                width={596}
+                height={842}
+                className="object-cover w-full"
+              />
+            </SlideIn>
+          </div>
+        </div>
+        <div className="my-4 w-full block md:hidden">
+          <AcceptOffer
+            offer={{
+              title: "funnel-succeeded-magazin-2024-03",
+              url: "gs://story-made.appspot.com/videos/how-to-find-work-in-passionated-720p.mp4"
+            }}
+          >
+            今すぐダウンロードする
+          </AcceptOffer>
         </div>
       </section>
       {/* <!-- ===== Magnet End ===== --> */}

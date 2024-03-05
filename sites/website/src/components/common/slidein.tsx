@@ -15,22 +15,25 @@ export default function SlideIn({
   className: string
   transition?: TransitionProp | undefined
 }): React.ReactNode {
-  const d = "animate_left" // default direction
-  const c = className || d // default className
-  const cls = (c.indexOf("animate_") < 0 && d) || c // actual className
-  const x = cls.indexOf("animate_left") >= 0 ? -20 : 20
+  const mh = className.match(/\banimate_(left|right)\b/)
+  const mv = className.match(/\banimate_(top|bottom)\b/)
+  const cls = !mh && !mv ? className + " animate_left" : className
+  const x = 20 * (!mh ? 0 : mh[0] === "animate_left" ? -1 : 1)
+  const y = 20 * (!mv ? 0 : mv[0] === "animate_top" ? -1 : 1)
   return (
     <>
       <motion.div
         variants={{
           hidden: {
             opacity: 0,
-            x: x
+            x: x,
+            y: y
           },
 
           visible: {
             opacity: 1,
-            x: 0
+            x: 0,
+            y: 0
           }
         }}
         initial="hidden"

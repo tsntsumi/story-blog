@@ -2,7 +2,7 @@
 import { useState, useEffect, useMemo } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import React from "react"
+import React, { FormEvent } from "react"
 import Spinner from "@/components/common/spinner"
 
 // ready -- ready for input, busy -- wait for submitting, error -- something went wrong
@@ -12,7 +12,7 @@ export default function AcceptOffer({
   offer,
   children = "今すぐ受取る"
 }: {
-  offer: { title: string; url: string }
+  offer: { title: string; url: string; category?: string }
   children: React.ReactChild
 }): React.ReactNode {
   const [submitting, setSubmitting] = useState<SubmitState>("ready")
@@ -58,24 +58,24 @@ export default function AcceptOffer({
           {errorMessage})
         </div>
       )}
-      <div className="flex flex-nowrap gap-4 my-4">
+      <div className="flex flex-nowrap items-center justify-around gap-4 my-4">
+        <input type="hidden" name="title" value={offer.title} />
+        <input type="hidden" name="url" value={offer.url} />
+        <input type="hidden" name="category" value={offer.category} />
         <input
           type="email"
           name="email"
           placeholder="Emailアドレス"
-          className="rounded-lg w-3/5 md:w-4/5 py-0"
+          className="rounded-lg w-3/5 md:w-4/5 py-0 max-h-[2.8rem] min-h-[2.8rem]"
         />
-        <input type="hidden" name="category" value="casestudy" />
-        <input type="hidden" name="title" value={offer.title} />
-        <input type="hidden" name="url" value={offer.url} />
         <button
           type="submit"
-          className="my-4 w-2/5 md:w-1/5 py-4 px-3 rounded-full whitespace-nowrap text-xs md:text-sm p-0 duration-300 ease-in-out text-btndarkgold bg-btngold hover:bg-blackho hover:text-btngold dark:bg-btngold dark:hover:bg-blackho"
+          className="my-4 w-2/5 md:w-1/5 max-h-[2.8rem] min-h-[2.8rem] px-3 flex items-center justify-center rounded-full text-xs md:text-sm p-0 duration-300 ease-in-out text-darkgold bg-gold hover:bg-blackho hover:text-gold"
         >
           {submitting === "busy" ? (
             <div className="inline flex flex-nowrap items-center justify-center">
               お申し込み受付中...
-              <Spinner className="ml-2" />
+              <Spinner className="ml-2 text-white" />
             </div>
           ) : (
             <>{children}</>

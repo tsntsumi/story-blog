@@ -1,7 +1,7 @@
 import { storage } from "@/lib/firebase/app"
+import { doc, getDoc } from "firebase/firestore"
+import type { OwnerData, AcceptOfferData } from "@/lib/types"
 import { ref, getDownloadURL } from "firebase/storage"
-//const logger = require("firebase-functions/logger")
-//require("firebase-functions/logger/compat")
 
 const LINE_PREFIX = `<div class="gmail_default" style="font-family:arial,sans-serif">`
 const LINE_SUFFIX = `</div>`
@@ -14,10 +14,17 @@ const INTRO_VIDEO =
 export default async function ConfirmationEmail({
   owner, // { name, sender, replyto }
   data // { title, url }: formData
+}: {
+  owner: OwnerData
+  data: AcceptOfferData
 }) {
   const intro = await getDownloadURL(ref(storage, INTRO_VIDEO))
+  if (data.url.startsWith("gs://")) {
+    const url = await getDownloadURL(ref(storage, data.url))
+    data.url = url
+  }
   const { email, title, url } = data
-  const offer = data.title || "ニュースレター"
+  const offer = title || "ニュースレター"
 
   const body = [
     `${data.email} さま`,
@@ -30,11 +37,11 @@ export default async function ConfirmationEmail({
   if (url) {
     body.push(
       ...[
-        `詳細は、こちらをご覧ください。`,
+        `お約束の${offer}は、次のリンクからダウンロードしてください。`,
         `<br>`,
         `---->8---->8---->8---->8----`,
         `<br>`,
-        `${data.url}`,
+        `<a href="${data.url}">${offer}</a>`,
         `<br>`
       ]
     )

@@ -1,6 +1,11 @@
 "use client"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import NextLink from "next/link"
+import Link from "@/components/common/link"
+import CategoryListings from "@/components/Blog/CategoryListings"
+import Latests from "@/components/Blog/Latests"
+import { type Category, Categories } from "@/lib/collections/categories"
 
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -37,15 +42,32 @@ const Footer = () => {
                     Home
                   </a>
                 </li>
-                <li>ブログ新着リスト</li>
-                <li>ブログカテゴリーリスト</li>
-                <ul className="list-disc ml-4">
-                  <li>Googleマップ（MEO）</li>
-                  <li>Google広告</li>
-                  <li>検索エンジン（SEO）</li>
-                  <li>知られる力</li>
-                  <li>ネットで受動的な収益</li>
-                </ul>
+                <li>
+                  <div>ブログ新着リスト</div>
+                  <div>
+                    <Latests latests={4} />
+                  </div>
+                </li>
+                <li>
+                  <div>ブログカテゴリーリスト</div>
+                  <div className="flex flex-wrap gap-2 p-0 items-center justify-start">
+                    {Categories.map((c, i) => (
+                      <div
+                        key={c.key}
+                        className="w-[30%] min-w-[6rem] border-2 border-t-0 border-l-0 border-grey-500 rounded-b-lg"
+                      >
+                        <NextLink
+                          href={`/blog/${c.key}`}
+                          className="mb-3 block hover:text-primary gap-0"
+                        >
+                          <div className="p-2 pb-0 text-sm font-bold text-darkgold underline">
+                            {c.name}
+                          </div>
+                        </NextLink>
+                      </div>
+                    ))}
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,50 +1,58 @@
 import { buildCollection, buildProperty, buildEnumValues } from "firecms"
 
-export const Categories = [
+export type Category = {
+  key: string
+  name: string
+  description: string
+}
+
+export const Categories: Category[] = [
   {
     key: "google-maps",
     name: "Googleマップ（MEO）",
     description: `
-Googleビジネスプロフィールを使った MEO で、Googleマップに登録したあなたのお店の売り上げにつながる情報を投稿しています
-`
+地域密着店舗ビジネスなら必須のGoogleビジネスプロフィール(GBP) を使った MEO 対策。
+単に見つかるだけでなく、ライバルを出し抜いて選ばれたいなら是非ご覧ください。
+    `
   },
   {
     key: "google-ads",
     name: "Google広告",
     description: `
-Google広告の使い方の秘訣や、Google広告とホームページ(HP)・ランディングページ(LP)を効率よく効果的に連携させるテクニックを投稿しています
+積極的に売上を伸ばしたい個人ビジネスオーナーのリーズナブルな Google 広告対策。
+おおくの広告代理店は、月10万円程度のクライアントには真剣に運用してくれません。
+Google広告の使い方の秘訣や、Google広告とHP・LPを連携してビジネスを成長させたいなら是非読んでください。
 `
   },
   {
     key: "seo",
     name: "検索エンジン（SEO）",
     description: `
-地域密着の少資本の店舗ビジネスが、自分でホームページを改善して集客を成功させるためのテクニックを投稿しています
+少資本の個人ビジネスオーナーが、ホームページから集客したいと思ったらコレを読んでください。
+SEO対策にかける予算がないときに役立つ情報を紹介しています。
 `
   },
   {
     key: "marketing",
     name: "知られる力",
     description: `
-個人起業家にとって、多くの人に知られ、ビジネスを成長させ続けるワザを紹介しています
+個人起業家にとって、人に知られなければ存在しないのと同じです。
+人に知られ、ビジネスを成長させたいなら是非ご覧ください。
 `
   },
   {
     key: "mindset",
-    name: "ネットで収益",
-    description: (
-      <>
-        <ruby>
-          個人で起業・副業を始める<rp>(</rp>
-          <rt>ソロプレナーになる</rt>
-          <rp>)</rp>
-        </ruby>
-        にあたって参考になる考え方や、ネットからの収益化のアイデアを紹介しています
-        （アフィリエイトやポイ活ではありません）
-      </>
-    )
+    name: "個人起業家精神",
+    description: `
+個人で起業したい、起業を目指して副業を始める人が、何をしていいか迷ったら読んでください。
+個人起業家がお客さんに貢献するために意識すべきマインドセットを紹介しています。
+`
   }
 ]
+
+export function CategoryFromKey(key: string): Category {
+  return Categories.find((c) => c.key === key)
+}
 
 const categoryMap = {
   "google-maps": Categories.find((c) => c.key == "google-maps")?.name,
@@ -75,4 +83,4 @@ export const categoryCollection = buildCollection({
   }
 })
 
-export default categoryCollection
+export default Categories

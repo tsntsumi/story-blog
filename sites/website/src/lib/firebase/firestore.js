@@ -45,14 +45,16 @@ export async function retrieveDocuments(rootdir, filters = {}) {
   filters.status = filters.status ? filters.status : "published"
   const q = applyQueryFilters(c, filters)
   const r = await getDocs(q)
-  return r.docs.map((d) => {
-    const data = d.data()
-    data.date = new Date(data.createdat.seconds * 1000).toLocaleString()
-    return {
-      id: d.id,
-      ...data
-    }
-  })
+  return r.docs
+    .map((d) => {
+      const data = d.data()
+      data.date = new Date(data.createdat.seconds * 1000).toLocaleString()
+      return {
+        id: d.id,
+        ...data
+      }
+    })
+    .sort((a, b) => b.createdat.seconds - a.createdat.seconds)
 }
 
 export function retrieveDocumentsSnapshot(rootdir, cb, filters = {}) {
@@ -63,14 +65,16 @@ export function retrieveDocumentsSnapshot(rootdir, cb, filters = {}) {
   const c = query(collection(db, rootdir || DEFAULT_ROOTDIR))
   const q = applyQueryFilters(c, filters)
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    const r = querySnapshot.docs.map((d) => {
-      const data = d.data()
-      data.date = new Date(data.createdat.seconds * 1000).toLocaleString()
-      return {
-        id: d.id,
-        ...data
-      }
-    })
+    const r = querySnapshot.docs
+      .map((d) => {
+        const data = d.data()
+        data.date = new Date(data.createdat.seconds * 1000).toLocaleString()
+        return {
+          id: d.id,
+          ...data
+        }
+      })
+      .sort((a, b) => b.createdat.seconds - a.createdat.seconds)
     cb(r)
   })
   return unsubscribe

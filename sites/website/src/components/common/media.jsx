@@ -5,9 +5,8 @@ import { ref, getDownloadURL } from "firebase/storage"
 import NextImage from "next/image"
 import Spinner from "@/components/common/spinner"
 
-export function Image({ src, alt, ...opts }) {
+export function Image({ src, alt, ...rest }) {
   const [url, setUrl] = useState(undefined)
-  const { placeholder, ...rest } = opts
 
   useEffect(() => {
     const media = ref(storage, src)
@@ -22,14 +21,7 @@ export function Image({ src, alt, ...opts }) {
     )
   }
 
-  return (
-    <NextImage
-      src={url}
-      alt={alt}
-      placeholder={placeholder || "blur"}
-      {...rest}
-    />
-  )
+  return <NextImage src={url} alt={alt} {...rest} />
 }
 
 export function Video({ src, ...opts }) {

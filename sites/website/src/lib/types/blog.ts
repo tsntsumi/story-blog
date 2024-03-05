@@ -1,3 +1,5 @@
+import type { Category } from "@/lib/collections/categories"
+
 export type BlogEntry = {
   title: string
   hero: string
@@ -10,12 +12,6 @@ export type BlogEntry = {
   status: string
   createdat: Date
   date?: string | undefined
-}
-
-export type Category = {
-  key: string
-  name: string
-  description: string | React.JSX.Element
 }
 
 export type BlogEntryImages = {

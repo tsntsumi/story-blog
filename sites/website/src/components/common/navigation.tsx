@@ -31,7 +31,7 @@ export default function Navigation({
     return (
       <>
         <div
-          className={`absolute top-8 z-30 w-[250px] flex flex-col py-4 bg-btndarkgold text-btngold rounded-md ${transClass}`}
+          className={`absolute top-8 z-30 w-[250px] flex flex-col py-4 bg-darkgold text-gold rounded-md ${transClass}`}
         >
           {menu.map((m) => {
             const { id, title, path } = m
