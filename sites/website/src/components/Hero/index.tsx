@@ -10,13 +10,24 @@ import Magnet from "@/components/Magnet"
 
 const SCHEDULE_TO_CALL: string = "https://meet.alizza-ideal.com"
 
+const SoloPreneur = () => (
+  <ruby>
+    個人起業家
+    <rp>(</rp>
+    <rt>ソロプレナー</rt>
+    <rp>)</rp>
+  </ruby>
+)
+const 個人起業家 = () => <SoloPreneur />
+
 const Hero = () => {
   return (
     <>
       <section id="first-view" className="overflow-hidden">
         <div className="flex flex-col w-full m-0 p-0 bg-sky-950">
           <h1 className="h4 text-sm md:text-2xl text-justify font-medium rounded-full p-4 mt-2 text-gold">
-            コーチ・ヒーラー・治療家・セラピストが、より多くの人に貢献するための集客の仕組み
+            <個人起業家 />
+            のコーチ・ヒーラー・治療家・セラピストが、より多くの人に貢献するための集客の仕組み
           </h1>
           <Image
             src="/images/hero/jumping.jpg"
@@ -39,17 +50,16 @@ const Hero = () => {
             alt="Jumping happy kids"
             className="w-full object-fill block md:hidden"
           />
-          <h2 className="flex flex-wrap items-center justify-center mb-5 mx-4 text-lg md:text-2xl font-bold text-gold">
-            <div className="text-base">この困難な時代に、</div>
-            <div className="inline-block text-base">他人の役に立とうとする</div>
-            <div className="inline-block text-base">
-              あなたの素晴らしいサービスが、
+          <h2 className="flex flex-wrap items-end justify-center mb-5 mx-4 text-lg md:text-2xl font-bold text-gold">
+            <div className="">この困難な時代に</div>
+            <div className="inline-block">人のためにお役に立ちたい</div>
+            <div className="inline-block">
+              <個人起業家 />
+              が、
             </div>
-            <div className="inline-block text-base">
-              悩めるクライアントに見つけられ、
-            </div>
-            <div className="inline-block text-base">選ばれ続ける</div>
-            <div className="inline flex flex-wrap w-full items-center justify-center">
+            <div className="inline-block">悩める人々に見つけられ、</div>
+            <div className="inline-block">選ばれ続ける</div>
+            <div className="inline flex flex-wrap w-full items-end justify-center">
               <span>ネット集客　</span>
               <span className="text-5xl">導線確保</span>
               <span>　の仕組み</span>

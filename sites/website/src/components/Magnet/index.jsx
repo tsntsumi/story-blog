@@ -15,10 +15,12 @@ const Magnet = () => {
       >
         <div className="flex flex-nowrap my-4 gap-4 text-justify block">
           <div className="w-1/2 md:w-3/4">
-            <SlideIn className="animate_left">
+            <SlideIn className="animate_top">
               <h3 className="mt-0 pt-0">
                 集客導線を確保して成約に成功した事例集を無料進呈
               </h3>
+            </SlideIn>
+            <SlideIn className="animate_left">
               <div className="md:columns-2 gap-8">
                 <p className="indent-0">もしあなたが</p>
                 <p>まだ、理想のクライアントに出会っていないなら、</p>
@@ -56,7 +58,7 @@ const Magnet = () => {
                 <AcceptOffer
                   offer={{
                     title: "集客導線確保成功事例集",
-                    url: "",
+                    url: "gs://story-made.appspot.com/videos/how-to-find-work-in-passionated-720p.mp4",
                     category: `導線確保成功事例集`
                   }}
                 >
@@ -80,7 +82,7 @@ const Magnet = () => {
         <div className="my-4 w-full block md:hidden">
           <AcceptOffer
             offer={{
-              title: "funnel-succeeded-magazin-2024-03",
+              title: "集客導線確保成功事例集",
               url: "gs://story-made.appspot.com/videos/how-to-find-work-in-passionated-720p.mp4"
             }}
           >
