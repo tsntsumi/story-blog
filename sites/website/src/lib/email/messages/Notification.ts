@@ -17,9 +17,11 @@ export default function NotificationEmail(
   body += [
     `<b>${USER}&lt;${email}&gt;</b> 様から ${category}のお申し込みがありました。`,
     `<br>`,
-    `${title || ""}`,
+    `TITLE: ${title || ""}`,
     `<br>`,
-    `${url || ""}`,
+    `URL: ${url || ""}`,
+    `<br>`,
+    `CATEGORY: ${category || ""}`,
     `<br>`,
     `<hr>`,
     `${owner.name}`

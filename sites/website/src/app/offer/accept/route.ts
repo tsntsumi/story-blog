@@ -30,6 +30,11 @@ export async function POST(request: NextRequest) {
 
   const data: AcceptOfferData = await request.json()
 
+  if (data.url?.startsWith("gs://")) {
+    const cref = ref(storage, data.url)
+    data.url = await getDownloadURL(cref)
+  }
+
   const validationResult = validateRequest(data)
 
   if (!validationResult.success) {
@@ -44,7 +49,12 @@ export async function POST(request: NextRequest) {
     email: data.email,
     category: data.category,
     title: data.title || data.category,
-    url: data.url
+    url: data.url,
+    address: "",
+    phone: "",
+    mobile: "",
+    seqno: -1,
+    type: "subscriber"
   })
 
   const ss = await getDoc(doc(store, "users/owner"))
@@ -70,7 +80,7 @@ export async function POST(request: NextRequest) {
     body: confirmationEmail.body
   })
 
-  return NextResponse.json({ success: true }, { status: 200 })
+  return NextResponse.json({ success: true, url: data.url }, { status: 200 })
 
   /**
    * Checks the rate limit for the current IP address.

@@ -6,7 +6,7 @@ import React, { FormEvent } from "react"
 import Spinner from "@/components/common/spinner"
 
 // ready -- ready for input, busy -- wait for submitting, error -- something went wrong
-type SubmitState = "ready" | "busy" | "error"
+type SubmitState = "ready" | "busy" | "error" | "done"
 
 export default function AcceptOffer({
   offer,
@@ -28,7 +28,10 @@ export default function AcceptOffer({
     e.preventDefault()
     setSubmitting("busy")
     const data = new FormData(e.currentTarget)
-    const body = JSON.stringify(Object.fromEntries(data))
+    const fo = Object.fromEntries(data)
+    const body = JSON.stringify(fo)
+    console.debug(`form obj`, body)
+    const { email, title, url } = fo
     fetch(`/offer/accept`, {
       method: "POST",
       headers: {
@@ -38,8 +41,12 @@ export default function AcceptOffer({
     })
       .then(async (data) => {
         const json = await data.json()
+        setSubmitting("done")
         if (json.success) {
-          router.push("/offer/confirm")
+          const query = encodeURI(
+            `title=${title}&url=${json.url}&email=${email}`
+          )
+          router.push(`/offer/confirm?${query}`)
           setSubmitting("ready")
           return
         }
@@ -77,10 +84,17 @@ export default function AcceptOffer({
               お申し込み受付中...
               <Spinner className="ml-2 text-white" />
             </div>
+          ) : submitting === "done" ? (
+            <>受け付け完了しました</>
           ) : (
-            <>{children}</>
+            <>
+              <div>{children}</div>
+            </>
           )}
         </button>
+      </div>
+      <div>
+        TITLE: {offer.title}, URL: {offer.url}, CATEGORY: {offer.category}
       </div>
     </form>
   )
