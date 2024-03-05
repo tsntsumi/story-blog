@@ -17,7 +17,7 @@ export default function Item({ document }: { document: BlogEntry }) {
   const content: string = document.content
     ?.filter((c) => c.type === "text")
     ?.at(0).value as string
-  const summary: string = elipsis(document.summary, 40)
+  const summary: string = elipsis(document.summary, 80)
   return (
     <>
       <div className="border-2 border-slate-200 rounded-lg">
