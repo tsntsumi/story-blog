@@ -15,6 +15,9 @@ const Footer = () => {
   const [dropdownToggler, setDropdownToggler] = useState(false)
   const [stickyMenu, setStickyMenu] = useState(false)
 
+  const elipsis = (text: string, count: number): string =>
+    text?.slice(0, count) + (text?.length > count ? "..." : "")
+
   return (
     <>
       <footer className="mt-8 border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
@@ -34,36 +37,35 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap items-start justify-between text-sm ">
               <ul className="list-disc ml-8">
-                <li key="home">
-                  <a
-                    href="/"
-                    className="mb-3 inline-block text-primary underline"
-                  >
+                <li key="home" className="my-2">
+                  <Link href="/" go="back">
                     Home
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <div>ブログ新着リスト</div>
+                <li className="my-2">
+                  <div className="my-2">ブログ新着リスト</div>
                   <div>
                     <Latests latests={4} />
                   </div>
                 </li>
                 <li>
-                  <div>ブログカテゴリーリスト</div>
-                  <div className="flex flex-wrap gap-2 p-0 items-center justify-start">
+                  <div className="my-2">ブログカテゴリーリスト</div>
+                  <div className="flex flex-wrap w-full justify-start">
                     {Categories.map((c, i) => (
-                      <div
-                        key={c.key}
-                        className="w-[30%] min-w-[6rem] border-2 border-t-0 border-l-0 border-grey-500 rounded-b-lg"
-                      >
-                        <NextLink
-                          href={`/blog/${c.key}`}
-                          className="mb-3 block hover:text-primary gap-0"
-                        >
-                          <div className="p-2 pb-0 text-sm font-bold text-darkgold underline">
-                            {c.name}
+                      <div key={c.key} className="w-1/4 text-justify">
+                        <div className="border-2 border-slate-900 rounded-lg m-2 p-0 h-[6rem] min-h-[6rem] max-h-[6rem] ovreflow-hidden">
+                          <div className="flex flex-nowrap items-center h-[4rem] max-h-[2.8rem] min-h-[2.8rem] border-b-2 bg-gold">
+                            <Link
+                              href={`/blog/${c.key}`}
+                              className="hover:text-primary text-darkgold mx-2"
+                            >
+                              {c.name}
+                            </Link>
                           </div>
-                        </NextLink>
+                          <div className="overflow-hidden h-[6rem] max-h-[6rem] min-h-[6rem] p-2">
+                            {elipsis(c.description, 24)}
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
