@@ -3,14 +3,16 @@ import NextLink from "next/link"
 export default function Link({
   href,
   children,
+  className,
   go = "detail"
 }: {
   href: string
   children: React.ReactNode
+  className?: string
   go?: "back" | "detail"
 }): React.ReactNode {
   return (
-    <div className="m-0 p-0">
+    <div className={`m-0 p-0 ${className}`}>
       <NextLink href={href}>
         <button
           aria-label="Go button"
