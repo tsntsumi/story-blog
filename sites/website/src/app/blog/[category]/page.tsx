@@ -4,10 +4,9 @@ import { type Category, Categories } from "@/lib/collections/categories"
 
 export const metadata: Metadata = {
   title: "見つかるブログカテゴリー記事一覧",
-  description: `
-  このカテゴリーのブログ記事の一覧です。
-  気になる記事があったらぜひ選択してご覧ください。
-  `
+  description: `\
+  このカテゴリーのブログ記事の一覧です。\
+  気になる記事があったらぜひ選択してご覧ください。`
 }
 
 /* export async function generateMetadata({

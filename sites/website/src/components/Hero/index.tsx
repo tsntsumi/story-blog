@@ -1,5 +1,6 @@
 "use client"
-import Image from "next/image"
+import Image from "@/components/common/media"
+import NextImage from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import AcceptOffer from "@/components/common/acceptoffer"
@@ -24,58 +25,69 @@ const Hero = () => {
   return (
     <>
       <section id="first-view" className="overflow-hidden">
-        <div className="flex flex-col w-full m-0 p-0 bg-sky-950">
-          <h1 className="h4 text-sm md:text-2xl text-justify font-medium rounded-full p-4 mt-2 text-gold">
-            <個人起業家 />
-            のコーチ・ヒーラー・治療家・セラピストが、より多くの人に貢献するための集客の仕組み
-          </h1>
-          <Image
-            src="/images/hero/jumping.jpg"
-            width={1366}
-            height={382}
-            alt="Jumping happy kids"
-            className="w-full object-fill hidden md:block"
-          />
-          <Image
-            src="/images/hero/jumping-6kids.jpg"
-            width={1168}
-            height={382}
-            alt="Jumping happy kids"
-            className="w-full object-fill hidden"
-          />
-          <Image
-            src="/images/hero/jumping-5kids.jpg"
-            width={923}
-            height={382}
-            alt="Jumping happy kids"
-            className="w-full object-fill block md:hidden"
-          />
-          <h2 className="flex flex-wrap items-end justify-center mb-5 mx-4 text-lg md:text-2xl font-bold text-gold">
-            <div className="">この困難な時代に</div>
-            <div className="inline-block">人のためにお役に立ちたい</div>
-            <div className="inline-block">
-              <個人起業家 />
-              が、
+        <div className="flex flex-wrap w-full m-0 p-8 bg-sky-950">
+          <div className="md:w-2/5">
+            <h1 className="h3 text-3xl md:text-4xl text-justify font-medium mt-6 text-gold ">
+              コーチ、コンサルタントの
+              <個人起業家 />が
+              <ruby>
+                理想<rp>(</rp>
+                <rt>IDEAL</rt>
+                <rp>)</rp>
+              </ruby>
+              に向かってビジネスをドライブするためのビジネス・ドライビング・スクール
+            </h1>
+            <p className="text-lg text-white">
+              <b className="text-gold">
+                オンラインコース、ウェビナー、メールおよびリモート相談
+              </b>
+              を通じて、
+              あなたのビジネスがコンマ２つある７桁以上の月商に拡大していくことを目指せる。
+            </p>
+            <div className="my-4 mx-auto">
+              <Link href={SCHEDULE_TO_CALL}>
+                <Subscribe className="text-lg md:text-sm py-4 px-6">
+                  相談を予約
+                </Subscribe>
+              </Link>
             </div>
-            <div className="inline-block">悩める人々に見つけられ、</div>
-            <div className="inline-block">選ばれ続ける</div>
-            <div className="inline flex flex-wrap w-full items-end justify-center">
-              <span>ネット集客　</span>
-              <span className="text-5xl">導線確保</span>
-              <span>　の仕組み</span>
-            </div>
-            <div className="inline whitespace-nowrap">限定公開中</div>
-          </h2>
+          </div>
+          <div className="w-full md:w-1/2 xl:w-2/5 mx-auto mt-6 mb-4">
+            <Image
+              src="gs://story-made.appspot.com/images/hero/cars-output-short.gif"
+              alt="enjoy driving"
+              width={1024}
+              height={576}
+              className="object-cover mx-auto rounded-xl"
+            />
+          </div>
         </div>
-        <Magnet />
-        <div className="my-4">
-          <Subscribe
-            onClick={() => gtag_report_conversion(SCHEDULE_TO_CALL)}
-            className="text-xs md:text-sm py-4 px-6"
-          >
-            <Link href={SCHEDULE_TO_CALL}>無料相談を予約する</Link>
-          </Subscribe>
-        </div>
+        {/* <p>
+            ほとんどの人々は、本当にコーチを必要としています。
+            この困難な時代、多くの人が時間と日々の雑務に追われ、
+            どうすれば困難を乗り越え、充実した人生を送れるのか知りたがっています。
+            </p>
+            <p>そこであなたの出番です。</p>
+            <p>
+            あなた自身が、すでに困難を克服した経験を持っており、
+            提供できる知恵を持っているなら、その知恵を知りたがっている人々にとって、
+            それは非常に価値があります。
+            </p>
+            <p>
+            しかし、コーチとして起業しビジネスを成長させていけるのか不安なことでしょう。
+            起業したばかりの他のコーチと同じように、あなたもこんな疑問を持っていることでしょう。
+            </p>
+            <ul>
+            <li>新しいクライアントをどうやって見つければいいのか？</li>
+            <li>信頼を得るために、どんな資格を得ればいいのか？</li>
+            <li>どのようなメソッドをクライアントに提供すればいいのか？</li>
+            <li>価格をいくらにすればいいのか？</li>
+            <li>どのような「商品・サービス」を販売すればいいのか？</li>
+            <li>
+            自分のやり方が正しいかどうか迷ったとき、誰に相談すればいいのか？
+            </li>
+            <li>いつ、どのようにコーチとして起業すればいいのか？</li>
+            </ul> */}
       </section>
     </>
   )

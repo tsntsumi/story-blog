@@ -61,7 +61,7 @@ html {
   section li {
       @apply mb-2 text-base text-titlebgdark dark:text-waterloo;
   }
-  
+
   section blockquote {
     @apply relative z-10 my-10 overflow-hidden rounded-md bg-zumthor text-white p-8 text-center text-base font-medium italic text-black dark:bg-titlebgdark md:py-9 lg:px-10;
   }
@@ -75,7 +75,6 @@ html {
       content: "";
       @apply absolute left-0 top-0 h-[106px] w-[140px] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/shape/quote.svg)];
   }
-
 }
 
 @layer components {

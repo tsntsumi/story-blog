@@ -77,7 +77,7 @@ export default function AcceptOffer({
         />
         <button
           type="submit"
-          className="my-4 w-2/5 md:w-1/5 max-h-[2.8rem] min-h-[2.8rem] px-3 flex items-center justify-center rounded-full text-xs md:text-sm p-0 duration-300 ease-in-out text-darkgold bg-gold hover:bg-blackho hover:text-gold"
+          className="my-4 w-2/5 w-fit max-h-[2.8rem] min-h-[2.8rem] px-3 flex items-center justify-center rounded-full text-xs md:text-sm p-0 duration-300 ease-in-out text-darkgold bg-gold hover:bg-blackho hover:text-gold"
         >
           {submitting === "busy" ? (
             <div className="inline flex flex-nowrap items-center justify-center">
@@ -88,13 +88,10 @@ export default function AcceptOffer({
             <>受け付け完了しました</>
           ) : (
             <>
-              <div>{children}</div>
+              <div className="whitespace-nowrap">{children}</div>
             </>
           )}
         </button>
-      </div>
-      <div>
-        TITLE: {offer.title}, URL: {offer.url}, CATEGORY: {offer.category}
       </div>
     </form>
   )

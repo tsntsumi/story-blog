@@ -95,3 +95,13 @@ export type AcceptOfferData = {
   category: string
   email: string
 }
+
+export type ScheduleData = {
+  name: string
+  email: string
+  phone: string
+  occupation: string
+  space: string
+  problem: string
+  earning: string
+}

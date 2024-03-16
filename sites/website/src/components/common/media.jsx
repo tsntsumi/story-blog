@@ -35,7 +35,7 @@ export function Video({ src, ...opts }) {
 
   if (!url) {
     return (
-      <div className="text-center h-full my-auto">
+      <div className="text-center h-full mx-auto">
         <Spinner />
       </div>
     )

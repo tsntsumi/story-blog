@@ -2,14 +2,22 @@
 import React, { useCallback, useEffect, useState } from "react"
 
 import { User as FirebaseUser } from "firebase/auth"
-import { Authenticator, FirebaseCMSApp } from "firecms"
+import {
+  buildCollection,
+  buildProperty,
+  buildEnumValues,
+  EntityReference,
+  Authenticator,
+  FirebaseCMSApp
+} from "firecms"
 
-import "typeface-rubik"
-import "@fontsource/ibm-plex-mono"
+//import "typeface-rubik"
+//import "@fontsource/ibm-plex-mono"
 import firebaseConfig from "@/firebase-config"
 
-import { announceCollection } from "@/collections/announceEntries"
-const logo = "/images/makise-hp-logo.svg"
+import { blogCollection } from "@/collections/blogentries"
+import { newsletterCollection } from "@/collections/newsletterentries"
+const logo = "/images/logo/alizza-ideal-logo-light.png"
 
 export default function CMS() {
   const cmsAuthenticator: Authenticator<FirebaseUser> = useCallback(
@@ -44,13 +52,13 @@ export default function CMS() {
   return (
     <div className="mt-12">
       <FirebaseCMSApp
-        name={"Announce Content Manager"}
+        name={"Blog Content Manager"}
         basePath={"/cms"}
         authentication={cmsAuthenticator}
-        collections={[announceCollection]}
+        collections={[blogCollection, newsletterCollection]}
         logo={logo}
         firebaseConfig={firebaseConfig}
-        signInOptions={["google.com"]}
+        signInOptions={["password", "google.com"]}
       />
     </div>
   )

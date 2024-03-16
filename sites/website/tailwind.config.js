@@ -3,6 +3,12 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   darkMode: "class",
   theme: {
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      square: "square",
+      decimal: "decimal"
+    },
     fontFamily: {
       // inter: ["Inter", "sans-serif"]
       inter: ["mono", "sans-serif"],
@@ -51,7 +57,8 @@ module.exports = {
         btndark: "#292E45",
         gold: "#eec900",
         darkgold: "#8b6914",
-        shinegold: "#ffd700",
+        goldho: "#8b6914",
+        whitegold: "#ffd700",
         white: "#FFFFFF",
         black: "#181C31",
         blackho: "#2C3149",

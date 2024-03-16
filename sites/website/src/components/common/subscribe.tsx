@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import React from "react"
 
@@ -12,10 +13,10 @@ export default function Subscribe({
 }): React.ReactNode {
   return (
     <button
-      className="flex mx-auto w-fit rounded-full whitespace-nowrap text-xs p-0 duration-300 ease-in-out text-darkgold bg-gold hover:bg-blackho hover:text-gold"
+      className={`flex mx-auto w-fit rounded-full whitespace-nowrap text-xs py-2 px-3 duration-300 ease-in-out font-bold text-darkgold bg-gold hover:bg-blackho hover:text-gold hover:scale-110 ${className}`}
       onClick={onClick}
     >
-      <span className={`py-2 px-3 rounded-full ${className}`}>{children}</span>
+      {children}
     </button>
   )
 }

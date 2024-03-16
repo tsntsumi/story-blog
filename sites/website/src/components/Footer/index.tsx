@@ -10,6 +10,15 @@ import { type Category, Categories } from "@/lib/collections/categories"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 
+const SoloPreneur = () => (
+  <ruby>
+    個人起業家
+    <rp>(</rp>
+    <rt>ソロプレナー</rt>
+    <rp>)</rp>
+  </ruby>
+)
+
 const Footer = () => {
   const pathUrl = usePathname()
   const [dropdownToggler, setDropdownToggler] = useState(false)
@@ -28,12 +37,9 @@ const Footer = () => {
           {/* <!-- Footer Top --> */}
           <div>
             <p className="my-4 text-itemtitle2 text-xs font-medium text-black dark:text-white">
-              <ruby>
-                理想のクライアント<rp>(</rp>
-                <rt>Y O U R{"   "}I D E A L s</rt>
-                <rp>)</rp>
-              </ruby>
-              に出会う導線を確保し、問題解決・悩み解消・障害克服・目標達成を経て、日々充実の連鎖を作る
+              コーチ・コンサルタントの
+              <SoloPreneur />
+              がビジネスを運転し成長させていくためのトレーニング・コース
             </p>
             <div className="flex flex-wrap items-start justify-between text-sm ">
               <ul className="list-disc ml-8">
@@ -53,7 +59,7 @@ const Footer = () => {
                   <div className="flex flex-wrap w-full justify-start">
                     {Categories.map((c, i) => (
                       <div key={c.key} className="w-1/4 text-justify">
-                        <div className="border-2 border-slate-900 rounded-lg m-2 p-0 h-[6rem] min-h-[6rem] max-h-[6rem] ovreflow-hidden">
+                        <div className="border-2 border-slate-200 rounded-lg m-2 p-0 h-[6rem] min-h-[6rem] max-h-[6rem] ovreflow-hidden">
                           <div className="flex flex-nowrap items-center h-[4rem] max-h-[2.8rem] min-h-[2.8rem] border-b-2 bg-gold">
                             <Link
                               href={`/blog/${c.key}`}

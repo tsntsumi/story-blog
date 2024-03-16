@@ -2,6 +2,7 @@ import { Menu } from "@/lib/types/menu"
 import { Categories } from "@/lib/collections/categories"
 import Subscribe from "@/components/common/subscribe"
 import Image from "next/image"
+import Link from "next/link"
 import {
   gtag_report_conversion,
   gtag_report_phonebooking
@@ -33,11 +34,7 @@ const menuData: Menu[] = [
   },
   {
     id: 40,
-    title: (
-      <Subscribe onClick={() => gtag_report_conversion(SCHEDULE_TO_CALL)}>
-        無料相談を予約
-      </Subscribe>
-    ),
+    title: <Subscribe>相談を予約</Subscribe>,
     newTab: false,
     path: SCHEDULE_TO_CALL
   }

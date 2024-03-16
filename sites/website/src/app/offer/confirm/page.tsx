@@ -20,14 +20,13 @@ export default async function Page(props: Props) {
   const owner: OwnerData = ss.data() as OwnerData
   owner.id = ss.id
   const offer = (url && `${title}のダウンロード`) || "お役立ち情報のご購読"
-  const name = email.split("@").shift()
   return (
     <div className="py-8 sm:py-16 mx-auto max-w-2xl">
       <h1 className="text-3xl font-bold tracking-tight text-accent-700 sm:text-5xl">
         {offer} お申し込みについて
       </h1>
       <p className="mt-6 text-xl text-gray-800 font-medium">
-        {`${name} さん、`}
+        {`${email} さん、`}
         {offer} お申し込みありがとうございます。
       </p>
       {url && (
