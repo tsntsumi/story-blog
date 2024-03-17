@@ -5,7 +5,6 @@ import Solution from "@/components/Solution"
 import Plan from "@/components/Plan"
 import Encourage from "@/components/Encourage"
 import Magnet from "@/components/Magnet"
-import Schedule from "@/components/Schedule"
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +22,6 @@ export default function Page() {
       <Plan />
       <Encourage />
       <Magnet />
-      <Schedule />
     </div>
   )
 }

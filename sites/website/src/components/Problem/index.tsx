@@ -7,7 +7,7 @@ import Subscribe from "@/components/common/subscribe"
 
 const SCHEDULE_TO_CALL: string = "https://meet.alizza-ideal.com"
 
-const items: string = [
+const items: string[] = [
   "クライアントのサポートに使うメソッド、カリキュラム、コンテンツの作成",
   "効果的に集客するマーケティングメソッドの習得",
   "高単価で契約してくれるクライアントに出会い、継続させる方法の学習",

@@ -65,17 +65,17 @@ export default async function handler(
   const duration = COURSE_TO_DURATION(course)
 
   const userRef = doc(store, "users", email)
-  const oldDoc = await getDoc(userRef)
+  const oldSnap = await getDoc(userRef)
   const initDoc = {
     "newsletter-seqno": -1,
     type: "subscriber",
   }
   const newDoc = {
     "newsletter-seqno": -1,
-    type: oldDoc.type || "subscriber",
+    type: oldSnap?.get("type") || "subscriber",
     name: name,
     email: email,
-    phone: phone || oldDoc.phone,
+    phone: phone || oldSnap?.get("phone"),
     category: cname,
     course: course,
     duration: duration,

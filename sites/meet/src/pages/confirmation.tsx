@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
-import type { Dispatch, FormEvent } from "react"
+import type { Dispatch, FormEvent, ChangeEventHandler } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Spinner from "@/components/Spinner"
 
@@ -28,7 +28,7 @@ export default function Confirmation() {
         <h2 className="font-bold text-2xl sm:text-4xl my-4">
           事前アンケートのお願い
         </h2>
-        <div className="mx-16 my-8">
+        <div className="xl:mx-16 my-8">
           無料相談の前に、
           <Link href="#survey" className="underline text-primary">
             事前アンケートへの登録
@@ -38,7 +38,7 @@ export default function Confirmation() {
         <h2 className="font-bold text-2xl sm:text-4xl my-4">
           予約確定までの流れ
         </h2>
-        <dl className="mx-16 my-8">
+        <dl className="xl:mx-16 my-8">
           <dt className="my-4 text-lg font-bold">1. 予約状況と予定の確認</dt>
           <dd>
             <p>
@@ -109,7 +109,7 @@ function Survey({
 }) {
   const [submitting, setSubmitting] = useState<SubmitState>("ready")
   const [errorMessage, setErrorMessage] = useState<string>("")
-  const [spaces, setSpaces] = useState<string>({
+  const [spaces, setSpaces] = useState({
     business: false,
     career: false,
     sales: false,
@@ -125,7 +125,7 @@ function Survey({
     setErrorMessage(error)
   }
 
-  const handleSpaceChange = (e: FormEvent<HTMLFormElement>) => {
+  const handleSpaceChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.type != "checkbox") {
       return
     }

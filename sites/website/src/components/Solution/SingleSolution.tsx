@@ -51,7 +51,7 @@ export default function SingleSolution({ solution }: { solution: Solution }) {
               remarkPlugins={[remarkGfm]}
               className="markdown"
             >
-              <>{description}</>
+              {description}
             </Markdown>
           </div>
         </div>
