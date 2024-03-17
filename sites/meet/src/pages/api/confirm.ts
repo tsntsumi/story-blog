@@ -3,7 +3,12 @@ import { z } from "zod"
 
 import createCalendarAppointment from "@/lib/availability/createAppointment"
 import getHash from "@/lib/hash"
-import { OWNER_NAME, MENU_ITEMS, DURATION_TO_COURSE } from "@/config"
+import {
+  OWNER_NAME,
+  MENU_ITEMS,
+  DURATION_TO_COURSE,
+  COURSE_TO_NAME,
+} from "@/config"
 
 const AppointmentPropsSchema = z.object({
   name: z.string(),
@@ -69,7 +74,7 @@ export default async function handler(
   const end = Date.parse(validObject.end)
   const duration = (end - start) / (60 * 1000)
   const name = validObject.name
-  const course = DURATION_TO_COURSE(duration) || `${duration}分`
+  const course = COURSE_TO_NAME(validObject.course)
   const summary = `${name}さん: ${course}(${duration}分)`
 
   // Create the confirmed appointment

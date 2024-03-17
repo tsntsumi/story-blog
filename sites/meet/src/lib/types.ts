@@ -9,6 +9,12 @@ export type AvailabilitySlot = {
   end: { hour: number; minute?: number }
 }
 
+export type MenuItem = {
+  name: string[]
+  course: string
+  duration: number
+}
+
 /**
  * A map of day of week (0-6) to availability slots.
  */
@@ -39,6 +45,11 @@ export type DateTimeInterval = {
   end: Date
   /** Busy interval */
   busy?: DateTimeInterval | undefined
+}
+
+export type CourseName = {
+  course: string
+  name: string
 }
 
 /**

@@ -15,8 +15,8 @@ import {
 //import "@fontsource/ibm-plex-mono"
 import firebaseConfig from "@/firebase-config"
 
-import { blogCollection } from "@/collections/blogentries"
-import { newsletterCollection } from "@/collections/newsletterentries"
+import { blogCollection } from "@/lib/collections/blogentries"
+import { newsletterCollection } from "@/lib/collections/newsletterentries"
 const logo = "/images/logo/alizza-ideal-logo-light.png"
 
 export default function CMS() {

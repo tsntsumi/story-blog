@@ -62,8 +62,5 @@
   "prettier": {
     "semi": false,
     "bracketSameLine": true
-  },
-  "eslintConfig": {
-    "extends": "next/core-web-vitals"
   }
 }

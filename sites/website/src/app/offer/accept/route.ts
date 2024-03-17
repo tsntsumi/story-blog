@@ -80,7 +80,10 @@ export async function POST(request: NextRequest) {
     body: confirmationEmail.body
   })
 
-  return NextResponse.json({ success: true, url: data.url }, { status: 200 })
+  return NextResponse.json(
+    { success: true, url: data.url, name: name, email: email },
+    { status: 200 }
+  )
 
   /**
    * Checks the rate limit for the current IP address.
