@@ -87,4 +87,7 @@ export type AppointmentProps = {
   course: string
   /** Message text  */
   messageText: string
+  /** Organizer */
+  organizerName: string
+  organizerEmail: string
 }

@@ -4,6 +4,7 @@ import Problem from "@/components/Problem"
 import Solution from "@/components/Solution"
 import Plan from "@/components/Plan"
 import Encourage from "@/components/Encourage"
+import Despair from "@/components/Despair"
 import Magnet from "@/components/Magnet"
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function Page() {
       <Problem />
       <Solution />
       <Plan />
+      <Despair />
       <Encourage />
       <Magnet />
     </div>

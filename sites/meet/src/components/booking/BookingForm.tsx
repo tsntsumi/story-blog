@@ -5,6 +5,8 @@ import type { Dispatch, FormEvent } from "react"
 import {
   OWNER_LOCALE,
   OWNER_TIMEZONE,
+  OWNER_EMAIL,
+  OWNER_NAME,
   DEFAULT_DURATION,
   COURSE_TO_NAME,
 } from "@/config"
@@ -82,6 +84,8 @@ export default function BookingForm() {
         <input type="hidden" name="course" value={course} />
         <input type="hidden" name="courseName" value={courseName} />
         <input type="hidden" name="timeZone" value={timeZone} />
+        <input type="hidden" name="organizerEmail" value={OWNER_EMAIL} />
+        <input type="hidden" name="organizerName" value={OWNER_NAME} />
 
         <div className="border-l-4 border-l-accent-200 bg-accent-50/30 p-3 mt-3 mb-4 rounded-md">
           <p className="text-sm md:text-base font-semibold text-accent-800">

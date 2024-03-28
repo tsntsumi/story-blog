@@ -34,7 +34,15 @@ const menuData: Menu[] = [
   },
   {
     id: 40,
-    title: <Subscribe>相談を予約</Subscribe>,
+    title: (
+      <Subscribe className="py-1">
+        <div>
+          無料相談会を
+          <br />
+          スケジュール
+        </div>
+      </Subscribe>
+    ),
     newTab: false,
     path: SCHEDULE_TO_CALL
   }

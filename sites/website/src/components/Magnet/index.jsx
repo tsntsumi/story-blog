@@ -8,55 +8,59 @@ import { motion } from "framer-motion"
 const Magnet = () => {
   const offerimage =
     "gs://story-made.appspot.com/images/alizzas-sales-funnel-newsletter.gif"
+  const offerdocument =
+    "https://drive.google.com/file/d/1i61L4gQ6fCQ3eSfogX6FTTU8892BMjUp/view?usp=sharing"
   return (
     <>
       {/* <!-- ===== Magnet Start ===== --> */}
-      <section
-        id="lead-magnet"
-        className="overflow-hidden px-4 md:px-8 2xl:px-0"
-      >
-        <div className="flex flex-nowrap my-4 gap-4 text-justify block">
-          <div className="w-1/2 md:w-3/4">
-            <SlideIn className="animate_top">
-              <h3 className="mt-0 pt-12 pb-8">
-                集客成功事例集（導線を確保するアイデア集）
-              </h3>
-            </SlideIn>
-            <SlideIn className="animate_left">
-              <div className="xl:columns-2 gap-8">
-                <h4>導線を確保して、集客に成功した10件の事例集を確認しよう</h4>
-                <p>あなたは、成功する集客のアイデアをいくつ知ってますか？</p>
-                <p>
-                  導線を確保して、集客に成功した成功事例集を入手して集客アイデアを知ってください。
-                  あなたの知らない、理想のクライアントに出会うチャンスを増やす方法を学べます。
-                </p>
-              </div>
-              <div className="my-4 w-full hidden md:block">
-                <AcceptOffer
-                  offer={{
-                    title: "集客導線確保成功事例集",
-                    url: offerimage,
-                    category: `導線確保成功事例集`
-                  }}
-                >
-                  今すぐ読む
-                </AcceptOffer>
-              </div>
-            </SlideIn>
+      <section id="lead-magnet" className="p-0 m-0 mb-20 px-4 md:px-8 2xl:px-0">
+        <h1 className="mt-0 pt-12 pb-4 text-xl">
+          ライバルのいない場所で集客する方法とは？
+        </h1>
+        <div className="flex flex-row gap-4">
+          <div className="bias-3/5 text-sm">
+            <h2 className="mt-0 text-base">
+              月刊集客成功事例集最新号を差し上げます
+            </h2>
+            <p>
+              あなたは、SNSやポータルサイトで集客しているのでしょうか。
+              しかし、そこには多くのライバルがひしめいています。
+            </p>
+            <p>
+              違う場所からお客さんを導く導線のアイデアを知ることができたとしたら、
+              あなたのビジネスはどうなるでしょうか。
+            </p>
+            <p>
+              成功したアイデアを真似すれば、
+              あなたの成功も夢ではなくなると思いませんか？
+            </p>
           </div>
-          <div className="w-1/2 xl:w-1/3 md:p-8 mt-8">
-            <SlideIn className="animate_right">
-              <Image
-                src={offerimage}
-                alt="集客導線確保成功事例集"
-                width={596}
-                height={842}
-                className="object-cover w-full rounded-xl"
-              />
-            </SlideIn>
+          <div className="bias-2/5">
+            <Image
+              src={offerimage}
+              alt="集客導線確保成功事例集"
+              width={596}
+              height={842}
+              className="object-cover"
+            />
           </div>
         </div>
-        <div className="mx-auto"></div>
+        <h3>読んだら、真似してやってみよう</h3>
+        <p>
+          ゴールに近づく最も確実な方法は、はじめの一歩を踏み出すことです。すぐに真似してください。
+        </p>
+        <p>あなたの理想のゴールはどこですか？</p>
+        <div className="my-4 w-full">
+          <AcceptOffer
+            offer={{
+              title: "集客導線確保成功事例集",
+              url: offerdocument,
+              category: `導線確保成功事例集`
+            }}
+          >
+            今すぐ読む
+          </AcceptOffer>
+        </div>
       </section>
       {/* <!-- ===== Magnet End ===== --> */}
     </>

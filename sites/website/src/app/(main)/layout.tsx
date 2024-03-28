@@ -33,7 +33,7 @@ Alizza Idealでは、あなたがクライアントに出会う導線を確保�
   }
 }
 
-import "./globals.css"
+import "@/app/globals.css"
 import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 

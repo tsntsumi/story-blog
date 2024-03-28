@@ -13,7 +13,7 @@ export default function Subscribe({
 }): React.ReactNode {
   return (
     <button
-      className={`flex mx-auto w-fit rounded-full whitespace-nowrap text-xs py-2 px-3 duration-300 ease-in-out font-bold text-darkgold bg-gold hover:bg-blackho hover:text-gold hover:scale-110 ${className}`}
+      className={`flex flex-wrap items-center rounded-full text-xs px-3 font-bold text-darkgold bg-gold hover:bg-blackho hover:text-gold hover:scale-110 ${className}`}
       onClick={onClick}
     >
       {children}

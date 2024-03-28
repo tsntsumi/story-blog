@@ -26,6 +26,15 @@ module.exports = {
       ]
     },
     extend: {
+      listStyleImage: {
+        checkmark: url("/images/check-sign-icon.png")
+      },
+      listStyleType: {
+        none: "none",
+        disc: "disc",
+        square: "square",
+        decimal: "decimal"
+      },
       colors: {
         accent: {
           50: "#f3b8b4",

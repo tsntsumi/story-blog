@@ -93,7 +93,7 @@ export default function Navigation({
 
   return (
     <div
-      className={`flex flex-nowrap w-full gap-4 z-50 items-center justify-around m-0 p-0`}
+      className={`flex flex-nowrap w-full gap-2 z-50 items-center justify-around m-0 p-0 text-xs`}
     >
       {menu.map((m) => (
         <MenuItem key={m.id} item={m} />

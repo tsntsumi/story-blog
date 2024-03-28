@@ -21,7 +21,7 @@ export default async function Page(props: Props) {
   owner.id = ss.id
   const offer = (url && `${title}のダウンロード`) || "お役立ち情報のご購読"
   return (
-    <div className="py-8 sm:py-16 mx-auto max-w-2xl">
+    <div className="py-8 sm:py-16 mx-auto max-w-2xl text-justify">
       <h1 className="text-3xl font-bold tracking-tight text-accent-700 sm:text-5xl">
         {offer} お申し込みについて
       </h1>
@@ -53,17 +53,15 @@ export default async function Page(props: Props) {
         迷惑メールフォルダにも見つからない場合は、もう一度お申し込みいただくか、
         下記メールアドレスまで、お気軽にお申し込み下さい。
       </p>
-      <div className="mt-6 font-mono text-center">
+      <div className="mt-6 font-mono flex flex-nowrap mx-autox">
         <a href={`mailto://${owner.email}`}>
-          {owner.name}
+          {owner.name}{" "}
           <span className="text-primary underline">&lt;{owner.email}&gt;</span>
         </a>
       </div>
       <p className="mt-6 text-xl text-gray-800 font-medium">
         お手数をおかけしますが、確認のほどよろしくおねがいいたします。
       </p>
-      <hr />
-      <p></p>
     </div>
   )
 }

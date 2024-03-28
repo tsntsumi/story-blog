@@ -3,13 +3,8 @@ import type { AvailabilitySlotsMap, MenuItem } from "./lib/types"
 // 選択可能なスロット
 export const MENU_ITEMS: MenuItem[] = [
   {
-    name: ["Biz D/S", "入校", "相談"],
+    name: ["無料相談会"],
     course: "business-driving-school",
-    duration: 120,
-  },
-  {
-    name: ["単価アップ", "体験講座"],
-    course: "price-up-practice",
     duration: 120,
   },
 ]
@@ -23,11 +18,11 @@ export const DURATION_TO_COURSE = (duration: number) =>
 export const COURSE_TO_DURATION = (course: string) =>
   MENU_ITEMS.find((item) => item.course === course)?.duration || 0
 
-export const DEFAULT_DURATION = MENU_ITEMS[1].duration
+export const DEFAULT_DURATION = MENU_ITEMS[0].duration
 export const DEFAULT_COURSE = DURATION_TO_COURSE(DEFAULT_DURATION) || ""
 
-export const OWNER_EMAIL = "info+book@alizza-ideal.com"
-export const FROM_EMAIL = "meet@alizza-ideal.com"
+export const OWNER_EMAIL = "meet@alizza-ideal.com"
+export const FROM_EMAIL = OWNER_EMAIL
 export const OWNER_NAME = "Alizza Ideal"
 export const OWNER_PHONE = "+81 70 9034 223 1"
 export const OWNER_ADDRESS = "〒311-1132 茨城県水戸市 東前町 1397番地の2"

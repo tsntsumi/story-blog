@@ -14,13 +14,11 @@ export default function Page() {
       {/* <Header /> */}
       <section className="md:w-3/4 xl:w-2/3 mx-auto">
         <h1 className="mb-9 text-base text-center text-itemtitle2 font-medium text-black">
-          <span className="text-darkgold text-4xl">見つかるブログ</span>
-          ｜カテゴリー一覧
+          <span className="text-darkgold text-4xl">見つかるブログ</span>｜
+          <span className="whitespace-nowrap">カテゴリー一覧</span>
         </h1>
 
-        <SlideIn className="animate_bottom mb-8">
-          <CategoryListings />
-        </SlideIn>
+        <CategoryListings />
         <SlideIn className="animate_top mx-12 text-sm text-justify">
           <p className="my-2">
             更新情報をEmailでご連絡しています。ブログが更新されたときの他にも、

@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}"
+  ],
   darkMode: "class",
   theme: {
-    listStyleType: {
-      none: "none",
-      disc: "disc",
-      square: "square",
-      decimal: "decimal"
-    },
     fontFamily: {
       // inter: ["Inter", "sans-serif"]
       inter: ["mono", "sans-serif"],
@@ -33,6 +30,15 @@ module.exports = {
       ]
     },
     extend: {
+      listStyleImage: {
+        checkmark: 'url("/images/check-sign-icon.png")'
+      },
+      listStyleType: {
+        none: "none",
+        disc: "disc",
+        square: "square",
+        decimal: "decimal"
+      },
       colors: {
         accent: {
           50: "#f3b8b4",

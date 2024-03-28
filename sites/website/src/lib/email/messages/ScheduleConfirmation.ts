@@ -20,7 +20,7 @@ export default async function ConfirmationEmail({
 }) {
   const intro = await getDownloadURL(ref(storage, INTRO_VIDEO))
   const { email, name } = data
-  const offer = "無料相談のスケジューリング"
+  const offer = "無料相談会をスケジュール"
 
   const body = [
     `${data.name} さま`,
@@ -29,7 +29,7 @@ export default async function ConfirmationEmail({
     `<br>`,
     `${offer} のお申込みありがとうございます。`,
     `<br>`,
-    `無料相談のご希望日時は、<a href="https://meet.alizza-ideal.com">こちらのリンク</a>からお選びいただけます。`,
+    `無料相談会のご希望日時は、<a href="https://meet.alizza-ideal.com">こちらのリンク</a>からお選びいただけます。`,
     `<br>`,
     `（準備がございますので、１週間後からの日時をお選びください。）`,
     `<br>`,

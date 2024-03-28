@@ -7,6 +7,7 @@ import SlideIn from "@/components/common/slidein"
 import Spinner from "@/components/common/spinner"
 import AraticleItem from "./Item"
 import AcceptOffer from "@/components/common/acceptoffer"
+import Magnet from "@/components/Magnet"
 import type { Category } from "@/lib/collections/categories"
 import type { BlogEntry } from "@/lib/types/blog"
 
@@ -55,7 +56,7 @@ export default function Listings({ category }: Props) {
     return (
       <>
         <Heading category={category} />
-        <div className="flex flex-nowrap items-center justify-center">
+        <div className="flex flex-nowrap items-center justify-center w-full">
           Loading... <Spinner />
         </div>
       </>
@@ -73,34 +74,14 @@ export default function Listings({ category }: Props) {
       <SlideIn className="animate_right">
         <p className="mb-4">{category.description}</p>
       </SlideIn>
-      <SlideIn className="animate_left">
-        <div className="flex flex-wrap gap-8 xl:gap-4 p-0 justify-start">
-          {collection.map((c, key) => (
-            <div key={key} className="w-[46%] xl:w-[31%]">
-              <AraticleItem document={c} />
-            </div>
-          ))}
-        </div>
-      </SlideIn>
-      <SlideIn className="animate_bottom mx-12 my-4 text-sm text-justify">
-        <p className="my-2">
-          更新情報をEmailでご連絡しています。ブログが更新されたときの他にも、
-          役に立つ情報をお届けします。
-        </p>
-        <p className="my-2">
-          単にお徳なだけでなく、あなたがネットで見つかる・選ばれるために
-          すぐに使えて役に立つ情報をお届けしています。
-        </p>
-        <p className="my-2">ぜひご購読ください</p>
-        <AcceptOffer
-          offer={{
-            title: category.name,
-            url: `/blog/${category.key}`,
-            category: "お役立ち情報ご購読"
-          }}
-        >
-          お役立ち情報を購読する
-        </AcceptOffer>
+      <div className="flex flex-wrap w-full justify-start">
+        {collection.map((c, key) => (
+          <div key={key} className="w-1/2 md:w-1/4 text-justify p-2">
+            <AraticleItem document={c} />
+          </div>
+        ))}
+      </div>
+      <SlideIn className="animate_bottom mx-8 my-4 text-xs text-justify">
         <div className="text-right">
           <Link href={`/blog`} go="back">
             戻る

@@ -49,6 +49,8 @@ function buildEventBody({
   requestId,
   name,
   messageText,
+  organizerEmail,
+  organizerName,
 }: AppointmentProps) {
   const description = buildDescription(location, messageText)
 
@@ -69,6 +71,10 @@ function buildEventBody({
         displayName: name,
       },
     ],
+    organizer: {
+      displayName: organizerName,
+      email: organizerEmail,
+    },
     reminders: {
       useDefault: false,
       overrides: REMINDERS,
@@ -101,6 +107,7 @@ export default async function createCalendarAppointment(
   )
 
   apiUrl.searchParams.set("sendNotifications", "true")
+  apiUrl.searchParams.set("sendUpdate", "all")
   apiUrl.searchParams.set("conferenceDataVersion", "1")
 
   return fetch(apiUrl, {

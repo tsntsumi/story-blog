@@ -15,6 +15,7 @@ import rehypeRaw from "rehype-raw"
 import rehypeSanitize from "rehype-sanitize"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
+import Magnet from "@/components/Magnet"
 
 type ContentProps = {
   path: string
@@ -113,78 +114,63 @@ const Content = ({
 export default function Article({ article }: { article: BlogEntry }) {
   return (
     <>
-      <div className="flex items-center justify-center flex-col-reverse gap-8 w-5/6 md:w-4/5 mx-auto">
-        <div>
-          <SlideIn className="animate_top mb-8 border-b-2">
-            <div className="m-0 p-0 w-full mb-4">
-              <ContentImage
-                path={article?.hero}
-                alt={article?.title}
-                className="rounded-t-lg"
-              />
-            </div>
-            <h1 className="mb-5 pb-2 border-b text-4xl font-semibold text-black 2xl:text-sectiontitle2">
-              {article?.title}
-            </h1>
-            <div className="m-0 pb-4 p-0 pl-8 text-sm font-mono flex flex-wrap items-start justify-start gap-x-2 border-b">
-              <div className="m-0 p-0">
-                <span className="text-black">Written by: </span>{" "}
-                {article?.author || "Anonymouth"}
-              </div>
-              <div className="m-0 p-0">
-                <span className="text-black">
-                  Post at: {article?.date || "Someday"}
-                </span>
-              </div>
-              <div className="my-0 py-0">
-                <span className="text-black">
-                  カテゴリー: [ {CategoryFromKey(article?.category)?.name} ]
-                </span>
-              </div>
-              <div className="my-0 py-0">
-                <span className="text-black">タグ:</span>
-                {" [ "}
-                {article?.tags?.join(" | ")?.toUpperCase()}
-                {" ]"}
-              </div>
-            </div>
-            <div className="article-details my-4">
-              {article?.content?.map((c, i) => (
-                <Content key={i} content={c} alt={article?.title} />
-              ))}
-            </div>
-            <div>
-              <Link href={`/blog/${article?.category}`} go="back">
-                戻る
-              </Link>
-            </div>
-          </SlideIn>
-          <SlideIn className="animate_bottom mx-12 text-sm text-justify">
-            <p className="my-2">
-              更新情報をEmailでご連絡しています。ブログが更新されたときの他にも、
-              役に立つ情報をお届けします。
-            </p>
-            <p className="my-2">
-              単にお徳なだけでなく、ネットであなたが見つかる・選ばれるために
-              すぐに使えて役に立つ情報をお届けしています。
-            </p>
-            <p className="my-2">ぜひご購読ください</p>
-            <AcceptOffer
-              offer={{
-                title: article?.title,
-                url: `/blog/${article?.category}/${article?.slug}`,
-                category: "お役立ち情報ご購読"
-              }}
-            >
-              お役立ち情報を購読する
-            </AcceptOffer>
-            <div className="text-right">
-              <Link href={`/blog/${article?.category}`} go="back">
-                戻る
-              </Link>
-            </div>
-          </SlideIn>
+      <SlideIn className="animate_top mb-8 border-b-2">
+        <div className="m-0 p-0 w-full mb-4">
+          <ContentImage
+            path={article?.hero}
+            alt={article?.title}
+            className="rounded-t-lg"
+          />
         </div>
+      </SlideIn>
+
+      <h1 className="mb-5 pb-2 border-b text-4xl font-semibold text-black 2xl:text-sectiontitle2">
+        {article?.title}
+      </h1>
+      <div className="m-0 pb-4 p-0 pl-8 text-sm font-mono flex flex-wrap items-start justify-start gap-x-2 border-b">
+        <div className="m-0 p-0">
+          <span className="text-black">Written by: </span>{" "}
+          {article?.author || "Anonymouth"}
+        </div>
+        <div className="m-0 p-0">
+          <span className="text-black">
+            Post at: {article?.date || "Someday"}
+          </span>
+        </div>
+        <div className="my-0 py-0">
+          <span className="text-black">
+            カテゴリー: [ {CategoryFromKey(article?.category)?.name} ]
+          </span>
+        </div>
+        <div className="my-0 py-0">
+          <span className="text-black">タグ:</span>
+          {" [ "}
+          {article?.tags?.join(" | ")?.toUpperCase()}
+          {" ]"}
+        </div>
+      </div>
+      <div className="article-details my-4">
+        {article?.content?.map((c, i) => (
+          <SlideIn
+            key={i}
+            className={`${
+              i % 2 ? "animate_left" : "animate_right"
+            } mb-8 border-b-2`}
+          >
+            <Content key={i} content={c} alt={article?.title} />
+          </SlideIn>
+        ))}
+      </div>
+      <div className="text-xs">
+        <Link href={`/blog/${article?.category}`} go="back">
+          戻る
+        </Link>
+      </div>
+      <div className="text-sm">
+        <div>あなたのライバルのいない場所で集客できたらよくないですか？</div>
+        <Link href={`/#lead-magnet`} go="detail">
+          月刊集客成功事例集をさしあげます
+        </Link>
       </div>
     </>
   )

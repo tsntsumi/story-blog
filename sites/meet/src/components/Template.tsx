@@ -8,7 +8,7 @@ export default function Template() {
         <div className="text-xl">
           <span className="text-base">meet</span> Alizza Ideal
         </div>
-        リモート相談会・体験会をスケジュール
+        無料相談会をスケジュール
       </h1>
       <div className="border-double border-[3px] my-4 rounded-xl flex flex-nowrap">
         <div className="w-3/4 p-2 flex flex-col items-between justify-start">
@@ -17,8 +17,7 @@ export default function Template() {
           </p>
           <p className="mt-2 sm:mt-6 text-sm text-gray-800 font-medium">
             日付を選ぶとスケジュール可能な時間がカレンダーの下に表示されます。
-            Google ミートでのリモート相談会・体験会になります。
-            あなたとお話するのを楽しみにしています。
+            Google ミートでの相談会になります。
           </p>
           <p className="mt-2 sm:mt-6 text-sm text-gray-800 font-medium">
             あなたとお話するのを楽しみにしています。
@@ -37,22 +36,15 @@ export default function Template() {
       <div className="ml-4 text-sm columns-2 gap-8">
         <ul className="list-disc">
           <li>
-            <strong>Biz D/S 入校相談</strong>：Alizza Ideal の Alizza Ideal
-            の個人起業家ビジネス・ドライビング・スクール入校相談では、
-            当スクールが、あなたの目的にかなっているかどうか、判断するお手伝いをします。
+            <strong>DRIVE to IDEAL 無料相談会とは</strong>：
+            あなたのビジネスの状況をお聞きし、課題を発見します。
             <p>
-              あなたが理想のゴールに、安全・快適・最速でビジネスをドライブしていけるのか、
-              あなたの現在の悩みや問題をお聞きしながらご相談にお答えします。
+              相談会の結果、当 DRIVE to IDEAL campus
+              でお手伝いできることがあれば、
+              ご提案させていただく場合もあります。
             </p>
-          </li>
-          <li>
-            <strong>単価アップ体験会</strong>
-            ：あなたの現在のメニュー単価を、掛け値なしの高単価にする方法を学び、
-            一緒に高単価メニューを作ります。
             <p>
-              一緒に作ったメニューでプレゼンすることで、
-              ３日以内に結果が出るメニューを目指します。
-              いまなら期間限定無料で体験できます。
+              無理に参加を勧めることはありませんので、安心して無料相談会をスケジュールしてください。
             </p>
           </li>
         </ul>

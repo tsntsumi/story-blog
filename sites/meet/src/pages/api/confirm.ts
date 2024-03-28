@@ -24,6 +24,8 @@ const AppointmentPropsSchema = z.object({
     }),
   course: z.string(),
   messageText: z.string(),
+  organizerName: z.string(),
+  organizerEmail: z.string().email(),
 })
 
 export default async function handler(

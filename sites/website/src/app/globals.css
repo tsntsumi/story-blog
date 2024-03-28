@@ -56,7 +56,7 @@ html {
   section ol {
       @apply list-decimal;
   }
-
+  
   section li,
   section li {
       @apply mb-2 text-base text-titlebgdark dark:text-waterloo;

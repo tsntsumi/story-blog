@@ -19,8 +19,11 @@ export default function Confirmation() {
           <div className="text-3xl block my-4">
             {name} <code>&lt;{email}&gt;</code> さん
           </div>
-          スケジュール設定のお申し込み、ありがとうございます
+          無料相談会のお申し込み、ありがとうございます
         </h1>
+        <p className="mt-6">
+          特典の月刊集客成功事例集（電子版最新号）は、リモートミーティング時にお渡しします。
+        </p>
         <p className="mt-6 text-xl text-gray-800 font-medium">
           予約状況と予定を確認し、出来るだけ早く e-mail
           にてご返信いたします。しばらくお待ち下さい⏰
@@ -29,7 +32,7 @@ export default function Confirmation() {
           事前アンケートのお願い
         </h2>
         <div className="xl:mx-16 my-8">
-          無料相談の前に、
+          無料相談会の前に、
           <Link href="#survey" className="underline text-primary">
             事前アンケートへの登録
           </Link>

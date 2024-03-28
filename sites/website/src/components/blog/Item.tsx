@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import NextLink from "next/link"
 import Link from "@/components/common/link"
+import SlideIn from "@/components/common/slidein"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeRaw from "rehype-raw"
@@ -29,20 +30,25 @@ export default function Item({ document }: { document: BlogEntry }) {
             alt={document.title}
             className="object-cover w-full rounded-t-lg"
           />
-          <h3 className="px-2 mb-0 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-2xl h-[4rem] min-h-[4rem]">
+          <h3 className="text-base p-2 my-0 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-2xl h-[4rem] min-h-[4rem]">
             {elipsis(document.title, 24)}
           </h3>
-          <div className="px-2 m-0 bg-slate-100">{document?.date}</div>
-          <div className="px-2 h-[9rem] min-h-[9em] max-h-[9em] overflow-hidden items-start">
-            <Markdown
-              rehypePlugins={[rehypeRaw, rehypeKatex, rehypeSanitize]}
-              remarkPlugins={[remarkGfm]}
-            >
-              {summary || ""}
-            </Markdown>
-          </div>
+          <SlideIn className="animate_bottom">
+            <div className="text-xs whitespace-nowrap overflow-hidden font-mono px-2 m-0 bg-slate-100">
+              {document?.date}
+            </div>
+            <div className="text-xs px-2 h-[9rem] min-h-[9em] max-h-[9em] overflow-hidden items-start">
+              <Markdown
+                rehypePlugins={[rehypeRaw, rehypeKatex, rehypeSanitize]}
+                remarkPlugins={[remarkGfm]}
+                className="text-xs"
+              >
+                {summary || ""}
+              </Markdown>
+            </div>
+          </SlideIn>
         </NextLink>
-        <div className="px-2">
+        <div className="px-2 text-xs">
           <Link href={`/blog/${document.category}/${document.slug}`}>
             詳しく
           </Link>

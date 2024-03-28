@@ -10,21 +10,14 @@ import menuData from "@/lib/collections/menuData"
 
 const Logo = () => {
   return (
-    <div className="w-1/8 p-0 m-0">
+    <div className="p-0 m-0">
       <a href="/">
         <Image
           src="/images/logo/logo-square.svg"
           alt="logo"
           width={64}
           height={64}
-          className="block md:hidden object-fill"
-        />
-        <Image
-          src="/images/logo/logo-light.svg"
-          alt="logo"
-          width={256}
-          height={64}
-          className="hidden md:block object-fill"
+          className="block object-fill"
         />
       </a>
     </div>
@@ -50,19 +43,15 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-99999 w-full py-2 ${
+        className={`fixed left-0 top-0 z-99999 w-full py-0 ${
           stickyMenu
-            ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
+            ? "bg-white shadow transition duration-100 dark:bg-black"
             : ""
         }`}
       >
-        <div className="relative mx-auto max-c-1390 items-center justify-around px-4 md:px-8 xl:flex 2xl:px-0">
-          <div
-            className={`flex w-full items-center justify-around gap-4 text-sm mx-4`}
-          >
-            <Logo />
-            <Navigation menu={menuData} />
-          </div>
+        <div className="relative flex flex-nowarp w-full items-center justify-around gap-2 px-0 py-1 md:px-8">
+          <Logo />
+          <Navigation menu={menuData} />
         </div>
       </header>
     </>

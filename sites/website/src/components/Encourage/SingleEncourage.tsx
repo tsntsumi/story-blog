@@ -8,10 +8,10 @@ import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
 import SlideIn from "@/components/common/slidein"
 import Link from "@/components/common/link"
-import { planData, type Plan } from "./planData"
+import { encourageData, type Encourage } from "./encourageData"
 
-export default function SinglePlan(plan: Plan) {
-  const { title, image, description } = plan
+export default function SingleEncourage(encourage: Encourage) {
+  const { title, image, description } = encourage
 
   return (
     <div className="p-0">
@@ -26,11 +26,11 @@ export default function SinglePlan(plan: Plan) {
           />
         )}
       </div>
-      <h2 className="flex items-center m-0 p-4 line-clamp-2 inline-block font-medium duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-lg md:text-2xl h-[6rem] min-h-[6rem] max-h-[6rem]">
+      <h2 className="flex items-center m-0 mt-4 line-clamp-2 inline-block font-medium duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-lg md:text-2xl h-[6rem] min-h-[6rem] max-h-[6rem]">
         {title}
       </h2>
       <SlideIn className="animate_top">
-        <div className="w-full p-4 pt-0 text-justify">
+        <div className="w-full pb-4 pt-0">
           <Markdown
             rehypePlugins={[rehypeRaw, rehypeKatex, rehypeSanitize]}
             remarkPlugins={[remarkGfm]}

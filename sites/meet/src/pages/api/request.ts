@@ -45,6 +45,8 @@ const AppointmentRequestSchema = z.object({
       message: "Duration must be a valid integer.",
     }),
   messageText: z.string(),
+  organizerName: z.string(),
+  organizerEmail: z.string().email(),
 })
 
 export default async function handler(
