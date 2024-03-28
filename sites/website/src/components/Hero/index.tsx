@@ -27,11 +27,8 @@ const Hero = () => {
         </div>
         <div className="flex flex-wrap w-full max-w-c-1390 mx-auto text-justify m-0 p-4 pt-0 bg-sky-950 text-white">
           <div className="md:w-2/5">
-            <div className="text-xs">
-              コーチ、ヒーラー、セラピスト、コンサルタント……
-            </div>
             <h1 className="h3 text-2xl md:text-4xl text-justify font-medium text-gold ">
-              <個人起業家 />が
+              コーチ、カウンセラー、セラピストが
               <span className="text-xl md:text-3xl">
                 理想のゴールに向かってビジネスを
                 <ruby>
