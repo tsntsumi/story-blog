@@ -1,9 +1,11 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "story-made"
+  },
   "targets": {
     "story-made": {
       "hosting": {
-        "blog": [
+        "website": [
           "story-made"
         ],
         "meet": [

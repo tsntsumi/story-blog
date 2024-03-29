@@ -2,7 +2,14 @@ import { Dialog } from "@headlessui/react"
 // import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context"
 import { useRouter } from "next/navigation"
 import type { Dispatch, FormEvent } from "react"
-import { OWNER_LOCALE, OWNER_TIMEZONE, DEFAULT_DURATION } from "@/config"
+import {
+  OWNER_LOCALE,
+  OWNER_TIMEZONE,
+  OWNER_EMAIL,
+  OWNER_NAME,
+  DEFAULT_DURATION,
+  COURSE_TO_NAME,
+} from "@/config"
 
 import Modal from "../Modal"
 import Spinner from "../Spinner"
@@ -33,6 +40,7 @@ export default function BookingForm() {
     dispatch,
   } = useProvider()
   const router = useRouter()
+  const courseName = COURSE_TO_NAME(course)
 
   if (!selectedTime || !timeZone) {
     return <></>
@@ -74,14 +82,17 @@ export default function BookingForm() {
         />
         <input type="hidden" name="duration" value={duration} />
         <input type="hidden" name="course" value={course} />
+        <input type="hidden" name="courseName" value={courseName} />
         <input type="hidden" name="timeZone" value={timeZone} />
+        <input type="hidden" name="organizerEmail" value={OWNER_EMAIL} />
+        <input type="hidden" name="organizerName" value={OWNER_NAME} />
 
         <div className="border-l-4 border-l-accent-200 bg-accent-50/30 p-3 mt-3 mb-4 rounded-md">
           <p className="text-sm md:text-base font-semibold text-accent-800">
             {dateString}
           </p>
           <p className="text-xs md:text-sm">
-            {startString} - {endString} : {course} / {duration}分
+            {startString} - {endString} : {courseName} / {duration}分
           </p>
         </div>
 
@@ -103,7 +114,7 @@ export default function BookingForm() {
                 name="name"
                 id="name"
                 className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                placeholder="おなまえ／ニックネーム"
+                placeholder="お名前"
               />
             </div>
             <div className="relative rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
@@ -138,8 +149,8 @@ export default function BookingForm() {
               />
             </div>
           </div>
-          <div className="block">
-            <p className="text-sm font-medium">お話しする場所</p>
+          <div className="hidden">
+            <p className="text-sm font-medium">お話しする方法</p>
             <fieldset className="mt-2">
               <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-4">
                 {locations.map((location) => (
@@ -179,7 +190,7 @@ export default function BookingForm() {
                 準備しています ... <Spinner className="ml-2" />
               </>
             ) : (
-              <>スケジュールをおさえる</>
+              <>スケジュールする</>
             )}
           </button>
           <button
@@ -211,17 +222,21 @@ function handleSubmit(
   event.preventDefault()
 
   dispatch({ type: "SET_MODAL", payload: "busy" })
+  const d = new FormData(event.currentTarget)
+  const o = Object.fromEntries(d)
+  const { name, email, course } = o
   fetch(`/api/request`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(Object.fromEntries(new FormData(event.currentTarget))),
+    body: JSON.stringify(o),
   })
     .then(async (data) => {
       const json = await data.json()
       if (json.success) {
-        router.replace("/confirmation")
+        const params = encodeURI(`name=${name}&email=${email}&course=${course}`)
+        router.replace(`/confirmation?${params}`)
       } else {
         dispatch({ type: "SET_MODAL", payload: "error" })
       }

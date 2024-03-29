@@ -13,7 +13,7 @@ import sendMail from "@/lib/email"
 import ApprovalEmail from "@/lib/email/messages/Approval"
 import ConfirmationEmail from "@/lib/email/messages/Confirmation"
 import getHash from "@/lib/hash"
-import type { DateTimeIntervalWithTimezone } from "@/lib/types"
+import type { DateTimeIntervalWithTimezone, CourseName } from "@/lib/types"
 
 const logger = require("firebase-functions/logger")
 require("firebase-functions/logger/compat")
@@ -38,12 +38,15 @@ const AppointmentRequestSchema = z.object({
   timeZone: z.string(),
   location: z.enum(["meet", "phone", "visit"]),
   course: z.string(),
+  courseName: z.string(),
   duration: z
     .string()
     .refine((value) => !Number.isNaN(Number.parseInt(value)), {
       message: "Duration must be a valid integer.",
     }),
   messageText: z.string(),
+  organizerName: z.string(),
+  organizerEmail: z.string().email(),
 })
 
 export default async function handler(
@@ -101,6 +104,7 @@ export default async function handler(
 
   // Generate and send the confirmation email
   const confirmationEmail = ConfirmationEmail({
+    ...data,
     dateSummary: intervalToHumanString({
       start,
       end,
@@ -169,18 +173,16 @@ function intervalToHumanString({
   timeZone,
 }: DateTimeIntervalWithTimezone): string {
   const duration = (end.getTime() - start.getTime()) / (60 * 1000)
-  const course = DURATION_TO_COURSE(duration)
-  return `${formatLocalDate(start, {
+  const startString = formatLocalDate(start, {
     month: "long",
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
     weekday: "long",
-    timeZone,
-  })} – ${formatLocalTime(end, {
+  })
+  const endString = formatLocalTime(end, {
     hour: "numeric",
     minute: "numeric",
-    timeZone,
-    timeZoneName: "longGeneric",
-  })} : ${course}`
+  })
+  return `${startString} – ${endString}`
 }

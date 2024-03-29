@@ -2,6 +2,7 @@ import type { SendMailOptions, Transporter } from "nodemailer"
 import { createTransport } from "nodemailer"
 import {
   OWNER_EMAIL,
+  FROM_EMAIL,
   OWNER_NAME,
   OWNER_PHONE,
   OWNER_ADDRESS,
@@ -47,14 +48,10 @@ async function sendMail({ to, subject, body }: SendMailParams): Promise<void> {
 
   await transporter.sendMail({
     from: {
-      address: OWNER_EMAIL,
+      address: FROM_EMAIL,
       name: OWNER_NAME,
     },
-    sender: {
-      address: OWNER_EMAIL,
-      name: OWNER_NAME,
-    },
-    replyTo: ['"堤紀久夫" <gbp.agent@alizza-ideal.com>'],
+    replyTo: [EMAIL_REPLYTO],
     bcc: EMAIL_BCC,
     to,
     subject,

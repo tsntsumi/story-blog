@@ -58,7 +58,7 @@ export default function getPotentialTimes({
 
       let currentIntervalStart = slotStart
 
-      while (currentIntervalStart < slotEnd) {
+      while (currentIntervalStart <= slotEnd) {
         const currentIntervalEnd = addMinutes(currentIntervalStart, duration)
         const interval: DateTimeInterval = {
           start: currentIntervalStart,

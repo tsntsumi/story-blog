@@ -26,6 +26,15 @@ module.exports = {
       ]
     },
     extend: {
+      listStyleImage: {
+        checkmark: url("/images/check-sign-icon.png")
+      },
+      listStyleType: {
+        none: "none",
+        disc: "disc",
+        square: "square",
+        decimal: "decimal"
+      },
       colors: {
         accent: {
           50: "#f3b8b4",
@@ -49,6 +58,9 @@ module.exports = {
         titlebg2: "#FFEAC2",
         titlebgdark: "#46495A",
         btndark: "#292E45",
+        gold: "#eec900",
+        darkgold: "#8b6914",
+        shinegold: "#ffd700",
         white: "#FFFFFF",
         black: "#181C31",
         blackho: "#2C3149",
@@ -60,6 +72,7 @@ module.exports = {
         manatee: "#999AA1",
         alabaster: "#FBFBFB",
         zumthor: "#EDF5FF",
+        linelogo: "#00B900",
         socialicon: "#D1D8E0"
       },
       fontFamily: {
