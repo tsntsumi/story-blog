@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+**/node_modules
+**/.pnp
 .pnp.js
 .yarn/install-state.gz
 
@@ -10,11 +10,11 @@
 /coverage
 
 # next.js
-/.next/
-/out/
+**/.next/
+**/out/
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store
@@ -34,8 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-/src/firebase-config.ts
-/src/firebase-config.js
+**/src/firebase-config.ts
+**/src/firebase-config.js
 /.firebase/
 /firebase-debug.log
 /firestore-debug.log
@@ -43,10 +43,11 @@ next-env.d.ts
 /emulatorsData/
 /firebase-export-1701072652639q5tc07/
 
-/src/client_secret.json
-/sites/blog/src/client_secret.json
-/sites/blog/src/firebase-config.js
-/sites/meet/.env.local.template
-/sites/meet/.next/
-/sites/meet/node_modules/
-/sites/meet/src/firebase-config.js
+/sites/**/src/client_secret.json
+/sites/**/src/firebase-config.js
+/sites/**/.env.local.template
+/sites/**/.next/
+/sites/**/node_modules/
+/sites/**/src/firebase-config.js
+/sites/**/.env*
+/sites/**/firebase-config.js
