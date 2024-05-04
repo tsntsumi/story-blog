@@ -24,7 +24,6 @@ export default function Latests({ latests }: Props) {
     const unsubscribe = retrieveDocumentsSnapshot(
       "blogs",
       (data) => {
-        console.log("data count", data.length)
         const newests = data.slice(0, latests)
         setCollection(newests)
         setLoding(false)

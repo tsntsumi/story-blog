@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import Image from "next/image"
+import { Image } from "@/components/common/media"
 import NextLink from "next/link"
 import Link from "@/components/common/link"
 import CategoryListings from "@/components/Blog/CategoryListings"
@@ -35,8 +35,10 @@ const Footer = () => {
           {/* <!-- Footer Top --> */}
           <div>
             <p className="indent-0 my-4 text-itemtitle2 text-xs font-medium text-black dark:text-white">
-              高収益の仕組みを構築し、安定させ、成長させながら、
-              理想のゴールにドライブできる DRIVE to IDEAL campus
+              あなたのコーチング・ビジネスを、高収益の仕組み化をほどこし、収入を安定させ、
+              余裕のある日々を過ごしながら、
+              理想のゴールへむかってビジネスを運転し成長させる Alizza Ideal's
+              Coaching School
             </p>
             <div className="flex flex-wrap items-start justify-between ">
               <ul className="list-disc ml-8">
@@ -77,6 +79,13 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-full my-4 text-center">
+            <Image
+              src="gs://story-made.appspot.com/images/hero/CoachingToolbox_Toolbox_land.png"
+              alt="Coaching School - コーチング・ビジネス教習所"
+              width={1024}
+              height={768}
+              className="object-cover rounded-lg mx-auto my-4"
+            />
             <NextLink href="https://meet.alizza-ideal.com">
               <Subscribe className="text-lg md:text-sm py-3 px-6 mx-auto">
                 無料相談会をスケジュール

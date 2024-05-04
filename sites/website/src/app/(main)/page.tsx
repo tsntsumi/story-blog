@@ -23,7 +23,6 @@ export default function Page() {
       <Plan />
       <Despair />
       <Encourage />
-      <Magnet />
     </div>
   )
 }

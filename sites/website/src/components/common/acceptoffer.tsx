@@ -17,6 +17,7 @@ export default function AcceptOffer({
 }): React.ReactNode {
   const [submitting, setSubmitting] = useState<SubmitState>("ready")
   const [errorMessage, setErrorMessage] = useState<string>("")
+  const [emailAddress, setEmailAddress] = useState<string>("")
   const router = useRouter()
 
   const setError = (error: string) => {
@@ -24,8 +25,21 @@ export default function AcceptOffer({
     setErrorMessage(error)
   }
 
+  const handleEmail = (e: FormEvent<HTMLInputElement>) => {
+    setSubmitting("ready")
+    setErrorMessage("")
+    setEmailAddress(e.currentTarget.value)
+  }
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!emailAddress) {
+      setError("Emailアドレスを入力して下さい")
+      setSubmitting("error")
+    }
+    if (submitting === "error") {
+      return
+    }
     setSubmitting("busy")
     const data = new FormData(e.currentTarget)
     const fo = Object.fromEntries(data)
@@ -50,20 +64,20 @@ export default function AcceptOffer({
           setSubmitting("ready")
           return
         }
-        setError(json.error)
+        setError(`お申し込み受付中にエラーが発生しました。時間をおいてもう一度お試しください。（
+${json.error}）`)
       })
       .catch((e) => {
-        setError(e)
+        setError(
+          `お申し込み受付中にエラーが発生しました。時間をおいてもう一度お試しください。（${e}）`
+        )
       })
   }
 
   return (
     <form onSubmit={handleSubmit}>
       {submitting === "error" && (
-        <div className="bg-red-50 text-red-600 p-2 text-sm">
-          お申し込み受付中にエラーが発生しました。時間をおいてもう一度お試しください。(
-          {errorMessage})
-        </div>
+        <div className="bg-red-50 text-red-600 p-2 text-sm">{errorMessage}</div>
       )}
       <div className="flex flex-nowrap items-center justify-around gap-4 my-4">
         <input type="hidden" name="title" value={offer.title} />
@@ -74,6 +88,7 @@ export default function AcceptOffer({
           name="email"
           placeholder="Emailアドレス"
           className="rounded-lg w-3/5 md:w-4/5 py-0 max-h-[2.8rem] min-h-[2.8rem]"
+          onChange={handleEmail}
         />
         <button
           type="submit"

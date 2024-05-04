@@ -1,10 +1,12 @@
 "use client"
 import React from "react"
 import { planData, type Plan } from "./planData"
+import { Image, Video } from "@/components/common/media"
 import SinglePlan from "./SinglePlan"
 import Link from "next/link"
 import Subscribe from "@/components/common/subscribe"
 import { SoloPreneur, 個人起業家 } from "@/components/common/logos"
+import SpecialOffer from "@/components/common/specialoffer"
 
 export default function Plan() {
   return (

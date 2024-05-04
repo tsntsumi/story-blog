@@ -29,6 +29,13 @@ export default function Item({ document }: { document: BlogEntry }) {
             height={256}
             alt={document.title}
             className="object-cover w-full rounded-t-lg"
+            controls
+            muted
+            autoPlay
+            loop={true}
+            controlsList="nodownload"
+            playsInline={true}
+            preload="auto"
           />
           <h3 className="text-base p-2 my-0 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-2xl h-[4rem] min-h-[4rem]">
             {elipsis(document.title, 24)}

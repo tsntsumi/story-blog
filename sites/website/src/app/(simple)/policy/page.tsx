@@ -189,7 +189,8 @@ const PolicyPage = () => {
             なお、封筒に朱書きで「開示等請求書類在中」とお書き添えいただければ幸いです。
           </p>
           <div className="ml-10">
-            〒311-1132 茨城県水戸市東前町１３９７番地の２
+            Prok 7 Hagad Street Central Pblacion Casiguran 4702 Sorsogon,
+            Philippines
           </div>
           <div className="ml-14">Alizza Ideal - 個人情報保護事務局</div>
         </div>
@@ -384,7 +385,7 @@ const PolicyPage = () => {
         <dl>
           <dt>所在地</dt>
           <dd className="text-sm mt-[-1em]">
-            〒311-1132 茨城県水戸市東前町１３９７番地の２
+            プロック７・ハガッドストリート・セントラル・ポバラシオン、カシギュラン市、ソルソゴン・プロビンス、４７０２、フィリピン共和国
           </dd>
           <dt>クライアントサポートデスク</dt>
           <dd className="text-sm mt-[-1em]">

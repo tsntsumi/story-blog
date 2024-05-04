@@ -48,9 +48,9 @@ export default function Media({ src, alt, ...opts }) {
   if (!src) {
     return null
   }
-  if (src.endsWith(".mp4") || src.endsWith(".mov")) {
-    return <Video src={src} alt={alt || "video"} {...opts} />
-  } else {
+  if (!src.endsWith(".mp4") && !src.endsWith(".mov")) {
     return <Image src={src} alt={alt || "image"} {...opts} />
+  } else {
+    return <Video src={src} alt={alt || "video"} {...opts} />
   }
 }

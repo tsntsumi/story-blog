@@ -19,31 +19,6 @@ export default function Page() {
         </h1>
 
         <CategoryListings />
-        <SlideIn className="animate_top mx-12 text-sm text-justify">
-          <p className="my-2">
-            更新情報をEmailでご連絡しています。ブログが更新されたときの他にも、
-            役に立つ情報をお届けします。
-          </p>
-          <p className="my-2">
-            単にお徳なだけでなく、ネットであなたが見つかる・選ばれるために
-            すぐに使えて役に立つ情報をお届けしています。
-          </p>
-          <p className="my-2">ぜひご購読ください</p>
-          <AcceptOffer
-            offer={{
-              title: "カテゴリー一覧",
-              url: `/blog`,
-              category: "お役立ち情報ご購読"
-            }}
-          >
-            お役立ち情報を購読する
-          </AcceptOffer>
-          <div className="text-right">
-            <Link href={`/`} go="back">
-              Home
-            </Link>
-          </div>
-        </SlideIn>
       </section>
       {/* <Footer /> */}
     </>

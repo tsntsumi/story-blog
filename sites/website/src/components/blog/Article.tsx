@@ -2,10 +2,7 @@ import { storage } from "@/lib/firebase/app"
 import { type BlogEntry } from "@/lib/types/blog"
 import SlideIn from "@/components/common/slidein"
 import AcceptOffer from "@/components/common/acceptoffer"
-import Categories, {
-  type Category,
-  CategoryFromKey
-} from "@/lib/collections/categories"
+import Categories, { type Category } from "@/lib/collections/categories"
 import Media, { Image, Video } from "@/components/common/media"
 import Link from "@/components/common/link"
 import NextImage from "next/image"
@@ -63,6 +60,7 @@ const ContentVideo = ({
         controls
         muted={true}
         autoPlay={true}
+        loop={true}
         alt={alt || "blog content video"}
         className={`w-full mx-auto object-cover ${className}`}
         {...rest}
@@ -116,10 +114,12 @@ export default function Article({ article }: { article: BlogEntry }) {
     <>
       <SlideIn className="animate_top mb-8 border-b-2">
         <div className="m-0 p-0 w-full mb-4">
-          <ContentImage
-            path={article?.hero}
+          <Media
+            src={article?.hero}
             alt={article?.title}
-            className="rounded-t-lg"
+            className="rounded-t-lg object-cover"
+            width={1024}
+            height={768}
           />
         </div>
       </SlideIn>
@@ -139,7 +139,7 @@ export default function Article({ article }: { article: BlogEntry }) {
         </div>
         <div className="my-0 py-0">
           <span className="text-black">
-            カテゴリー: [ {CategoryFromKey(article?.category)?.name} ]
+            カテゴリー: [ {Categories[article?.category]?.name} ]
           </span>
         </div>
         <div className="my-0 py-0">

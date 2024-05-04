@@ -1,5 +1,5 @@
-import { Menu } from "@/lib/types/menu"
-import { Categories } from "@/lib/collections/categories"
+import { type Menu } from "@/lib/types/menu"
+import { type Category, Categories } from "@/lib/collections/categories"
 import Subscribe from "@/components/common/subscribe"
 import Image from "next/image"
 import Link from "next/link"

@@ -17,6 +17,17 @@ export const DrivingSchool = () => (
   </div>
 )
 
+export const CoachingToolbox = () => (
+  <div className="flex flex-wrap items-end justify-start gap-2 m-0 p-0 w-72 mx-auto text-5xl font-bold">
+    <span>
+      C<span className="text-3xl">OACHING</span>
+    </span>{" "}
+    <span>
+      S<span className="text-3xl">CHOOL</span>
+    </span>
+  </div>
+)
+
 export const SoloPreneur = () => (
   <ruby>
     個人起業家

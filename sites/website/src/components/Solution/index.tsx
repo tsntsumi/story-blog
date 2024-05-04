@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import { motion } from "framer-motion"
-import { Image } from "@/components/common/media"
+import { Image, Video } from "@/components/common/media"
 import { solutionData } from "./solutionData"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -15,26 +15,47 @@ import Subscribe from "@/components/common/subscribe"
 import {
   SoloPreneur,
   個人起業家,
-  DrivingSchool
+  DrivingSchool,
+  CoachingToolbox
 } from "@/components/common/logos"
 
 export default function Solution() {
   return (
     <>
       <section id="solution" className="p-0 m-0 mb-20">
-        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-16 text-justify">
-          <h1>
-            <div className="inline">
-              <span className="text-gold bg-sky-950 rounded-lg text-sm p-2 mt-0">
-                Alizza Ideal の
-              </span>{" "}
-              <DrivingSchool />
-            </div>
-            <span>
-              は、
-              個人起業家が理想のゴールに向かうために必要な全てのツールを提供します
-            </span>
-          </h1>
+        <div className="mx-auto max-w-c-1315 px-4 md:px-4 xl:px-16 text-justify">
+          <h1 className="inline-block">
+            <span className="text-gold bg-sky-950 rounded-lg text-sm p-2 mt-0">
+              Alizza Ideal の
+            </span>{" "}
+            <CoachingToolbox />
+          </h1>{" "}
+          <span>
+            は、 コーチのあなたが、理想のゴールに向かって
+            コーチング・ビジネスを運転していくために必要な全ての解決策を提供します
+          </span>
+          <div className="columns-2">
+            <p>
+              ほとんどの起業塾や集客コンサルタントは、
+              人を集めるところまでしか教えてくれません。
+              しかし、人を集めただけではクライアントになってもらえません。
+              そこにはセールスが必要です。
+            </p>
+            <p>
+              なかには、あなたに大きなリスクを負わせた条件でセールスさせようとする
+              コンサルタントもいます。
+              でもそれでは、あなたのコーチングの成果が出なかったら、
+              あなたは大きな損失をかぶることになります。
+            </p>
+            <p>
+              集客コンサルタントは言うでしょう。「それはあなたのコーチングの問題だ」と。
+            </p>
+            <p>
+              Alizza Idealでは、あなたがコーチング・ビジネスを
+              安心して安全に安定した運転をしていくための
+              ３つのテクニックを教習します。
+            </p>
+          </div>
           <div className="mt-12.5 grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:mt-15 grid-cols-2 xl:mt-20 xl:gap-12.5">
             {solutionData &&
               solutionData.map((solution, key) => {
@@ -45,12 +66,19 @@ export default function Solution() {
                     className="border-2 border-slate-200 rounded-xl p-0"
                   >
                     {image && (
-                      <Image
+                      <Video
                         src={image}
                         width={512}
                         height={256}
                         alt={title}
                         className="object-cover w-full rounded-t-lg"
+                        controls
+                        muted
+                        autoPlay
+                        loop={true}
+                        controlsList="nodownload"
+                        playsInline={true}
+                        preload="auto"
                       />
                     )}
                     <h2 className="flex items-center m-0 p-4 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify bg-sky-950 text-gold text-2xl h-[6rem] min-h-[6rem] max-h-[6rem]">

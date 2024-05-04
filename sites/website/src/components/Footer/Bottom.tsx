@@ -55,7 +55,7 @@ export default function Bottom() {
           <SlideIn className="animate_right text-xs text-grey-300">
             <div>
               &copy; 2024 Alizza Ideal. All rights reserved.
-              私達は起業する勇気と継続する力を応援します
+              私達は起業する勇気と副業する覚悟を応援します
             </div>
           </SlideIn>
         </div>

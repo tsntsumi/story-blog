@@ -131,6 +131,7 @@ export default function Page() {
               controls
               muted
               autoPlay
+              loop={true}
               controlsList="nodownload"
               playsInline={true}
               preload="auto"
