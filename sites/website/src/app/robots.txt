@@ -1,7 +1,9 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /land/
+Disallow: /map/menu/
+Disallow: /map/thanks/
+Disallow: /offer/confirm/
 
 # Host
 Host: https://www.alizza-ideal.com

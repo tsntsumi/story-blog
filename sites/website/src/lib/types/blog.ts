@@ -1,4 +1,4 @@
-import type { Category } from "@/lib/collections/categories"
+import type Category from "@/lib/types/category"
 
 export type BlogEntry = {
   title: string

@@ -36,15 +36,15 @@ export default function Template() {
       <div className="ml-4 text-sm columns-2 gap-8">
         <ul className="list-disc">
           <li>
-            <strong>DRIVE to IDEAL 無料相談会とは</strong>：
+            <strong>Alizza Ideal 無料相談会とは</strong>：
             あなたのビジネスの状況をお聞きし、課題を発見します。
             <p>
-              相談会の結果、当 DRIVE to IDEAL campus
-              でお手伝いできることがあれば、
+              相談会の結果、お手伝いできることがあれば、
               ご提案させていただく場合もあります。
             </p>
             <p>
-              無理に参加を勧めることはありませんので、安心して無料相談会をスケジュールしてください。
+              無理に参加を勧めることはありません。
+              安心して無料相談会をスケジュールしてください。
             </p>
           </li>
         </ul>

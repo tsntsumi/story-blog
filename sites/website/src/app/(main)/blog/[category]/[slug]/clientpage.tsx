@@ -1,10 +1,10 @@
 "use client"
 import React, { useState, useEffect } from "react"
-import Article from "@/components/Blog/Article"
+import Article from "@/components/Assets/Blog/Article"
 import { store, storage } from "@/lib/firebase/app"
 import { retrieveDocumentsSnapshot } from "@/lib/firebase/firestore"
 import type { BlogEntry } from "@/lib/types/blog"
-import Spinner from "@/components/common/spinner"
+import Spinner from "@/components/Assets/spinner"
 
 export type Props = {
   params: {
@@ -49,7 +49,7 @@ export default function Page({ params, searchParams }: Props) {
     )
   }
   if (!blogs) {
-    return <>no content</>
+    return <>content not found</>
   }
   const blog: BlogEntry = blogs.at(0)
   return (

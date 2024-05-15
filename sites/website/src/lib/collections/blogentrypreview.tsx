@@ -3,7 +3,7 @@ import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
-import Media, { Image, Video } from "@/components/common/media"
+import Media, { Image, Video } from "@/components/Assets/media"
 
 import {
   Box,

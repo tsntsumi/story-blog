@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}"
+    "./src/app/**/*.{js,jsx,ts,tsx,md,mdx,html}",
+    "./src/components/**/*.{js,jsx,ts,tsx,md,mdx,html}"
   ],
   darkMode: "class",
+  future: {
+    removeDeprecatedGapUtilities: true
+  },
   theme: {
     fontFamily: {
       // inter: ["Inter", "sans-serif"]
@@ -61,7 +64,13 @@ module.exports = {
         titlebg2: "#FFEAC2",
         titlebgdark: "#46495A",
         btndark: "#292E45",
-        gold: "#eec900",
+        gold: {
+          DEFAULT: "#eec900",
+          dark: "#8b6914",
+          ho: "#8b6914",
+          white: "#ffd700",
+          light: "#ffd700"
+        },
         darkgold: "#8b6914",
         goldho: "#8b6914",
         whitegold: "#ffd700",
@@ -77,7 +86,14 @@ module.exports = {
         alabaster: "#FBFBFB",
         zumthor: "#EDF5FF",
         socialicon: "#D1D8E0",
-        linelogo: "#00B900"
+        linelogo: "#00B900",
+        formal: {
+          DEFAULT: "#04406F",
+          base: "#04406F",
+          main: "#2A70BF",
+          accent: "#ECC100",
+          light: "#F1FAFD"
+        }
       },
       fontSize: {
         metatitle: ["12px", "20px"],
@@ -184,5 +200,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require("@tailwindcss/forms")]
+  plugins: []
 }
