@@ -15,7 +15,8 @@
       "frameworksBackend": {
         "region": "us-central1"
       }
-    },{
+    },
+    {
       "target": "meet",
       "source": "sites/meet",
       "ignore": [
@@ -33,12 +34,21 @@
   },
   "emulators": {
     "hosting": {
-      "host": "192.168.0.10",
-      "port": 5501
+      "host": "192.168.1.4",
+      "port": 5505
     },
     "ui": {
       "enabled": true
     },
-    "singleProjectMode": true
+    "singleProjectMode": true,
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "storage": {
+      "port": 9199
+    }
   }
 }

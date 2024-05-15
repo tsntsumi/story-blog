@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next"
 import { retrieveDocuments } from "@/lib/firebase/firestore"
-import { type Category, Categories } from "@/lib/collections/categories"
+import { Categories } from "@/lib/categories"
+import type Category from "@/lib/types/category"
 
 const SITE_URL = process.env.SITE_URL || "https://www.alizza-ideal.com"
 const ROOT_DIR = "blog"
@@ -41,9 +42,13 @@ const generateBlogEntryMaps = async (baseurl: string): Promise<Props[]> => {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths: string[] = [
     "/legal",
-    "/confirmation",
+    "/excl",
+    "/map",
     "/policy",
     "/blog",
+    "/blog/encourage",
+    "/blog/marketing",
+    "/blog/mindset",
     "/",
     "/who-we-are"
   ]
@@ -55,6 +60,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const blogEntryMaps: Props[] = await generateBlogEntryMaps(SITE_URL)
-  const categoryMaps: Props[] = [] // generateCategoryMaps(SITE_URL)
-  return [...staticMaps, ...blogEntryMaps, ...categoryMaps]
+  return [...staticMaps, ...blogEntryMaps]
 }

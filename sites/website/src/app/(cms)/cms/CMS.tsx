@@ -2,21 +2,13 @@
 import React, { useCallback, useEffect, useState } from "react"
 
 import { User as FirebaseUser } from "firebase/auth"
-import {
-  buildCollection,
-  buildProperty,
-  buildEnumValues,
-  EntityReference,
-  Authenticator,
-  FirebaseCMSApp
-} from "firecms"
+import { Authenticator, FirebaseCMSApp } from "firecms"
 
 //import "typeface-rubik"
 //import "@fontsource/ibm-plex-mono"
 import firebaseConfig from "@/firebase-config"
 
 import { blogCollection } from "@/lib/collections/blogentries"
-import { newsletterCollection } from "@/lib/collections/newsletterentries"
 const logo = "/images/logo/logo-square.png"
 
 export default function CMS() {
@@ -55,7 +47,7 @@ export default function CMS() {
         name={"Blog Content Manager"}
         basePath={"/cms"}
         authentication={cmsAuthenticator}
-        collections={[blogCollection, newsletterCollection]}
+        collections={[blogCollection]}
         logo={logo}
         firebaseConfig={firebaseConfig}
         signInOptions={["password", "google.com"]}

@@ -1,7 +1,18 @@
-import { buildCollection, buildProperty, buildEntityCallbacks } from "firecms"
+import {
+  buildCollection,
+  buildProperty,
+  buildEntityCallbacks,
+  buildEnumValues
+} from "firecms"
 import { BlogEntryPreview } from "./blogentrypreview"
 import { BlogEntry } from "@/lib/types/blog"
-import { categoryEnumeration } from "@/lib/collections/categories"
+import Categories from "@/lib/categories"
+
+const categoryMap = Object.fromEntries(
+  Categories.map((c, i) => [c.key, c.name])
+)
+
+const categoryEnumeration = buildEnumValues(categoryMap)
 
 const blogCallbacks = buildEntityCallbacks({
   onPreSave: ({

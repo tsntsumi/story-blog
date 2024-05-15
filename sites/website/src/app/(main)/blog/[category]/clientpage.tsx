@@ -1,6 +1,7 @@
 "use client"
-import BlogListings from "@/components/Blog/Listings"
-import Categories, { type Category } from "@/lib/collections/categories"
+import BlogListings from "@/components/Assets/Blog/Listings"
+import Categories, { CategoryFromKey } from "@/lib/categories"
+import type Category from "@/lib/types/category"
 
 export type Props = {
   params: {
@@ -10,7 +11,8 @@ export type Props = {
 }
 
 // List all blog items
-export default function Page({ params, searchParams }: Props) {
-  const category: Category = Categories.find((c) => c.key === params.category)
+export default function ClientPage({ params, searchParams }: Props) {
+  const category: Category = CategoryFromKey(params.category)
+
   return <BlogListings category={category} />
 }

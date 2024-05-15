@@ -1,35 +1,18 @@
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import ToasterContext from "@/app/context/ToastContext"
-import ScrollToTop from "@/components/ScrollToTop"
+import ScrollToTop from "@/components/Assets/ScrollToTop"
 import { Suspense } from "react"
-import GoogleTag from "@/lib/googleTag"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
 import type { Metadata } from "next"
+import GoogleTag, { GoogleTagmanager } from "@/lib/googleTag"
+import FacebookPixelEvents from "@/lib/pixel-events"
+import Header from "@/components/Assets/Header"
+import Footer from "@/components/Assets/Footer"
+import menu from "@/components/main/Assets/Menu"
 
 export const metadata: Metadata = {
   title: {
     template: "%s | ALIZZA IDEAL 公式サイト",
     default: "ALIZZA IDEAL 公式"
-  },
-  description: `\
-コーチ、ヒーラー、セラピスト、サロンオーナーとして他人に貢献しようと\
-起業・開業・副業を始める人が増えています。\
-しかし、だれもが自分を必要としているクライアントに出会えるわけではありません。\
-Alizza Idealでは、あなたがクライアントに出会う導線を確保するための\
-トレーニングコースを提供しています。\
-あなたがこのトレーニングを受ければ、理想のクライアント(YOUR IDEALs)に出会い、\
-彼らの目標達成に貢献することが簡単になります。\
-そして、あなた自身も自分のゴールを達成し、充実した毎日を送ることになるのです。`,
-  applicationName: "www.alizza-ideal.com",
-  referrer: "origin-when-cross-origin",
-  keywords: ["Next.js", "React", "JavaScript"],
-  authors: [{ name: "Kikuo", url: "https://www.alizza-ideal.com" }],
-  creator: "Kikuo Tsutsumi",
-  publisher: "Alizza Ideal",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false
   }
 }
 
@@ -45,14 +28,25 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <Suspense fallback={<></>}>
-        <GoogleTag />
+        <GoogleTagmanager />
+        <FacebookPixelEvents />
       </Suspense>
       <body className={`dark:bg-black ${inter.className}`}>
-        <Header />
-        <ToasterContext />
-        <div className="m-4 pt-12 md:pt-16">{children}</div>
-        <ScrollToTop />
-        <Footer />
+        <AppRouterCacheProvider>
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-MVXMNLF"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            ></iframe>
+          </noscript>
+          <Header menu={menu} />
+          <ToasterContext />
+          <div className="m-4 pt-12 md:pt-16 md:w-4/5 mx-auto">{children}</div>
+          <ScrollToTop />
+          <Footer />
+        </AppRouterCacheProvider>
       </body>
     </html>
   )
