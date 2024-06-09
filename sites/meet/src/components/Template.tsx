@@ -8,16 +8,16 @@ export default function Template() {
         <div className="text-xl">
           <span className="text-base">meet</span> Alizza Ideal
         </div>
-        無料相談会をスケジュール
+        無料セミナー「ストーリー・セールスの秘密」
       </h1>
       <div className="border-double border-[3px] my-4 rounded-xl flex flex-nowrap">
         <div className="w-3/4 p-2 flex flex-col items-between justify-start">
           <p className="mt-2 text-sm text-gray-800 font-medium">
-            １週間後から４週間先までスケジュールしていただけます。
+            １週間後から４週間先までのご都合のよい日時をお選びください。
           </p>
           <p className="mt-2 sm:mt-6 text-sm text-gray-800 font-medium">
             日付を選ぶとスケジュール可能な時間がカレンダーの下に表示されます。
-            Google ミートでの相談会になります。
+            Google ミートでのオンラインミーティングでの開催になります。
           </p>
           <p className="mt-2 sm:mt-6 text-sm text-gray-800 font-medium">
             あなたとお話するのを楽しみにしています。
@@ -32,22 +32,6 @@ export default function Template() {
             className="w-full object-cover rounded-r-xl"
           />
         </div>
-      </div>
-      <div className="ml-4 text-sm columns-2 gap-8">
-        <ul className="list-disc">
-          <li>
-            <strong>Alizza Ideal 無料相談会とは</strong>：
-            あなたのビジネスの状況をお聞きし、課題を発見します。
-            <p>
-              相談会の結果、お手伝いできることがあれば、
-              ご提案させていただく場合もあります。
-            </p>
-            <p>
-              無理に参加を勧めることはありません。
-              安心して無料相談会をスケジュールしてください。
-            </p>
-          </li>
-        </ul>
       </div>
     </div>
   )

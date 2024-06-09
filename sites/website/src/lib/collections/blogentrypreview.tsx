@@ -158,13 +158,15 @@ function Text({ markdownText }: { markdownText: string }) {
   return (
     <Container maxWidth={"sm"}>
       <Box mt={6} mb={6}>
-        <Markdown
-          components={components}
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeKatex]}
-        >
-          {markdownText}
-        </Markdown>
+        <div className="blog-details markdown">
+          <Markdown
+            components={components}
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeKatex]}
+          >
+            {markdownText}
+          </Markdown>
+        </div>
       </Box>
     </Container>
   )

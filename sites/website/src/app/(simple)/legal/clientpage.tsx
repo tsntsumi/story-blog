@@ -53,7 +53,7 @@ export default function ClientPage() {
         <dd>送料など</dd>
         <dt>個人情報について</dt>
         <dd className="text-md">
-          当社はお客様のプライバシーを第一に考え運営しております。詳細は弊サイト{" "}
+          当社はお客さまのプライバシーを第一に考え運営しております。詳細は弊サイト{" "}
           <span className="link">
             &lt;
             <Link href="/policy/" className="text-sm">

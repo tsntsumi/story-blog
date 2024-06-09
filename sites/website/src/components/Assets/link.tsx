@@ -14,6 +14,20 @@ export const UpperArrow = () => (
   </svg>
 )
 
+export const DownArrow = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.2,10.5L1.7,6l-1.2,1.2,6.5,6.5,6.5-6.5-1.2-1.2-4.5,4.5V.3h-1.6v10.1Z"
+      fill="currentColor"
+    />
+  </svg>
+)
+
 export const RightArrow = () => (
   <svg
     width="14"
@@ -37,7 +51,7 @@ export default function Link({
   href: string
   children: React.ReactNode
   className?: string
-  go?: "back" | "detail"
+  go?: "back" | "detail" | "down"
 }): React.ReactNode {
   return (
     <div className={`m-0 p-0 ${className}`}>
@@ -47,7 +61,13 @@ export default function Link({
           className="group/btn inline-flex items-center gap-2.5 font-medium text-primary transition-all duration-300 dark:text-white dark:hover:text-primary"
         >
           <span className="duration-300 group-hover/btn:pr-2">{children}</span>
-          {go === "back" ? <UpperArrow /> : <RightArrow />}
+          {go === "back" ? (
+            <UpperArrow />
+          ) : go === "down" ? (
+            <DownArrow />
+          ) : (
+            <RightArrow />
+          )}
         </button>
       </NextLink>
     </div>

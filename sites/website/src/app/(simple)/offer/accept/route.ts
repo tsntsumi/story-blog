@@ -54,10 +54,11 @@ export async function POST(request: NextRequest) {
     phone: "",
     mobile: "",
     seqno: -1,
-    type: "subscriber"
+    type: "subscriber",
+    status: "active"
   })
 
-  const ss = await getDoc(doc(store, "users/owner"))
+  const ss = await getDoc(doc(store, "configure/owner"))
   const owner: OwnerData = ss.data() as OwnerData
   owner.id = ss.id
 

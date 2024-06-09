@@ -45,7 +45,7 @@ export default function AcceptOffer({
     const data = new FormData(e.currentTarget)
     const fo = Object.fromEntries(data)
     const body = JSON.stringify(fo)
-    console.debug(`form obj`, body)
+    // console.debug(`form obj`, body)
     const { email, title, url } = fo
     fetch(`/offer/accept`, {
       method: "POST",
@@ -80,7 +80,7 @@ ${json.error}）`)
       {submitting === "error" && (
         <div className="bg-red-50 text-red-600 p-2 text-sm">{errorMessage}</div>
       )}
-      <div className="flex flex-nowrap items-center justify-around gap-4 my-4">
+      <div className="flex flex-wrap md:flex-nowrap items-center justify-around md:gap-4 md:my-4">
         <input type="hidden" name="title" value={offer.title} />
         <input type="hidden" name="url" value={offer.url} />
         <input type="hidden" name="category" value={offer.category} />
@@ -94,7 +94,7 @@ ${json.error}）`)
         />
         <button
           type="submit"
-          className="my-4 w-2/5 w-fit max-h-[2.8rem] min-h-[2.8rem] px-3 flex items-center justify-center rounded-full text-xs md:text-sm p-0 duration-300 ease-in-out text-gold-dark bg-gold hover:bg-blackho hover:text-gold"
+          className="my-4 w-2/5 w-full md:w-fit max-h-[2.8rem] min-h-[2.8rem] px-3 flex items-center justify-center rounded-full text-md md:text-sm p-0 duration-300 ease-in-out text-ai-gold bg-gradient-to-b from-amber-200 to-amber-400 hover:bg-blackho hover:text-gold border-2 border-amber-900 hover:border-amber-700"
         >
           {submitting === "busy" ? (
             <div className="inline flex flex-nowrap items-center justify-center">

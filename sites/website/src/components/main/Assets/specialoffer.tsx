@@ -74,7 +74,7 @@ export default function SpecialOffer(): React.ReactNode {
         <p>でも、日本を住みやすくしたいというのも、もちろん本心です。</p>
       </div>
       <div className="md:columns-2 gap-8">
-        <h2 className="text-xl rounded-md bg-sky-950 text-gold p-4 mb-8 mt-0">
+        <h2 className="text-xl rounded-md bg-ai-blue text-ai-yellow p-4 mb-8 mt-0">
           え！成約できちゃった？！まだ自信が……
         </h2>
         <p>
@@ -89,11 +89,11 @@ export default function SpecialOffer(): React.ReactNode {
         <p>
           集客チャレンジで、いち早くあるいは誰よりも成果を達成できた方には、
           わたしたち Alizza Ideal の有料サービス「
-          <span className="text-gold-dark font-bold">
+          <span className="text-ai-yellow-dark font-bold">
             コーチング・ビジネス教習
           </span>
           」を、
-          <span className="font-bold text-black bg-gold rounded-lg p-2 py-1 m-1">
+          <span className="font-bold text-black bg-ai-yellow rounded-lg p-2 py-1 m-1">
             無料で最高６ヶ月間
           </span>
           ご利用しちゃってください。

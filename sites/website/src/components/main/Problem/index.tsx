@@ -1,171 +1,88 @@
 "use client"
-import React from "react"
-import NextImage from "next/image"
 import { Image, Video } from "@/components/Assets/media"
-import Link from "next/link"
 import SlideIn from "@/components/Assets/slidein"
-import Subscribe from "@/components/Assets/subscribe"
-import {
-  SoloPreneur,
-  CoachingToolbox,
-  DrivingSchool
-} from "@/components/Assets/logos"
-import SpecialOffer from "@/components/main/Assets/specialoffer"
-
-const SCHEDULE_TO_CALL: string = "https://meet.alizza-ideal.com"
-
-const items: string[] = [
-  "クライアントのサポートに使うメソッド、カリキュラム、コンテンツの作成",
-  "クライアントの興味をそそるコンセプトの設計と集客導線の構築",
-  "高単価で契約してくれるクライアントに出会い、継続させるマーケティング",
-  "コーチングに対する情熱と、意欲と、覚悟"
-]
+import Subscribe from "@/components/main/Assets/join"
+import GoOffer from "@/components/main/Assets/go-offer"
 
 const Problem = () => {
   return (
     <>
       <section id="problem" className="pt-0 mt-0 mb-4">
-        <div className="mx-auto max-w-c-1390 text-justify px-4 md:px-8 2xl:px-0 text-sm md:text-base">
-          <h1 className="my-2 text-xl md:text-3xl">
-            コーチング・ビジネスは、クライアントの理想実現に貢献する素晴らしいお仕事です。
-          </h1>
-          <h2 className="text-lg md:text-2xl">
-            <div className="my-2">
-              そんな重要な仕事にもかかわらず、ほとんどのコーチは高収益の仕組みを構築出来ていません。
-            </div>
+        <div className="p-0 py-8 mx-auto max-w-c-1390 text-justify bg-ai-yellow text-ai-blue">
+          <h2 className="mx-8">
+            <span className="text-ai-red">セールスとは、</span>
+            お客さまに
+            <span className="text-ai-red">売り込み</span>
+            をして、購入させようとすることではありません
           </h2>
-          <SlideIn className="animate_right">
-            <div className="w-full mt-8 mb-4 text-xl md:text-2xl text-center">
-              あなたは、もうこの準備は
-              <div className="inline-block">できてますか？</div>
+          <h3 className="mx-8">
+            しかし、商品を売ろうとしている
+            <span className="text-ai-red">ほとんどの人は、</span>
+            そのような方法しか知りません
+          </h3>
+          <div className="text-center text-ai-red my-12 font-bold">
+            売り込みをすると、
+            <span className="whitespace-nowrap">何が起こるでしょうか……</span>
+          </div>
+          <SlideIn className="animate_left">
+            <div className="my-8 mr-10 p-8 pr-18 rounded-r-full bg-ai-red text-white">
+              <div className="w-fit ml-auto">
+                お客さまは、プレッシャーを感じ、話を聞かなくなる
+              </div>
             </div>
           </SlideIn>
-          <div className="bg-sky-950 px-4 text-gold rounded-xl">
-            <ul className="flex flex-wrap py-4 mx-0 list-outside list-image-[url(/images/icon/check-sign-icon.svg)]">
-              {items.map((item, i) => (
-                <li
-                  key={i}
-                  className="ml-0 pr-6 md:w-1/2 text-white text-base mt-0 text-justify"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="w-full">
-            <div className="w-full max-w-c-1390 mx-auto">
-              <div className="columns-1 md:columns-2 xl:columns-3 md:gap-8">
-                <h2 className="mt-0 pt-0 text-xl">
-                  高収益のコーチに必要なのは、コーチング能力ではありません
-                </h2>
-                <p>
-                  あなたがコーチになろうとしているなら、すでにコーチングする分野の専門知識、
-                  情熱、意欲はもう十分です。
-                </p>
-                <p>
-                  しかし、まだコーチングのコンセプト、コンテンツ、見込み客がないとしたら、
-                  継続していくのに必要な燃料が、すぐに空になってしまいます。
-                </p>
-                <h2 className="text-xl">あなたが主役ではない</h2>
-                <p>
-                  コーチング・ビジネスの主役はクライアントです。
-                  あなたではありません。
-                </p>
-                <p>
-                  映画で例えるなら、あなたはスター・ウォーズのオビ=ワンやヨーダ、
-                  ロード・オブ・ザ・リングの魔法使いガンダルフ、
-                  オズの魔法使いの、北の良い魔女です。
-                </p>
-                <p>
-                  つまり、あなたはクライアントがゴールに到達するまでの
-                  道案内役であり、シェルパであり、魔法使いです。
-                </p>
-                <p>
-                  クライアントを、正しい道へ導き、
-                  ゴールへ向かって進んでいくための知恵と勇気を与える役です。
-                </p>
-                <h2 className="text-xl">コーチング・ビジネスに必要なもの</h2>
-                <p>
-                  ビジネスは、クライアントを乗せて走る自動車のようなものです。
-                </p>
-                <p>ゴールまで旅を続けるには、そのための燃料が必要です。</p>
-                <p>
-                  車で言えば<b>ガソリン</b> です。 あなたで言えば
-                  <b>情熱とモチベーション</b> です。 ビジネスでいえば
-                  <b>収益</b> です。
-                </p>
-                <p>
-                  旅の途中で燃料がなくなれば、ガソリンが、情熱が、
-                  モチベーションが、お金がなくなってしまったら、
-                  先に進めなくなってしまいます。
-                </p>
-                <p>
-                  あなたがいなくなったら、
-                  クライアントの人生はどうなってしまうでしょうか。
-                  やはり、ゴールにたどり着けなくなります。
-                </p>
-                <h2 className="text-xl">あなただって旅をしている</h2>
-                <p>
-                  あなたが守ってあげたかった大切な人だって、
-                  人生の迷子になってしまいます。
-                  あなたと一緒に旅をすることができなくなります。
-                  離れ離れになってしまうかもしれません。
-                </p>
-                <p>
-                  Alizza Ideal's Coaching School of Business
-                  （コーチング・ビジネス教習センター）は、
-                  あなたが、コーチとしてキャリアを築いていくために必要な
-                  学びと訓練と支援をする教習所です。
-                </p>
-                <p>
-                  あなたのクライアントや大切な人と一緒に、
-                  あなたの理想のゴールに向かって、
-                  安全に、安心して、安定してゴールまで運転していく
-                  サポートをします。
-                </p>
-                <p>
-                  わたしをあなたのヨーダにして下さい。
-                  希望を信じて一緒に旅を続けましょう。
-                </p>
-              </div>
-              <div className="w-full">
-                <Image
-                  src="gs://story-made.appspot.com/images/hero/CoachingToolbox_Toolbox_land.png"
-                  alt="Alizza Ideal コーチング・ビジネス教習センター"
-                  width={640}
-                  height={453}
-                  className="object-cover rounded-lg my-4 mx-auto"
-                />
+          <SlideIn className="animate_right">
+            <div className="my-8 ml-10 p-8 pl-18 rounded-l-full bg-ai-red text-white">
+              セールスは、「お客さまを助けることだ」ということを忘れる
+            </div>
+          </SlideIn>
+          <SlideIn className="animate_left">
+            <div className="my-8 mr-10 p-8 pr-18 rounded-r-full bg-ai-red text-white">
+              <div className="w-fit ml-auto">
+                売り上げが上がらず、ビジネスが安定しなくなる
               </div>
             </div>
-            <div className="text-center hidden">
-              <p className="w-full text-justify md:w-2/3 mx-auto">
-                今なら通常10,000円の「高収益コンテンツ制作ワークショップ」に無料で参加して、
-                あなたのオリジナルコンテンツを制作し、クライアントの獲得もできます。
+          </SlideIn>
+          <div className="mt-8 p-8 bg-white text-ai-blue text-justify border-y-4 border-y-ai-gold">
+            <p>
+              「お客さまが主人公」のストーリー・セールス・フレームワークは、
+              ストーリーの力を使って、セールスでのコミュニケーションに
+              アプローチする方法です。
+            </p>
+          </div>
+          <div className="mb-8 p-8 bg-ai-blue text-white text-justify">
+            <p>
+              商品を売り込むのではなく、お客さまをストーリーの世界に招待します。
+              お客さまは、あなたの商品によって問題が解決することを
+              明確にイメージすることができます。
+            </p>
+            <p className="w-fit mx-auto mt-8">
+              ストーリー・セールス・フレームワークを使うと、
+            </p>
+            <div className="text-ai-gold md:mx-10 my-4 py-4 px-8 rounded-full bg-white border-8 border-ai-gold">
+              <p>
+                お客さまに売り込まれていると感じさせない、
+                あなたもストレスを感じない、そんなセールスができるようになります
               </p>
-              <Link href={`https://bit.ly/profitable-content-workshop`}>
-                <Subscribe className="text-lg md:text-sm py-3 px-6 mx-auto my-4">
-                  今すぐ参加
-                </Subscribe>
-              </Link>
             </div>
-            {/* <div>
-                <Video
-                src="gs://story-made.appspot.com/videos/hero/driving-to-goal-small.mp4"
-                alt="driving to ideal goal"
-                width={576}
-                height={1024}
-                className="object-cover rounded-lg my-8"
-                controls
-                muted
-                autoPlay
-                loop={true}
-                controlsList="nodownload"
-                playsInline={true}
-                preload="auto"
-                />
-                </div> */}
+            <div className="w-5/6 mx-auto">
+              <p className="">
+                そんなセールスをするためには、
+                あなたのストーリー・セールス・シナリオを作ることから始めます
+              </p>
+            </div>
           </div>
+          <div className="mx-12 border-4 border-ai-gold rounded-lg p-4 bg-white text-ai-gold">
+            LINE公式アカウントでは、ストーリー・セールスはもとより、
+            セールスの役に立つ情報をお伝えしています。
+            ぜひ、お友達になってください。
+          </div>
+          <Subscribe>お友だちになる</Subscribe>
+          <div className="mx-12 mb-4 border-4 border-ai-gold rounded-lg p-4 bg-white text-ai-gold">
+            この公式サイトでは、集客の役に立つ成功事例集をプレゼントしています。
+            セールスする見込み客がなかなか集らないなら、ぜひダウンロードして読んでみてください。
+          </div>
+          <GoOffer />
         </div>
       </section>
     </>

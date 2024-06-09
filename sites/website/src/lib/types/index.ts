@@ -76,11 +76,14 @@ export type AppointmentProps = {
 export type OwnerData = {
   email: string
   name: string
-  replyto: string
+  replyTo: string
   sender: string
   phone: string
   address: string
   id?: string
+  confirmEmail: string
+  bcc: string[]
+  userAccount: string
 }
 
 export type OfferData = {

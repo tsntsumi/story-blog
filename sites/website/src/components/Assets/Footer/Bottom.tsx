@@ -1,14 +1,8 @@
 "use client"
 import { motion } from "framer-motion"
 import Link from "next/link"
-
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import {
-  SoloPreneur,
-  個人起業家,
-  DrivingSchool
-} from "@/components/Assets/logos"
 
 export default function Bottom() {
   const pathUrl = usePathname()

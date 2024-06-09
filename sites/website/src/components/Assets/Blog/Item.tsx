@@ -37,20 +37,20 @@ export default function Item({ document }: { document: BlogEntry }) {
             playsInline={true}
             preload="auto"
           />
-          <h3 className="text-base p-2 my-0 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-2xl h-[4rem] min-h-[4rem]">
-            {elipsis(document.title, 24)}
+          <h3 className="text-sm p-2 my-0 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify text-2xl h-[3rem] min-h-[3rem]">
+            {elipsis(document.title, 48)}
           </h3>
           <SlideIn className="animate_bottom">
-            <div className="text-xs whitespace-nowrap overflow-hidden font-mono px-2 m-0 bg-slate-100">
+            <div className="text-xs whitespace-nowrap overflow-hidden font-mono p-2 m-0 bg-slate-100">
               {document?.date}
             </div>
-            <div className="text-xs px-2 h-[9rem] min-h-[9em] max-h-[9em] overflow-hidden items-start">
+            <div className="py-2 text-xs px-2 h-[4rem] min-h-[4rem] max-h-[4rem] overflow-hidden items-start">
               <Markdown
                 rehypePlugins={[rehypeRaw, rehypeKatex, rehypeSanitize]}
                 remarkPlugins={[remarkGfm]}
                 className="text-xs"
               >
-                {summary || ""}
+                {elipsis(summary || "", 70)}
               </Markdown>
             </div>
           </SlideIn>

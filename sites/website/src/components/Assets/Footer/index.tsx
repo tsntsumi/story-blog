@@ -7,16 +7,11 @@ import CategoryListings from "@/components/Assets/Blog/CategoryListings"
 import Latests from "@/components/Assets/Blog/Latests"
 import { Categories } from "@/lib/categories"
 import type Category from "@/lib/types/category"
-import Subscribe from "@/components/Assets/subscribe"
 import Bottom from "@/components/Assets/Footer/Bottom"
+import GoOffer from "@/components/main/Assets/go-offer"
 
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import {
-  SoloPreneur,
-  個人起業家,
-  DrivingSchool
-} from "@/components/Assets/logos"
 
 const Footer = () => {
   const pathUrl = usePathname()
@@ -31,36 +26,34 @@ const Footer = () => {
       <footer className="mt-0 pt-0 border-t-2 border-gold-dark border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
         <div
           id="footer"
-          className="border-t-8 border-gold mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0"
+          className="border-t-8 border-ai-yellow mx-auto max-w-c-1390 pb-8 "
         >
           {/* <!-- Footer Top --> */}
-          <div>
-            <p className="indent-0 my-4 text-xs font-medium text-black dark:text-white">
-              あなたのコーチング・ビジネスを、高収益の仕組み化をほどこし、収入を安定させ、
-              余裕のある日々を過ごしながら、
-              理想のゴールへむかってビジネスを運転し成長させる Alizza
-              Ideal&apos;s Coaching School of Business
-            </p>
-            <div className="flex flex-wrap items-start justify-between ">
+          <div className="w-full px-8 pb-1 mb-4 text-xs font-medium text-ai-blue bg-ai-yellow">
+            お客さまが主人公です。 あなたは……、
+            主人公を導くヨーダやガンダルフのようなコーチであり魔法使いです。
+          </div>
+          <div className="px-4  md:px-8 2xl:px-10">
+            <div className="flex flex-wrap items-start justify-between mb-8">
               <ul className="list-disc ml-8">
                 <li key="home" className="my-2">
                   <Link href="/" go="back">
-                    Home
+                    ホームへ戻る
                   </Link>
                 </li>
                 <li className="my-2">
-                  <div className="my-2">ブログ新着リスト</div>
+                  <div className="my-2">新着ブログ</div>
                   <div>
                     <Latests latests={4} />
                   </div>
                 </li>
                 <li>
-                  <div className="my-2">ブログカテゴリーリスト</div>
+                  <div className="my-2">ブログカテゴリー</div>
                   <div className="flex flex-wrap w-full justify-start">
                     {Categories.map((c, i) => (
                       <div key={c.key} className="w-1/2 md:w-1/4 text-justify">
-                        <div className="border-2 border-slate-200 rounded-lg m-2 p-0 h-[6rem] min-h-[6rem] max-h-[6rem] ovreflow-hidden">
-                          <div className="flex flex-nowrap items-center text-xs h-[4rem] max-h-[2.8rem] min-h-[2.8rem] border-b-2 bg-gold">
+                        <div className="border-2 border-slate-200 rounded-lg m-2 p-0 h-[4.6rem] min-h-[4.6rem] max-h-[4.6rem] ovreflow-hidden">
+                          <div className="flex flex-nowrap items-center text-xs h-[3rem] max-h-[2.2rem] min-h-[2.2rem] border-b-2 bg-gold">
                             <Link
                               href={`/blog/${c.key}`}
                               className="hover:text-primary text-gold-dark mx-2"
@@ -68,37 +61,22 @@ const Footer = () => {
                               {c.name}
                             </Link>
                           </div>
-                          <div className="px-2 text-xs h-[9rem] min-h-[9em] max-h-[9em] overflow-hidden items-start">
-                            {elipsis(c.description, 24)}
+                          <div className="p-2 text-xs h-[1.6rem] min-h-[1.6rem] max-h-[1.6rem] overflow-hidden items-start">
+                            {elipsis(c.description, 31)}
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
                 </li>
-                <li>
-                  限定プレゼント PDF ダウンロード
-                  <Link href="/excl" go="detail">
-                    ライバルを出し抜いて集客する方法
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
-          <div className="w-full my-4 text-center">
-            <Image
-              src="gs://story-made.appspot.com/images/hero/CoachingToolbox_Toolbox_land.png"
-              alt="Coaching School of Business - コーチング・ビジネス教習センター"
-              width={640}
-              height={453}
-              className="object-cover rounded-lg mx-auto my-4"
-            />
-            <NextLink href="https://meet.alizza-ideal.com">
-              <Subscribe className="text-lg md:text-sm py-3 px-6 mx-auto">
-                無料相談会をスケジュール
-              </Subscribe>
-            </NextLink>
+          <div className="mx-12 mb-4 border-4 border-ai-gold rounded-lg p-4 bg-blue-50 text-ai-gold text-sm">
+            この公式サイトでは、集客の役に立つ成功事例集をプレゼントしています。
+            セールスする見込み客がなかなか集らないなら、ぜひダウンロードして読んでみてください。
           </div>
+          <GoOffer />
           {/* <!-- Footer Top End --> */}
         </div>
         <Bottom />

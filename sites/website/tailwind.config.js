@@ -43,18 +43,6 @@ module.exports = {
         decimal: "decimal"
       },
       colors: {
-        accent: {
-          50: "#f3b8b4",
-          100: "#eeb5b4",
-          200: "#eba7a3",
-          300: "#e48a86",
-          400: "#db675c",
-          500: "#ce4336",
-          600: "#a53331",
-          700: "#882525",
-          800: "#732123",
-          900: "#661e23"
-        },
         current: "currentColor",
         transparent: "transparent",
         stroke: "#EEEEEE",
@@ -78,8 +66,23 @@ module.exports = {
         black: "#181C31",
         blackho: "#2C3149",
         blacksection: "#1C2136",
-        primary: "#006BFF",
-        primaryho: "#0063EC",
+        ai: {
+          DEFAULT: "#192B6D",
+          primary: "#192B6D",
+          blue: "#192B6D",
+          sky: "#F8FFFF",
+          secondary: "#FFCB3B",
+          yellow: "#FFCB3B",
+          accent: "#AA2748",
+          red: "#AA2748",
+          pink: "#FFE8E1",
+          green: "#04ADC0",
+          gold: "#8b6914"
+        },
+        primary: "#192B6D",
+        secondary: "#FFCB3B",
+        accent: "#AA2748",
+        base: "#FFFFFE",
         meta: "#20C5A8",
         waterloo: "#757693",
         manatee: "#999AA1",
@@ -161,7 +164,23 @@ module.exports = {
         "c-1280": "80rem",
         "c-1235": "77.188rem",
         "c-1154": "72.125rem",
-        "c-1016": "63.5rem"
+        "c-1016": "63.5rem",
+        "c-768": "48rem",
+        "md": "768px"
+      },
+      width: {
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px"
+      },
+      minWidth: {
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px"
       },
       zIndex: {
         99999: "99999",

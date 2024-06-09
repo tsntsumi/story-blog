@@ -4,5 +4,5 @@ export const USER_ACCOUNT = "kikuo@alizza-ideal.com"
 export const EMAIL_BCC = []
 export const EMAIL_REPLYTO = ['"堤紀久夫" <info@alizza-ideal.com>']
 
-export const OWNER_ADDRESS = "〒311-1132 茨城県水戸市東前町1397番地の2"
+export const OWNER_ADDRESS = "〒300-1532 茨城県取手市谷中65-16"
 export const OWNER_PHONE = "+81 70 9034 2231"

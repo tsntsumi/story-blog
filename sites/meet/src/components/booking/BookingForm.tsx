@@ -17,16 +17,16 @@ import type { ActionType } from "@/context/AvailabilityContext"
 import { useProvider } from "@/context/AvailabilityContext"
 import { formatLocalDate, formatLocalTime } from "@/lib/availability/helpers"
 
-require("firebase-functions/logger/compat")
+// require("firebase-functions/logger/compat")
 
 const locations = [
   {
-    name: "お会いして",
-    value: "visit",
-  },
-  {
     name: "リモートで",
     value: "meet",
+  },
+  {
+    name: "お会いして",
+    value: "visit",
   },
   {
     name: "お電話で",

@@ -1,52 +1,64 @@
 "use client"
 import React from "react"
-import { encourageData, type Encourage } from "./encourageData"
-import SingleEncourage from "./SingleEncourage"
-import Link from "next/link"
-import Subscribe from "@/components/Assets/subscribe"
-import { SoloPreneur, 個人起業家 } from "@/components/Assets/logos"
-import SpecialOffer from "@/components/main/Assets/specialoffer"
+import Subscribe from "@/components/main/Assets/join"
+import GoOffer from "@/components/main/Assets/go-offer"
 
 export default function Encourage() {
-  const workshopIsVisible: boolean = false
   return (
     <>
       {/* <!-- ===== Encouragees Start ===== --> */}
-      <section id="encourage" className="p-0 m-0 mb-20">
-        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
-          <h1 className="text-2xl">
-            あなたのコーチング・ビジネスが成功し、成長し始めると……
-          </h1>
-          <div className="mt-12.5 grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-7.5 lg:mt-15 xl:mt-20 xl:gap-12.5">
-            {encourageData &&
-              encourageData.map((p, key) => {
-                return <SingleEncourage key={key} {...p} />
-              })}
-          </div>
-          <h1 className="text-2xl">さあ、旅に出よう、あなたの人生の旅に</h1>
-          <p>
-            Alizza Ideal でコーチング・ビジネスを学び、
-            あなたのゴールに向かって旅にでかけましょう。
-          </p>
-          <p>そのときには、わたしもあなたのパーティーに加えて下さい。</p>
-          <div className="my-8 mx-auto">
-            <Link href="https://meet.alizza-ideal.com">
-              <Subscribe className="text-xs md:text-sm py-4 px-6 mx-auto">
-                無料相談会をスケジュール
-              </Subscribe>
-            </Link>
-          </div>
-          {workshopIsVisible && (
+      <section id="encourage" className="p-0 m-0 mb-10">
+        <div className="pt-4 bg-white text-ai-blue">
+          <h2 className="bg-ai-blue text-white border-8 border-ai-yellow mx-8 rounded-full text-ai-blue p-4 px-6 mb-8 text-xl sm:text-3xl">
+            ストーリーをベースにしたセールスで、
+            <span className="text-ai-yellow">もっと売り上げをあげる</span>
+          </h2>
+          <div className="px-8 mb-8 text-ai-blue">
+            <p>
+              世の中のほとんどの人は、一度はひどいセールスの犠牲になっています。
+              あなたも、こんな経験はありませんか？
+            </p>
+            <ul>
+              <li className="text-ai-blue">必要のない商品を買わされた……</li>
+              <li className="text-ai-blue">
+                しつこいセールス電話に悩まされた……
+              </li>
+              <li className="text-ai-blue">強引に無理やり買わされた……</li>
+            </ul>
+            <p>こんな経験、イヤでしたよね。</p>
+            <p>
+              ALIZZA IDEAL の
+              「『お客さまが主人公』のストーリー・セールス・フレームワーク」は、
+              あなたが思い込んでいるセールスのイメージを完全に書き替えます。
+            </p>
+            <p>
+              ストーリーの力と、お客さまを主人公にすることで、
+              商品の価値を明確にわかりやすく伝えられるようになります。
+            </p>
+            <p className="mt-8">
+              「『お客さまが主人公』のストーリー・セールス完全習得講座」では、
+              ストーリーの力をセールスに応用する方法を学ぶことができます。
+            </p>
+            <p>
+              もうお客さまに、商品を購入させようと売り込みをするのはやめましょう。
+              その代わりに、あなたがお客さまにとって信頼できるアドバイザーになる方法を学びましょう。
+            </p>
             <div>
-              <h2 className="text-xl">
-                まだ自信がなくて始められないという方は、わたしのワークショップを試してみてください
-              </h2>
+              <div className="mx-4 my-8 px-6 py-4 text-center rounded-full border-8 border-ai-blue bg-ai-yellow text-ai-blue">
+                ストーリー・セールス完全習得講座は６月中に開講予定です
+              </div>
               <p>
-                普段は10,000円で提供しているワークショップを、いまなら期間限定、無料でお試しいただけます。
+                以下のLINE公式アカウントでお友達になっていただくと、
+                開講する際にお知らせのメッセージをお送りします。
               </p>
-              <SpecialOffer />
+              <Subscribe>お友だちになる</Subscribe>
+              <div className="mx-12 mb-4 border-4 border-ai-gold rounded-lg p-4 bg-blue-50 text-ai-gold text-sm">
+                この公式サイトでは、集客の役に立つ成功事例集をプレゼントしています。
+                セールスする見込み客がなかなか集らないなら、ぜひダウンロードして読んでみてください。
+              </div>
+              <GoOffer />
             </div>
-          )}
+          </div>
         </div>
       </section>
 

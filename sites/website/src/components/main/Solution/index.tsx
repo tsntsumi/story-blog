@@ -1,115 +1,93 @@
 "use client"
 import React from "react"
-import { motion } from "framer-motion"
-import { Image, Video } from "@/components/Assets/media"
-import { solutionData } from "./solutionData"
-import Markdown from "react-markdown"
-import remarkGfm from "remark-gfm"
-import rehypeRaw from "rehype-raw"
-import rehypeSanitize from "rehype-sanitize"
-import rehypeKatex from "rehype-katex"
-import "katex/dist/katex.min.css"
-import SlideIn from "@/components/Assets/slidein"
-import Link from "next/link"
-import Subscribe from "@/components/Assets/subscribe"
-import {
-  SoloPreneur,
-  個人起業家,
-  DrivingSchool,
-  CoachingToolbox
-} from "@/components/Assets/logos"
+import Subscribe from "@/components/main/Assets/join"
+import GoOffer from "@/components/main/Assets/go-offer"
 
 export default function Solution() {
   return (
     <>
       <section id="solution" className="p-0 m-0 mb-4">
-        <div className="mx-auto max-w-c-1315 px-4 md:px-4 xl:px-16 text-justify">
-          <div className="bg-formal-light p-4 rounded-t-xl">
-            <h1 className="text-black text-xl">
-              <span className="font-serif">Alizza Ideal</span>の
-              <ruby>
-                コーチング・ビジネス教習センター<rp>(</rp>
-                <rt>Coaching School of Business</rt>
-                <rp>)</rp>
-              </ruby>
-            </h1>
-            は、 コーチのあなたが、理想のゴールに向かって
-            コーチング・ビジネスを運転していくために必要な全ての解決策を提供します
-          </div>
-          <div className="columns-2">
-            <p>
-              ほとんどの起業塾や集客コンサルタントは、
-              人を集めるところまでしか教えてくれません。
-              しかし、人を集めただけではクライアントになってもらえません。
-              そこにはセールスが必要です。
+        <div className="my-10 max-w-c-1315 text-justify bg-ai-blue py-8">
+          <h2 className="p-4 px-8 mb-8 mx-10 text-center bg-ai-yellow text-blue rounded-full border-4 border-white">
+            売り込まずに売る?
+            <span className="whitespace-nowrap">本当にできるの？</span>
+          </h2>
+          <div className="mx-8 text-white">
+            <p className="w-full text-white">
+              「お客さまが主人公」のストーリー・セールス・フレームワークなら可能です。
+            </p>
+            <p className="w-full my-8">
+              ALIZZA IDEAL の「
+              <strong>ストーリー・セールス完全習得講座</strong>
+              」では、 この日本初上陸のセールス・フレームワークを使って、
+              自信を持ってセールスし、 より多くのセールスで成約し、
+              ビジネスを安定させる方法を具体的に学べます。
+            </p>
+            <p className="w-full">
+              問題が解決していくストーリーの世界へ、お客さまを招待するために、
+              ストーリー・セールス・シナリオをまず最初に作成してください。
             </p>
             <p>
-              なかには、あなたに大きなリスクを負わせた条件でセールスさせようとする
-              コンサルタントもいます。
-              でもそれでは、あなたのコーチングの成果が出なかったら、
-              あなたは大きな損失をかぶることになります。
+              ストーリー・セールス・シナリオは、
+              ハリウッド映画が100年近くかけて進化させてきた、
+              見る人を惹きつけるストーリーの型を使って作成します。
             </p>
             <p>
-              集客コンサルタントは言うでしょう。「それはあなたのコーチングの問題だ」と。
+              無料のセールス・シナリオ・テンプレートを使用すれば、
+              あなたが何度でも組み合わせて使うことができる、
+              ５つの重要なセールス・トークの要素を作成できます。
             </p>
             <p>
-              Alizza Idealでは、あなたがコーチング・ビジネスを
-              安心して安全に安定した運転をしていくための
-              ３つのテクニックを教習します。
+              この５つの要素を組み合わせることで、ストーリー・セールス・シナリオが完成します。
             </p>
-          </div>
-          <div className="mt-12.5 grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:mt-15 xl:mt-20 xl:gap-12.5">
-            {solutionData &&
-              solutionData.map((solution, key) => {
-                const { title, image, description } = solution
-                return (
-                  <div
-                    key={key}
-                    className="border-2 border-slate-200 rounded-xl p-0"
-                  >
-                    {image && (
-                      <Video
-                        src={image}
-                        width={512}
-                        height={256}
-                        alt={title}
-                        className="object-cover w-full rounded-t-lg"
-                        controls
-                        muted
-                        autoPlay
-                        loop={true}
-                        controlsList="nodownload"
-                        playsInline={true}
-                        preload="auto"
-                      />
-                    )}
-                    <h2 className="flex items-center m-0 p-4 line-clamp-2 inline-block font-medium text-black duration-300 hover:text-gold xl:text-itemtitle2 w-full text-justify bg-sky-950 text-gold text-2xl h-[6rem] min-h-[6rem] max-h-[6rem]">
-                      {title}
-                    </h2>
-                    <SlideIn className="animate_top">
-                      <div className="w-full p-4 pt-0 text-justify text-sm">
-                        <Markdown
-                          rehypePlugins={[
-                            rehypeRaw,
-                            rehypeKatex,
-                            rehypeSanitize
-                          ]}
-                          remarkPlugins={[remarkGfm]}
-                        >
-                          {description || ""}
-                        </Markdown>
-                      </div>
-                    </SlideIn>
+            <div className="my-8">
+              <h3 className="text-inherit w-fit mx-auto">自分で始める方法</h3>
+              <ul className="text-white list-none list-outside mx-0 px-0 flex flex-wrap">
+                <li className="text-inherit w-1/3 px-2">
+                  <div className="flex items-center justify-center w-20 h-20 mb-2 mx-auto bg-ai-yellow rounded-full bg-gradient-to-b from-amber-200 to-amber-500">
+                    <div className="flex items-center justify-center w-16 h-16 max-w-16 max-h-16 p-2 m-2 rounded-full mx-auto bg-transparent text-ai-blue border-4 border-ai-blue">
+                      1
+                    </div>
                   </div>
-                )
-              })}
-          </div>
-          <div className="my-8 mx-auto">
-            <Link href="https://meet.alizza-ideal.com">
-              <Subscribe className="text-xs md:text-sm py-4 px-6 mx-auto">
-                無料相談会をスケジュール
-              </Subscribe>
-            </Link>
+                  <div className="w-full text-xs sm:text-sm">
+                    テンプレートをダウンロードする
+                  </div>
+                </li>
+                <li className="text-inherit w-1/3 px-2">
+                  <div className="flex items-center justify-center w-20 h-20 mb-2 mx-auto bg-ai-yellow rounded-full bg-gradient-to-b from-amber-200 to-amber-500">
+                    <div className="flex items-center justify-center w-16 h-16 max-w-16 max-h-16 p-2 m-2 rounded-full mx-auto bg-transparent text-ai-blue border-4 border-ai-blue">
+                      2
+                    </div>
+                  </div>
+                  <div className="w-full text-xs sm:text-sm">
+                    ストーリー・セールス・シナリオを作る
+                  </div>
+                </li>
+                <li className="text-inherit w-1/3 px-2">
+                  <div className="flex items-center justify-center w-20 h-20 mb-2 mx-auto bg-ai-yellow rounded-full bg-gradient-to-b from-amber-200 to-amber-500">
+                    <div className="flex items-center justify-center w-16 h-16 max-w-16 max-h-16 p-2 m-2 rounded-full mx-auto bg-transparent text-ai-blue border-4 border-ai-blue">
+                      3
+                    </div>
+                  </div>
+                  <div className="w-full text-xs sm:text-sm">
+                    より多くのセールスで成約を決める
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className="mx-4 mt-8 px-6 py-4 rounded-full border-8 border-ai-gold bg-blue-50 text-ai-gold text-sm sm:text-lg">
+                <div className="w-fit mx-auto">
+                  セールス・シナリオ・テンプレートは、LINEのお友達に配布しています
+                </div>
+              </div>
+              <Subscribe>お友だちになる</Subscribe>
+              <div className="mx-12 mb-4 border-4 border-ai-gold rounded-lg p-4 bg-blue-50 text-ai-gold text-sm">
+                この公式サイトでは、集客の役に立つ成功事例集をプレゼントしています。
+                セールスする見込み客がなかなか集らないなら、ぜひダウンロードして読んでみてください。
+              </div>
+              <GoOffer />
+            </div>
           </div>
         </div>
       </section>
