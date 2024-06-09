@@ -16,7 +16,7 @@ import getHash from "@/lib/hash"
 import type { DateTimeIntervalWithTimezone, CourseName } from "@/lib/types"
 
 const logger = require("firebase-functions/logger")
-require("firebase-functions/logger/compat")
+// require("firebase-functions/logger/compat")
 
 // Define the rate limiter
 const rateLimitLRU = new LRUCache({

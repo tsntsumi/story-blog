@@ -4,6 +4,9 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
+const ADDFRIEND: string = "https://lin.ee/wZk6khE"
+const LINEID: string = "@534dvpmo"
+
 const Join = ({ children }: { children: React.ReactNode }): React.ReactNode => {
   return (
     <>
@@ -12,22 +15,22 @@ const Join = ({ children }: { children: React.ReactNode }): React.ReactNode => {
         <div className="mx-auto">
           <div className="flex flex-wrap gap-5 items-center justify-center">
             <a
-              href="https://lin.ee/QmddQRD"
+              href={`${ADDFRIEND}`}
               className=" font-bold text-xl justify-between large rounded-full border border-stroke px-6 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
               onClick={() => true}
             >
-              @259nufef
+              {LINEID}
               <Image
-                src="/images/icon/line-add-friend-ja.png"
+                src="/images/icon/line-add-friend.png"
                 width="92"
                 height="32"
-                alt="ストーリーライターLINE公式"
+                alt="起業する勇気 LINE 公式アカウント"
                 unoptimized
                 className="inline-block border-4 rounded-lg border-white"
               />
             </a>
             <a
-              href="https://lin.ee/QmddQRD"
+              href={`${ADDFRIEND}`}
               className="flex rounded-full bg-black px-7.5 py-2 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
               onClick={() => true}
             >

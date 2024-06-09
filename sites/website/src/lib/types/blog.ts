@@ -12,6 +12,7 @@ export type BlogEntry = {
   status: string
   createdat: Date
   date?: string | undefined
+  rating?: number | undefined
 }
 
 export type BlogEntryImages = {

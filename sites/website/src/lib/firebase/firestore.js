@@ -1,4 +1,5 @@
 import { basename } from "path"
+import { useCallback } from "react"
 import {
   collection,
   onSnapshot,
@@ -18,7 +19,7 @@ import {
 import { db } from "@/lib/firebase/app"
 import { imageURL } from "@/lib/firebase/storage"
 
-const DEFAULT_ROOTDIR = "blog"
+const DEFAULT_ROOTDIR = "blogs"
 
 function applyQueryFilters(q, { slug, category, status, ...params }) {
   if (slug) {
@@ -87,4 +88,64 @@ export async function documentBySlug(rootdir, slug) {
   }
   const documents = await retrieveDocuments(rootdir, { slug: slug, limit: 1 })
   return documents?.shift()
+}
+
+export async function updateDocumentRating(rootdir, id, rating) {
+  if (!id) {
+    console.error("Error: Missing document id")
+    return
+  }
+  const docref = doc(db, rootdir || DEFAULT_ROOTDIR, id)
+  await updateDoc(docref, "rating", rating)
+}
+
+export async function configOfOwner() {
+  // owner fields:
+  // address: string
+  // bcc: string[]
+  // email: string
+  // name: string
+  // phone: string
+  // replyTo: string
+  // timeZone: string
+  // userAccount: string
+  const r = doc(db, "configure", "owner")
+  const ss = await getDoc(r)
+  if (!ss.exists()) {
+    return null
+  }
+  return ss.data()
+}
+
+export async function configOfCalendar() {
+  /*
+     bookedCalendars: string[]
+     date_format: string[]
+     time_format: string[]
+     event_calendar: string
+     reminders: string[][]
+     timeZone: stirng
+     weekdays: string[]
+  */
+  const r = doc(db, "configure", "calendars")
+  const ss = await getDoc(r)
+  if (!ss.exists()) {
+    return null
+  }
+  return ss.data()
+}
+
+export async function configOfSlots() {
+  /*
+     lead_time: number
+     menu: {course: string, duration: number, name: string}[]
+     offer: { days: number, offset: number }
+     padding: numebr
+  */
+  const r = doc(db, "configure", "slots")
+  const ss = await getDoc(r)
+  if (!ss.exists()) {
+    return null
+  }
+  return ss.data()
 }

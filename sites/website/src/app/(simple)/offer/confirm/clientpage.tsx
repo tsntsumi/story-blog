@@ -1,5 +1,6 @@
 "use client"
-import Link from "next/link"
+import NextLink from "next/link"
+import Link from "@/components/Assets/link"
 import { store } from "@/lib/firebase/app"
 import { doc, getDoc } from "firebase/firestore"
 import type { OwnerData } from "@/lib/types"
@@ -28,15 +29,15 @@ export default function ClientPage(props: ClientProps) {
         <ul className="style-none my-8 text-lg">
           <li>
             {title}はこちらから
-            <Link href={`${url}`} className="text-primary underline">
+            <NextLink href={`${url}`} className="text-primary underline">
               ダウンロード
-            </Link>
+            </NextLink>
             してください。
           </li>
         </ul>
       )}
       <p>
-        Alizza Ideal の月刊集客アイデア・成功事例集は、
+        Alizza Ideal の月刊・集客成功事例集は、
         定期購読のお申し込みも受け付けています。
         読んでみて気に入りましたらお申し込みください。
       </p>

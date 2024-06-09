@@ -12,7 +12,7 @@ import {
 
 // All available logging functions
 const logger = require("firebase-functions/logger")
-require("firebase-functions/logger/compat")
+// require("firebase-functions/logger/compat")
 
 // Helper function to build the description
 function buildDescription(location: string, messageText: string) {

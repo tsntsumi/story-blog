@@ -171,7 +171,7 @@ export default function Article({ article }: { article: BlogEntry }) {
           戻る
         </Link>
       </div>
-      <div className="text-sm">
+      <div className="text-sm mt-8">
         <div> 限定プレゼント PDF ダウンロード</div>
         <Link href={`/excl`} go="detail">
           ライバルを出し抜いて集客する方法

@@ -1,19 +1,15 @@
 "use client"
 import { Image, Video } from "@/components/Assets/media"
 import NextImage from "next/image"
-import Link from "next/link"
+import Link, { DownArrow } from "@/components/Assets/link"
 import { UpperArrow, RightArrow } from "@/components/Assets/link"
 import { useState } from "react"
 import AcceptOffer from "@/components/Assets/acceptoffer"
-import Subscribe from "@/components/Assets/subscribe"
 import SlideIn from "@/components/Assets/slidein"
-import {
-  SoloPreneur,
-  個人起業家,
-  DrivingSchool
-} from "@/components/Assets/logos"
+import GoOffer from "@/components/main/Assets/go-offer"
 
-const SCHEDULE_TO_CALL: string = "https://meet.alizza-ideal.com"
+const CLOSINGMOVIE: string =
+  "gs://story-made.appspot.com/videos/hero/closing-sales.mov"
 
 const Hero = () => {
   const workshopIsVisible: boolean = false
@@ -21,100 +17,83 @@ const Hero = () => {
   const columnWidth: string = workshopIsVisible ? "md:w-2/5" : "md:w-full"
   return (
     <>
-      <section id="first-view" className="overflow-hidden mb-10">
-        <div className="flex flex-nowrap items-start justify-arround w-full max-w-c-1390 mx-auto gap-4  font-bold text-xs bg-gold text-black md:rounded-t-lg m-0 py-1 px-2">
-          <div className="md:w-2/5 m-0 p-0 mx-auto">
-            起業する勇気と副業する覚悟を応援する{" "}
-            <span className="text-base">
-              A<span className="text-xs">LIZZA</span> I
-              <span className="text-xs">DEAL</span>
-            </span>
-          </div>
+      <section id="first-view" className="overflow-hidden mb-8">
+        <div className="w-full mx-auto py-1 bg-ai-yellow text-ai-blue text-xs text-center">
+          起業する勇気と、
+          <span className="whitespace-nowrap md:whitespace-wrap">
+            副業する覚悟を応援する ALIZZA IDEAL
+          </span>
         </div>
-        <div className="flex flex-wrap items-end justify-around w-full max-w-c-1390 mx-auto gap-4 m-0 p-4 bg-sky-950 text-white">
-          <div className={`${columnWidth}`}>
-            <h1 className="h3 text-xl md:text-4xl text-justify font-medium text-gold ">
-              <div className="text-white text-sm md:text-2xl">
-                あなたの得意で<span className="text-gold">選ばれる</span>
-                コーチになる
-              </div>
-              <div className="text-white text-sm my-1 md:text-xl">
-                Alizza Ideal&apos;s Coaching School of Business
-              </div>
-              コーチング・ビジネス
-              <span className="whitespace-nowrap">教習</span>
-              <span className="whitespace-nowrap">センター</span>
-            </h1>
-            <div className="text-base text-white mb-2">
-              コーチングの、独自性の出し方、標準価格設定、
-              クライアント集客技法、プレゼン技術を学び、
-              時間も収入も豊かなコーチを目指せる
+        <div className="w-full mx-auto py-8 bg-ai-blue text-white">
+          <div className="w-fit mx-auto mb-4 py-1 px-6 bg-ai-yellow text-ai-red rounded-full border-8 border-ai-red">
+            日本初上陸
+          </div>
+          <h1 className="text-center text-white font-medium">
+            セールスの抵抗をなくす
+            <div className="md:text-[2.4rem]">
+              ストーリー・セールス・
+              <span className="whitespace-nowrap">フレームワーク</span>
             </div>
-            <div>
+          </h1>
+          <div className="hidden p-0 flex flex-row flex-nowrap justify-end bg-ai-yellow rounded-l-full ml-4 md:ml-10 mb-4 border-2 border-r-0 border-white/40 border-b-ai-red">
+            <div className="pl-8 py-2 flex flex-col justify-around text-center text-sm sm:text-xl md:text-2xl text-ai-blue">
+              <div className="">セールス・シナリオを作成</div>
+              <div className="w-fit mx-auto">
+                <DownArrow />
+              </div>
+              <div>
+                <div>自信を持って、楽しみながら</div>
+                <div>より多くのセールスを成約</div>
+              </div>
+              <div className="w-fit mx-auto">
+                <DownArrow />
+              </div>
+              <div className="">売り上げが安定</div>
+            </div>
+            <div className="h-0 pb-[50%] relative w-full">
               <Image
-                src="gs://story-made.appspot.com/images/hero/CoachingToolbox_Toolbox_land.png"
-                alt="Alizza Ideal's Coaching School of Business -  コーチング・ビジネス教習センター"
-                width={640}
-                height={453}
-                className="object-cover rounded-lg mx-auto"
+                src="gs://story-made.appspot.com/images/hero/profile-photo-leftmost.png"
+                alt="avatar"
+                width="769"
+                height="684"
+                className="hidden object-cover w-1/2 absolute bottom-0 right-0"
               />
             </div>
           </div>
-          {workshopIsVisible && (
-            <>
-              <div>
-                <p className="text-sm">
-                  今なら、通常10,000円の
-                  <b className="text-gold text-base">
-                    「高収益コンテンツ制作ワークショップ」
-                  </b>
-                  に無料で参加して、
-                  選ばれやすいあなたのオリジナルコンテンツを作れます
-                </p>
-                <Link href={`https://bit.ly/profitable-content-workshop`}>
-                  <Subscribe className="text-lg md:text-sm py-3 px-6 mx-auto my-4">
-                    今すぐ参加
-                  </Subscribe>
-                </Link>
+
+          <div className="p-0 flex flex-row flex-nowrap justify-end bg-black rounded-l-full ml-4 md:ml-10 mb-4 border-4 border-r-0 border-white overflow-hidden">
+            <div className="h-0 pb-[50%] relative w-full">
+              <div className="pl-8 py-4 flex flex-col justify-around text-center text-sm sm:text-xl md:text-2xl text-white absolute z-20 h-full w-full">
+                <div className="">ストーリー・セールスをする</div>
+                <div className="w-fit mx-auto">
+                  <DownArrow />
+                </div>
+                <div>より多くのセールスで成約</div>
+                <div className="w-fit mx-auto">
+                  <DownArrow />
+                </div>
+                <div className="">売り上げが安定</div>
               </div>
-              <div className={`${columnWidth}`}>
-                <div className="text-base">
-                  <p>
-                    ワークショップであなたの独自コンテンツを制作し、
-                    ７２時間の集客にもチャレンジしていただきます。
-                    もちろん、集客・プレゼン・成約のサポートもいたします。
-                  </p>
-                </div>
-                <div className="w-full">
-                  <Image
-                    src="gs://story-made.appspot.com/images/hero/CoachingToolbox_Althea_Workshop_land.png"
-                    alt="高収益コンテンツ制作無料ワークショップ＋７２時間集客チャレンジ"
-                    width={576}
-                    height={1024}
-                    className="object-cover mx-auto rounded-lg"
-                  />
-                </div>
-                <div className="text-base">
-                  <p>
-                    優秀な成果を出した方には、Alizza Ideal の有料サービス「
-                    <span className="text-gold">
-                      Alizza Ideal コーチング・ビジネス教習所
-                    </span>
-                    」を、
-                    <span className="font-bold text-black bg-gold rounded-lg p-2 py-1 m-1">
-                      無料で最大６ヶ月間
-                    </span>
-                    ご利用いただけます。
-                  </p>
-                </div>
-                <Link href={`https://bit.ly/profitable-content-workshop`}>
-                  <Subscribe className="text-lg md:text-sm py-3 px-6 mx-auto my-4">
-                    今すぐ参加
-                  </Subscribe>
-                </Link>
-              </div>
-            </>
-          )}
+
+              <Video
+                src={CLOSINGMOVIE}
+                controls={true}
+                muted={true}
+                autoPlay={true}
+                loop={true}
+                controlsList="nodownload"
+                playsInline={true}
+                preload="auto"
+                className="w-full backdrop-brightness-0 brightness-50 absolute top-0 right-0"
+              />
+            </div>
+          </div>
+
+          <div className="mx-12 mb-4 border-4 border-ai-gold rounded-lg p-4 bg-blue-50 text-ai-gold text-sm">
+            この公式サイトでは、集客の役に立つ成功事例集をプレゼントしています。
+            ぜひ受け取ってください。
+          </div>
+          <GoOffer />
         </div>
       </section>
     </>

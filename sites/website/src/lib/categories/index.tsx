@@ -1,3 +1,4 @@
+// Categories for blog
 import type Category from "@/lib/types/category"
 
 export const CategoryFromKey = (key: string): Category => {

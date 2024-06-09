@@ -8,9 +8,13 @@
       "target": "website",
       "source": "sites/website",
       "ignore": [
-        "firebase.json",
+        ".git",
+        ".runtimeconfig.json",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
         "**/.*",
-        "**/node_modules/**"
+        "sites/website/node_modules/**",
+        "sites/meet/node_modules/**"
       ],
       "frameworksBackend": {
         "region": "us-central1"
@@ -20,9 +24,12 @@
       "target": "meet",
       "source": "sites/meet",
       "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
+        ".git",
+        ".runtimeconfig.json",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "sites/website/node_modules/**",
+        "sites/meet/node_modules/**"
       ],
       "frameworksBackend": {
         "region": "us-central1"
@@ -34,15 +41,15 @@
   },
   "emulators": {
     "hosting": {
-      "host": "192.168.1.4",
-      "port": 5505
+      "port": 5500,
+      "host": "192.168.1.4"
     },
     "ui": {
       "enabled": true
     },
-    "singleProjectMode": true,
+    "singleProjectMode": false,
     "functions": {
-      "port": 5001
+      "port": 5002
     },
     "firestore": {
       "port": 8080

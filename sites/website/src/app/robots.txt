@@ -4,6 +4,9 @@ Allow: /
 Disallow: /map/menu/
 Disallow: /map/thanks/
 Disallow: /offer/confirm/
+Disallow: /schools/
+Disallow: /schools/business/
+Disallow: /schools/coach/
 
 # Host
 Host: https://www.alizza-ideal.com

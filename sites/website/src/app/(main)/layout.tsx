@@ -5,9 +5,7 @@ import { Suspense } from "react"
 import type { Metadata } from "next"
 import GoogleTag, { GoogleTagmanager } from "@/lib/googleTag"
 import FacebookPixelEvents from "@/lib/pixel-events"
-import Header from "@/components/Assets/Header"
 import Footer from "@/components/Assets/Footer"
-import menu from "@/components/main/Assets/Menu"
 
 export const metadata: Metadata = {
   title: {
@@ -19,6 +17,8 @@ export const metadata: Metadata = {
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
+
+const TAGID = process.env.NEXT_PUBLIC_STORYMADE_GOOGLE_TAGMANAGER_ID
 
 export default function RootLayout({
   children
@@ -35,15 +35,14 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-MVXMNLF"
+              src={`https://www.googletagmanager.com/ns.html?id=${TAGID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
-          <Header menu={menu} />
           <ToasterContext />
-          <div className="m-4 pt-12 md:pt-16 md:w-4/5 mx-auto">{children}</div>
+          {children}
           <ScrollToTop />
           <Footer />
         </AppRouterCacheProvider>

@@ -20,45 +20,37 @@ type Props = {
   priority?: number
 }
 
-const generateBlogEntryMaps = async (baseurl: string): Promise<Props[]> => {
-  const documents = await retrieveDocuments("blogs", { status: "published" })
-  return documents?.map((d, i) => ({
-    url: `${baseurl}/${ROOT_DIR}/${d.category}/${d.slug}`,
-    lastModified: new Date(d.date),
+const sitemapEntryFromPath = (path: string, lastModified: Date): Props => {
+  return {
+    url: `${SITE_URL}/${path}`,
+    lastModified: lastModified,
     changeFrequency: "daily",
     priority: 0.7
-  }))
+  }
 }
 
-// const generateCategoryMaps = (baseurl: string): Props[] => {
-//   return Categories.map((c) => ({
-//     url: `${baseurl}/${ROOT_DIR}/${c.key}`,
-//     lastModified: new Date(),
-//     changeFrequency: "monthly",
-//     priority: 0.7
-//   }))
-// }
+const generateBlogEntryMaps = async (): Promise<Props[]> => {
+  const documents = await retrieveDocuments("blogs", { status: "published" })
+  return documents?.map((d, i) =>
+    sitemapEntryFromPath(`/blog/${d.category}/${d.slug}`, new Date(d.date))
+  )
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths: string[] = [
     "/legal",
-    "/excl",
+    "/offer/monthly-success",
     "/map",
     "/policy",
     "/blog",
-    "/blog/encourage",
-    "/blog/marketing",
-    "/blog/mindset",
     "/",
     "/who-we-are"
   ]
-  const staticMaps: Props[] = paths.map((p) => ({
-    url: `${SITE_URL}${p}`,
-    lastModified: new Date(),
-    changeFrequency: "daily",
-    priority: 0.7
-  }))
+  const categoryPaths: string[] = Categories.map((c) => `/blog/${c.key}`)
+  const staticMaps: Props[] = [...paths, ...categoryPaths].map((p) =>
+    sitemapEntryFromPath(p, new Date())
+  )
 
-  const blogEntryMaps: Props[] = await generateBlogEntryMaps(SITE_URL)
+  const blogEntryMaps: Props[] = await generateBlogEntryMaps()
   return [...staticMaps, ...blogEntryMaps]
 }

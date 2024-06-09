@@ -1,12 +1,9 @@
 export type NewsletterEntry = {
   title: string
-  hero: string
-  summary: string
-  slug: string
+  seqno: number
   author: string
   tags: string[]
   content: (NewsletterEntryImages | NewsletterEntryText)[]
-  category: string
   status: string
   createdat: Date
 }

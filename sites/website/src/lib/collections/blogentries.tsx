@@ -51,6 +51,11 @@ export const blogCollection = buildCollection<BlogEntry>({
       validation: { required: true },
       dataType: "string"
     },
+    rating: {
+      name: "Rating",
+      validation: { required: false },
+      dataType: "number"
+    },
     hero: buildProperty({
       name: "Hero Image",
       dataType: "string",
