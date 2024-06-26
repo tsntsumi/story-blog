@@ -8,7 +8,7 @@ export default function Template() {
         <div className="text-xl">
           <span className="text-base">meet</span> Alizza Ideal
         </div>
-        無料セミナー「ストーリー・セールスの秘密」
+        無料ビジネス・カウンセリング
       </h1>
       <div className="border-double border-[3px] my-4 rounded-xl flex flex-nowrap">
         <div className="w-3/4 p-2 flex flex-col items-between justify-start">

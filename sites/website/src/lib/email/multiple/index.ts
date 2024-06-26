@@ -1,8 +1,10 @@
+import * as path from "path"
 import type { SendMailOptions, Transporter } from "nodemailer"
 import { createTransport } from "nodemailer"
-import type Queue from "bull"
-import hbs from "nodemailer-express-handlebars"
+import { ownerConfig } from "@/lib/firebase/firestore"
+import Queue from "bull"
 import cron from "node-cron"
+import hbs from "nodemailer-express-handlebars"
 
 import {
   OWNER_EMAIL,
@@ -20,9 +22,9 @@ type OwnerConfig = {
   phone: string
   address: string
   bcc: string[]
-  replyTo: string
-  timeZone: string
-  userAccount: string
+  reply_to: string
+  time_zone: string
+  user_account: string
 }
 
 type SendMailParams = {
@@ -31,12 +33,19 @@ type SendMailParams = {
   body: string
 }
 
+type MailParams = {
+  to: string
+  subject: string
+  template: string
+  context: any
+}
+
 /**
  * Configure the mail transporter using OAuth2 authentication.
  * @returns {Transporter} The configured mail transporter object.
  */
 function configureTransporter(): Transporter {
-  const transpoter = createTransport({
+  const transporter = createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
@@ -56,9 +65,10 @@ function configureTransporter(): Transporter {
     extName: ".html"
   }
   transporter.use("compile", hbs(handlebarsOptions))
+  return transporter
 }
 
-function configureQueue(): Queue {
+function configureQueue() {
   const emailQueue = new Queue("email queue", {
     redis: {
       host: "127.0.0.1",
@@ -96,28 +106,74 @@ function configureQueue(): Queue {
  * @returns {Promise<void>} A promise that resolves when the
  * email is sent successfully.
  */
-async function sendMail({ to, subject, body }: SendMailParams): Promise<void> {
+export default async function sendMail({
+  to,
+  subject,
+  body
+}: SendMailParams): Promise<void> {
+  const owner: OwnerConfig = (await ownerConfig()) as OwnerConfig
   const transporter = configureTransporter()
 
   await transporter.sendMail({
     from: {
-      address: OWNER_EMAIL,
-      name: OWNER_NAME
+      address: owner.email,
+      name: owner.name
     },
     sender: {
-      address: OWNER_EMAIL,
-      name: OWNER_NAME
+      address: owner.email,
+      name: owner.name
     },
-    replyTo: EMAIL_REPLYTO,
-    bcc: EMAIL_BCC,
+    replyTo: owner.reply_to,
+    bcc: owner.bcc,
     to,
     subject,
     html: body,
     auth: {
-      user: USER_ACCOUNT,
+      user: owner.user_account,
       refreshToken: process.env.GOOGLE_OAUTH_REFRESH
     }
-  } as SendMailOptions & { auth: { user: string; refreshToken: string; accessToken?: string } })
+  } as SendMailOptions & {
+    auth: {
+      user: string
+      refreshToken: string
+      accessToken?: string
+    }
+  })
 }
 
-export default sendMail
+export async function sendMailTemplate({
+  to,
+  subject,
+  template,
+  context
+}: MailParams): Promise<void> {
+  const owner: OwnerConfig = (await ownerConfig()) as OwnerConfig
+  const transporter = configureTransporter()
+
+  await transporter.sendMail({
+    from: {
+      address: owner.email,
+      name: owner.name
+    },
+    sender: {
+      address: owner.email,
+      name: owner.name
+    },
+    replyTo: owner.reply_to,
+    bcc: owner.bcc,
+    to,
+    subject,
+    auth: {
+      user: owner.user_account,
+      refreshToken: process.env.GOOGLE_OAUTH_REFRESH
+    },
+    template: name,
+    context: context
+  } as SendMailOptions & {
+    auth: {
+      user: string
+      refreshToken: string
+      accessToken?: string
+    }
+  })
+}

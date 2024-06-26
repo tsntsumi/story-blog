@@ -6,8 +6,8 @@ import Plan from "@/components/main/Plan"
 import Encourage from "@/components/main/Encourage"
 import Despair from "@/components/main/Despair"
 import Magnet from "@/components/main/Assets/Magnet"
-import Header from "@/components/main/Assets/Header"
 import Mentor from "@/components/main/Mentor"
+import Header from "@/components/main/Assets/Header"
 import menu from "@/components/main/Assets/Menu"
 
 export const metadata: Metadata = {
@@ -37,7 +37,6 @@ ALIZZA IDEALでは、売り手・買い手ともにストレスフリーなセ�
 export default function Page() {
   return (
     <>
-      <Header menu={menu} />
       <div className="m-4 pt-10 md:w-md md:max-w-md min-w-[320px] mx-auto">
         <Hero />
         <Problem />

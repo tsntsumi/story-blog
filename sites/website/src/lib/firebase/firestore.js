@@ -99,16 +99,16 @@ export async function updateDocumentRating(rootdir, id, rating) {
   await updateDoc(docref, "rating", rating)
 }
 
-export async function configOfOwner() {
+export async function ownerConfig() {
   // owner fields:
   // address: string
   // bcc: string[]
   // email: string
   // name: string
   // phone: string
-  // replyTo: string
-  // timeZone: string
-  // userAccount: string
+  // reply_to: string
+  // time_zone: string
+  // user_account: string
   const r = doc(db, "configure", "owner")
   const ss = await getDoc(r)
   if (!ss.exists()) {
@@ -117,7 +117,7 @@ export async function configOfOwner() {
   return ss.data()
 }
 
-export async function configOfCalendar() {
+export async function calendarConfig() {
   /*
      bookedCalendars: string[]
      date_format: string[]
@@ -135,7 +135,7 @@ export async function configOfCalendar() {
   return ss.data()
 }
 
-export async function configOfSlots() {
+export async function slotsConfig() {
   /*
      lead_time: number
      menu: {course: string, duration: number, name: string}[]

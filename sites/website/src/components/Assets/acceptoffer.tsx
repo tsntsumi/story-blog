@@ -59,7 +59,7 @@ export default function AcceptOffer({
         setSubmitting("done")
         if (json.success) {
           const query = encodeURI(
-            `title=${title}&url=${json.url}&email=${email}&image=${offer.image}`
+            `title=${title}&url=${json.url}&email=${email}&image=${offer.image}&ownername=${json.name}&owneremail=${json.email}`
           )
           router.push(`/offer/confirm?${query}`)
           setSubmitting("ready")

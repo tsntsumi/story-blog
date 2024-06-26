@@ -73,8 +73,7 @@ const Problem = () => {
             </div>
           </div>
           <div className="mx-12 border-4 border-ai-gold rounded-lg p-4 bg-white text-ai-gold">
-            LINE公式アカウントでは、ストーリー・セールスはもとより、
-            セールスの役に立つ情報をお伝えしています。
+            LINE公式アカウントでは、セールスだけでなく、集客の役に立つ情報をお伝えしています。
             ぜひ、お友達になってください。
           </div>
           <Subscribe>お友だちになる</Subscribe>

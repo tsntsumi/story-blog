@@ -5,6 +5,8 @@ import { Suspense } from "react"
 import type { Metadata } from "next"
 import GoogleTag, { GoogleTagmanager } from "@/lib/googleTag"
 import FacebookPixelEvents from "@/lib/pixel-events"
+import Header from "@/components/main/Assets/Header"
+import menu from "@/components/main/Assets/Menu"
 import Footer from "@/components/Assets/Footer"
 
 export const metadata: Metadata = {
@@ -42,6 +44,7 @@ export default function RootLayout({
             ></iframe>
           </noscript>
           <ToasterContext />
+          <Header menu={menu} />
           {children}
           <ScrollToTop />
           <Footer />

@@ -1,20 +1,15 @@
 "use client"
 import NextLink from "next/link"
 import Link from "@/components/Assets/link"
-import { store } from "@/lib/firebase/app"
-import { doc, getDoc } from "firebase/firestore"
-import type { OwnerData } from "@/lib/types"
 import Media from "@/components/Assets/media"
 
 type ClientProps = {
-  owner: OwnerData
   params: { slug: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export default function ClientPage(props: ClientProps) {
-  const { title, url, email, image } = props.searchParams
-  const { owner } = props
+  const { title, url, email, image, ownername, owneremail } = props.searchParams
   const offer = (url && `${title}のダウンロード`) || "限定プレゼント"
   return (
     <div className="py-8 sm:py-16 mx-auto max-w-2xl text-justify">
@@ -56,24 +51,13 @@ export default function ClientPage(props: ClientProps) {
           迷惑メールフォルダにも見つからない場合は、もう一度お申し込みいただくか、
           下記メールアドレスまで、お気軽にお申し込み下さい。
         </p>
-        <div className="my-6 font-mono flex flex-nowrap mx-autox">
-          <a href={`mailto://${owner.email}`}>
-            {owner.name}{" "}
-            <span className="text-primary underline">
-              &lt;{owner.email}&gt;
-            </span>
-          </a>
+        <div className="my-6 font-mono flex flex-nowrap mx-autox underline">
+          <Link href={`mailto://${owneremail}`}>
+            {ownername}{" "}
+            <span className="text-primary underline">&lt;{owneremail}&gt;</span>
+          </Link>
         </div>
         <p>お手数をおかけしますが、確認のほどよろしくおねがいいたします。</p>
-      </div>
-      <div className="m-0 p-0 w-full my-4">
-        <Media
-          src={image}
-          alt={title}
-          className="rounded-t-lg object-cover"
-          width={1024}
-          height={768}
-        />
       </div>
     </div>
   )

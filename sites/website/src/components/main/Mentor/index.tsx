@@ -59,14 +59,7 @@ export default function Mentor() {
               >
                 Dotcom Secrets
               </NextLink>
-              」、そしてサイモン・シネック氏の「
-              <NextLink
-                href="https://amzn.to/45bX0He"
-                className="underline text-sky-500"
-              >
-                Start with Why
-              </NextLink>
-              」 を 組み合わせて、日本向けに改良したものです。
+              」を 組み合わせて、日本向けに改良したものです。
             </p>
             <h3>わたしも、セールスをするのに抵抗がありました</h3>
             <p>

@@ -33,12 +33,27 @@ const Footer = () => {
             お客さまが主人公です。 あなたは……、
             主人公を導くヨーダやガンダルフのようなコーチであり魔法使いです。
           </div>
-          <div className="px-4  md:px-8 2xl:px-10">
+          <div className="text-sm px-4  md:px-8 2xl:px-10">
             <div className="flex flex-wrap items-start justify-between mb-8">
               <ul className="list-disc ml-8">
                 <li key="home" className="my-2">
                   <Link href="/" go="back">
                     ホームへ戻る
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link href="/who-we-are" go="detail">
+                    <ruby>
+                      Alizza Ideal<rp>(</rp>
+                      <rt>アリザ愛である</rt>
+                      <rp>)</rp>
+                    </ruby>
+                    とは
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link href="/pricing" go="detail">
+                    サービスと料金
                   </Link>
                 </li>
                 <li className="my-2">

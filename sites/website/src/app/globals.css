@@ -50,7 +50,8 @@ html {
   }
 
   section ul,
-  section ol {
+  section ol,
+  section dl {
       @apply my-8 ml-4 pl-4 list-inside list-disc text-titlebgdark;
   }
   section ol {
@@ -60,6 +61,22 @@ html {
   section ul li,
   section ol li {
       @apply mb-2 text-[inherit] text-titlebgdark dark:text-waterloo;
+  }
+
+  section dl {
+      @apply text-black text-ai-blue;
+  }
+  section dl dt {
+      @apply mb-0 text-inherit text-ai-blue font-bold;
+  }
+  section dl dt::before {
+      content: "[";
+  }
+  section dl dt::after {
+      content: "]";
+  }
+  section dl dd {
+      @apply mb-2 text-inherit indent-[1em];
   }
 
   section blockquote {

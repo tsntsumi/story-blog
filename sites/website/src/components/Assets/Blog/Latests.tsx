@@ -47,8 +47,8 @@ export default function Latests({ latests }: Props) {
   return (
     <div className="flex flex-wrap p-0 mb-6 justify-start">
       {collection.map((c, key) => (
-        <div key={key} className="w-1/2 md:w-1/4">
-          <div className="m-2">
+        <div key={key} className="w-1/2 sm:w-1/4">
+          <div className="m-2 text-xs">
             <ArticleItem document={c} />
           </div>
         </div>

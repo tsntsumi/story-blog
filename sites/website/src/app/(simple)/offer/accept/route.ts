@@ -1,7 +1,5 @@
 import LRUCache from "lru-cache"
 import sendMail from "@/lib/email"
-import NotificationEmail from "@/lib/email/messages/Notification"
-import ConfirmationEmail from "@/lib/email/messages/Confirmation"
 import getHash from "@/lib/hash"
 import { NextRequest, NextResponse } from "next/server"
 import { store, storage } from "@/lib/firebase/app"
@@ -21,6 +19,9 @@ const rateLimitLRU = new LRUCache({
 })
 const REQUESTS_PER_IP_PER_MINUTE_LIMIT = 5
 
+const INTRO_VIDEO =
+  "gs://story-made.appspot.com/videos/how-to-find-work-in-passionated-720p.mp4"
+
 export async function POST(request: NextRequest) {
   const limitReached = checkRateLimit()
 
@@ -34,6 +35,8 @@ export async function POST(request: NextRequest) {
     const cref = ref(storage, data.url)
     data.url = await getDownloadURL(cref)
   }
+
+  data.intro = await getDownloadURL(ref(storage, INTRO_VIDEO))
 
   const validationResult = validateRequest(data)
 
@@ -63,25 +66,34 @@ export async function POST(request: NextRequest) {
   owner.id = ss.id
 
   // Generate and send the notify email
-  const notificationEmail = await NotificationEmail(owner, data)
+  data.name = data.email?.split("@")?.at(0)
+  const notifysub = `${data.name}さまから ${data.title}のお申し込みがありました`
   await sendMail({
     to: owner.email,
-    subject: notificationEmail.subject,
-    body: notificationEmail.body
+    subject: notifysub,
+    template: "notification",
+    context: {
+      owner: owner,
+      data: data
+    }
   })
 
   // Generate and send the confirmation email
-  const confirmationEmail = await ConfirmationEmail({
-    owner,
-    data
-  })
+  const confirmsub = `${data.title} のお申し込みありがとうございます｜${owner.name}`
   await sendMail({
     to: data.email,
-    subject: confirmationEmail.subject,
-    body: confirmationEmail.body
+    subject: confirmsub,
+    template: "confirmation",
+    context: {
+      owner: owner,
+      data: data
+    }
   })
 
-  return NextResponse.json({ success: true, url: data.url }, { status: 200 })
+  return NextResponse.json(
+    { success: true, url: data.url, email: owner.email, name: owner.name },
+    { status: 200 }
+  )
 
   /**
    * Checks the rate limit for the current IP address.

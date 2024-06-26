@@ -80,7 +80,7 @@ export type OwnerData = {
   sender: string
   phone: string
   address: string
-  id?: string
+  id?: string | undefined
   confirmEmail: string
   bcc: string[]
   userAccount: string
@@ -97,6 +97,8 @@ export type AcceptOfferData = {
   url: string
   category: string
   email: string
+  name?: string | undefined
+  intro?: string | undefined
 }
 
 export type ScheduleData = {

@@ -3,7 +3,7 @@ import type { AvailabilitySlotsMap, MenuItem } from "./lib/types"
 // 選択可能なスロット
 export const MENU_ITEMS: MenuItem[] = [
   {
-    name: ["無料相談会"],
+    name: ["カウンセリング"],
     course: "business-driving-school",
     duration: 120,
   },

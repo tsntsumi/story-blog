@@ -9,6 +9,7 @@ import { Authenticator, FirebaseCMSApp } from "firecms"
 import firebaseConfig from "@/firebase-config"
 
 import { blogCollection } from "@/lib/collections/blogentries"
+import { newsletterCollection } from "@/lib/collections/newsletterentries"
 const logo = "/images/logo/logo-square.png"
 
 export default function CMS() {
@@ -44,10 +45,10 @@ export default function CMS() {
   return (
     <div className="mt-12">
       <FirebaseCMSApp
-        name={"Blog Content Manager"}
+        name={"Alizza Ideal Content Manager"}
         basePath={"/cms"}
         authentication={cmsAuthenticator}
-        collections={[blogCollection]}
+        collections={[blogCollection, newsletterCollection]}
         logo={logo}
         firebaseConfig={firebaseConfig}
         signInOptions={["password", "google.com"]}
