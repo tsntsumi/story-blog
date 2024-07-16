@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/Assets/ScrollToTop"
 import { Suspense } from "react"
 import type { Metadata } from "next"
 import GoogleTag from "@/lib/googleTag"
-import Header from "@/components/Assets/Header"
+import Header from "@/components/coach/Assets/Header"
 import Footer from "@/components/Assets/Footer/Bottom"
 import menu from "@/components/main/Assets/Menu"
 

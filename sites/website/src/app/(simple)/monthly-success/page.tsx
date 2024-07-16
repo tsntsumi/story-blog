@@ -5,9 +5,8 @@ import Magnet from "@/components/main/Assets/Magnet"
 import menu from "@/components/main/Assets/Menu"
 
 export const metadata: Metadata = {
-  title:
-    "Webサイト限定：「月刊・集客成功事例」最新号電子書籍プレゼント -- Alizza Ideal",
-  description: `Alizza Ideal の公式Webサイトをご覧いただいた方への、限定プレゼントです。
+  title: "限定プレゼント：月刊・集客成功事例」最新号",
+  description: `アリザ・アイデアル公式Webサイトをご覧いただいた方への限定プレゼントです。
 毎月発行している「月刊・集客成功事例」最新号の電子書籍版を無料でプレゼントします。
 あなたのライバルが思いもよらない奇想天外な集客アイデアをまねして、
 ライバルを出し抜いてください。

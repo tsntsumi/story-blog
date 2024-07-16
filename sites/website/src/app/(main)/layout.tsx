@@ -10,9 +10,13 @@ import menu from "@/components/main/Assets/Menu"
 import Footer from "@/components/Assets/Footer"
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://www.alizza-ideal.com`),
   title: {
-    template: "%s | ALIZZA IDEAL 公式サイト",
-    default: "ALIZZA IDEAL 公式"
+    template: "%s | アリザ・アイデアル公式",
+    default: "アリザ・アイデアル公式"
+  },
+  alternates: {
+    canonical: "./"
   }
 }
 

@@ -62,6 +62,12 @@ html {
   section ol li {
       @apply mb-2 text-[inherit] text-titlebgdark dark:text-waterloo;
   }
+  section .checked-disc ul li {
+      @apply list-image-[url(/images/icon/check-sign-icon.svg)] list-outside;
+  }
+  section .checked-disc ul li::marker {
+      font-size: 30px;
+  }
 
   section dl {
       @apply text-black text-ai-blue;

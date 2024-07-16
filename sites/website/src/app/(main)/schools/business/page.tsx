@@ -11,7 +11,8 @@ import menu from "@/components/business/Assets/Menu"
 
 export const metadata: Metadata = {
   title: {
-    absolute: "ALIZZA IDEALは、コーチ、コンサル、セラピストの出会いを応援します"
+    absolute:
+      "アリザ・アイデアルは、コーチ、コンサル、セラピストの成功を応援します"
   },
   description: `\
 あなたが理想のクライアントと出会い、貢献し、感謝される方法を発信しています。

@@ -19,10 +19,10 @@ const Heading = ({ category }: { category: Category }) => {
   return (
     <h1 className="text-center font-medium">
       <span className="text-gold-dark">
-        見つかる！
+        アイデアル｜
         <span className="text-gold">
           {category?.name || category?.key.toUpperCase()}
-        </span>{" "}
+        </span>
         ブログ
       </span>
       ｜<span className="whitespace-nowrap">記事一覧</span>
@@ -71,7 +71,7 @@ export default function Listings({ category }: Props) {
       </SlideIn>
       <div className="flex flex-wrap w-full md:w-9/10 mx-auto justify-start">
         {collection?.length === 0 && (
-          <p>鋭意執筆中です。しばらくお待ち下さい。</p>
+          <p>読み込み中です...。しばらくお待ち下さい。</p>
         )}
         {collection.map((c, key) => (
           <div key={key} className="w-1/2 md:w-1/4 text-justify p-2">

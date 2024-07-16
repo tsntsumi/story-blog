@@ -17,10 +17,10 @@ export default function Template() {
           </p>
           <p className="mt-2 sm:mt-6 text-sm text-gray-800 font-medium">
             日付を選ぶとスケジュール可能な時間がカレンダーの下に表示されます。
-            Google ミートでのオンラインミーティングでの開催になります。
+            Google ミートを使ったオンラインミーティングでの開催になります。
           </p>
           <p className="mt-2 sm:mt-6 text-sm text-gray-800 font-medium">
-            あなたとお話するのを楽しみにしています。
+            あなたとお話しするのを楽しみにしています。
           </p>
         </div>
         <div className="w-1/3">

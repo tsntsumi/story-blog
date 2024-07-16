@@ -4,6 +4,7 @@ import type {
 } from "next"
 import { useEffect } from "react"
 import { z } from "zod"
+import type { Metadata } from "next"
 
 import Template from "@/components/Template"
 import AvailabilityPicker from "@/components/availability/AvailabilityPicker"
@@ -25,6 +26,10 @@ import {
 } from "@/lib/availability/helpers"
 import Day from "@/lib/day"
 import localeDayString from "@/lib/locale"
+
+export const metadata: Metadata = {
+  title: "カレンダー予約 | アリザ・アイデアル",
+}
 
 export type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>
 

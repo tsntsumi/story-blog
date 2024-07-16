@@ -18,12 +18,16 @@ export function generateMetadata({ params, searchParams }: Props): Metadata {
     DescriptionFromKey(key) || `${name}カテゴリーのブログ記事の一覧です`
 
   return {
-    title: `見つかる！ ${name?.toUpperCase()}ブログ記事一覧`,
+    title: `アイデアル・${name?.toUpperCase()}ブログ記事一覧`,
     description: desc
   }
 }
 
 // List all blog items
 export default function Page(props: Props) {
-  return <ClientPage {...props} />
+  return (
+    <section className="mt-14 mx-4">
+      <ClientPage {...props} />
+    </section>
+  )
 }

@@ -27,7 +27,7 @@ export default function Page() {
             kikuo@alizza-ideal.com
           </Link>
         </p>
-        <ul className="p-4 text-sm bg-sky-50 text-ai-blue rounded-lg">
+        <ul className="p-4 text-sm bg-yellow-50 text-ai-blue rounded-lg">
           <li className="list-none">
             <span className="font-bold">
               Googleマップ集客(MEO) の関連サービス
@@ -494,6 +494,8 @@ export default function Page() {
               </Link>
             </p>
           </dd>
+          <dt></dt>
+          <dd></dd>
         </dl>
         <h2 className="bg-sky-800 text-white p-2 rounded">インボイス番号</h2>
         <p>

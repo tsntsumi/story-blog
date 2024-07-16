@@ -101,6 +101,29 @@ export type AcceptOfferData = {
   intro?: string | undefined
 }
 
+export type CounsellingRequestData = {
+  title: string
+  category: string
+  name: string
+  email: string
+  phone: string
+  coachinglevel: string
+  coachingtypes: string[]
+  coachingproblem: string
+}
+
+export type OfferRequestData = {
+  title: string
+  url: string
+  category: string
+  name: string
+  email: string
+  phone: string
+  coachinglevel?: string
+  coachingtypes?: string[]
+  coachingproblem?: string
+}
+
 export type ScheduleData = {
   name: string
   email: string

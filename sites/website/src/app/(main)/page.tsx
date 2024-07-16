@@ -1,32 +1,32 @@
 import type { Metadata } from "next"
-import Hero from "@/components/main/Hero"
-import Problem from "@/components/main/Problem"
-import Solution from "@/components/main/Solution"
-import Plan from "@/components/main/Plan"
-import Encourage from "@/components/main/Encourage"
-import Despair from "@/components/main/Despair"
-import Magnet from "@/components/main/Assets/Magnet"
-import Mentor from "@/components/main/Mentor"
-import Header from "@/components/main/Assets/Header"
-import menu from "@/components/main/Assets/Menu"
+import Hero from "@/components/coach/Hero"
+import Problem from "@/components/coach/Problem"
+import Solution from "@/components/coach/Solution"
+import Plan from "@/components/coach/Plan"
+import Encourage from "@/components/coach/Encourage"
+import Despair from "@/components/coach/Despair"
+import Magnet from "@/components/coach/Assets/Magnet"
+import CallToAction from "@/components/coach/CallToAction"
 
 export const metadata: Metadata = {
   title: {
     absolute:
-      "日本初上陸！お客さまが主人公のハリウッド式ストーリー・セールス・フレームワーク：ALIZZA IDEAL"
+      "【今すぐ始める】コーチングのスモールビジネスを成功に導く：アリザ・アイデアル《理想のクライアントに出会える集客サポート》"
   },
   description: `\
-ALIZZA IDEALでは、売り手・買い手ともにストレスフリーなセールスのための
-ストーリー・セールス・フレームワークを提供します。
-このフレームワークでは、お客さまの生活をより良くするストーリーを構築し、
-その世界にお客さまを主人公として招き入れます。
-`,
+50代を目前にしている現場の最前線で経験を積んできた方だけに限定公開。
+単なる業者扱いされず、尊敬と報酬を払われるコーチングビジネス構築。
+あなたを煙たがる管理者に支配された会社を飛び出し、
+より多くのクライアントに貢献し成功者を生み出し続ける
+コーチング起業成功の秘密の手順をお探しなら、
+あなたは正しい場所を見つけました。ぜひご覧ください。
+  `,
   applicationName: "www.alizza-ideal.com",
   referrer: "origin-when-cross-origin",
   keywords: ["Next.js", "React", "JavaScript"],
   authors: [{ name: "Kikuo", url: "https://www.alizza-ideal.com" }],
-  creator: "Kikuo Tsutsumi",
-  publisher: "Alizza Ideal",
+  creator: "堤紀久夫（つつみきくお）",
+  publisher: "アリザ・アイデアル",
   formatDetection: {
     email: false,
     address: false,
@@ -41,10 +41,11 @@ export default function Page() {
         <Hero />
         <Problem />
         <Solution />
-        <Mentor />
         <Plan />
         <Despair />
         <Encourage />
+        <Magnet />
+        <CallToAction>無料カウンセリングを請求する</CallToAction>
       </div>
     </>
   )

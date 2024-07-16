@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react"
+import { notFound } from "next/navigation"
 import Article from "@/components/Assets/Blog/Article"
 import { store, storage } from "@/lib/firebase/app"
 import { retrieveDocumentsSnapshot } from "@/lib/firebase/firestore"
@@ -48,13 +49,9 @@ export default function Page({ params, searchParams }: Props) {
       </>
     )
   }
-  if (!blogs) {
-    return <>content not found</>
+  if (!blogs || !blogs.length) {
+    return notFound()
   }
   const blog: BlogEntry = blogs.at(0)
-  return (
-    <>
-      <Article article={blog} />
-    </>
-  )
+  return <Article article={blog} />
 }

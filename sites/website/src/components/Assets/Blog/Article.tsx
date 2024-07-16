@@ -17,7 +17,6 @@ import rehypeRaw from "rehype-raw"
 import rehypeSanitize from "rehype-sanitize"
 import rehypeKatex from "rehype-katex"
 import "katex/dist/katex.min.css"
-import Magnet from "@/components/main/Assets/Magnet"
 
 type ContentProps = {
   path: string
@@ -117,22 +116,19 @@ const Content = ({
 export default function Article({ article }: { article: BlogEntry }) {
   return (
     <article id="blog" className="md:w-3/4 xl:w-2/3 mx-auto">
-      <SlideIn className="animate_top mb-8 border-b-2">
-        <div className="m-0 p-0 w-full mb-4">
+      <SlideIn className="animate_top">
+        <div className="m-0 p-0 w-full">
           <Media
             src={article?.hero}
             alt={article?.title}
-            className="rounded-t-lg object-cover"
+            className="object-cover"
             width={1024}
             height={768}
           />
         </div>
       </SlideIn>
 
-      <h1 className="mb-5 pb-2 border-b text-4xl font-semibold text-black 2xl:text-sectiontitle2">
-        {article?.title}
-      </h1>
-      <div className="m-0 pb-4 p-0 pl-8 text-sm font-mono flex flex-wrap items-start justify-start gap-x-2 border-b">
+      <div className="m-0 p-0 px-4 text-sm font-mono flex flex-wrap items-start justify-start gap-x-2 border-b">
         <div className="m-0 p-0">
           <span className="text-black">Written by: </span>{" "}
           {article?.author || "Anonymouth"}
@@ -144,7 +140,7 @@ export default function Article({ article }: { article: BlogEntry }) {
         </div>
         <div className="my-0 py-0">
           <span className="text-black">
-            カテゴリー: [ {NameFromKey(article?.category)} ]
+            カテゴリー: {NameFromKey(article?.category)} |
           </span>
         </div>
         <div className="my-0 py-0">
@@ -154,7 +150,19 @@ export default function Article({ article }: { article: BlogEntry }) {
           {" ]"}
         </div>
       </div>
-      <div className="article-details my-4">
+      <div className="article-details m-2 p-4 py-1 rounded-lg bg-slate-100">
+        <h1 className="m-0 my-2 text-4xl font-semibold text-black 2xl:text-sectiontitle2">
+          {article?.title}
+        </h1>
+        <div className="pt-2 text-xs border-y-2">
+          <Markdown
+            rehypePlugins={[rehypeRaw, rehypeKatex, rehypeSanitize]}
+            remarkPlugins={[remarkGfm]}
+            className="markdown"
+          >
+            {article?.summary}
+          </Markdown>
+        </div>
         {article?.content?.map((c, i) => (
           <SlideIn
             key={i}
@@ -166,15 +174,9 @@ export default function Article({ article }: { article: BlogEntry }) {
           </SlideIn>
         ))}
       </div>
-      <div className="text-xs">
+      <div className="text-xs mx-2">
         <Link href={`/blog/${article?.category}`} go="back">
           戻る
-        </Link>
-      </div>
-      <div className="text-sm mt-8">
-        <div> 限定プレゼント PDF ダウンロード</div>
-        <Link href={`/excl`} go="detail">
-          ライバルを出し抜いて集客する方法
         </Link>
       </div>
     </article>
