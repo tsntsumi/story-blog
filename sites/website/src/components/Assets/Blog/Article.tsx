@@ -27,6 +27,12 @@ type ContentProps = {
   rest?: any[]
 }
 
+type ContentTextProps = {
+  text: string
+  className?: string
+  rest?: any[]
+}
+
 const ContentImage = ({
   path,
   width,
@@ -73,12 +79,13 @@ const ContentVideo = ({
   )
 }
 
-const ContentText = ({ text }: { text: string }) => {
+const ContentText = ({ text, className, ...rest }: ContentTextProps) => {
   return (
     <Markdown
       rehypePlugins={[rehypeRaw, rehypeKatex, rehypeSanitize]}
       remarkPlugins={[remarkGfm]}
-      className="markdown"
+      className={`markdown ${className}`}
+      {...rest}
     >
       {text}
     </Markdown>

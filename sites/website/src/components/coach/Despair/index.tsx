@@ -17,16 +17,15 @@ export default function Despair() {
           </div>
           <SlideIn className="animate_top">
             <div className="h2 text-xl text-justify sm:text-3xl mx-4 sm:mx-10 mb-8 px-6 sm:px-10 py-4 rounded-full border-8 border-ai-yellow bg-ai-blue text-ai-yellow">
-              『アイデアル・コーチング』ビジネス・スクールに参加すると、
+              『アイデアル・コーチング』ビジネス・アカデミーに参加すると、
               あなたが思い描いていたとおりのコーチングビジネスを構築できます
             </div>
           </SlideIn>
           <div className="mx-8 mb-8 text-justify">
             <p>
-              『アイデアル・コーチング』ビジネス・スクールに参加すると、
-              コーチング・ビジネス構築のための秘密の８ステップを学んで、
-              構築を始めることができます。
-              同時に、構築から成功までの支援も受けることができます。
+              『アイデアル・コーチング』ビジネス・アカデミーに参加すると、
+              ８つのステップで、コーチング・ビジネスの構築を始めることができます。
+              と同時に、構築から成功までの支援も受けることができます。
             </p>
             <p>
               毎月の少人数グループ・コーチングにも参加できます。

@@ -1,7 +1,7 @@
 "use client"
 import Link from "@/components/Assets/link"
 
-//const HREF: string = "https://meet.alizza-ideal.com"
+//const HREF: string = "https://cal.alizza-ideal.com"
 const HREF: string = "/#call-to-action"
 
 export default function ScheduleToCall({ className }: { className?: string }) {

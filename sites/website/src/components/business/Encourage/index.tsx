@@ -11,7 +11,6 @@ export default function Encourage() {
   const workshopIsVisible: boolean = false
   return (
     <>
-      {/* <!-- ===== Encouragees Start ===== --> */}
       <section id="encourage" className="p-0 m-0 mb-20">
         <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
           <h1 className="text-2xl">
@@ -30,7 +29,7 @@ export default function Encourage() {
           </p>
           <p>そのときには、わたしもあなたのパーティーに加えて下さい。</p>
           <div className="my-8 mx-auto">
-            <Link href="https://meet.alizza-ideal.com">
+            <Link href="https://cal.alizza-ideal.com">
               <Subscribe className="text-xs md:text-sm py-4 px-6 mx-auto">
                 無料相談会をスケジュール
               </Subscribe>
@@ -49,8 +48,6 @@ export default function Encourage() {
           )}
         </div>
       </section>
-
-      {/* <!-- ===== Encourage End ===== --> */}
     </>
   )
 }

@@ -10,7 +10,6 @@ import CtaButton from "@/components/land/Assets/Cta/Button"
 export default function Plan() {
   return (
     <>
-      {/* <!-- ===== Planes Start ===== --> */}
       <section id="plan" className="p-0 m-0 px-2 mx-2">
         <h2 className="mt-2 py-2 text-center bg-formal text-formal-accent">
           この講座でわかること
@@ -44,8 +43,6 @@ export default function Plan() {
           />
         </div>
       </section>
-
-      {/* <!-- ===== Planes End ===== --> */}
     </>
   )
 }

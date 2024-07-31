@@ -2,6 +2,7 @@ import { initializeApp, getApps } from "firebase/app"
 import { getAuth, signInWithCustomToken } from "firebase/auth"
 import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
+import { getFunctions } from "firebase/functions"
 
 import firebaseConfig from "@/firebase-config"
 
@@ -11,6 +12,7 @@ export const auth = getAuth(app)
 export const store = getFirestore(app)
 export const db = store
 export const storage = getStorage(app)
+export const functions = getFunctions(app)
 
 async function getAppRouterSession() {
   const { cookies } = await import("next/headers")

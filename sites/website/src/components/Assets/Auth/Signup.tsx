@@ -1,20 +1,19 @@
-"use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+"use client"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
 
 const Signup = () => {
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
-  });
+    password: ""
+  })
 
   return (
     <>
-      {/* <!-- ===== SignUp Form Start ===== --> */}
       <section className="pb-12.5 pt-32.5 lg:pb-25 lg:pt-45 xl:pb-30 xl:pt-50">
         <div className="relative z-1 mx-auto max-w-c-1016 px-7.5 pb-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
           <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
@@ -37,13 +36,13 @@ const Signup = () => {
             variants={{
               hidden: {
                 opacity: 0,
-                y: -20,
+                y: -20
               },
 
               visible: {
                 opacity: 1,
-                y: 0,
-              },
+                y: 0
+              }
             }}
             initial="hidden"
             whileInView="visible"
@@ -240,9 +239,8 @@ const Signup = () => {
           </motion.div>
         </div>
       </section>
-      {/* <!-- ===== SignUp Form End ===== --> */}
     </>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

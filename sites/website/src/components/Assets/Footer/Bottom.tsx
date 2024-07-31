@@ -18,7 +18,6 @@ export default function Bottom() {
         id="footer-bottom"
         className="mx-auto max-w-c-1390 p-1 pb-4 md:px-4 2xl:px-8 bg-formal-light border-t-2 border-t-formal-accent"
       >
-        {/* <!-- Footer Bottom --> */}
         <div className="flex flex-wrap items-center justify-start text-[8pt]">
           <ul className="flex flex-wrap items-start justify-end">
             <li className="px-2">

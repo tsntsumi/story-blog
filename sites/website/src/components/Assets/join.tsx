@@ -10,7 +10,6 @@ const LINEID: string = "@534dvpmo"
 const Join = ({ children }: { children: React.ReactNode }): React.ReactNode => {
   return (
     <>
-      {/* <!-- ===== Join Start ===== --> */}
       <section className="overflow-hidden px-4 pb-6 md:px-8 lg:py-10 xl:py-10 2xl:px-0">
         <div className="mx-auto">
           <div className="flex flex-wrap gap-5 items-center justify-center">
@@ -39,7 +38,6 @@ const Join = ({ children }: { children: React.ReactNode }): React.ReactNode => {
           </div>
         </div>
       </section>
-      {/* <!-- ===== Join End ===== --> */}
     </>
   )
 }

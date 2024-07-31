@@ -41,8 +41,8 @@
   },
   "emulators": {
     "hosting": {
-      "port": 5500,
-      "host": "192.168.1.4"
+      "port": 5501,
+      "host": "192.168.1.2"
     },
     "ui": {
       "enabled": true
@@ -57,5 +57,18 @@
     "storage": {
       "port": 9199
     }
-  }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
 }

@@ -13,7 +13,7 @@ import {
   DrivingSchool
 } from "@/components/Assets/logos"
 
-const SCHEDULE_TO_CALL: string = "https://meet.alizza-ideal.com"
+const SCHEDULE_TO_CALL: string = "https://cal.alizza-ideal.com"
 
 const Hero = () => {
   const workshopIsVisible: boolean = false

@@ -91,12 +91,12 @@ html {
 
   section blockquote::after {
       content: "";
-      @apply absolute bottom-0 right-0 h-20 w-20 bg-[url(/images/shape/quote-close.svg)] bg-contain bg-right-bottom bg-no-repeat;
+      @apply absolute bottom-2 right-2 h-[1.2rem] w-[1.2rem] bg-[url(/images/shape/quote-close.svg)] bg-contain bg-right-bottom bg-no-repeat;
   }
 
   section blockquote::before {
       content: "";
-      @apply absolute left-0 top-0 h-[106px] w-[140px] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/shape/quote.svg)];
+      @apply absolute left-2 top-2 h-[1.2rem] w-[1.2rem] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat;
   }
 }
 
@@ -179,12 +179,12 @@ html {
 
 .blog-details blockquote::after {
   content: "";
-  @apply absolute bottom-0 right-0 h-20 w-20 bg-[url(/images/shape/quote-close.svg)] bg-contain bg-right-bottom bg-no-repeat;
+  @apply absolute bottom-2 right-2 h-[20%] w-[20%] bg-[url(/images/shape/quote-close.svg)] bg-contain bg-right-bottom bg-no-repeat;
 }
 
 .blog-details blockquote::before {
   content: "";
-  @apply absolute left-0 top-0 h-[106px] w-[140px] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/shape/quote-close.svg)];
+  @apply absolute left-2 top-2 h-[20%] w-[20%] bg-[url(/images/shape/quote.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/shape/quote-close.svg)];
 }
 
 pre {

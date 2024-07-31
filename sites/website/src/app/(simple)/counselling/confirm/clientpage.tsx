@@ -31,7 +31,7 @@ export default function ClientPage(props: ClientProps) {
             -
           </div>
           <div className="my-2 text-blue-500 underline text-center">
-            <a href="https://meet.alizza-ideal.com">カウンセリング日時を選択</a>
+            <a href="https://cal.alizza-ideal.com">カウンセリング日時を選択</a>
           </div>
           <div className="font-mono text-xs text-center">
             - &gt;8 --- &gt;8 --- &gt;8 --- &gt;8 ---- &gt;8 --- &gt;8 --- &gt;8

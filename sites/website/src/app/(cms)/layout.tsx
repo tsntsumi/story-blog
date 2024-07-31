@@ -7,6 +7,17 @@ import Header from "@/components/Assets/Header"
 import Footer from "@/components/Assets/Footer/Bottom"
 import type { Metadata } from "next"
 
+export const metadata: Metadata = {
+  metadataBase: new URL(`https://www.alizza-ideal.com`),
+  title: {
+    template: "%s | アリザ・アイデアル公式",
+    default: "アリザ・アイデアル公式"
+  },
+  alternates: {
+    canonical: "./"
+  }
+}
+
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })

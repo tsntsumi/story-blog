@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /map/
 Disallow: /map/menu/
 Disallow: /map/thanks/
 Disallow: /offer/confirm/

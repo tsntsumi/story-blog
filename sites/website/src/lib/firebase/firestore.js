@@ -9,6 +9,7 @@ import {
   getDoc,
   updateDoc,
   orderBy,
+  startAfter,
   Timestamp,
   runTransaction,
   where,
@@ -21,9 +22,12 @@ import { imageURL } from "@/lib/firebase/storage"
 
 const DEFAULT_ROOTDIR = "blogs"
 
-function applyQueryFilters(q, { slug, category, status, ...params }) {
+function applyQueryFilters(q, { slug, title, category, status, ...params }) {
   if (slug) {
     q = query(q, where("slug", "==", basename(slug)))
+  }
+  if (title) {
+    q = query(q, where("title", "==", title))
   }
   if (category) {
     q = query(q, where("category", "==", category))
@@ -31,19 +35,18 @@ function applyQueryFilters(q, { slug, category, status, ...params }) {
   if (status) {
     q = query(q, where("status", "==", status))
   }
-  if (params.offset > 0) {
-    q = query(q, offset(params.offset))
-  }
   if (params.limit > 0) {
     q = query(q, limit(params.limit))
   }
-  // q = query(q, orderBy("createdat", "desc"))
+  if (params.orderBy === "createdat") {
+    q = query(q, orderBy("createdat", "desc"))
+  }
   return q
 }
 
 export async function retrieveDocuments(rootdir, filters = {}) {
   const c = query(collection(db, rootdir || DEFAULT_ROOTDIR))
-  filters.status = filters.status ? filters.status : "published"
+  filters.status = filters.status || "published"
   const q = applyQueryFilters(c, filters)
   const r = await getDocs(q)
   return r.docs
@@ -114,7 +117,9 @@ export async function ownerConfig() {
   if (!ss.exists()) {
     return null
   }
-  return ss.data()
+  const owner = ss.data()
+  owner.id = ss.id
+  return owner
 }
 
 export async function calendarConfig() {

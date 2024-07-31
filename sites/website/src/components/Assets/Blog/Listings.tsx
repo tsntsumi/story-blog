@@ -13,6 +13,7 @@ import type { BlogEntry } from "@/lib/types/blog"
 
 export type Props = {
   category: Category
+  // entries: BlogEntry[]
 }
 
 const Heading = ({ category }: { category: Category }) => {
@@ -30,7 +31,7 @@ const Heading = ({ category }: { category: Category }) => {
   )
 }
 
-export default function Listings({ category }: Props) {
+export function Listings({ category }: Props) {
   const [collection, setCollection] = useState<BlogEntry[]>([])
   const [loading, setLoding] = useState<boolean>(true)
 
@@ -56,7 +57,7 @@ export default function Listings({ category }: Props) {
     return (
       <>
         <Heading category={category} />
-        <p className="mb-4 w-9/10 md:w-8/10 mx-auto">{category.description}</p>
+        <p className="mb-4 w-9/10 md:w-8/10 mx-auto">{category?.description}</p>
         <div className="flex flex-nowrap items-center justify-center w-full">
           Loading... <Spinner />
         </div>
@@ -67,7 +68,7 @@ export default function Listings({ category }: Props) {
     <section id="blogs" className="mx-auto">
       <Heading category={category} />
       <SlideIn className="animate_right">
-        <p className="mb-4 w-9/10 md:w-8/10 mx-auto">{category.description}</p>
+        <p className="mb-4 w-9/10 md:w-8/10 mx-auto">{category?.description}</p>
       </SlideIn>
       <div className="flex flex-wrap w-full md:w-9/10 mx-auto justify-start">
         {collection?.length === 0 && (

@@ -63,12 +63,23 @@ export default function GetTheGuide(): React.ReactNode {
     const data = new FormData(e.currentTarget)
     const entries = Object.fromEntries(data)
     const body = JSON.stringify(entries)
-    // console.debug(`form obj`, body)
     const { title, email, name } = entries
     entries.coachingtypes = types.join(",")
+
     if (!entries.coachingtypes) {
       setError("コーチのタイプを選択して下さい")
-      setSubmitting("error")
+      return
+    }
+    const blockings = [
+      "hiroto@gmail.com",
+      "hiroto.h.makise@gmail.com",
+      "t@gmail.com",
+      "h.makise@docomo.ne.jp",
+      "makise@gmail.com"
+    ]
+    const isBlocked = !!blockings.find((m) => m === email)
+    if (isBlocked) {
+      setError("あなたはブロックされています")
       return
     }
     if (submitting === "error") {
@@ -91,7 +102,6 @@ export default function GetTheGuide(): React.ReactNode {
           const query = encodeURI(
             `title=${title}&url=${url}&name=${name}&email=${email}&ownername=${accepted.ownername}`
           )
-          // console.debug("query", query)
           router.push(
             `/pricing-guide/confirm?${query}&owneremail=${owneremail}`
           )
@@ -116,7 +126,7 @@ ${accepted.error}）`)
         <h2 className="">無料ガイドブックを請求</h2>
         <p>フォームに記入して、無料ガイドブックをご請求ください！</p>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-wrap md:flex-nowrap items-center justify-around gap-2 md:gap-4 my-4 p-4 bg-white rounded-3xl">
+          <div className="flex flex-wrap items-center justify-around gap-2 md:gap-4 my-4 p-4 bg-white rounded-3xl">
             <input type="hidden" name="title" value={GUIDETITLE} />
             <input type="hidden" name="url" value={GUIDEURL} />
             <input type="hidden" name="category" value={GUIDECATEGORY} />
@@ -146,7 +156,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="ビジネス・コーチ"
-                  name="coachingtypes;ビジネス・コーチ"
+                  name="ビジネス・コーチ"
                   value="ビジネス・コーチ"
                   className="form-checkbox mr-2"
                   defaultChecked={true}
@@ -158,7 +168,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="キャリア・コーチ"
-                  name="coachingtypes;キャリア・コーチ"
+                  name="キャリア・コーチ"
                   value="キャリア・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -170,7 +180,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="集客・コーチ"
-                  name="coachingtypes;集客・コーチ"
+                  name="集客・コーチ"
                   value="集客・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -182,7 +192,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="セールス・コーチ"
-                  name="coachingtypes;セールス・コーチ"
+                  name="セールス・コーチ"
                   value="セールス・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -194,7 +204,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="ライフ・コーチ"
-                  name="coachingtypes;ライフ・コーチ"
+                  name="ライフ・コーチ"
                   value="ライフ・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -206,7 +216,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="その他のコーチ"
-                  name="coachingtypes;その他のコーチ"
+                  name="その他のコーチ"
                   value="その他のコーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}

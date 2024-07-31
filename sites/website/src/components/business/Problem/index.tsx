@@ -12,7 +12,7 @@ import {
 } from "@/components/Assets/logos"
 import SpecialOffer from "@/components/main/Assets/specialoffer"
 
-const SCHEDULE_TO_CALL: string = "https://meet.alizza-ideal.com"
+const SCHEDULE_TO_CALL: string = "https://cal.alizza-ideal.com"
 
 const items: string[] = [
   "クライアントのサポートに使うメソッド、カリキュラム、コンテンツの作成",

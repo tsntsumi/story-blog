@@ -5,7 +5,6 @@ import Schedule from "@/components/coach/Assets/scheduletocall"
 export default function Encourage() {
   return (
     <>
-      {/* <!-- ===== Encouragees Start ===== --> */}
       <section id="encourage" className="p-0 m-0 mb-10">
         <div className="pt-4 bg-white text-ai-blue">
           <h2 className="bg-ai-blue text-white border-8 border-ai-yellow mx-8 rounded-full text-ai-blue p-4 px-6 mb-8 text-xl sm:text-3xl">
@@ -16,30 +15,30 @@ export default function Encourage() {
           <div className="px-8 mb-8 text-ai-blue">
             <h3>
               1.
-              『アイデアル・コーチング』ビジネス・スクールが、今のあなたに必要かどうか
+              アイデアル・コーチング・ビジネス・アカデミーが、今のあなたに必要かどうか
             </h3>
 
             <p>現状をよくお聞きして、あなたの課題を発見します。</p>
             <p>
-              課題がわかれば、『アイデアル・コーチング』ビジネス・スクールが、
+              課題がわかれば、アイデアル・コーチング・ビジネス・アカデミーが、
               あなたに必要なものかどうかわかることでしょう。
             </p>
             <p>
-              発見した課題によっては、お金を払ってまで参加する必要がないスクールかもしれません。
+              発見した課題によっては、お金を払ってまで参加する必要がないサービスかもしれません。
             </p>
             <div className="my-8">
               <Schedule />
             </div>
 
-            <h3>2. 『アイデアル・コーチング』ビジネス・スクールの会費</h3>
+            <h3>2. アイデアル・コーチング・ビジネス・アカデミーの会費</h3>
             <p>
-              『アイデアル・コーチング』ビジネス・スクールの会費はいくらでしょうか。
-              正直な話、内容に見合った価格でしょうか？
+              アイデアル・コーチング・ビジネス・アカデミーの参加費はいくらなのか？
+              正直いって、内容に見合った価格なのか？
             </p>
-            <p>また、今のあなたが必要な内容でしょうか</p>
+            <p>また、今のあなたが必要な内容なのか？</p>
             <p>
               あなたは、少人数制のコーチングにいくらなら払っても良いとお考えですか？
-              あなたの収入の元となるコーチングに、いくらなら払いますか？
+              あなたの収入の元となるコーチングに、いくらなら払ってもいいと思いますか？
             </p>
             <p>
               あなた専用にカスタマイズされた、クライアント獲得の仕組みを備えている
@@ -87,8 +86,6 @@ export default function Encourage() {
           </div>
         </div>
       </section>
-
-      {/* <!-- ===== Encourage End ===== --> */}
     </>
   )
 }

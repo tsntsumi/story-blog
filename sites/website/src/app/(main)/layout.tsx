@@ -7,7 +7,7 @@ import GoogleTag, { GoogleTagmanager } from "@/lib/googleTag"
 import FacebookPixelEvents from "@/lib/pixel-events"
 import Header from "@/components/main/Assets/Header"
 import menu from "@/components/main/Assets/Menu"
-import Footer from "@/components/Assets/Footer"
+import Footer from "@/components/coach/Assets/Footer"
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://www.alizza-ideal.com`),
@@ -25,6 +25,7 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 const TAGID = process.env.NEXT_PUBLIC_STORYMADE_GOOGLE_TAGMANAGER_ID
+const MEASUREMENTID = process.env.NEXT_PUBLIC_STORYMADE_GOOGLE_MEASUREMENT_ID
 
 export default function RootLayout({
   children
@@ -34,14 +35,15 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <Suspense fallback={<></>}>
-        <GoogleTagmanager />
-        <FacebookPixelEvents />
+        <GoogleTag />
+        {/* <GoogleTagmanager /> */}
+        {/* <FacebookPixelEvents /> */}
       </Suspense>
-      <body className={`dark:bg-black ${inter.className}`}>
+      <body className={`${inter.className} antialiased`}>
         <AppRouterCacheProvider>
           <noscript>
             <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${TAGID}`}
+              src={`https://www.googletagmanager.com/ns.html?id=${MEASUREMENTID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}

@@ -12,6 +12,7 @@ import { formatLocalDate, formatLocalTime } from "@/lib/availability/helpers"
 import sendMail from "@/lib/email"
 import ApprovalEmail from "@/lib/email/messages/Approval"
 import ConfirmationEmail from "@/lib/email/messages/Confirmation"
+import BlockedNotifyEmail from "@/lib/email/messages/BlockedNotify"
 import getHash from "@/lib/hash"
 import type { DateTimeIntervalWithTimezone, CourseName } from "@/lib/types"
 
@@ -102,8 +103,7 @@ export default async function handler(
     body: approveEmail.body,
   })
 
-  // Generate and send the confirmation email
-  const confirmationEmail = ConfirmationEmail({
+  const param = {
     ...data,
     dateSummary: intervalToHumanString({
       start,
@@ -111,11 +111,17 @@ export default async function handler(
       timeZone: data.timeZone,
     }),
     messageText: data.messageText,
-  })
+  }
+
+  const blockings = ["hiroto.h.makise@gmail.com"]
+  const isBlocked = !!blockings.find((m) => m === data.email.trim())
+  // Generate and send the confirmation email
+  const email = isBlocked ? BlockedNotifyEmail(param) : ConfirmationEmail(param)
+
   await sendMail({
     to: data.email,
-    subject: confirmationEmail.subject,
-    body: confirmationEmail.body,
+    subject: email.subject,
+    body: email.body,
   })
 
   res.status(200).json({ success: true })

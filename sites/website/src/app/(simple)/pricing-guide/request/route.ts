@@ -3,9 +3,10 @@ import sendMail from "@/lib/email"
 import getHash from "@/lib/hash"
 import { NextRequest, NextResponse } from "next/server"
 import { store, storage } from "@/lib/firebase/app"
+import { ownerConfig } from "@/lib/firebase/firestore"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { ref, getDownloadURL } from "firebase/storage"
-import type { OwnerData, OfferRequestData } from "@/lib/types"
+import type { OwnerConfig, OfferRequestData } from "@/lib/types"
 
 export const dynamic = "force-dynamic" // defaults to auto
 
@@ -30,46 +31,44 @@ export async function POST(request: NextRequest) {
     data.url = await getDownloadURL(cref)
   }
 
-  await setDoc(doc(store, "users", data.email), {
-    name: data.name,
-    email: data.email,
-    category: data.category,
-    title: data.title,
-    url: data.url,
-    address: "",
-    phone: data.phone,
-    mobile: "",
-    coachingtypes: data.coachingtypes,
-    seqno: -1,
-    type: "subscriber",
-    status: "active"
-  })
+  try {
+    await setDoc(doc(store, "users", data.email), {
+      name: data.name,
+      email: data.email,
+      category: data.category,
+      title: data.title,
+      url: data.url,
+      address: "",
+      phone: data.phone,
+      mobile: "",
+      coachingtypes: data.coachingtypes,
+      "newsletter-seqno": -1,
+      type: "subscriber",
+      status: "active"
+    })
+  } catch (e) {
+    return NextResponse.json({ error: e.toString() }, { status: 500 })
+  }
 
-  const ss = await getDoc(doc(store, "configure/owner"))
-  const owner: OwnerData = ss.data() as OwnerData
-  owner.id = ss.id
+  const owner: OwnerConfig = (await ownerConfig()) as OwnerConfig
 
   // Generate and send the notify email
-  const notifysub = `${data.name}さまから ${data.title}のお申し込みがありました`
   await sendMail({
     to: owner.email,
-    subject: notifysub,
     template: "notification",
     context: {
-      owner: owner,
-      data: data
+      data: data,
+      owner: owner
     }
   })
 
   // Generate and send the confirmation email
-  const confirmsub = `${data.title} のお申し込みありがとうございます｜${owner.name}`
   await sendMail({
     to: data.email,
-    subject: confirmsub,
     template: "pricing-guide-confirm",
     context: {
-      owner: owner,
-      data: data
+      data: data,
+      owner: owner
     }
   })
 

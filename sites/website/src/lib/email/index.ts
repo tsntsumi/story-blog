@@ -1,35 +1,11 @@
-import * as path from "path"
+import { remark } from "remark"
+import html from "remark-html"
 import type { SendMailOptions, Transporter } from "nodemailer"
 import { createTransport } from "nodemailer"
-import { ownerConfig } from "@/lib/firebase/firestore"
-import hbs from "nodemailer-express-handlebars"
-import {
-  OWNER_EMAIL,
-  OWNER_NAME,
-  OWNER_PHONE,
-  OWNER_ADDRESS,
-  EMAIL_BCC,
-  EMAIL_REPLYTO,
-  USER_ACCOUNT
-} from "@/config"
-
-type OwnerConfig = {
-  email: string
-  name: string
-  phone: string
-  address: string
-  bcc: string[]
-  reply_to: string
-  time_zone: string
-  user_account: string
-}
-
-type MailParams = {
-  to: string
-  subject: string
-  template: string
-  context: any
-}
+import { ownerConfig, retrieveDocuments } from "@/lib/firebase/firestore"
+import Handlebars from "handlebars"
+import { httpsCallable } from "firebase/functions"
+import type { OwnerConfig, EmailParams } from "@/lib/types"
 
 /**
  * Configure the mail transporter using OAuth2 authentication.
@@ -46,56 +22,65 @@ function configureTransporter(): Transporter {
       clientSecret: process.env.GOOGLE_OAUTH_SECRET
     }
   })
-  const handlebarsOptions = {
-    viewEngine: {
-      extName: ".html",
-      partialsDir: path.resolve("src/emails"),
-      defaultLayout: false
-    },
-    viewPath: path.resolve("src/emails"),
-    extName: ".html"
-  }
-  transporter.use("compile", hbs(handlebarsOptions))
   return transporter
+}
+
+async function retrieveEmailTemplate(template, context) {
+  const processed = { subject: "", html: "" }
+  try {
+  } catch (e) {
+    console.error("retrieve template error", e.toString())
+    throw e
+  }
+  return processed
 }
 
 /**
  * Sends an email using the nodemailer package with OAuth2 authentication.
  *
- * @param {MailParams} options An object containing the recipient's
+ * @param {emailParams} options An object containing the recipient's
  * email address, email subject, and email body.
  *
  * @returns {Promise<void>} A promise that resolves when the
  * email is sent successfully.
  */
-async function sendMail({
+export default async function sendMail({
   to,
-  subject,
   template,
   context
-}: MailParams): Promise<void> {
-  const owner: OwnerConfig = (await ownerConfig()) as OwnerConfig
+}: EmailParams): Promise<void> {
+  const docs = await retrieveDocuments("emails", {
+    title: template,
+    limit: 1
+  })
+  if (!docs?.length) {
+    throw Error(`email template ${template} not found`)
+  }
+  const emailTemplate = docs?.pop()
+
+  const subjectTemplate = Handlebars.compile(emailTemplate.subject)
+  const contentTemplate = Handlebars.compile(emailTemplate.content)
+  const subject = subjectTemplate(context)
+  const content = contentTemplate(context)
+  const processedContent = await remark().use(html).process(content)
+  const processedHtml = processedContent.toString()
   const transporter = configureTransporter()
+  const { name, email, reply_to, bcc, user_account } = context.owner
 
   await transporter.sendMail({
     from: {
-      address: owner.email,
-      name: owner.name
+      address: email,
+      name: name
     },
-    sender: {
-      address: owner.email,
-      name: owner.name
-    },
-    replyTo: owner.reply_to,
-    bcc: owner.bcc,
+    replyTo: reply_to,
+    bcc,
     to,
-    subject,
+    subject: subject,
+    html: processedHtml,
     auth: {
-      user: owner.user_account,
+      user: user_account,
       refreshToken: process.env.GOOGLE_OAUTH_REFRESH
-    },
-    template: template,
-    context: context
+    }
   } as SendMailOptions & {
     auth: {
       user: string
@@ -104,5 +89,3 @@ async function sendMail({
     }
   })
 }
-
-export default sendMail

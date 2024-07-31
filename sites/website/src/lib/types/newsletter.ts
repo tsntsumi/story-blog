@@ -1,19 +1,19 @@
-export type NewsletterEntry = {
+export type Newsletter = {
   title: string
   seqno: number
   author: string
   tags: string[]
-  content: (NewsletterEntryImages | NewsletterEntryText)[]
+  content: (NewsletterImages | NewsletterText)[]
   status: string
   createdat: Date
 }
 
-export type NewsletterEntryImages = {
+export type NewsletterImages = {
   type: "images"
   value: string[]
 }
 
-export type NewsletterEntryText = {
+export type NewsletterText = {
   type: "text"
   value: string
 }

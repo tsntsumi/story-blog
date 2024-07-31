@@ -5,7 +5,19 @@ import { NextRequest, NextResponse } from "next/server"
 import { store, storage } from "@/lib/firebase/app"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { ref, getDownloadURL } from "firebase/storage"
-import type { OwnerData, CounsellingRequestData } from "@/lib/types"
+import type { OwnerData, OwnerConfig, EmailParams } from "@/lib/types"
+import { ownerConfig } from "@/lib/firebase/firestore"
+
+type CounsellingRequestData = {
+  title: string
+  category: string
+  name: string
+  email: string
+  phone: string
+  coachinglevel: string
+  coachingtypes: string[]
+  coachingproblem: string
+}
 
 export const dynamic = "force-dynamic" // defaults to auto
 
@@ -42,33 +54,47 @@ export async function POST(request: NextRequest) {
     status: "active"
   })
 
-  const ss = await getDoc(doc(store, "configure/owner"))
-  const owner: OwnerData = ss.data() as OwnerData
-  owner.id = ss.id
+  const owner: OwnerConfig = (await ownerConfig()) as OwnerConfig
 
   // Generate and send the notify email
-  const notifysub = `${data.name}さまから ${data.title}のお申し込みがありました`
-  await sendMail({
-    to: owner.email,
-    subject: notifysub,
-    template: "notification",
-    context: {
-      owner: owner,
-      data: data
-    }
-  })
+  try {
+    await sendMail({
+      to: owner.email,
+      template: "notification",
+      context: {
+        data: data,
+        owner: owner
+      }
+    } as EmailParams)
+  } catch (e) {
+    console.error("exception: send notfy mail", e.toString())
+    return NextResponse.json(
+      {
+        error: e.toString()
+      },
+      { status: 200 }
+    )
+  }
 
   // Generate and send the confirmation email
-  const confirmsub = `${data.title} のお申し込みありがとうございます｜${owner.name}`
-  await sendMail({
-    to: data.email,
-    subject: confirmsub,
-    template: "counselling-confirmation",
-    context: {
-      owner: owner,
-      data: data
-    }
-  })
+  try {
+    await sendMail({
+      to: data.email,
+      template: "counselling-confirmation",
+      context: {
+        data,
+        owner
+      }
+    } as EmailParams)
+  } catch (e) {
+    console.error("exception: send cofirm mail", e.toString())
+    return NextResponse.json(
+      {
+        error: e.toString()
+      },
+      { status: 200 }
+    )
+  }
 
   return NextResponse.json(
     {

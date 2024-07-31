@@ -105,7 +105,7 @@ export default function Solution() {
               })}
           </div>
           <div className="my-8 mx-auto">
-            <Link href="https://meet.alizza-ideal.com">
+            <Link href="https://cal.alizza-ideal.com">
               <Subscribe className="text-xs md:text-sm py-4 px-6 mx-auto">
                 無料相談会をスケジュール
               </Subscribe>

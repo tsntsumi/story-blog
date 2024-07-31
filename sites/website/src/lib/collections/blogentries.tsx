@@ -23,7 +23,6 @@ const blogCallbacks = buildEntityCallbacks({
     previousValues,
     status
   }) => {
-    // return the updated values
     values.slug = values.slug?.trim()
     return values
   }
@@ -165,7 +164,7 @@ export const blogCollection = buildCollection<BlogEntry>({
       defaultValue: "draft"
     }),
     createdat: {
-      name: "Created on",
+      name: "Created at",
       dataType: "date",
       autoValue: "on_create"
     }

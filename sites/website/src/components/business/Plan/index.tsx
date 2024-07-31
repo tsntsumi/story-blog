@@ -11,7 +11,6 @@ import SpecialOffer from "@/components/main/Assets/specialoffer"
 export default function Plan() {
   return (
     <>
-      {/* <!-- ===== Planes Start ===== --> */}
       <section id="plan" className="p-0 m-0 pb-20">
         <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0 text-justify">
           <h1>毎月コンマが２つ見られる高収益の ビジネスを構築する方法</h1>
@@ -22,7 +21,7 @@ export default function Plan() {
               })}
           </div>
           <div className="my-8 mx-auto">
-            <Link href="https://meet.alizza-ideal.com">
+            <Link href="https://cal.alizza-ideal.com">
               <Subscribe className="text-xs md:text-sm py-4 px-6 mx-auto">
                 無料相談会をスケジュール
               </Subscribe>
@@ -30,8 +29,6 @@ export default function Plan() {
           </div>
         </div>
       </section>
-
-      {/* <!-- ===== Planes End ===== --> */}
     </>
   )
 }

@@ -8,7 +8,7 @@ export type Plan = {
 export const planData = [
   {
     id: 1,
-    title: "Alizza Ideal のコーチング・スクールに入校する",
+    title: "Alizza Ideal のコーチング・ビジネス・アカデミーに参加する",
     image: "gs://story-made.appspot.com/images/hero/plan-1.svg",
     description: `\
 入校すると、オンライン動画講座、限定ライブ講座、ホームページ管理ページにアクセスできます。`

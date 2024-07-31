@@ -50,11 +50,23 @@ export default function CallToAction({
     const data = new FormData(e.currentTarget)
     const entries = Object.fromEntries(data)
     const body = JSON.stringify(entries)
-    // console.debug(`form obj`, body)
     const { title, email, name } = entries
     entries.coachingtypes = types.join(",")
     if (!entries.coachingtypes) {
       setError("コーチのタイプを選択して下さい")
+      setSubmitting("error")
+      return
+    }
+    const blockings = [
+      "hiroto@gmail.com",
+      "hiroto.h.makise@gmail.com",
+      "t@gmail.com",
+      "h.makise@docomo.ne.jp",
+      "makise@gmail.com"
+    ]
+    const isBlocked = !!blockings.find((m) => m === email)
+    if (isBlocked) {
+      setError("あなたはブロックされています")
       setSubmitting("error")
       return
     }
@@ -77,13 +89,13 @@ export default function CallToAction({
           const query = encodeURI(
             `title=${title}&name=${name}&email=${email}&ownername=${accepted.ownername}`
           )
-          // console.debug("query", query)
           router.push(`/counselling/confirm?${query}&owneremail=${owneremail}`)
           setSubmitting("ready")
           return
         }
-        setError(`お申し込み受付中にエラーが発生しました。時間をおいてもう一度お試しください。（
-${accepted.error}）`)
+        setError(
+          `お申し込み受付中にエラーが発生しました。時間をおいてもう一度お試しください。（${accepted.error}）`
+        )
       })
       .catch((e) => {
         setError(
@@ -92,7 +104,7 @@ ${accepted.error}）`)
       })
   }
 
-  const inputClasses = "form-input rounded-lg bg-gray-50 w-full"
+  const inputClasses = "form-input rounded-lg bg-gray-50 w-full min-w-96"
 
   return (
     <section id="call-to-action" className="p-0 m-0 mb-10">
@@ -104,11 +116,16 @@ ${accepted.error}）`)
           あなたが判断するお手伝いをいたします。
         </p>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-wrap md:flex-nowrap items-center justify-around gap-2 md:gap-4 md:my-4 p-4 bg-white rounded-3xl">
+          <div className="flex flex-wrap items-center justify-around gap-2 md:gap-4 md:my-4 p-4 bg-white rounded-3xl">
             <input
               type="hidden"
               name="title"
               value="コーチング・ビジネス・カウンセリング"
+            />
+            <input
+              type="hidden"
+              name="meet"
+              value="https://reserv.alizza-ideal.com"
             />
             <input
               type="hidden"
@@ -138,7 +155,7 @@ ${accepted.error}）`)
               required={true}
             />
             <h3>あなたのコーチングビジネスについて教えてください</h3>
-            <div className="w-full ml-6 -indent-6">
+            <div className="w-full ml-6 -indent-6 min-w-96">
               <div className="text-sm">[必須]</div>
               <div className="w-full">
                 <input
@@ -198,13 +215,13 @@ ${accepted.error}）`)
               あなたはどのようなタイプのコーチングに重点をおいてますか？
               または重点的に取り組みたいですか？
             </h3>
-            <div className="w-full ml-6 -indent-6">
+            <div className="w-full ml-6 -indent-6 min-w-96">
               <div className="text-sm">[必須] 複数選択可</div>
               <div className="w-full">
                 <input
                   type="checkbox"
                   id="ビジネス・コーチ"
-                  name="coachingtypes;ビジネス・コーチ"
+                  name="ビジネス・コーチ"
                   value="ビジネス・コーチ"
                   className="form-checkbox mr-2"
                   defaultChecked={true}
@@ -216,7 +233,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="キャリア・コーチ"
-                  name="coachingtypes;キャリア・コーチ"
+                  name="キャリア・コーチ"
                   value="キャリア・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -228,7 +245,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="集客・コーチ"
-                  name="coachingtypes;集客・コーチ"
+                  name="集客・コーチ"
                   value="集客・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -240,7 +257,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="セールス・コーチ"
-                  name="coachingtypes;セールス・コーチ"
+                  name="セールス・コーチ"
                   value="セールス・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -252,7 +269,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="ライフ・コーチ"
-                  name="coachingtypes;ライフ・コーチ"
+                  name="ライフ・コーチ"
                   value="ライフ・コーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -264,7 +281,7 @@ ${accepted.error}）`)
                 <input
                   type="checkbox"
                   id="その他のコーチ"
-                  name="coachingtypes;その他のコーチ"
+                  name="その他のコーチ"
                   value="その他のコーチ"
                   className="form-checkbox mr-2"
                   onChange={handleCoachingType}
@@ -274,7 +291,7 @@ ${accepted.error}）`)
               </div>
             </div>
             <h3>あなたの課題を教えてください</h3>
-            <div className="w-full">
+            <div className="w-full min-w-96">
               <p>
                 コーチとしての最大の課題はなんですか？
                 あるいはこれからコーチを目指している中での最大の課題はなんですか？
@@ -307,7 +324,7 @@ ${accepted.error}）`)
                 </option>
                 <option value="200,000">月20万円以下</option>
                 <option value="500,000">月50万円以下</option>
-                <option value="800,000">月80万円以下</option>
+                <option value="999,999">月100万円未満</option>
                 <option value="1,000,000">月100万円以上</option>
               </select>
             </div>

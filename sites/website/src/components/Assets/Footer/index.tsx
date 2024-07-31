@@ -28,7 +28,6 @@ const Footer = () => {
           id="footer"
           className="border-t-8 border-ai-yellow mx-auto max-w-c-1390 pb-8 "
         >
-          {/* <!-- Footer Top --> */}
           <div className="w-full px-8 pb-1 mb-4 text-xs font-medium text-ai-blue bg-ai-yellow">
             お客さまが主人公です。 あなたは……、
             主人公を導くヨーダやガンダルフのようなコーチであり魔法使いです。
@@ -52,15 +51,14 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="my-2">
-                  <Link href="/pricing" go="detail">
-                    サービスと料金
+                  <Link href="/why-we-do" go="detail">
+                    Alizza Ideal の理念とは
                   </Link>
                 </li>
                 <li className="my-2">
-                  <div className="my-2">新着ブログ</div>
-                  <div>
-                    <Latests latests={4} />
-                  </div>
+                  <Link href="/pricing" go="detail">
+                    サービスと料金
+                  </Link>
                 </li>
                 <li>
                   <div className="my-2">ブログカテゴリー</div>
@@ -86,13 +84,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            <GoOffer />
           </div>
-          <div className="mx-12 mb-4 border-4 border-ai-gold rounded-lg p-4 bg-blue-50 text-ai-gold text-sm">
-            この公式サイトでは、集客の役に立つ成功事例集をプレゼントしています。
-            セールスする見込み客がなかなか集らないなら、ぜひダウンロードして読んでみてください。
-          </div>
-          <GoOffer />
-          {/* <!-- Footer Top End --> */}
         </div>
         <Bottom />
       </footer>

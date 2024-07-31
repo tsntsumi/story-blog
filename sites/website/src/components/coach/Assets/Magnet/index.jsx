@@ -11,7 +11,6 @@ const BOOKIMAGE =
 export default function Magnet() {
   return (
     <>
-      {/* <!-- ===== Magnet Start ===== --> */}
       <section id="lead-magnet" className="p-0 m-0">
         <div className="max-w-c-1315 m-4 mb-8 p-6 bg-amber-50 rounded-2xl md:px-8 xl:px-0">
           <div className="flex w-full md:flex-nowrap">
@@ -52,7 +51,6 @@ export default function Magnet() {
         </div>
         <div className="clear-both" />
       </section>
-      {/* <!-- ===== Magnet End ===== --> */}
     </>
   )
 }

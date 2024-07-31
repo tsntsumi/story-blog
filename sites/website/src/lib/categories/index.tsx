@@ -1,20 +1,6 @@
 // Categories for blog
 import type Category from "@/lib/types/category"
 
-export const CategoryFromKey = (key: string): Category => {
-  return Categories.find((c) => c.key === key)
-}
-
-export const NameFromKey = (key: string): string => {
-  const category: Category = CategoryFromKey(key)
-  return !category ? key : category.name
-}
-
-export const DescriptionFromKey = (key: string): string => {
-  const category: Category = CategoryFromKey(key)
-  return !category ? key : category.description
-}
-
 export const Categories: Category[] = [
   {
     key: "encourage",
@@ -47,5 +33,19 @@ export const Categories: Category[] = [
 あなたのクライアントが成果を出すためのヒントとツールを紹介します`
   }
 ]
+
+export function CategoryFromKey(key: string): Category {
+  return Categories.find((c) => c.key === key)
+}
+
+export function NameFromKey(key: string): string {
+  const category: Category = CategoryFromKey(key)
+  return !category ? key : category?.name
+}
+
+export function DescriptionFromKey(key: string): string {
+  const category: Category = CategoryFromKey(key)
+  return !category ? key : category?.description
+}
 
 export default Categories

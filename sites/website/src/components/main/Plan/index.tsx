@@ -8,7 +8,6 @@ import GoOffer from "@/components/main/Assets/go-offer"
 export default function Plan() {
   return (
     <>
-      {/* <!-- ===== Planes Start ===== --> */}
       <section id="plan" className="p-0 m-0 pb-10">
         <div className="py-4 bg-ai-yellow text-black">
           <SlideIn className="animate_right">
@@ -78,8 +77,6 @@ export default function Plan() {
           <GoOffer />
         </div>
       </section>
-
-      {/* <!-- ===== Planes End ===== --> */}
     </>
   )
 }

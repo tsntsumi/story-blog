@@ -23,11 +23,11 @@ export default function Plan() {
                   </div>
                 </div>
                 <h3 className="w-fit mx-auto text-sm md:text-lg">
-                  『アイデアル・コーチング』ビジネス・スクールに参加する
+                  アイデアル・コーチング・ビジネス・アカデミーに参加する
                 </h3>
                 <div className="w-fit mx-auto text-sm">
-                  スクールに参加すると、オンライン講座、 CRMソフトウェア、
-                  オンラインコミュニティーにアクセスできます
+                  アカデミーに参加すると、オンライン講座、 CRMソフトウェア、
+                  オンラインコミュニティーにアクセスすることができます
                 </div>
               </li>
               <li className="text-inherit w-1/3 px-4">

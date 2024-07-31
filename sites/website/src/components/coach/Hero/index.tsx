@@ -18,7 +18,7 @@ const Hero = () => {
     <>
       <section id="first-view" className="overflow-hidden mb-8">
         <div className="w-full mx-auto py-1 bg-ai-yellow text-ai-blue text-xs text-center">
-          50代がコーチ起業する勇気と、
+          コーチング起業する勇気と、
           <span className="whitespace-nowrap md:whitespace-wrap">
             副業する覚悟を応援する｜アリザ・アイデアル
           </span>
@@ -26,9 +26,11 @@ const Hero = () => {
         <div className="w-full mx-auto py-8 bg-ai-blue text-white">
           <h1 className="mx-8 text-justify text-white font-medium">
             <div className="text-xl">
-              生涯現役組の50代のあなたが、専門知識を活かして
+              職場では、問題児、トラブルメーカーと誤解され、
+              才能を発揮できなかったあなたが、
             </div>
-            コーチングで起業するためのビジネス構築
+            <div className="text-xl">これまでに得た経験と知識を活かせる</div>
+            コーチングで起業する
           </h1>
           <div className="p-0 flex flex-row flex-nowrap justify-end bg-black rounded-l-full ml-4 md:ml-10 mb-4 border-4 border-r-0 border-white overflow-hidden">
             <div className="h-0 pb-[50%] relative w-full">
@@ -41,7 +43,7 @@ const Hero = () => {
                 <div className="w-fit mx-auto">
                   <DownArrow />
                 </div>
-                <div className="text-xl">ビジネスが成長する</div>
+                <div className="text-xl">コーチング・ビジネスが成功する</div>
               </div>
 
               <Video

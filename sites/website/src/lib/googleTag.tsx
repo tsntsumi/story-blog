@@ -18,16 +18,17 @@ export const pageview = (path: string) => {
   })
 }
 
-export const gtag_report_conversion = (url) => {
-  var callback = function () {
-    if (typeof url != "undefined") {
-      window.location = url
-    }
-  }
-  /* window.gtag("event", "conversion", {
-   *   "send_to": `AW-${CONVERSIONID}/${CONVERSIONLABEL}`,
-   *   "event_callback": callback
-   * }) */
+export const gtag_report_conversion = ({
+  action,
+  category,
+  label,
+  value
+}: any) => {
+  window.gtag("event", action, {
+    "event_category": category,
+    "event_label": label,
+    "event_value": value
+  })
   return false
 }
 
@@ -67,7 +68,9 @@ export default function GoogleTag() {
         function gtag(){ dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', "${MEASUREMENTID}");
+        gtag('config', "${MEASUREMENTID}", {
+          page_path: window.location.pathname,
+        });
         `}
       </Script>
     </>

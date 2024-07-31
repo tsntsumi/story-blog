@@ -3,9 +3,10 @@ import sendMail from "@/lib/email"
 import getHash from "@/lib/hash"
 import { NextRequest, NextResponse } from "next/server"
 import { store, storage } from "@/lib/firebase/app"
+import { ownerConfig } from "@/lib/firebase/firestore"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { ref, getDownloadURL } from "firebase/storage"
-import type { OwnerData, AcceptOfferData } from "@/lib/types"
+import type { OwnerConfig, AcceptOfferData } from "@/lib/types"
 
 //const logger = require("firebase-functions/logger")
 //require("firebase-functions/logger/compat")
@@ -61,32 +62,26 @@ export async function POST(request: NextRequest) {
     status: "active"
   })
 
-  const ss = await getDoc(doc(store, "configure/owner"))
-  const owner: OwnerData = ss.data() as OwnerData
-  owner.id = ss.id
+  const owner: OwnerConfig = (await ownerConfig()) as OwnerConfig
 
   // Generate and send the notify email
   data.name = data.email?.split("@")?.at(0)
-  const notifysub = `${data.name}さまから ${data.title}のお申し込みがありました`
   await sendMail({
     to: owner.email,
-    subject: notifysub,
     template: "notification",
     context: {
-      owner: owner,
-      data: data
+      data: data,
+      owner: owner
     }
   })
 
   // Generate and send the confirmation email
-  const confirmsub = `${data.title} のお申し込みありがとうございます｜${owner.name}`
   await sendMail({
     to: data.email,
-    subject: confirmsub,
     template: "confirmation",
     context: {
-      owner: owner,
-      data: data
+      data: data,
+      owner: owner
     }
   })
 

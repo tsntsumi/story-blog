@@ -25,7 +25,8 @@ export const OWNER_EMAIL = "meet@alizza-ideal.com"
 export const FROM_EMAIL = OWNER_EMAIL
 export const OWNER_NAME = "Alizza Ideal"
 export const OWNER_PHONE = "+81 70 9034 223 1"
-export const OWNER_ADDRESS = "〒300-1532 茨城県取手市谷中65-16"
+export const OWNER_ADDRESS =
+  "Purok 7 Hagad st. Central pob. Casiguran, 4702, Sorsogon, Philippines"
 export const USER_ACCOUNT = "kikuo@alizza-ideal.com"
 export const EMAIL_REPLYTO = OWNER_EMAIL
 export const EMAIL_BCC = []

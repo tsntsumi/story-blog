@@ -9,13 +9,14 @@ const Problem = () => {
       <section id="problem" className="pt-0 mt-0 mb-4">
         <div className="p-0 pt-8 mx-auto max-w-c-1390 text-justify bg-ai-yellow text-ai-blue">
           <h2 className="mx-8">
-            自分の専門知識と経験を活かしてコーチング起業しようとしている人のほとんどが、
-            こんな悩みと不安を感じています
+            今、これまで培ってきた知恵を活かして、
+            コーチングで起業しようとしている会社員が増えています。
+            <div>しかし、同時にこんな悩みと不安を感じています</div>
           </h2>
           <SlideIn className="animate_left">
             <div className="my-8 mr-10 p-8 pr-18 rounded-r-full bg-ai-red text-white">
               <div className="w-fit ml-auto text-xl">
-                コンセプトを作れない・説明できない・文章が書けない
+                コーチングのコンセプトを打ち出せない・差別化できない
               </div>
             </div>
           </SlideIn>
@@ -36,33 +37,42 @@ const Problem = () => {
               コーチングで起業する悩みと不安を感じているあなたが先ずすることは......
             </h3>
             <div className="text-ai-blue md:mx-10 my-4 py-4 px-8 rounded-full bg-white border-8 border-ai-gold">
-              コーチングのフレームワーク、カリキュラム、コンテンツの作成
+              どんな人を徹底的に幸せにしたいか、どう幸せにしたいかを明確に伝わるコンセプトを作成する
             </div>
             <div className="text-ai-blue md:mx-10 my-4 py-4 px-8 rounded-full bg-white border-8 border-ai-gold">
-              高額でも報酬を支払ってくれるクライアントの集客、永く深い関係の維持
+              あなたのコーチング・サービスの内容を、明確でわかりやすく、気になって仕方がなくなるメニュー表を作成する
             </div>
             <div className="text-ai-blue md:mx-10 my-4 py-4 px-8 rounded-full bg-white border-8 border-ai-gold">
-              相手が思わずお願いしたいと言いたくなるサービスコンセプトの伝え方の習得
+              売り込まなくても、あなたのコーチングの価値が自然と伝わる完全オンライン・セミナーの作成
             </div>
             <div className="max-w-5/6 mx-8">
               <h3 className="text-white my-8">
-                定年を目前にコーチングで起業する生涯現役主義の
-                <span className="whitespace-nowrap">50代</span>
-                のためにアリザ・アイデアルが提供するのは
+                職場で、上司からクレージーだ、はみ出しものだ、トラブルメーカーだ、
+                不適格者だと烙印を押されて、自信を失いかけ、才能をを発揮できないでいる
+                <span className="whitespace-nowrap">あなた</span>
+                にアリザ・アイデアルが提供するのは
               </h3>
               <div className="w-fit mx-auto">
                 <ul>
                   <li className="text-white">
-                    安心してコーチングで起業するためのビジネス構築
+                    安心してコーチングで起業するためのコンセプト設計
                   </li>
                   <li className="text-white">
-                    充実したコーチングビジネスのロードマップ
+                    あなたのコーチングの価値を伝えるオンライン・セミナーの構築
                   </li>
                   <li className="text-white">
-                    正しい道を進んでいるという確信が持てるサポート
+                    あなたのコンセプトやコンテンツを作るときに応用できる、生成AIの活用技術
                   </li>
                 </ul>
               </div>
+              <p>
+                人とは違うものの見方をする人、規則を嫌う人、現状維持を尊重しない人。
+                そんなあなたにこそ、わたしの理想とするコーチ像にぴったりです。
+              </p>
+              <p>
+                そういった人たちが、世界を変え、人類を進化させ、
+                多くの人たちを幸福なゴールに導いてきたのです。
+              </p>
             </div>
             <div className="mt-8 mb-4">
               <div className="text-center text-sm">

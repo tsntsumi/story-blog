@@ -8,7 +8,6 @@ const Integration = () => {
     <>
       <section>
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
-          {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
               title: `INTEGRATIONS`,
@@ -16,8 +15,6 @@ const Integration = () => {
               description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`
             }}
           />
-
-          {/* <!-- Section Title End --> */}
         </div>
 
         <div className="pattern-dots pattern-blue-500 pattern-bg-white pattern-size-4 pattern-opacity-10 relative z-50 mx-auto mt-15 max-w-c-1154 px-4 md:px-8 xl:mt-20 xl:px-0">

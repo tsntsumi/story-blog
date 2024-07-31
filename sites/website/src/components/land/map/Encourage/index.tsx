@@ -9,7 +9,6 @@ import CtaButton from "@/components/land/Assets/Cta/Button"
 export default function Encourage() {
   return (
     <>
-      {/* <!-- ===== Encouragees Start ===== --> */}
       <section
         id="encourage"
         className="p-0 m-0 mx-2 px-2 my-4 text-justify text-sm"
@@ -57,8 +56,6 @@ export default function Encourage() {
           />
         </div>
       </section>
-
-      {/* <!-- ===== Encourage End ===== --> */}
     </>
   )
 }

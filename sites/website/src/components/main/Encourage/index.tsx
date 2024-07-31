@@ -6,7 +6,6 @@ import GoOffer from "@/components/main/Assets/go-offer"
 export default function Encourage() {
   return (
     <>
-      {/* <!-- ===== Encouragees Start ===== --> */}
       <section id="encourage" className="p-0 m-0 mb-10">
         <div className="pt-4 bg-white text-ai-blue">
           <h2 className="bg-ai-blue text-white border-8 border-ai-yellow mx-8 rounded-full text-ai-blue p-4 px-6 mb-8 text-xl sm:text-3xl">
@@ -61,8 +60,6 @@ export default function Encourage() {
           </div>
         </div>
       </section>
-
-      {/* <!-- ===== Encourage End ===== --> */}
     </>
   )
 }

@@ -45,7 +45,6 @@ export default function AcceptOffer({
     const data = new FormData(e.currentTarget)
     const fo = Object.fromEntries(data)
     const body = JSON.stringify(fo)
-    // console.debug(`form obj`, body)
     const { email, title, url } = fo
     fetch(`/offer/accept`, {
       method: "POST",

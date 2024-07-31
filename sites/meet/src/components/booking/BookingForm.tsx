@@ -225,6 +225,7 @@ function handleSubmit(
   const d = new FormData(event.currentTarget)
   const o = Object.fromEntries(d)
   const { name, email, course } = o
+
   fetch(`/api/request`, {
     method: "POST",
     headers: {

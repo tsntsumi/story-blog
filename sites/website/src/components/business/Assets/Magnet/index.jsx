@@ -12,7 +12,6 @@ const Magnet = () => {
     "gs://story-made.appspot.com/offers/monthly-success-stories-2024-04.pdf"
   return (
     <>
-      {/* <!-- ===== Magnet Start ===== --> */}
       <section id="lead-magnet" className="p-0 m-0 mb-20">
         <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
           <h1 className="mt-0 pt-12 pb-4">
@@ -95,7 +94,6 @@ const Magnet = () => {
           </div>
         </div>
       </section>
-      {/* <!-- ===== Magnet End ===== --> */}
     </>
   )
 }

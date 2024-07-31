@@ -13,8 +13,7 @@ const Testimonial = () => {
     <>
       <section id="testimonial" className="pt-24">
         <h1 className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
-          {/* <!-- Section Title Start --> */}
-          {/* <!-- Section Title End --> */}
+          クライアントの声
         </h1>
 
         <SlideIn className="animate_top">

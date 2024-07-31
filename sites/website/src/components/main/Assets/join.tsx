@@ -11,7 +11,6 @@ const LINENAME: string = "起業する勇気"
 const Join = ({ children }: { children: React.ReactNode }): React.ReactNode => {
   return (
     <>
-      {/* <!-- ===== Join Start ===== --> */}
       <section className="overflow-hidden px-4 pb-6 md:px-8 lg:py-10 xl:py-10 2xl:px-0">
         <div className="flex flex-nowrap items-center justify-center gap-4">
           <div>
@@ -37,7 +36,6 @@ const Join = ({ children }: { children: React.ReactNode }): React.ReactNode => {
           </a>
         </div>
       </section>
-      {/* <!-- ===== Join End ===== --> */}
     </>
   )
 }
